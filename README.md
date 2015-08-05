@@ -14,7 +14,10 @@ ShareAustin provides a place where a community can find and provide hard to rent
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
+    2. [Creating the Database] (#creating-the-database)
+    3. [Deleting the Database] (#deleting-the-database)
+    4. [Starting the Server] (#starting-the-server)
+    1. [Roadmap](#roadmap)
 1. [Team](#team)
 1. [Contributing](#contributing)
 
@@ -31,33 +34,6 @@ ShareAustin provides a place where a community can find and provide hard to rent
 
 ## Development
 
-
-### Starting the Database
-To install Postgres:
-```
-brew install postgres
-```
-
-To check your version of Postgres:
-```
-brew info postgres
-```
-
-Check to see if Postgres is running:
-```
-ps -ax | grep postgres
-```
-
-Once Postgres is running, create the database:
-```
-createdb shareaustin
-```
-
-To launch psql:
-```
-psql shareaustin
-```
-
 ### Installing Dependencies
 
 From within the root directory:
@@ -67,6 +43,41 @@ sudo npm install -g bower
 npm install
 bower install
 ```
+
+### Creating the Database
+To install Postgres:
+```
+brew install postgres
+```
+To check your version of Postgres:
+```
+brew info postgres
+```
+Check to see if Postgres is running:
+```
+ps -ax | grep postgres
+```
+Once Postgres is running, create the database:
+```
+createdb shareaustin
+```
+To launch psql:
+```
+psql shareaustin
+```
+
+### Deleting the Database
+From the command line:
+```
+dropdb shareaustin
+```
+
+### Starting the Server
+From the command line:
+```
+node server/server.js
+```
+
 
 ### Roadmap
 
