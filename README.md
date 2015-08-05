@@ -25,12 +25,9 @@ ShareAustin provides a place where a community can find and provide hard to rent
 ## Requirements
 
 - Node 0.10.x
-- Redis 2.6.x
 - Postgresql 9.1.x
-- Bookshelf
-- Angular
-- Express
-- Gulp
+- Bookshelf (?)
+- Angular (?)
 
 ## Development
 
@@ -51,7 +48,7 @@ bower install
 
 2.) Everyone navigate / drive as we build gulp automation file.
 
-3.) Database team builds schema.
+3.) Everyone builds database schema.
 
 > View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
