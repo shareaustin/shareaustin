@@ -12,6 +12,11 @@ angular.module('shareAustin', [
     templateUrl: '/app/controllers/dashboard/dashboard.html',
     controller: 'DashboardCtrl'
   })
+  .state('signin', {
+    url: '/signin',
+    templateUrl: 'app/controllers/signin/signin.html',
+    controller: 'SignInCtrl'
+  })
   // .state('listing', {
   //   url: '/listing',
   //   abstract: true,
