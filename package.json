@@ -18,9 +18,11 @@
   "homepage": "https://github.com/shareaustin/shareaustin#readme",
   "dependencies": {
     "body-parser": "^1.13.3",
+    "bookshelf": "^0.8.1",
     "bower": "^1.4.1",
     "express": "^4.13.3",
     "express-session": "^1.11.3",
+    "knex": "^0.8.6",
     "multer": "^1.0.1",
     "nodemon": "^1.4.0",
     "passport": "^0.2.2",
