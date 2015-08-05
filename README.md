@@ -14,7 +14,8 @@ ShareAustin provides a place where a community can find and provide hard to rent
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
+    2. [Starting the Database] (#creating-the-database)
+    1. [Roadmap](#roadmap)
 1. [Team](#team)
 1. [Contributing](#contributing)
 
