@@ -51,6 +51,8 @@ bower install
 
 2.) Everyone navigate / drive as we build gulp automation file.
 
+3.) Database team builds schema.
+
 > View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
 
