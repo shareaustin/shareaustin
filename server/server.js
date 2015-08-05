@@ -4,6 +4,8 @@ var routes = require('./routes.js');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
+var db = require('./db/db.js')
+var schema = require('./db/schema.js')
 
 // var passportConfig = require('./config/passport.js')(passport)
 

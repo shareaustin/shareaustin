@@ -31,6 +31,33 @@ ShareAustin provides a place where a community can find and provide hard to rent
 
 ## Development
 
+
+### Starting the Database
+To install Postgres:
+```
+brew install postgres
+```
+
+To check your version of Postgres:
+```
+brew info postgres
+```
+
+Check to see if Postgres is running:
+```
+ps -ax | grep postgres
+```
+
+Once Postgres is running, create the database:
+```
+createdb shareaustin
+```
+
+To launch psql:
+```
+psql shareaustin
+```
+
 ### Installing Dependencies
 
 From within the root directory:
