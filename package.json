@@ -1,0 +1,34 @@
+{
+  "name": "shareaustin",
+  "version": "1.0.0",
+  "description": "Austin renting marketplace",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shareaustin/shareaustin.git"
+  },
+  "author": "shareaustin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shareaustin/shareaustin/issues"
+  },
+  "homepage": "https://github.com/shareaustin/shareaustin#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "bower": "^1.4.1",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "multer": "^1.0.1",
+    "nodemon": "^1.4.0",
+    "passport": "^0.2.2",
+    "passport-facebook": "^2.0.0",
+    "pg": "^4.4.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}

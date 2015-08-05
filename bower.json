@@ -1,0 +1,29 @@
+{
+  "name": "shareaustin",
+  "version": "0.0.0",
+  "homepage": "https://github.com/shareaustin/shareaustin",
+  "authors": [
+    "shareaustin"
+  ],
+  "description": "Austin renting marketplace",
+  "main": "./client/index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-file-upload": "~6.0.3",
+    "angular-bootstrap-calendar": "~0.14.6",
+    "angular": "~1.4.3",
+    "underscore": "~1.8.3",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "~0.13.2",
+    "normalize.css": "~3.0.3",
+    "angular-animate": "~1.4.3",
+    "bootstrap": "~3.3.5"
+  }
+}
