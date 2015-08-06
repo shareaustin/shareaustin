@@ -26,7 +26,7 @@ app.use(express.static(__dirname + '/../client'));
 
 // Writes all the routes to the server instance in the routes.js file
 
-// routes(app)
+routes(app)
 var server = app.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;
