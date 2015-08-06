@@ -12,7 +12,7 @@ var users = db.knex.schema.hasTable('users').then(function(exists){
 	  	user.string('photo_url')
 	  })
 	  .then(function(table){
-	  	console.log("Created Table ", table)
+	  	console.log("Created Table users")
 	  });
   }
 });
@@ -21,6 +21,7 @@ var items = db.knex.schema.hasTable('items').then(function(exists){
 	if(!exists){
 		db.knex.schema.createTable('items', function(item){
 			item.increments('id').primary();
+			item.integer('seller_id').references('id').inTable('users')
 			item.string('name');
 			item.text('description');
 			item.boolean('available');
@@ -28,7 +29,7 @@ var items = db.knex.schema.hasTable('items').then(function(exists){
 			item.string('price_per_day');
 		})
 		.then(function(table){
-			console.log('Created Table ', table)
+			console.log('Created Table items', table)
 		});
 	}
 });
@@ -37,14 +38,14 @@ var transactions = db.knex.schema.hasTable('transactions').then(function(exists)
 	if(!exists){
 		db.knex.schema.createTable('transactions', function(transaction){{
 			transaction.increments('id').primary();
-			transaction.integer('buyer_id').references('id').inTable('users');
-			transaction.integer('seller_id').references('id').inTable('users');
 			transaction.integer('item_id').references('id').inTable('items');
+			transaction.integer('buyer_id').references('id').inTable('users');
+			//transaction.integer('seller_id').references('id').inTable('users');
 			transaction.dateTime('start_date');
 			transaction.dateTime('end_date');
 		}})
 		.then(function(table){
-			console.log("Created Table ", table)
+			console.log("Created Table transactions ", table)
 		});
 	}
 });
@@ -57,7 +58,7 @@ var item_photos = db.knex.schema.hasTable('item_photos').then(function(exists){
 			photo.string('url');
 		})
 		.then(function(table){
-			console.log('Created Table ', table)
+			console.log('Created Table item_photos ', table)
 		});
 	}
 });
@@ -73,7 +74,7 @@ var ratings = db.knex.schema.hasTable('ratings').then(function(exists){
 			rating.text('buyer_review');
 		})
 		.then(function(table){
-			console.log('Created Table ', table)
+			console.log('Created Table ratings', table)
 		});
 	}
 });
@@ -88,7 +89,7 @@ var chats = db.knex.schema.hasTable('chats').then(function(exists){
 			chat.string('status');
 		})
 		.then(function(table){
-			console.log('Created Table ', table)
+			console.log('Created Table chats ', table)
 		});
 	}
 });
@@ -101,7 +102,7 @@ var messages = db.knex.schema.hasTable('messages').then(function(exists){
 			message.integer('receiver_id').references('id').inTable('users');
 		})
 		.then(function(table){
-			console.log('Created Table ', table)
+			console.log('Created Table messages ', table)
 		});
 	}
 });
