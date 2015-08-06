@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('AllListingsCtrl', function($scope, Request) {
+.controller('AvailableItemsCtrl', function($scope, Request) {
   $scope.listings = [
   {
     name: 'Kayak',

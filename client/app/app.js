@@ -21,19 +21,19 @@ angular.module('shareAustin', [
     templateUrl: 'app/controllers/signin/signin.html',
     controller: 'SignInCtrl'
   })
-  .state('all-listings', {
+  .state('availableItems', {
     url: '/all-listings',
-    templateUrl: '/app/controllers/all-listings/all-listings.html',
-    controller: 'AllListingsCtrl'
+    templateUrl: '/app/controllers/availableItems/availableItems.html',
+    controller: 'AvailableItemsCtrl'
   })
   .state('transaction', {
     url: '/transaction',
     templateUrl: '/app/controllers/transaction/transaction.html',
     controller: 'TransactionCtrl'
   })
-  .state('postNewListing', {
+  .state('postNewItem', {
     url: '/new-listing',
-    templateUrl: '/app/controllers/postNewListing/postNewListing.html',
-    controller: 'PostNewListingCtrl'
+    templateUrl: '/app/controllers/postNewItem/postNewItem.html',
+    controller: 'PostNewItemCtrl'
   })
 })
