@@ -1,7 +1,7 @@
 var Item = require('../model/item.js');
 module.exports = {
 	getAvailableItems: function(req, res) {
-		new Item({ 'available' : 'false'}).fetchAll()
+		new Item({ 'available' : 'true'}).fetchAll()
 		
 
 		.then(function (model) {
@@ -10,7 +10,7 @@ module.exports = {
 	},
 	addItem : function(req, res) {
 		var item = req.body
-		new Item({'seller_id'     : item.seller_id,
+		new Item({'seller_id'    : item.seller_id,
 						 'name'          : item.name,
 						 'description'   : item.description,
 						 'available'     : item.available,

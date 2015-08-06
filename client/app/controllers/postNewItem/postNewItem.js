@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('PostNewListingCtrl', function($scope, Request) {
+.controller('PostNewItemCtrl', function($scope, Request) {
   $scope.newListing = {};
 
   $scope.submitNewListing = function($scope, Request) {
