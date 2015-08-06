@@ -1,8 +1,11 @@
 var User = require('../model/user.js');
 module.exports = {
-	getUser: function (req, res) {
+	getUserDashboard: function (req, res) {
+
+		var user = req.user;
+
 		console.log('inside userhandler')
-		new User({'id': '1'}).fetch()
+		new User({'id': user.id}).fetch()
 		.then(function (model) {
 		  res.json(model);
 		})
