@@ -26,4 +26,9 @@ angular.module('shareAustin', [
     templateUrl: '/app/controllers/listings/listings.html',
     controller: 'ListingsCtrl'
   })
+  .state('transaction', {
+    url: '/transaction',
+    templateUrl: '/app/controllers/transaction/transaction.html',
+    controller: 'TransactionCtrl'
+  })
 })
