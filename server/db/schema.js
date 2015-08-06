@@ -1,6 +1,6 @@
 var db = require('./db.js')
 
-db.knex.schema.hasTable('users').then(function(exists){
+var users = db.knex.schema.hasTable('users').then(function(exists){
   if(!exists){
 	  db.knex.schema.createTable('users', function(user){
 	  	user.increments('id').primary();
@@ -13,11 +13,11 @@ db.knex.schema.hasTable('users').then(function(exists){
 	  })
 	  .then(function(table){
 	  	console.log("Created Table ", table)
-	  })
+	  });
   }
-})
+});
 
-db.knex.schema.hasTable('items').then(function(exists){
+var items = db.knex.schema.hasTable('items').then(function(exists){
 	if(!exists){
 		db.knex.schema.createTable('items', function(item){
 			item.increments('id').primary();
@@ -29,11 +29,11 @@ db.knex.schema.hasTable('items').then(function(exists){
 		})
 		.then(function(table){
 			console.log('Created Table ', table)
-		})
+		});
 	}
-})
+});
 
-db.knex.schema.hasTable('transactions').then(function(exists){
+var transactions = db.knex.schema.hasTable('transactions').then(function(exists){
 	if(!exists){
 		db.knex.schema.createTable('transactions', function(transaction){{
 			transaction.increments('id').primary();
@@ -45,11 +45,11 @@ db.knex.schema.hasTable('transactions').then(function(exists){
 		}})
 		.then(function(table){
 			console.log("Created Table ", table)
-		})
+		});
 	}
-})
+});
 
-db.knex.schema.hasTable('item_photos').then(function(exists){
+var item_photos = db.knex.schema.hasTable('item_photos').then(function(exists){
 	if(!exists){
 		db.knex.schema.createTable('item_photos', function(photo){
 			photo.increments('id').primary();
@@ -58,11 +58,11 @@ db.knex.schema.hasTable('item_photos').then(function(exists){
 		})
 		.then(function(table){
 			console.log('Created Table ', table)
-		})
+		});
 	}
-})
+});
 
-db.knex.schema.hasTable('ratings').then(function(exists){
+var ratings = db.knex.schema.hasTable('ratings').then(function(exists){
 	if(!exists){
 		db.knex.schema.createTable('ratings', function(rating){
 			rating.increments('id').primary();
@@ -74,12 +74,12 @@ db.knex.schema.hasTable('ratings').then(function(exists){
 		})
 		.then(function(table){
 			console.log('Created Table ', table)
-		})
+		});
 	}
-})
+});
 
 
-db.knex.schema.hasTable('chats').then(function(exists){
+var chats = db.knex.schema.hasTable('chats').then(function(exists){
 	if(!exists){
 		db.knex.schema.createTable('chats', function(chat){
 			chat.increments('id').primary();
@@ -89,10 +89,10 @@ db.knex.schema.hasTable('chats').then(function(exists){
 		})
 		.then(function(table){
 			console.log('Created Table ', table)
-		})
+		});
 	}
-})
-db.knex.schema.hasTable('messages').then(function(exists){
+});
+var messages = db.knex.schema.hasTable('messages').then(function(exists){
 	if(!exists){
 		db.knex.schema.createTable('messages', function(message){
 			message.increments('id').primary();
@@ -102,6 +102,10 @@ db.knex.schema.hasTable('messages').then(function(exists){
 		})
 		.then(function(table){
 			console.log('Created Table ', table)
-		})
+		});
 	}
-})
+});
+
+module.exports = function(){
+	return Promise.all([users, items, transactions, item_photos, ratings, chats, messages])
+}
