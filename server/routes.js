@@ -32,6 +32,11 @@ module.exports = function (app) {
 
   //app.post('api/addRating'  , ratingHandler.addRating)
 
+  app.get('/api/user', userHandler.getUser);
+  app.get('/api/user/items', userHandler.getItems);
+  app.get('/api/user/transactions', userHandler.getTransactions);
+  app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);
+  app.get('/api/user/seller_ratings', userHandler.getSellerRatings);
 
   return app;
 }
