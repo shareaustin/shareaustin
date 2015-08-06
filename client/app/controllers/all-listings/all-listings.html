@@ -1,0 +1,13 @@
+<h2>Listings</h2>
+<div ng-repeat="listing in listings">
+	<div class="listing">
+		<h3>{{ listing.name }}</h3>
+		<img ng-src="{{ listing.photo_url }}" height="200px" width="300px"/>
+		<p>Seller: {{ listing.seller_username }}</p>
+		<p>Availabile: {{ listing.available }}</p>
+		<p>Description: {{ listing.description }}</p>
+		<p>Price Per Hour: {{ listing.price_per_hour }}</p>
+		<p>Price Per Day: {{ listing.price_per_day }}</p>
+		<button ng-click="">Rent It!</button>
+	</div>
+</div>
