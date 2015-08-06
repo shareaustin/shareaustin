@@ -10,14 +10,14 @@ angular.module('shareAustin')
   }
 
   $scope.fetchUser = function() {
-  	Request.user.fetch()
-  	.then(function (results){
-  		$scope.user.first_name = results.first_name;
-  		$scope.user.last_name = results.last_name;
-  		$scope.user.username = results.username;
-  		$scope.user.photo_url = results.photo_url;
+    Request.user.fetch()
+    .then(function (results){
+      $scope.user.first_name = results.first_name;
+      $scope.user.last_name = results.last_name;
+      $scope.user.username = results.username;
+      $scope.user.photo_url = results.photo_url;
       $scope.user.rating = results.rating;
-  	})
+    })
   }
 
   $scope.fetchUser();
