@@ -84,12 +84,12 @@ node server/server.js
 ### Roadmap
 
 Implement:
-1. User Login
-2. User Dasboard (Profile) View
-3. Post an Item
-4. Search Items
-5. Rent (pay for) Item
-6. View Transaction History
+* User Login
+* User Dasboard (Profile) View
+* Post an Item
+* Search Items
+* Rent (pay for) Item
+* View Transaction History
 
 > View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
