@@ -1,4 +1,4 @@
-var User = require('../model/users.js');
+var User = require('../model/user.js');
 module.exports = {
 	getUser: function (req, res) {
 		console.log('inside userhandler')
