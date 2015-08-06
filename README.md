@@ -29,8 +29,10 @@ ShareAustin provides a place where a community can find and provide hard to rent
 
 - Node 0.10.x
 - Postgresql 9.1.x
-- Bookshelf (?)
-- Angular (?)
+- Express
+- Bookshelf
+- Knex
+- Angular
 
 ## Development
 
@@ -81,12 +83,13 @@ node server/server.js
 
 ### Roadmap
 
-##### Tomorrow | 08-04-15:
-1.) Everyone navigate / drive as we build client and server side file structure.
-
-2.) Everyone navigate / drive as we build gulp automation file.
-
-3.) Everyone builds database schema.
+Implement:
+1. User Login
+2. User Dasboard (Profile) View
+3. Post an Item
+4. Search Items
+5. Rent (pay for) Item
+6. View Transaction History
 
 > View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
