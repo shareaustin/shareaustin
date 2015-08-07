@@ -27,13 +27,22 @@ module.exports = {
 	},
 
 		signIn: function (req, res) {
-			console.log('auth inside userhandler ', req.isAuthenticated())
+			// console.log('auth inside userhandler ', req.isAuthenticated())
 			console.log('inside userhandler ', req.body)
-			if (User.where({'username': req.body.username, 'password': req.body.password}).fetchAll().length !== 1) {
-				res.end('true');
-			} else {
-				res.end('false');
+			new User({
+				'username': req.body.userName,
+				'password': req.body.password
+			}).fetch()
+			.then(function (model) {
+				if (model) {
+			   	console.log (model.toJSON())
+					res.end('true');
+				} else {
+					res.end('false');
+				}
 			}
+			);
+			// var userQuery = User.query({where: {'username': req.body.username}, andWhere: {'password': req.body.password}}).fetchAll();
 	},
 
 	getItems: function(req, res){
