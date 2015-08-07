@@ -36,7 +36,14 @@ module.exports = {
 		}).save(req.body, {patch: true})
 		.then(res.json("Item updated!"))
 	},
-
+	getItemById: function(req, res) {
+		var itemId = req.body.itemId;
+		Item.where({'id': itemId }).fetch()
+		.then(function (model) {
+			console.log("model" + model)
+			res.json(model)
+		})
+	},
 	linkPhoto: function(req, res){
 		var path = __dirname + '/../uploads/resume.png'
 		cloudinary.uploader.upload(path, function(result){
