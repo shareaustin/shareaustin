@@ -1,14 +1,14 @@
-<form ng-submit="submitSignUp()" novalidate>
+<form ng-submit="submitSignUp(user)" novalidate>
   <p>Sign Up</p>
   <label>First Name</label><br>
-  <input type="text"/><br>
+  <input ng-model="user.first_name" type="text"/><br>
   <label>Last Name</label><br>
-  <input type="text"/><br>
+  <input ng-model="user.last_name" type="text"/><br>
   <label>Username</label><br>
-  <input type="text"/><br>
+  <input ng-model="user.username" type="text"/><br>
   <label>Email</label><br>
-  <input type="text"/><br>
+  <input ng-model="user.email" type="text"/><br>
   <label>Password</label><br>
-  <input type="password"/><br>
-  <button>Submit</button>
+  <input ng-model="user.password" type="password"/><br>
+  <button >Submit</button>
 </form>
