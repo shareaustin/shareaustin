@@ -6,12 +6,23 @@ angular.module('shareAustin')
 .factory('Request', function($http){
   var reqObj = {
     user: {
-      fetch: function(){
+      fetchUser: function(){
         return $http({
           method: 'GET',
-          url: '/dashboard'
+          url: '/api/user'
         })
         .then(function(resp){
+          console.log(resp.data);
+          return resp.data;
+        })
+      },
+      fetchSellerRating: function(){
+        return $http({
+          method: 'GET',
+          url: '/api/user/seller_ratings'
+        })
+        .then(function(resp){
+          console.log(resp.data);
           return resp.data;
         })
       }
