@@ -9,19 +9,22 @@ module.exports = {
 
 	// func to query the database and see if the user is in the database and if i not then add new user
 	signUp: function (req, res) {
+		console.log('inside userhandler ', req.body)
 		if (User.where({'username': req.body.username}).fetchAll().length !== 1) {
 			var attr = {
-				'first_name': req.body.firstName,
-				'last_name' : req.body.lastName,
-				'username'  : req.body.userName,
+				'first_name': req.body.first_name,
+				'last_name' : req.body.last_name,
+				'username'  : req.body.username,
 				'email'	    : req.body.email,
 				'password'  : req.body.password
 			}
 
-			new User(attr).save().then(res.redirect('/dashboard'))
+			new User(attr).save().then(res.end("user created"))
 		}
-		res.redirect('/signIn')
 	},
+		// 	.then(res.redirect('/#/dashboard'))
+		// }
+		// res.redirect('/signIn')
 
 	getItems: function(req, res){
 		new User({'id': '1'}).items().fetch()
