@@ -38,6 +38,19 @@ angular.module('shareAustin')
           console.log(resp.data);
           return resp.data;
         })
+      },
+      userSignIn: function (user) {
+        console.log('in utils ', user)
+        return $http({
+          method: 'POST',
+          url: '/api/signIn',
+          headers: {'Content-Type': 'application/json'},
+          data: user
+        })
+        .then(function(resp) {
+          console.log(resp.data);
+          return resp.data;
+        })
       }
     },
     items: {
