@@ -1,13 +1,13 @@
 <h2>New Listing</h2>
 <form id="newListingForm">
 	<label>Title:</labeL><br>
-	<input type="text"/><br>
+	<input type="text" ng-model='item.name'/><br>
 	<label>Description:</labeL><br>
-	<textarea rows="4" cols="50" style="resize: none" form="newListingForm" placeholder="Enter a brief description here ..."></textarea><br>
+	<textarea rows="4" cols="50" style="resize: none" form="newListingForm" placeholder="Enter a brief description here ..." ng-model='item.description'></textarea><br>
 	<label>Price Per Hour:</labeL><br>
-	<input type="text"/><br>
+	<input type="text" ng-model='item.price_per_hour'/><br>
 	<label>Price Per Day:</labeL><br>
-	<input type="text"/><br>
-	<button ngClick="addPhoto()">Add Photo</button><br>
-	<button ngClick="submitNewListing()">Submit</button>
+	<input type="text" ng-model='item.price_per_day'/><br>
+	<button ng-click="addPhoto(item)">Add Photo</button><br>
+	<button ng-click="submitNewListing(item)">Submit</button>
 </form>
