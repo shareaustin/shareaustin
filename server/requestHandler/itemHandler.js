@@ -35,7 +35,7 @@ module.exports = {
 			id: 1
 		}).save(req.body, {patch: true})
 		.then(res.json("Item updated!"))
-	}
+	},
 
 	linkPhoto: function(req, res){
 		var path = __dirname + '/../uploads/resume.png'
