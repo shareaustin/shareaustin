@@ -1,5 +1,7 @@
 var userHandler = require('./requestHandler/userHandler.js');
 var itemHandler = require('./requestHandler/itemHandler.js')
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 module.exports = function (app) {
   app.get('/api/availableItems', itemHandler.getAvailableItems);
@@ -20,7 +22,7 @@ module.exports = function (app) {
   app.post('/api/editItem', itemHandler.editItem);
   //app.post('/api/removeItem', itemHandler.removeItem)
 
-  //app.post('/api/signIn', userHandler.signIn)
+  app.post('/api/signIn', userHandler.signIn)
   app.post('/api/signUp', userHandler.signUp)
   //app.post('/api/logout', userHandler.logout)
 
@@ -39,6 +41,15 @@ module.exports = function (app) {
   app.get('/api/user/seller_ratings', userHandler.getSellerRatings);
 
   app.post('/api/user/item/photos/upload', itemHandler.linkPhoto);
+
+
+  function checkLogin (req, res, next) {
+    if (req.isAuthenticated()) {
+      next();
+    } else {
+      res.end('Please Login');
+    }
+  }
 
   return app;
 }

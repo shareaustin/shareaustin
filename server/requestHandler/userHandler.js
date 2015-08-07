@@ -9,6 +9,7 @@ module.exports = {
 
 	// func to query the database and see if the user is in the database and if i not then add new user
 	signUp: function (req, res) {
+		console.log('auth inside userhandler ', req.isAuthenticated())
 		console.log('inside userhandler ', req.body)
 		if (User.where({'username': req.body.username}).fetchAll().length !== 1) {
 			var attr = {
@@ -19,12 +20,21 @@ module.exports = {
 				'password'  : req.body.password
 			}
 
+			//hash attr.password here
+
 			new User(attr).save().then(res.end("user created"))
 		}
 	},
-		// 	.then(res.redirect('/#/dashboard'))
-		// }
-		// res.redirect('/signIn')
+
+		signIn: function (req, res) {
+			console.log('auth inside userhandler ', req.isAuthenticated())
+			console.log('inside userhandler ', req.body)
+			if (User.where({'username': req.body.username, 'password': req.body.password}).fetchAll().length !== 1) {
+				res.end('true');
+			} else {
+				res.end('false');
+			}
+	},
 
 	getItems: function(req, res){
 		new User({'id': '1'}).items().fetch()
