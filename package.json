@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/shareaustin/shareaustin#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.3",
     "bookshelf": "^0.8.1",
     "bower": "^1.4.1",
@@ -28,6 +29,7 @@
     "nodemon": "^1.4.0",
     "passport": "^0.2.2",
     "passport-facebook": "^2.0.0",
+    "passport-local": "^1.0.0",
     "pg": "^4.4.1",
     "underscore": "^1.8.3"
   },

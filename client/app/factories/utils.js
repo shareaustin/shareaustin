@@ -27,6 +27,18 @@ angular.module('shareAustin')
         })
       }
     },
+    userSignUp: function (user) {
+      return $http({
+        method: 'POST',
+        url: '/api/signUp',
+        headers: {'Content-Type': 'application/json'},
+        data: user
+      })
+      .then(function(resp) {
+        console.log(resp.data);
+        return resp.data;
+      })
+    },
     items: {
       fetchAvailableItems: function() {
         return $http({
@@ -75,4 +87,3 @@ angular.module('shareAustin')
 }
   return reqObj;
 })
-

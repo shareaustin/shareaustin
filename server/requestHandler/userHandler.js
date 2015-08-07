@@ -7,6 +7,22 @@ module.exports = {
 		})
 	},
 
+	// func to query the database and see if the user is in the database and if i not then add new user
+	signUp: function (req, res) {
+		if (User.where({'username': req.body.username}).fetchAll().length !== 1) {
+			var attr = {
+				'first_name': req.body.firstName,
+				'last_name' : req.body.lastName,
+				'username'  : req.body.userName,
+				'email'	    : req.body.email,
+				'password'  : req.body.password
+			}
+
+			new User(attr).save().then(res.redirect('/dashboard'))
+		}
+		res.redirect('/signIn')
+	},
+
 	getItems: function(req, res){
 		new User({'id': '1'}).items().fetch()
 		.then(function(items){
@@ -33,13 +49,13 @@ module.exports = {
 	  .then(function(model){
 	  	res.json(model)
 	  })
-		
+
 	},
 	getSellerReviews: function(req, res){
 	  new User({'id': '1'}).sellerReviews()
 	  .then(function(model){
 	  	res.json(model)
 	  })
-		
+
 	},
 };
