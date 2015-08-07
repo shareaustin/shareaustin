@@ -16,7 +16,7 @@ module.exports = function (app) {
    
 
   app.post('/api/addItem', itemHandler.addItem);
-  //app.post('/api/editItem', itemHandler.editItem);
+  app.post('/api/editItem', itemHandler.editItem);
   //app.post('/api/removeItem', itemHandler.removeItem)
 
   //app.post('/api/signIn', userHandler.signIn)
