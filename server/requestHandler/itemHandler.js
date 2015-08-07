@@ -20,6 +20,13 @@ module.exports = {
 		new Item(attr).save()
 		.then(res.json("Item added!")) 
 	},
+	editItem: function(req, res) {
+		console.log("in edit item handler")
+		new Item({
+			id: 1
+		}).save(req.body, {patch: true})
+		.then(res.json("Item updated!"))
+	}
 
 
 }
