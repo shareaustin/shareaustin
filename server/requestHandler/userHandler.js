@@ -35,4 +35,11 @@ module.exports = {
 	  })
 		
 	},
+	getSellerReviews: function(req, res){
+	  new User({'id': '1'}).sellerReviews()
+	  .then(function(model){
+	  	res.json(model)
+	  })
+		
+	},
 };
