@@ -1,0 +1,1 @@
+This folder has to be created for multer diskStorage
