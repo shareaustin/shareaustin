@@ -40,14 +40,23 @@ angular.module('shareAustin')
       }
     },
     submitNewListing: function(item) {
-      console.log("into factory function: ", item)
       return $http({
         method: 'POST',
         url: '/api/addItem',
         data: item
       })
       .then(function(resp){
-        console.log(resp.data);
+        return resp.data;
+      })
+    },
+    editItem: function(item) {
+      return $http({
+        method: 'POST',
+        url: 'api/editItem',
+        data: item
+      })
+      .then(function(resp){
+        console.log(resp.data)
         return resp.data;
       })
     }

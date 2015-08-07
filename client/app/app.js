@@ -36,4 +36,9 @@ angular.module('shareAustin', [
     templateUrl: '/app/controllers/postNewItem/postNewItem.html',
     controller: 'PostNewItemCtrl'
   })
+  .state('editItem', {
+    url: '/edit-item',
+    templateUrl: '/app/controllers/updateItems/updateItems.html',
+    controller: 'EditItemCtrl'
+  })
 })
