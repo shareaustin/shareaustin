@@ -1,7 +1,7 @@
 var Item = require('../model/item.js');
 module.exports = {
 	getAvailableItems: function(req, res) {
-		Item.where({'available': 'false'}).fetchAll()
+		Item.where({'available': 'true'}).fetchAll()
 		.then(function (model) {
 			res.json(model)
 		})

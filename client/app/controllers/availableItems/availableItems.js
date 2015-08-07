@@ -36,10 +36,7 @@ angular.module('shareAustin')
   $scope.fetchAvailableItems = function() {
     Request.items.fetchAvailableItems()
     .then(function (results){
-      //loop through results array
-      for (var i = 0; i < results.length; i++) {
-        $scope.items.push(results[i]);
-      };
+     $scope.items = results;
       console.log('Items: ', $scope.items);
     })
   };
