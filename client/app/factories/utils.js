@@ -37,8 +37,7 @@ angular.module('shareAustin')
           console.log(resp.data);
           return resp.data;
         })
-      }
-    },
+      },
     submitNewListing: function(item) {
       return $http({
         method: 'POST',
