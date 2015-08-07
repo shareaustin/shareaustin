@@ -1,4 +1,12 @@
 var Item = require('../model/item.js');
+var ItemPhoto = require('../model/itemPhoto.js');
+var cloudinary = require('cloudinary');
+cloudinary.config({
+	'cloud_name': 'drw6xrsdi',
+	'api_key': '535674769165867',
+	'api_secret': 'U7QPapkI4VzvwC0ict0dsC2PpD4'
+})
+
 module.exports = {
 	getAvailableItems: function(req, res) {
 		Item.where({'available': 'true'}).fetchAll()
@@ -6,6 +14,7 @@ module.exports = {
 			res.json(model)
 		})
 	},
+
 	addItem : function(req, res) {
 		var item = req.body;
 		console.log(item);
@@ -21,5 +30,17 @@ module.exports = {
 		.then(res.json("Item added!")) 
 	},
 
+	linkPhoto: function(req, res){
+		var path = __dirname + '/../uploads/resume.png'
+		cloudinary.uploader.upload(path, function(result){
+			new ItemPhoto({
+				'item_id': '1',
+				'url': result.secure_url,
+			}).save().then(function(photo){
+				res.json(photo)
+			})
+  		console.log(result);
+  	})
+	},
 
 }

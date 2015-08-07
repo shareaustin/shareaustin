@@ -37,6 +37,8 @@ module.exports = function (app) {
   app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);
   app.get('/api/user/seller_ratings', userHandler.getSellerRatings);
 
+  app.post('/api/user/item/photos/upload', itemHandler.linkPhoto);
+
   return app;
 }
 
