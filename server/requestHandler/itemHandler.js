@@ -8,6 +8,7 @@ module.exports = {
 	},
 	addItem : function(req, res) {
 		var item = req.body;
+		console.log(item);
 		var attr = {
 			'seller_id'     : item.seller_id,
 			'name'          : item.name,

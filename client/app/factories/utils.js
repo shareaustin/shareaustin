@@ -38,6 +38,18 @@ angular.module('shareAustin')
           return resp.data;
         })
       }
+    },
+    submitNewListing: function(item) {
+      console.log("into factory function: ", item)
+      return $http({
+        method: 'POST',
+        url: '/api/addItem',
+        data: item
+      })
+      .then(function(resp){
+        console.log(resp.data);
+        return resp.data;
+      })
     }
   }
   return reqObj;
