@@ -26,6 +26,18 @@ angular.module('shareAustin')
           return resp.data;
         })
       }
+    },
+    items: {
+      fetchAvailableItems: function() {
+        return $http({
+          method: 'GET',
+          url: '/api/availableItems'
+        })
+        .then(function(resp){
+          console.log(resp.data);
+          return resp.data;
+        })
+      }
     }
   }
   return reqObj;
