@@ -10,15 +10,28 @@ angular.module('shareAustin')
   }
 
   $scope.fetchUser = function() {
-    Request.user.fetch()
+    Request.user.fetchUser()
     .then(function (results){
       $scope.user.first_name = results.first_name;
       $scope.user.last_name = results.last_name;
       $scope.user.username = results.username;
       $scope.user.photo_url = results.photo_url;
-      $scope.user.rating = results.rating;
+    })
+  }
+
+  $scope.fetchSellerRating = function() {
+    Request.user.fetchSellerRating()
+    .then(function (results){
+      var sellerTransactions = results;
+      var ratingsSum = 0;
+      for(var i = 0; i < sellerTransactions.length; i++) {
+        ratingsSum += sellerTransactions[i].seller_rating;
+      }
+      var sellerRatingAvg = ratingsSum/sellerTransactions.length;
+      $scope.user.rating = sellerRatingAvg;
     })
   }
 
   $scope.fetchUser();
+  $scope.fetchSellerRating();
 })
