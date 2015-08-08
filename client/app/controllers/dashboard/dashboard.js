@@ -36,8 +36,11 @@ angular.module('shareAustin')
   $scope.fetchSellerRating();
 })
 
-.controller('YourTaskCtrl', function ($scope) {
-  $scope.test = "howdy"
+.controller('TransactionHistory', function ($scope) {
+  $scope.transactions = [
+    {transaction_name: "sale one"},
+    {transaction_name: "sale two"},
+  ]
 })
 .controller('CurrentListingCtrl', function ($scope) {
   $scope.listings = [

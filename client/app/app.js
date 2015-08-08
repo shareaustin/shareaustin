@@ -18,7 +18,7 @@ angular.module('shareAustin', [
   })
   .state('dashboard.transactionHistory', {
     templateUrl: '/app/controllers/dashboard/transactionHistory.html',
-    controller: 'YourTaskCtrl'
+    controller: 'TransactionHistory'
   })
   .state('dashboard.currentListings', {
     url: '',
