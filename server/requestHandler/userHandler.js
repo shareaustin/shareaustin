@@ -1,13 +1,17 @@
 var User = require('../model/user.js');
 module.exports = {
 	getUser: function (req, res) {
-		new User({'id': '1'}).fetch()
+		console.log('=======================')
+		console.log(req.user)
+		var id = req.user ? req.user.attributes.id : 1
+		new User({'id': id}).fetch()
 		.then(function (model) {
 		  res.json(model);
 		})
 	},
 
 	getItems: function(req, res){
+		console.log(Object.keys(req))
 		new User({'id': '1'}).items().fetch()
 		.then(function(items){
 			res.json(items)
