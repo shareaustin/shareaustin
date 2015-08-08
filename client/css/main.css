@@ -1,0 +1,28 @@
+.top-margin {
+  margin-top: 50px;
+}
+.ul-reset {
+  list-style: none;
+  /*padding-left: 20px;*/
+}
+.edit {
+  position: relative;
+  float: left;
+  font-size: 1.65em;
+  left: 10px;
+  top: 3px;
+}
+.remove {
+	position: relative;
+	float: right;
+	font-size: 1.65em;
+	top: 3px;
+	right: 10px;
+	/*color: #50597b;*/
+}
+.remove:hover, .edit:hover {
+	text-decoration: none;
+	color: #eee;
+	cursor: pointer;
+}
+.block {display: block;}

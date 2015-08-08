@@ -40,5 +40,18 @@ angular.module('shareAustin')
   $scope.test = "howdy"
 })
 .controller('CurrentListingCtrl', function ($scope) {
-  $scope.test = "your listing"
+  $scope.listings = [
+    {
+      item_name: "Canoe",
+      item_price: "$20"
+    },
+    {
+      item_name: "Kayak",
+      item_price: "$30"
+    },
+    {
+      item_name: "Boat",
+      item_price: "$30"
+    }
+  ]
 })
