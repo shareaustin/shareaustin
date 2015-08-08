@@ -25,6 +25,7 @@
     "normalize.css": "~3.0.3",
     "angular-animate": "~1.4.3",
     "bootstrap": "~3.3.5",
-    "font-awesome": "~4.4.0"
+    "font-awesome": "~4.4.0",
+    "stripe-angular": "~1.0.2"
   }
 }
