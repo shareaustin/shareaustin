@@ -4,7 +4,9 @@ angular.module('shareAustin')
   $scope.newListing = {};
 
   $scope.submitNewListing = function(item) {
+    item.active    = true;
     item.available = true;
+    
     Request.items.submitNewListing(item);
     $scope.item = {};
   };

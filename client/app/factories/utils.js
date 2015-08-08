@@ -69,9 +69,20 @@ angular.module('shareAustin')
         .then(function(resp){
         console.log(resp.data);
         return resp.data;
-      })
-        
-    }
+      })  
+      },
+      // deactivateItemById: function(itemId) {
+      //   console.log("remove by id in utils")
+      //   return $http({
+      //   method: 'POST',
+      //   url: '/api/deactivateItemById/',
+      //   data: { itemId : itemId }
+      //   })        
+      //   .then(function(resp){
+      //   console.log(resp.data);
+      //   return resp.data;
+      //   }) 
+      // }
   }
 }
   return reqObj;

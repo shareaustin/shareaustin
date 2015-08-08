@@ -12,5 +12,5 @@ angular.module('shareAustin')
     Request.items.editItem(item);
   };
   
-  $scope.getItemById(2);
+  $scope.getItemById(3);
 });

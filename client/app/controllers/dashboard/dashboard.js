@@ -32,8 +32,14 @@ angular.module('shareAustin')
     })
   }
 
-  $scope.removeItem(itemId) = function() {
-    Request.user.removeItem(itemId)
+  $scope.deactivateItem = function(itemId) {
+
+    var item = {
+      id     : itemId,
+      active : false
+    }
+
+    Request.items.editItem(item)
     .then(function(results) {
       console.log(results)
     })
@@ -41,6 +47,7 @@ angular.module('shareAustin')
 
   $scope.fetchUser();
   $scope.fetchSellerRating();
+  $scope.deactivateItem(2);
 })
 
 .controller('TransactionHistory', function ($scope) {

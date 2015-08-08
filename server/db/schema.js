@@ -27,7 +27,7 @@ module.exports = function(){
 					item.integer('seller_id').references('id').inTable('users')
 					item.string('name');
 					item.text('description');
-					item.boolean('rentable');
+					item.boolean('available');
 					item.boolean('active');
 					item.string('price_per_hour');
 					item.string('price_per_day');
