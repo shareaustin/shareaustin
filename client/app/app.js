@@ -7,14 +7,23 @@ angular.module('shareAustin', [
 // Injects 'state managers'
 .config(function ($stateProvider, $urlRouterProvider) {
   // $urlRouterProvider.otherwise('/')
-  
-  //  If path is '/dashboard', change to state 
+
+  //  If path is '/dashboard', change to state
   // 'dashboard' which updates used template & controller
   $stateProvider.state('dashboard', {
     url: '/dashboard',
-    // abstract: true,
+    abstract: true,
     templateUrl: '/app/controllers/dashboard/dashboard.html',
     controller: 'DashboardCtrl'
+  })
+  .state('dashboard.transactionHistory', {
+    templateUrl: '/app/controllers/dashboard/transactionHistory.html',
+    controller: 'TransactionHistory'
+  })
+  .state('dashboard.currentListings', {
+    url: '',
+    templateUrl: '/app/controllers/dashboard/currentListings.html',
+    controller: 'CurrentListingCtrl'
   })
   .state('signin', {
     url: '/signin',

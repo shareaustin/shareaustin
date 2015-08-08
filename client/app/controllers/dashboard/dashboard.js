@@ -5,7 +5,7 @@ angular.module('shareAustin')
     first_name: 'Bert',
     last_name: 'Knee',
     username: 'bert_knee',
-    photo_url: 'http://img2.wikia.nocookie.net/__cb20150221203401/villains/images/e/ec/Nice-old-lady-1-.jpg', 
+    photo_url: 'http://img2.wikia.nocookie.net/__cb20150221203401/villains/images/e/ec/Nice-old-lady-1-.jpg',
     rating: '3',
   }
 
@@ -34,4 +34,27 @@ angular.module('shareAustin')
 
   $scope.fetchUser();
   $scope.fetchSellerRating();
+})
+
+.controller('TransactionHistory', function ($scope) {
+  $scope.transactions = [
+    {transaction_name: "sale one"},
+    {transaction_name: "sale two"},
+  ]
+})
+.controller('CurrentListingCtrl', function ($scope) {
+  $scope.listings = [
+    {
+      item_name: "Canoe",
+      item_price: "$20"
+    },
+    {
+      item_name: "Kayak",
+      item_price: "$30"
+    },
+    {
+      item_name: "Boat",
+      item_price: "$30"
+    }
+  ]
 })
