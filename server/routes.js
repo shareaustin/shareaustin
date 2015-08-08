@@ -2,7 +2,13 @@ var userHandler = require('./requestHandler/userHandler.js');
 var itemHandler = require('./requestHandler/itemHandler.js');
 var transactionHandler = require('./requestHandler/transactionHandler.js');
 
-module.exports = function (app) {
+function isLoggedIn(req, res, next){
+  if(req.isAuthenticated()){
+    return next();
+  }
+  res.redirect('/')
+}
+module.exports = function (app, passport) {
   app.get('/api/availableItems', itemHandler.getAvailableItems);
   app.post('/api/getItemById', itemHandler.getItemById);
   //app.get('/api/isLoggedIn', userHandler.isLoggedIn)
@@ -33,7 +39,17 @@ module.exports = function (app) {
 
   //app.post('api/addRating'  , ratingHandler.addRating)
 
-  app.get('/api/user', userHandler.getUser);
+  app.post('/signup', passport.authenticate('signup', {
+    successRedirect: '/api/user',
+    failureRedirect: '/'
+  })); 
+
+  app.post('/login', passport.authenticate('login', {
+    successRedirect: '/api/user',
+    failureRedirect: '/'
+  }));
+
+  app.get('/api/user', isLoggedIn, userHandler.getUser);
   app.get('/api/user/items', userHandler.getItems);
   app.get('/api/user/transactions', userHandler.getTransactions);
   app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);
