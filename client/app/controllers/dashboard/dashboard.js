@@ -39,3 +39,6 @@ angular.module('shareAustin')
 .controller('YourTaskCtrl', function ($scope) {
   $scope.test = "howdy"
 })
+.controller('CurrentListingCtrl', function ($scope) {
+  $scope.test = "your listing"
+})

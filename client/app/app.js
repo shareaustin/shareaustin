@@ -17,9 +17,13 @@ angular.module('shareAustin', [
     controller: 'DashboardCtrl'
   })
   .state('dashboard.transactionHistory', {
-    url: '',
     templateUrl: '/app/controllers/dashboard/transactionHistory.html',
     controller: 'YourTaskCtrl'
+  })
+  .state('dashboard.currentListings', {
+    url: '',
+    templateUrl: '/app/controllers/dashboard/currentListings.html',
+    controller: 'CurrentListingCtrl'
   })
   .state('signin', {
     url: '/signin',
