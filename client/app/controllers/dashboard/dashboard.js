@@ -32,6 +32,13 @@ angular.module('shareAustin')
     })
   }
 
+  $scope.removeItem(itemId) = function() {
+    Request.user.removeItem(itemId)
+    .then(function(results) {
+      console.log(results)
+    })
+  }
+
   $scope.fetchUser();
   $scope.fetchSellerRating();
 })
