@@ -27,8 +27,9 @@ module.exports = {
 	},
 
 		signIn: function (req, res) {
-			// console.log('auth inside userhandler ', req.isAuthenticated())
-			console.log('inside userhandler ', req.body)
+			console.log('auth inside userhandler ', req.isAuthenticated())
+			// console.log('inside userhandler ', req.body)
+			// Our hardcoded solution without passport auth
 			new User({
 				'username': req.body.userName,
 				'password': req.body.password

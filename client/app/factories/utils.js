@@ -40,7 +40,7 @@ angular.module('shareAustin')
         })
       },
       userSignIn: function (user) {
-        console.log('in utils ', user)
+        // console.log('in utils ', user)
         return $http({
           method: 'POST',
           url: '/api/signIn',

@@ -6,6 +6,7 @@ var LocalStrategy = require('passport-local').Strategy;
 module.exports = function (app) {
   app.get('/api/availableItems', itemHandler.getAvailableItems);
   app.post('/api/getItemById', itemHandler.getItemById);
+
   //app.get('/api/isLoggedIn', userHandler.isLoggedIn)
 
   //app.get('/api/sellerReviews', userHandler.sellerReviews)
@@ -22,7 +23,13 @@ module.exports = function (app) {
   app.post('/api/editItem', itemHandler.editItem);
   //app.post('/api/removeItem', itemHandler.removeItem)
 
-  app.post('/api/signIn', userHandler.signIn)
+// !! PROBLEM AREA !! Routing from server when all our routing is happening in Angular
+  app.post('/api/signIn',
+    passport.authenticate('local', {
+      successRedirect: '/dashboard',
+      failureRedirect: '/signIn'
+    })
+   ,userHandler.signIn)
   app.post('/api/signUp', userHandler.signUp)
   //app.post('/api/logout', userHandler.logout)
 
