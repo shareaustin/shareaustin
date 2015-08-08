@@ -3,5 +3,11 @@
 <p>Username: {{user.username}}</p>
 <p>Name: {{user.first_name + ' ' + user.last_name}}</p>
 <p>Rating: {{user.rating}}</p>
-</div>
 
+<tabset class="" justified="true">
+  <tab ui-sref=".transactionHistory" heading="All Transactions">
+    <div ui-view=""> </div>
+  </tab>
+  <!-- <tab ui-sref=".transactionHistory" heading="All Transactions">
+  </tab> -->
+</tabset>

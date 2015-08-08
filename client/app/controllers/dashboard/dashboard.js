@@ -5,7 +5,7 @@ angular.module('shareAustin')
     first_name: 'Bert',
     last_name: 'Knee',
     username: 'bert_knee',
-    photo_url: 'http://img2.wikia.nocookie.net/__cb20150221203401/villains/images/e/ec/Nice-old-lady-1-.jpg', 
+    photo_url: 'http://img2.wikia.nocookie.net/__cb20150221203401/villains/images/e/ec/Nice-old-lady-1-.jpg',
     rating: '3',
   }
 
@@ -34,4 +34,8 @@ angular.module('shareAustin')
 
   $scope.fetchUser();
   $scope.fetchSellerRating();
+})
+
+.controller('YourTaskCtrl', function ($scope) {
+  $scope.test = "howdy"
 })
