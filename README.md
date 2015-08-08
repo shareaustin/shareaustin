@@ -6,7 +6,7 @@ ShareAustin provides a place where a community can find and provide hard to rent
 
   - __Product Owner__: Hadley Lambeth
   - __Scrum Master__: Braden Walker
-  - __Development Team Members__: Duevyn Cooke, Brittany Schroeder
+  - __Development Team Members__: Brian Beeler, Duevyn Cooke, Brittany Schroeder
 
 ## Table of Contents
 
