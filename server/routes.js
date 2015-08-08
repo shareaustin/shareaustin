@@ -3,6 +3,7 @@ var itemHandler = require('./requestHandler/itemHandler.js')
 
 module.exports = function (app) {
   app.get('/api/availableItems', itemHandler.getAvailableItems);
+  app.post('/api/getItemById', itemHandler.getItemById);
   //app.get('/api/isLoggedIn', userHandler.isLoggedIn)
   
   //app.get('/api/sellerReviews', userHandler.sellerReviews)
