@@ -6,6 +6,7 @@ angular.module('shareAustin')
   $scope.submitNewListing = function(item) {
     item.available = true;
     Request.items.submitNewListing(item);
+    $scope.item = {};
   };
 
   $scope.addPhoto = function() {
