@@ -47,6 +47,9 @@ module.exports = function(){
 					//transaction.integer('seller_id').references('id').inTable('users');
 					transaction.dateTime('start_date');
 					transaction.dateTime('end_date');
+					transaction.string('duration');
+					transaction.string('price');
+					transaction.string('stripe_token');
 				}})
 				.then(function(table){
 					console.log("Created Table transactions ", table)

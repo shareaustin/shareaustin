@@ -1,5 +1,6 @@
 var userHandler = require('./requestHandler/userHandler.js');
-var itemHandler = require('./requestHandler/itemHandler.js')
+var itemHandler = require('./requestHandler/itemHandler.js');
+var transactionHandler = require('./requestHandler/transactionHandler.js');
 
 module.exports = function (app) {
   app.get('/api/availableItems', itemHandler.getAvailableItems);
@@ -14,7 +15,7 @@ module.exports = function (app) {
   
   //app.get('/api/userTransactions', userHandler.userTransactions)
   //app.get('/api/userFavorites', userHandler.userFavorites)
-   
+  app.post('/api/addTransaction', transactionHandler.addTransaction);
 
   app.post('/api/addItem', itemHandler.addItem);
   app.post('/api/editItem', itemHandler.editItem);

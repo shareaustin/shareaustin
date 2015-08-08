@@ -2,7 +2,8 @@
 angular.module('shareAustin', [
   'ui.router',
   'ui.bootstrap',
-  'ngAnimate'
+  'ngAnimate',
+  'stripe'
 ])
 // Injects 'state managers'
 .config(function ($stateProvider, $urlRouterProvider) {
@@ -50,4 +51,8 @@ angular.module('shareAustin', [
     templateUrl: '/app/controllers/updateItems/updateItems.html',
     controller: 'EditItemCtrl'
   })
+})
+//Initializes Stripe
+.config(function(){
+  Stripe.setPublishableKey('pk_test_xqHKwEIcwAZh73wo8dcYId1h');
 })

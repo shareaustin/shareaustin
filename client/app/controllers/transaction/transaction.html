@@ -1,18 +1,19 @@
 <div class="container top-margin">
-   <div class="row">
-     <div class="col-sm-3 col-sm-offset-5">
-        <h2>Payment Information</h2>
-        <form name="transaction-form" class="transaction-form">
-        	<label>Name on Card</label><br>
-        	<input type="text"/><br>
-        	<label>Card Number</label><br>
-        	<input type="text"/><br>
-        	<label>Expiration Date</label><br>
-        	<input type="text"/><br>
-        	<label>Three-Digit CSC Code:</label><br>
-        	<input type="text"/><br>
-        	<button ng-click="submitTransaction()">Submit</button>
-        </form>
-      </div>
+ <div class="row">
+   <div class="col-sm-3 col-sm-offset-5">
+      <h2>Payment Information</h2>
+      <form stripe:form="saveTransaction">
+        <fieldset>
+          <label>Card Number</label><br>
+          <input type="text" size="20" data-stripe="number"/><br>
+          <label>Expiration Date</label><br>
+          <input type="text" size="2" data-stripe="exp-month"/>
+          <input type="text" size="4" data-stripe="exp-year"/><br>
+          <label>CVC</label><br>
+          <input type="text" size="4" data-stripe="cvc"/>
+        </fieldset>
+        <button type="submit">Save</button>
+      </form>
     </div>
   </div>
+</div>
