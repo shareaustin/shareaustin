@@ -23,6 +23,7 @@ module.exports = {
 			'name'          : item.name,
 			'description'   : item.description,
 			'available'     : item.available,
+			'active'				: item.active,
 			'price_per_hour': item.price_per_hour,
 			'price_per_day' : item.price_per_day
 		}
@@ -44,6 +45,15 @@ module.exports = {
 			res.json(model)
 		})
 	},
+
+	// deactivateItemById: function(req, res) {
+	// 	var itemId = req.body.itemId;
+	// 	new Item({ id : itemId}).destroy().
+	// 	then(function () {
+	// 		res.json("Deleted")
+	// 	}) 
+	// },
+
 	linkPhoto: function(req, res){
 		var path = __dirname + '/../uploads/resume.png'
 		cloudinary.uploader.upload(path, function(result){

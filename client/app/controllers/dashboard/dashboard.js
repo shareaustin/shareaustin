@@ -32,8 +32,22 @@ angular.module('shareAustin')
     })
   }
 
+  $scope.deactivateItem = function(itemId) {
+
+    var item = {
+      id     : itemId,
+      active : false
+    }
+
+    Request.items.editItem(item)
+    .then(function(results) {
+      console.log(results)
+    })
+  }
+
   $scope.fetchUser();
   $scope.fetchSellerRating();
+  $scope.deactivateItem(2);
 })
 
 .controller('TransactionHistory', function ($scope) {

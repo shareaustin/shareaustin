@@ -28,6 +28,7 @@ module.exports = function(){
 					item.string('name');
 					item.text('description');
 					item.boolean('available');
+					item.boolean('active');
 					item.string('price_per_hour');
 					item.string('price_per_day');
 				})

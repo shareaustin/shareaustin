@@ -4,7 +4,6 @@ angular.module('shareAustin')
 
   $scope.getItemById = function(itemId) {
     Request.items.itemById(itemId).then(function(item) {
-
       $scope.item = item;
     })
   },
@@ -13,5 +12,5 @@ angular.module('shareAustin')
     Request.items.editItem(item);
   };
   
-  $scope.getItemById(2);
+  $scope.getItemById(3);
 });
