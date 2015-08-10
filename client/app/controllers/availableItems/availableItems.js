@@ -43,7 +43,7 @@ angular.module('shareAustin')
         var latLong = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].length)
         var newMark = new google.maps.Marker({
           position: latLong,
-          title: dwellings[i].name
+          title: $scope.items[i].name
         })
         console.log('mark made');
         newMark.setMap($scope.map);
@@ -54,7 +54,8 @@ angular.module('shareAustin')
           mapTypeId: google.maps.MapTypeId.TERRAIN
         }
 
-        $scope.map = new google.maps.Map(document.getElementsById('map'), mapOptions)
+        console.log(document)
+        $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions)
       }
     })
   };
