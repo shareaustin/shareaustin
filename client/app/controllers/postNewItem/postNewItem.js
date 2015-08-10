@@ -4,16 +4,18 @@ angular.module('shareAustin')
   $scope.newListing = {};
 
   $scope.submitNewListing = function(item) {
-    var address = Helpers.urlifyAddress(item.address);
-  console.log(address)
-    var coordinates = Request.items.getCoordinates(address)
-    console.log("coordinates:" + coordinates)
+    var address = Helpers.urlifyAddress(item.streetAddress);
+    Request.items.getLocation(address).then(function (googleResponse) {
+      var locationInfo = Helpers.simplifyLocation(googleResponse)
+      item.lat       = locationInfo.lat;
+      item.lng       = locationInfo.lng;
+      item.address   = locationInfo.address;
+      item.active    = true;
+      item.available = true;
 
-    item.active    = true;
-    item.available = true;
-    
-    Request.items.submitNewListing(item);
-    $scope.item = {};
+      Request.items.submitNewListing(item);
+      $scope.item = {};
+    })
   };
 
   $scope.addPhoto = function() {
