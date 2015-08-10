@@ -38,6 +38,24 @@ angular.module('shareAustin')
     .then(function (results){
      $scope.items = results;
       console.log('Items: ', $scope.items);
+
+      for (var i = 0; i < $scope.items.length; i++) {
+        var latLong = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].length)
+        var newMark = new google.maps.Marker({
+          position: latLong,
+          title: dwellings[i].name
+        })
+        console.log('mark made');
+        newMark.setMap($scope.map);
+
+        var mapOptions = {
+          zoom: 4,
+          center: new google.maps.LatLng(40.0000, -98.0000),
+          mapTypeId: google.maps.MapTypeId.TERRAIN
+        }
+
+        $scope.map = new google.maps.Map(document.getElementsById('map'), mapOptions)
+      }
     })
   };
 
@@ -53,5 +71,7 @@ angular.module('shareAustin')
     Item.set($event)
   }
   $scope.fetchAvailableItems();
+
   // $scope.fetchItem(1)
 })
+
