@@ -49,8 +49,9 @@ angular.module('shareAustin')
         newMark.setMap($scope.map);
 
         var mapOptions = {
-          zoom: 4,
-          center: new google.maps.LatLng(40.0000, -98.0000),
+          zoom: 12,
+          // Initially centered at state capital buiding 
+          center: new google.maps.LatLng(30.27415, -97.73996),
           mapTypeId: google.maps.MapTypeId.TERRAIN
         }
 
