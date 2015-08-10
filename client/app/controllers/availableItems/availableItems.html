@@ -1,5 +1,14 @@
 
 <div ng-include="'shared/navigation.html'"></div>
+<div class="flex-center page-wrapper">
+	<!--Google Map -->
+	<div ng-app='shareaustin' ng-controller='AvailableItemsCtrl'>
+		<div id="map" style="
+			width: 420px;
+			height: 400px; 
+		"></div>
+	</div>
+</div>
 <div class="container top-margin">
    <div class="row">
      <div class="col-sm-3 col-sm-offset-4">
@@ -20,13 +29,5 @@
 	 </div>
 </div>
 
-<div class="flex-center page-wrapper">
-	<!--Google Map -->
-	<div ng-app='shareaustin' ng-controller='AvailableItemsCtrl'>
-		<div id="map" style="
-			width: 420px;
-			height: 400px; 
-		"></div>
-	</div>
-</div>
+
 
