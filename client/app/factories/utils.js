@@ -82,6 +82,14 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
+      getLocation: function(address) {
+        return $http({
+          method: "GET",
+          url:    "https://maps.googleapis.com/maps/api/geocode/json?"+address,
+        }).then(function(resp) {
+          return resp.data;
+        })
+      }
   }
 }
   return reqObj;
