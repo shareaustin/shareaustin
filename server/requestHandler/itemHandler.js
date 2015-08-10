@@ -25,7 +25,10 @@ module.exports = {
 			'available'     : item.available,
 			'active'				: item.active,
 			'price_per_hour': item.price_per_hour,
-			'price_per_day' : item.price_per_day
+			'price_per_day' : item.price_per_day,
+			'address'				: item.address,
+			'lat'						: item.lat,
+			'lng'						: item.lng
 		}
 		new Item(attr).save()
 		.then(res.json("Item added!")) 
