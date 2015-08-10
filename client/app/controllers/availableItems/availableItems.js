@@ -34,32 +34,34 @@ angular.module('shareAustin')
   ];
 
   $scope.fetchAvailableItems = function() {
+    // Google Map OPtions: Initially center on Texas state capitol building.
+    var mapOptions = {
+      zoom: 13,
+      center: new google.maps.LatLng(30.27415, -97.73996),
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    }
+
+    // Puts map in container with Id "map"
+    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions)
+
+    // Fetches all available items
     Request.items.fetchAvailableItems()    
     .then(function (results){
      $scope.items = results;
-      console.log('Items: ', $scope.items);
 
+      // For each item, place a marker corresponding to its latitude and longitude
       for (var i = 0; i < $scope.items.length; i++) {
-        var latLong = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].length)
+        var latLng = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].lng)
+        console.log(latLng)
         var newMark = new google.maps.Marker({
-          position: latLong,
+          position: latLng,
           title: $scope.items[i].name
         })
-        console.log('mark made');
         newMark.setMap($scope.map);
-
-        var mapOptions = {
-          zoom: 13,
-          // Initially centered at state capital buiding 
-          center: new google.maps.LatLng(30.27415, -97.73996),
-          mapTypeId: google.maps.MapTypeId.TERRAIN
-        }
-
-        console.log(document)
-        $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions)
       }
     })
   };
+
 
   // $scope.fetchItem = function ($event) {
   //   Request.items.itemById($event.id).then(function(results) {
@@ -72,6 +74,7 @@ angular.module('shareAustin')
     console.log("Event ", $event)
     Item.set($event)
   }
+
   $scope.fetchAvailableItems();
   // $scope.fetchItem(1)
 })
