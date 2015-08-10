@@ -34,7 +34,7 @@ angular.module('shareAustin')
   ];
 
   $scope.fetchAvailableItems = function() {
-    Request.items.fetchAvailableItems()
+    Request.items.fetchAvailableItems()    
     .then(function (results){
      $scope.items = results;
       console.log('Items: ', $scope.items);
@@ -49,7 +49,7 @@ angular.module('shareAustin')
         newMark.setMap($scope.map);
 
         var mapOptions = {
-          zoom: 12,
+          zoom: 13,
           // Initially centered at state capital buiding 
           center: new google.maps.LatLng(30.27415, -97.73996),
           mapTypeId: google.maps.MapTypeId.TERRAIN
@@ -73,7 +73,5 @@ angular.module('shareAustin')
     Item.set($event)
   }
   $scope.fetchAvailableItems();
-
   // $scope.fetchItem(1)
 })
-
