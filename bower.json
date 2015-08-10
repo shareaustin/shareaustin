@@ -27,6 +27,7 @@
     "bootstrap": "~3.3.5",
     "font-awesome": "~4.4.0",
     "stripe-angular": "~1.0.2",
-    "sweetalert": "~1.1.0"
+    "sweetalert": "~1.1.0",
+    "angular-h-sweetalert": "~1.4.6"
   }
 }
