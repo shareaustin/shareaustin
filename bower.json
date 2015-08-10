@@ -28,6 +28,10 @@
     "font-awesome": "~4.4.0",
     "stripe-angular": "~1.0.2",
     "sweetalert": "~1.1.0",
-    "angular-h-sweetalert": "~1.4.6"
+    "angular-h-sweetalert": "~1.4.6",
+    "angular-slick": "~0.2.1"
+  },
+  "resolutions": {
+    "angular": "~1.4.3"
   }
 }

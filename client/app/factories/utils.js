@@ -65,7 +65,7 @@ angular.module('shareAustin')
         method: 'POST',
         url: '/api/getItemById/',
         data: { itemId : itemId }
-        })        
+        })
         .then(function(resp){
         console.log(resp.data);
         return resp.data;
@@ -87,3 +87,17 @@ angular.module('shareAustin')
   return reqObj;
 })
 
+.factory('Item', function () {
+  var itemDescription = {}
+  function set(data) {
+    itemDescription = data;
+  }
+  function get() {
+   return itemDescription;
+  }
+
+  return {
+   set: set,
+   get: get
+  }
+})
