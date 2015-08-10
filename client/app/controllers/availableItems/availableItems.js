@@ -1,7 +1,7 @@
 angular.module('shareAustin')
 
-.controller('AvailableItemsCtrl', function($scope, Request) {
-  
+.controller('AvailableItemsCtrl', function($scope, Request, Item) {
+
   // $scope.item = {
   //   name: '',
   //     photo_url: '',
@@ -11,7 +11,7 @@ angular.module('shareAustin')
   //     price_per_hour: '',
   //     price_per_day: ''
   // };
-
+  $scope.currentItem = {};
   $scope.items = [
   // {
   //   name: 'Kayak',
@@ -41,6 +41,17 @@ angular.module('shareAustin')
     })
   };
 
+  // $scope.fetchItem = function ($event) {
+  //   Request.items.itemById($event.id).then(function(results) {
+  //     console.log("Current Item is ", results)
+  //     $scope.currentItem = results
+  //     console.log("current item name ", $scope.currentItem.name)
+  //   })
+  // }
+  $scope.updateItem = function ($event) {
+    console.log("Event ", $event)
+    Item.set($event)
+  }
   $scope.fetchAvailableItems();
-
+  // $scope.fetchItem(1)
 })

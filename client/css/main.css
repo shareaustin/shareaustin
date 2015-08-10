@@ -29,7 +29,9 @@
 	cursor: pointer;
 }
 .block {display: block;}
-/*----- ------*/
+/*----- Helpers ------*/
+.inline {display: inline;}
+
 /*----- Main Nav ------*/
 .main-nav-wrapper {
   /*position: fixed;*/
@@ -46,3 +48,9 @@
   padding-left: 20px;
   font-size: 1.25em;
 }
+
+/*----- Item Description ------*/
+.item-title-desc {
+  padding: 15px 0;
+}
+.item-title-wrapper {padding: 15px 0;}
