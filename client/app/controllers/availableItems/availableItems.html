@@ -1,33 +1,27 @@
 
 <div ng-include="'shared/navigation.html'"></div>
-<div class="flex-center page-wrapper">
-	<!--Google Map -->
-	<div ng-app='shareaustin' ng-controller='AvailableItemsCtrl'>
-		<div id="map" style="
-			width: 420px;
-			height: 400px; 
-		"></div>
-	</div>
-</div>
-<div class="container top-margin">
+
+<div class="container-fluid">
    <div class="row">
-     <div class="col-sm-3 col-sm-offset-4">
+     <div class="col-sm-6">
 				<h2>Listings</h2>
-					<div ng-repeat="item in items">
-						<div class="item" >
+					<!-- <div ng-repeat="item in items"> -->
+						<div class="item col-sm-6" ng-repeat="item in items">
 							<h3 ng-click="updateItem(item, $event)">{{ item.name }}</h3>
-							<img ng-src="{{ item.photo_url }}" height="200px" width="300px"/>
+							<img class="img-responsive"  src="http://www.hitchsafe.com/Applications/Canoe-Accessories.jpg"/>
 							<p>Seller: {{ item.seller_username }}</p>
 							<p>Availabile: {{ item.available }}</p>
 							<p>Description: {{ item.description }}</p>
 							<p>Price Per Hour: {{ item.price_per_hour }}</p>
 							<p>Price Per Day: {{ item.price_per_day }}</p>
 							<button ng-click="">Rent It!</button>
-						</div>
+						<!-- </div> -->
 					</div>
+		 </div>
+		 <div class="col-sm-6">
+	 	 	<div ng-app='shareaustin' ng-controller='AvailableItemsCtrl'>
+		 		<div id="map" class="google-map"></div>
+		 	</div>
 		 </div>
 	 </div>
 </div>
-
-
-

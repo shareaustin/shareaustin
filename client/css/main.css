@@ -41,6 +41,7 @@
   /*height: 30px;*/
   display: block;
   padding: 10px;
+  margin-bottom: 0;
 }
 .main-nav li {
   display: inline-block;
@@ -50,7 +51,14 @@
 }
 
 /*----- Item Description ------*/
+/*.item:nth-child(even) {padding-right: 20px;}*/
 .item-title-desc {
   padding: 15px 0;
 }
 .item-title-wrapper {padding: 15px 0;}
+
+/*----- All Items ------*/
+.google-map {
+  height: 95vh;
+  width: 100%;
+}
