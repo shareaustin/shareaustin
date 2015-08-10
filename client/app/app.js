@@ -3,7 +3,8 @@ angular.module('shareAustin', [
   'ui.router',
   'ui.bootstrap',
   'ngAnimate',
-  'stripe'
+  'stripe',
+  'hSweetAlert'
 ])
 // Injects 'state managers'
 .config(function ($stateProvider, $urlRouterProvider) {

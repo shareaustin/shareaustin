@@ -1,6 +1,9 @@
 var Transaction = require('../model/transaction.js');
+var User = require('../model/user.js');
 var Item = require('../model/item.js');
 var stripe = require("stripe")("sk_test_eayPxkGdSjeMUXzvbPqZKKg8");
+var mandrill = require('node-mandrill')('zUM87mq0xNnY-grgIoEQdQ');
+var moment = require('moment');
 
 module.exports = {
 
@@ -49,6 +52,28 @@ module.exports = {
     })
     //Send the response back to the client
     .then(function(transaction){
+      //Get the buyer's email address from the item id
+      User.where({'id':transaction.buyer_id}).fetch()
+      .then(function(user){
+      // console.log('Lookup of transaction buyer: ', user.attributes);
+      var buyer = user.attributes;
+      //Send an email receipt of the transaction
+      mandrill('/messages/send', {
+          message: {
+              to: [{email: buyer.email, name: buyer.first_name + " " + buyer.last_name}],
+              from_email: 'payment@shareaustin.com',
+              subject: "ShareAustin - Payment Confirmation",
+              text: "Congratulations, " + buyer.first_name + "! Your ShareAustin rental was approved. You have been charged $" + transaction.price + ".00 for your rental, which will begin on " + moment(transaction.start_date).format("dddd","MMMM") + " at " + moment(transaction.start_date).format("h:mm a") + ". Enjoy! -- The ShareAustin Team"
+          }
+      }, function(error, response)
+      {
+          //uh oh, there was an error
+          if (error) console.log( JSON.stringify(error) );
+
+          //everything's good, lets see what mandrill said
+          else console.log("Response from Mandrill server: ", response);
+      });
+      });
       res.json(transaction)
     })
   },
