@@ -29,3 +29,20 @@
 	cursor: pointer;
 }
 .block {display: block;}
+/*----- ------*/
+/*----- Main Nav ------*/
+.main-nav-wrapper {
+  /*position: fixed;*/
+}
+.main-nav {
+  border-bottom: 1px solid #eee;
+  /*height: 30px;*/
+  display: block;
+  padding: 10px;
+}
+.main-nav li {
+  display: inline-block;
+  list-style: none;
+  padding-left: 20px;
+  font-size: 1.25em;
+}
