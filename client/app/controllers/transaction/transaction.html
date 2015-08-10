@@ -5,12 +5,12 @@
       <form stripe:form="saveTransaction">
         <fieldset>
           <label>Card Number</label><br>
-          <input type="text" size="20" data-stripe="number"/><br>
+          <input type="text" size="20" data-stripe="number" value="4242424242424242"/><br>
           <label>Expiration Date</label><br>
-          <input type="text" size="2" data-stripe="exp-month"/>
-          <input type="text" size="4" data-stripe="exp-year"/><br>
+          <input type="text" size="2" data-stripe="exp-month" value="01"/>
+          <input type="text" size="4" data-stripe="exp-year" value="2016"/><br>
           <label>CVC</label><br>
-          <input type="text" size="4" data-stripe="cvc"/>
+          <input type="password" size="3" data-stripe="cvc" value="123"/>
         </fieldset>
         <button type="submit">Save</button>
       </form>
