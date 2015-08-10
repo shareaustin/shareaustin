@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('EditItemCtrl', function($scope, Request, currentItem) {
+.controller('EditItemCtrl', function($scope, Request) {
 
   $scope.getItemById = function(itemId) {
     Request.items.itemById(itemId).then(function(item) {
@@ -12,10 +12,5 @@ angular.module('shareAustin')
     Request.items.editItem(item);
   };
   
-  //Example -- you would run this from the previous view's controller 
-  //to set the currentItem
-  // currentItem.set(2);
-
-  //Check the currentItem's id and populate template with those values
-  $scope.getItemById(currentItem.get());
+  $scope.getItemById(1);
 });
