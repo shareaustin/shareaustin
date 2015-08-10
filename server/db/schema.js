@@ -31,6 +31,9 @@ module.exports = function(){
 					item.boolean('active');
 					item.string('price_per_hour');
 					item.string('price_per_day');
+					item.string('address');
+					item.varchar('lat');
+					item.varchar('lng');
 				})
 				.then(function(table){
 					console.log('Created Table items', table)
