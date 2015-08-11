@@ -40,7 +40,7 @@ angular.module('shareAustin', [
   })
   .state('auth.signin', {
     url: '',
-    templateUrl: 'app/controllers/signin/signin.html',
+    templateUrl: 'app/controllers/auth/signin.html',
     controller: 'SignInCtrl'
   })
   .state('auth.signup', {

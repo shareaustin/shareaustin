@@ -79,7 +79,6 @@ angular.module('shareAustin')
       favorite_name: 'Bob Saget Cutout'
     }
   ]
-
   // $scope.fetchFavorites = function () {
   //   Request.favorites.fetchFavorites();
   //   .then(function (results){
@@ -87,5 +86,4 @@ angular.module('shareAustin')
 
   //   })
   // }
-
 })
