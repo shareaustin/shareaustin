@@ -1,7 +1,32 @@
 <div ng-include="'shared/navigation.html'"></div>
 <div class="container top-margin">
  <div class="row">
-   <div class="col-sm-3 col-sm-offset-5">
+   <div class="col-sm-4">
+    <img ng-src="{{item.photo_url}}" width="75%" height="75%">
+   </div>
+   <div class="col-sm-4">
+   <!-- RENTAL INFO FORM -->
+      <h2>Rental Information</h2>
+      <h4>Item: {{item.name}}</h4>
+      <h4 ng-model="item">Price Per Hour: ${{item.price_per_hour}}</h4>
+      <h4 ng-model="item">Total: ${{rentalPrice()}}</h4>
+      <form>
+        <fieldset>
+          <div class="input-group">
+              <label>Start Date</label><br>
+              <input type="date" class="form-control" datepicker-popup ng-model="rentalStartDate" is-open="status.opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <timepicker ng-model="rentalStartDate" hour-step="1" minute-step="15" show-meridian="true" ng-change="timeLogger()"></timepicker>
+          </div>
+          <div class="input-group">
+              <label>End Date</label><br>
+              <input type="date" class="form-control" datepicker-popup ng-model="rentalEndDate" is-open="status.opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <!-- PAYMENT FORM -->
+    <div class="col-sm-4">
       <h2>Payment Information</h2>
       <form stripe:form="saveTransaction">
         <fieldset>
@@ -11,9 +36,9 @@
           <input type="text" size="2" data-stripe="exp-month" value="01"/>
           <input type="text" size="4" data-stripe="exp-year" value="2016"/><br>
           <label>CVC</label><br>
-          <input type="password" size="3" data-stripe="cvc" value="123"/>
+          <input type="password" size="3" data-stripe="cvc" value="123"/><br><br>
         </fieldset>
-        <button type="submit">Save</button>
+        <button type="submit" class="btn btn-info">Submit Rental</button>
       </form>
     </div>
   </div>

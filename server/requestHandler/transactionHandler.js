@@ -23,7 +23,7 @@ module.exports = {
     new Item({'id' : transaction.item_id}).fetch()
     .then(function(res) {
       // console.log('Item Price Per Hour: ', res.attributes.price_per_hour);
-      // console.log('Rental Duration in Hours: ', transaction.duration);
+      console.log('Rental Duration in Hours: ', transaction.duration);
       attr.price = res.attributes.price_per_hour * transaction.duration;
       // console.log('Transaction Item Returned: ', res);
      
