@@ -19,9 +19,17 @@ module.exports = {
 		})
 	},
 
-	getTransactions: function(req, res){
+	getSoldTransactions: function(req, res){
 		var id = req.user ? req.user.attributes.id : 1
-		new User({'id': id}).transactions().fetch()
+		new User({'id': id}).soldTransactions().fetch()
+		.then(function(transactions){
+			res.json(transactions)
+		})
+	},
+
+	getBoughtTransactions: function(req, res){
+		var id = req.user ? req.user.attributes.id : 1
+		new User({'id': id}).boughtTransactions().fetch()
 		.then(function(transactions){
 			res.json(transactions)
 		})

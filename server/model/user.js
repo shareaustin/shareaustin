@@ -13,9 +13,13 @@ module.exports = db.Model.extend({
 		return this.hasMany(Item, ['seller_id'])
 	},
 
-	transactions: function(){
+	soldTransactions: function(){
 		return this.hasMany(Transaction, ['seller_id'])
 		.through(Item)
+	},
+
+	boughtTransactions: function(){
+		return this.hasMany(Transaction, ['buyer_id'])
 	},
 
 	buyerRatings: function(){
