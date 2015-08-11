@@ -55,7 +55,6 @@ angular.module('shareAustin')
          data: item
         })
         .then(function(resp){
-         console.log(resp.data)
          return resp.data;
         })
       },
