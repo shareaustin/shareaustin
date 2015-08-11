@@ -26,12 +26,18 @@ angular.module('shareAustin')
       var markerSettings = {
                               position : latLng,
                               map      : $scope.map,
-                              icon     : "http://drdeclutterblog.com/wp-content/uploads/2011/08/canoe.thumbnail.JPG",
+                              //icon     : "http://drdeclutterblog.com/wp-content/uploads/2011/08/canoe.thumbnail.JPG",
                             };
-      var newMark = new google.maps.Marker(markerSettings)
-      google.maps.event.addListener(newMark, 'click', function(event) {
-        console.log(event)
-      })
+      var newMark   = new google.maps.Marker(markerSettings)
+      var setEvent = google.maps.event.addListener;
+
+      setEvent(newMark, 'mouseover', function(event) {
+        newMark.setIcon("http://drdeclutterblog.com/wp-content/uploads/2011/08/canoe.thumbnail.JPG");
+      });
+      setEvent(newMark, 'mouseout', function(event) {}
+        newMark.setIcon();
+      });
+      
 
       //newMark.setMap($scope.map);
     }
