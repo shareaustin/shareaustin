@@ -62,3 +62,8 @@
   height: 95vh;
   width: 100%;
 }
+
+/*----- Centering & Cropping Images -----*/
+.centerCrop {
+  object-fit: cover;
+}
