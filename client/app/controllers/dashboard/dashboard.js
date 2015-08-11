@@ -72,3 +72,12 @@ angular.module('shareAustin')
     }
   ]
 })
+
+.controller('FavoritesCtrl', function ($scope){
+  $scope.favorites = [ 
+    {
+      //item_name: "Raichu",
+      //item_price: "$25"
+    }
+  ]
+})

@@ -24,7 +24,7 @@ module.exports = function(){
 			if(!exists){
 				db.knex.schema.createTable('items', function(item){
 					item.increments('id').primary();
-					item.integer('seller_id').references('id').inTable('users')
+					item.integer('seller_id').references('id').inTable('users');
 					item.string('name');
 					item.text('description');
 					item.boolean('available');
@@ -37,6 +37,18 @@ module.exports = function(){
 				})
 				.then(function(table){
 					console.log('Created Table items', table)
+				});
+			}
+		}),
+		db.knex.schema.hasTable('favorites').then(function(exists){
+			if(!exists) {
+				db.knex.schema.createTable('favorites', function(favorite){
+					favorite.increments('id').primary();
+					favorite.integer('user_id').references('id').inTable('users');
+					favorite.integer('item_id').references('id').inTable('items');
+				})
+				.then(function(table){
+					console.log('Created Table favorites', table)
 				});
 			}
 		}),

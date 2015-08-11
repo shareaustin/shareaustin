@@ -27,6 +27,11 @@ angular.module('shareAustin', [
     templateUrl: '/app/controllers/dashboard/currentListings.html',
     controller: 'CurrentListingCtrl'
   })
+   .state('dashboard.favorites', {
+    url: '',
+    templateUrl: '/app/controllers/dashboard/favorites.html',
+    controller: 'FavoritesCtrl'
+  })
   .state('auth', {
     abstract: true,
     url: '/auth',
@@ -35,7 +40,7 @@ angular.module('shareAustin', [
   })
   .state('auth.signin', {
     url: '',
-    templateUrl: '/app/controllers/auth/signin.html',
+    templateUrl: 'app/controllers/signin/signin.html',
     controller: 'SignInCtrl'
   })
   .state('auth.signup', {
