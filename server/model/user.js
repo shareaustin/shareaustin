@@ -24,19 +24,11 @@ module.exports = db.Model.extend({
 	},
 
 	sellerRatings: function (){
-		// var queryString = 'select u.first_name, u.last_name, i.name, t.id, r.buyer_rating, r.seller_rating from users u join items i on i.seller_id=u.id join transactions t on t.item_id=i.id join ratings r on r.transaction_id  = t.id;'
-		//  return this.hasMany(Rating)
-		//  .through(Item)
-		//  .through(Transaction)
 		return db.knex.select('u.first_name', 'i.name', 't.id', 'r.seller_rating')
-		//return db.knex.select('u.first_name', 'u.last_name', 'i.name')
 		.from('users as u')
 		.innerJoin('items as i', 'u.id', 'i.seller_id')
 		.innerJoin('transactions as t', 't.item_id', 'i.id')
 		.innerJoin('ratings as r', 'r.transaction_id', 't.id')
-		  //.through(Transaction)
-		//return this.transactions().
-
 	},
 
 });

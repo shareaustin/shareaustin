@@ -1,7 +1,10 @@
 angular.module('shareAustin')
 
-.controller('EditItemCtrl', function($scope, Request, Helpers) {
+.controller('EditItemCtrl', function ($scope, Helpers, Item, Request) {
 
+  $scope.$watch('files', function(){
+    $scope.uploadPhoto($scope.files, $scope.item);
+  });
   $scope.getItemById = function(itemId) {
     Request.items.itemById(itemId).then(function(item) {
       $scope.item = item;
@@ -31,6 +34,13 @@ angular.module('shareAustin')
         Request.items.editItem(item)
     })
   };
+
+  $scope.uploadPhoto = function(files, item){
+    console.log('in upload photo. item is ', item)
+    if (files && files.length){
+      files.forEach(Item.uploadPhoto.bind(null, item.id));
+    }
+  }
   // Hard coded for now to display item 1
   // Should display any selected item
   $scope.getItemById(1);

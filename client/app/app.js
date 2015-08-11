@@ -3,6 +3,7 @@ angular.module('shareAustin', [
   'ui.router',
   'ui.bootstrap',
   // 'ngAnimate',
+  'ngFileUpload',
   'stripe',
   'hSweetAlert'
 ])

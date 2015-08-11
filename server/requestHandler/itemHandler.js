@@ -1,6 +1,7 @@
 var Item = require('../model/item.js');
 var ItemPhoto = require('../model/itemPhoto.js');
 var cloudinary = require('cloudinary');
+var fs = require('fs');
 cloudinary.config({
 	'cloud_name': 'drw6xrsdi',
 	'api_key': '535674769165867',
@@ -58,12 +59,15 @@ module.exports = {
 	// },
 
 	linkPhoto: function(req, res){
-		var path = __dirname + '/../uploads/resume.png'
+		var path = __dirname + '/../uploads/' + req.file.originalname;
 		cloudinary.uploader.upload(path, function(result){
 			new ItemPhoto({
-				'item_id': '1',
+				'item_id': req.body.item_id,
 				'url': result.secure_url,
 			}).save().then(function(photo){
+				fs.unlink(path, function (){
+					console.log('removed ' + path)
+				})
 				res.json(photo)
 			})
   		console.log(result);

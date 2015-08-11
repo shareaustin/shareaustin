@@ -46,10 +46,6 @@ module.exports = function(passport){
 	}, 
 	function(req, email, password, done){
 		process.nextTick(function(){
-			console.log('Inside sign in')
-			console.log('req.body ', req.body)
-			console.log('email ', email)
-			console.log('password', password)
 			new User({'email': email}).fetch()
 			.then(function(user){
 				if(!user){

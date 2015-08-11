@@ -24,7 +24,7 @@ angular.module('shareAustin')
 		.then(function(user){
 				Auth.setUser(user);
 				$location.path('/dashboard')
-				
+
 		})
 		.catch(function(err){
 			console.log(err)
