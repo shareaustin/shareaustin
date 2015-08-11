@@ -13,6 +13,7 @@ angular.module('shareAustin')
 
         // Extracts useful info from google response
         var locationInfo = Helpers.simplifyLocation(googleResponse)
+        console.log(locationInfo)
 
         // Sets properties not found from form input  
         item.lat       = locationInfo.lat;

@@ -21,7 +21,8 @@
 		 </div>
 		 <div class="col-sm-6">
 	 	 	<div ng-app='shareaustin' ng-controller='AvailableItemsCtrl'>
-		 		<div id="map" class="google-map"></div>
+		 		<!-- Mysteriously, this empty ng-click is needed to reroute from map -->
+		 		<div ng-click="" id="map" class="google-map"></div>
 		 	</div>
 		 </div>
 	 </div>
