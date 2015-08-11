@@ -12,35 +12,40 @@ module.exports = {
 
 	getItems: function(req, res){
 		console.log(Object.keys(req))
-		new User({'id': '1'}).items().fetch()
+		var id = req.user ? req.user.attributes.id : 1
+		new User({'id': id}).items().fetch()
 		.then(function(items){
 			res.json(items)
 		})
 	},
 
 	getTransactions: function(req, res){
-		new User({'id': '1'}).transactions().fetch()
+		var id = req.user ? req.user.attributes.id : 1
+		new User({'id': id}).transactions().fetch()
 		.then(function(transactions){
 			res.json(transactions)
 		})
 	},
 
 	getBuyerRatings: function(req, res){
-		new User({'id': '2'}).buyerRatings().fetch()
+		var id = req.user ? req.user.attributes.id : 1
+		new User({'id': id}).buyerRatings().fetch()
 	  .then(function(model){
 	  	res.json(model)
 	  })
 	},
 
 	getSellerRatings: function(req, res){
-	  new User({'id': '1'}).sellerRatings()
+		var id = req.user ? req.user.attributes.id : 1
+	  new User({'id': id}).sellerRatings()
 	  .then(function(model){
 	  	res.json(model)
 	  })
 		
 	},
 	getSellerReviews: function(req, res){
-	  new User({'id': '1'}).sellerReviews()
+		var id = req.user ? req.user.attributes.id : 1
+	  new User({'id': id}).sellerReviews()
 	  .then(function(model){
 	  	res.json(model)
 	  })
