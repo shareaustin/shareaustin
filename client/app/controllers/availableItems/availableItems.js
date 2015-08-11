@@ -38,7 +38,7 @@ angular.module('shareAustin')
           "http://drdeclutterblog.com/wp-content/uploads/2011/08/canoe.thumbnail.JPG"
         )
 
-        var infoWindow = new google.maps.InfoWindow({
+        window.infoWindow = new google.maps.InfoWindow({
           content: windowStr,
           maxWidth: 150
         })
@@ -46,7 +46,7 @@ angular.module('shareAustin')
         infoWindow.open($scope.map, this)
       });
       setEvent(newMark, 'mouseout', function(event) {
-        this.setIcon(); // Passing in nothing changes icon to default
+        window.infoWindow.close(); // Passing in nothing changes icon to default
       });
       setEvent(newMark, 'click', function(event)  {
         $scope.updateItem(this.item);

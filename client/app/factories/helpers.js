@@ -22,10 +22,10 @@ angular.module('shareAustin')
       createHTMLStr: function(title, price, imageUrl) {
         var contentString = 
           '<div id="content">' +
-            '<h1  id="firstHeading" class="firstHeading">' + title + '</h1>'+
+            '<h3  id="firstHeading" class="firstHeading">' + title + '</h1>'+
             '<div id="bodyContent">'+
-              '<p>' + price + '</p>'+  
-              '<img src="'+imageUrl+'" height="42" width="42">'+
+              '<p> ' + (price ? "$"+price : "Free!") + '</p>'+  
+              '<img src="'+imageUrl+'" height="100" width="100">'+
             '</div>'+
           '</div>'
         return contentString;
