@@ -136,17 +136,39 @@ angular.module('shareAustin')
   };
 })
 
-.factory('Item', function () {
+.factory('Item', function ($http, Upload) {
   var itemDescription = {}
   function set(data) {
     itemDescription = data;
-  }
+  };
+
   function get() {
    return itemDescription;
+  };
+
+  function uploadPhoto(item_id, file){
+    console.log('in item util. item id is ', item_id)
+
+    Upload.upload({
+      url: 'api/user/item/photos/upload',
+      file: file,
+      fields: {item_id: item_id}
+    })
+    .progress(function (evt){
+      var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+      console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+    })
+    .success(function (data, status, headers, config){
+      console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
+    })
+    .error(function (data, status, headers, config){
+      console.log('error status: ' + status);
+    });
   }
 
   return {
    set: set,
-   get: get
+   get: get,
+   uploadPhoto: uploadPhoto
   }
 })

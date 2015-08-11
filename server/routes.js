@@ -1,6 +1,18 @@
 var userHandler = require('./requestHandler/userHandler.js');
 var itemHandler = require('./requestHandler/itemHandler.js');
 var transactionHandler = require('./requestHandler/transactionHandler.js');
+var multer = require('multer');
+var storage = multer.diskStorage({
+  destination: function(req, file, func){
+    func(null, __dirname + '/uploads')
+  },
+
+  filename: function(req, file, func){
+    func(null, file.originalname)
+  }
+});
+
+var upload = multer({storage: storage})
 
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()){
@@ -55,7 +67,7 @@ module.exports = function (app, passport) {
   app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);
   app.get('/api/user/seller_ratings', userHandler.getSellerRatings);
 
-  app.post('/api/user/item/photos/upload', itemHandler.linkPhoto);
+  app.post('/api/user/item/photos/upload', upload.single('file'), itemHandler.linkPhoto);
 
   return app;
 }
