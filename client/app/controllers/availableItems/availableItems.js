@@ -6,6 +6,7 @@ angular.module('shareAustin')
   $scope.items = [];
 
   $scope.setupMap = function() {
+    console.log($scope.items)
 
     // Austin view centered on capitol building
     var mapOptions = {
@@ -19,20 +20,20 @@ angular.module('shareAustin')
 
     // For each item, place a marker corresponding to its latitude and longitude
     for (var i = 0; i < $scope.items.length; i++) {
-      
+      console.log("for loop")
       // Create marker, set on map
       var latLng = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].lng)
       var markerSettings = {
                               position : latLng,
-                              title    : $scope.items[i].name,
-                              clickable: true
+                              map      : $scope.map,
+                              icon     : "http://drdeclutterblog.com/wp-content/uploads/2011/08/canoe.thumbnail.JPG",
                             };
-      var newMark = new google.maps.Marker(markerData)
+      var newMark = new google.maps.Marker(markerSettings)
       google.maps.event.addListener(newMark, 'click', function(event) {
         console.log(event)
       })
 
-      newMark.setMap($scope.map);
+      //newMark.setMap($scope.map);
     }
   }
 
@@ -41,6 +42,9 @@ angular.module('shareAustin')
     Request.items.fetchAvailableItems()    
       .then(function (results){
         $scope.items = results;
+
+        // Setup map AFTER allitems have been fetched
+        $scope.setupMap();
       })
   };
 
@@ -51,6 +55,5 @@ angular.module('shareAustin')
   }
 
   // Immediately invoked with page
-  $scope.fetchAvailableItems();
-  $scope.setupMap();
+  $scope.fetchAvailableItems()
 })
