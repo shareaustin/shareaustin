@@ -21,7 +21,7 @@ angular.module('shareAustin')
 .directive('slider', function () {
   return {
     restrict: "E",
-    templateUrl: "slider.html",
+    templateUrl: "directives/slider/slider.html",
     scope: {}
   }
 })
