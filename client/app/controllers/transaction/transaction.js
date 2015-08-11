@@ -1,29 +1,28 @@
 angular.module('shareAustin')
 
 .controller('TransactionCtrl', function($scope, $http, Request, sweet, Item) {
-  
-  /* TODOS:
-    1. Populate the view with item info
-    2. Set the item id to $scope.transaction.item_id
-    3. Grab (or let user set) the start date & end date (date/timepickers?)
-    4. Display the price to the user (let them know how much they'll be charged)
-    [Done] 5. Display a confirmation message to user (or failure message) when
-    Stripe sends back info.
-  */ 
+ 
+//TODO -- Populate transaction.buyer_id with user's logged-in id
 
-$scope.rentalStartDate = new Date();
-$scope.rentalStartDate.setMinutes("0");
-$scope.rentalEndDate = new Date();
+//Formatting for date and time pickers
+  $scope.rentalStartDate = new Date();
+  $scope.rentalStartDate.setMinutes("0");
+  $scope.rentalStartDate.setSeconds("0");
+  $scope.rentalStartDate.setMilliseconds("0");
+  $scope.rentalEndDate = new Date();
+  $scope.rentalEndDate.setMinutes("0");
+  $scope.rentalEndDate.setSeconds("0");
+  $scope.rentalEndDate.setMilliseconds("0");
 
 //Duration of rental sent to server to calculate price
   $scope.calculateDuration = function() {
-      var startsAt = $scope.rentalStartDate.valueOf();
-      // console.log('Transaction Starts At: ', startsAt);
-      var endsAt = $scope.rentalEndDate.valueOf();
-      // console.log('Transaction Ends At: ', endsAt);
-      var totalHours = (endsAt - startsAt) / ( 60 * 60 * 1000 );
-      console.log("Duration of rental: ", totalHours);
-      return totalHours;
+    var startsAt = $scope.rentalStartDate.valueOf();
+    // console.log('Transaction Starts At: ', startsAt);
+    var endsAt = $scope.rentalEndDate.valueOf();
+    // console.log('Transaction Ends At: ', endsAt);
+    var totalHours = (endsAt - startsAt) / ( 60 * 60 * 1000 );
+    console.log("Duration of rental: ", totalHours);
+    return totalHours;
   }
 
 //TEMPORARY -- Manually set the item info
@@ -38,18 +37,18 @@ $scope.rentalEndDate = new Date();
   //     // total_price: this.price_per_hour * $scope.calculateDuration()
   // }
 
-$scope.item = Item.get();
-$scope.item.total_price = this.price_per_hour * $scope.calculateDuration();
+  $scope.item = Item.get();
+  $scope.item.total_price = this.price_per_hour * $scope.calculateDuration();
 
-//Set price
-$scope.rentalPrice = function() { return Math.floor($scope.item.price_per_hour * $scope.calculateDuration())};
+  //Set price that is displayed
+  $scope.rentalPrice = function() { return Math.floor($scope.item.price_per_hour * $scope.calculateDuration())};
 
-//Date format for database and price calculation
-$scope.dateFormatter = function (dateObj) {
-  return dateObj.getFullYear() + "-" + (dateObj.getUTCMonth() + 1) + "-" + dateObj.getDate() + " " + dateObj.getHours() + ":" + dateObj.getMinutes();
-}
+  //Date format for database and price calculation
+  $scope.dateFormatter = function (dateObj) {
+    return dateObj.getFullYear() + "-" + (dateObj.getUTCMonth() + 1) + "-" + dateObj.getDate() + " " + dateObj.getHours() + ":" + dateObj.getMinutes();
+  }
 
-//Temporary dummy transaction data
+//TEMPORARY - dummy transaction data
   $scope.transaction = {
     item_id    : $scope.item.id,
     buyer_id   : '1',

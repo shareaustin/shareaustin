@@ -6,20 +6,23 @@
    </div>
    <div class="col-sm-4">
    <!-- RENTAL INFO FORM -->
-      <h2>Rental Information</h2>
-      <h4>Item: {{item.name}}</h4>
-      <h4 ng-model="item">Price Per Hour: ${{item.price_per_hour}}</h4>
-      <h4 ng-model="item">Total: ${{rentalPrice()}}</h4>
+      <h4>Rental Information</h4>
+      <label>Item: {{item.name}}</label><br>
+      <label ng-model="item">Price Per Hour: ${{item.price_per_hour || 0}}</label><br>
+      <label ng-model="item">Total: ${{rentalPrice() || 0}}</label>
       <form>
         <fieldset>
           <div class="input-group">
               <label>Start Date</label><br>
-              <input type="date" class="form-control" datepicker-popup ng-model="rentalStartDate" is-open="status.opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-              <timepicker ng-model="rentalStartDate" hour-step="1" minute-step="15" show-meridian="true" ng-change="timeLogger()"></timepicker>
+              <input type="date" class="datepicker" datepicker-popup ng-model="rentalStartDate"/>
+              <input type="time" ng-model="rentalStartDate"
+       placeholder="HH:mm" step="900"/>
           </div>
           <div class="input-group">
               <label>End Date</label><br>
-              <input type="date" class="form-control" datepicker-popup ng-model="rentalEndDate" is-open="status.opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <input type="date" class="datepicker" datepicker-popup ng-model="rentalEndDate"/>
+              <input type="time" ng-model="rentalEndDate"
+       placeholder="HH:mm" step="900"/>
           </div>
         </fieldset>
       </form>
@@ -27,7 +30,7 @@
 
     <!-- PAYMENT FORM -->
     <div class="col-sm-4">
-      <h2>Payment Information</h2>
+      <h4>Payment Information</h4>
       <form stripe:form="saveTransaction">
         <fieldset>
           <label>Card Number</label><br>
