@@ -17,7 +17,19 @@ angular.module('shareAustin')
           lat     : googleResponse.results[0].geometry.location.lat,
           lng     : googleResponse.results[0].geometry.location.lng,
         }
-      }
+      },
+
+      createHTMLStr: function(title, price, imageUrl) {
+        var contentString = 
+          '<div id="content">' +
+            '<h1  id="firstHeading" class="firstHeading">' + title + '</h1>'+
+            '<div id="bodyContent">'+
+              '<p>' + price + '</p>'+  
+              '<img src="'+imageUrl+'" height="42" width="42">'+
+            '</div>'+
+          '</div>'
+        return contentString;
+      },
     }
     return helperObj
 })

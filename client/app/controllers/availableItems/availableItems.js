@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Item) {
+.controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item) {
 
   $scope.currentItem = {};
   $scope.items = [];
@@ -25,7 +25,8 @@ angular.module('shareAustin')
       var markerSettings = {
                               position : latLng,
                               map      : $scope.map,
-                              item     : $scope.items[i]
+                              item     : $scope.items[i],
+                              title    : "Hello World!"
                             };
       
       var newMark   = new google.maps.Marker(markerSettings)
@@ -33,7 +34,16 @@ angular.module('shareAustin')
 
       //Event handlers for icons
       setEvent(newMark, 'mouseover', function(event) {
-        this.setIcon("http://drdeclutterblog.com/wp-content/uploads/2011/08/canoe.thumbnail.JPG");
+        var windowStr = Helpers.createHTMLStr(this.item.name, this.item.price_per_day, 
+          "http://drdeclutterblog.com/wp-content/uploads/2011/08/canoe.thumbnail.JPG"
+        )
+
+        var infoWindow = new google.maps.InfoWindow({
+          content: windowStr,
+          maxWidth: 150
+        })
+
+        infoWindow.open($scope.map, this)
       });
       setEvent(newMark, 'mouseout', function(event) {
         this.setIcon(); // Passing in nothing changes icon to default
@@ -49,7 +59,7 @@ angular.module('shareAustin')
     Request.items.fetchAvailableItems()    
       .then(function (results){
         $scope.items = results;
-        // Setup map AFTER allitems have been fetched
+        // Setup map AFTER all items have been fetched
         $scope.setupMap();
       })
   };
