@@ -1,0 +1,14 @@
+<div ng-include="'shared/navigation.html'"></div>
+<div class="containter top-margin">
+	<div class="row">
+	  <div class="col-sm-5 col-sm-offset-1 top-padding">
+	    <tabset class="bg-main-purple rounded light-border" justified="true">
+	      <tab ui-sref=".signin" heading="Sign In">
+	      </tab>
+	      <tab ui-sref=".signup" heading="Sign Up">
+	      </tab>
+	        <div ui-view=""> </div>
+	    </tabset>
+	  </div>
+	</div>
+</div>
