@@ -1,5 +1,5 @@
-insert into users (first_name, last_name) values ('Duevyn', 'Cooke');
-insert into users (first_name, last_name) values ('Hadley', 'Lambeth');
+insert into users (first_name, last_name, email, password) values ('Duevyn', 'Cooke', 'd@gmail.com', 'password');
+insert into users (first_name, last_name, email, password) values ('Hadley', 'Lambeth', 'h@gmail.com', 'password');
 insert into items (seller_id, name,available, price_per_day) values ('1', 'canoe', 'true', '15');
 insert into items (seller_id, name,available, price_per_day) values ('1', 'kayak', 'true', '20');
 insert into transactions (item_id, buyer_id) values ('1', '2');

@@ -26,7 +26,7 @@ module.exports = function(passport){
 				if (user){
 					//user already exists
 					console.log('user already exisits!!')
-					return done(null, false);
+					return done(new Error('account exists for email'));
 				} else {
 					new User({
 						'email': email,
@@ -39,24 +39,24 @@ module.exports = function(passport){
 		});
 	}));
 
-	passport.use('login', new LocalStrategy({
+	passport.use('signin', new LocalStrategy({
 		usernameField: 'email',
 		passwordField: 'password',
 		passReqToCallback: true
 	}, 
 	function(req, email, password, done){
 		process.nextTick(function(){
+			console.log('Inside sign in')
+			console.log('req.body ', req.body)
+			console.log('email ', email)
+			console.log('password', password)
 			new User({'email': email}).fetch()
 			.then(function(user){
 				if(!user){
 					return done(new Error("user doesn't exist"))
 				} else if ( user.attributes.password !== password){
-					//console.log(user)
-					//console.log(password)
 					return done(new Error('incorrect password'))
 				} else{
-					//console.log(user)
-					//console.log(password)
 					return done(null, user)
 				}
 			});
