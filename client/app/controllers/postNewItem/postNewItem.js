@@ -4,8 +4,8 @@ angular.module('shareAustin')
   $scope.newListing = {};
 
   $scope.submitNewListing = function(item) {
-    // Changes user input address to url end-path
-    var address = Helpers.urlifyAddress(item.streetAddress);
+    // Changes the user inputted address to a url end-path
+    var address = Helpers.urlifyAddress(item.address);
 
     // Request to google maps api for location info 
     Request.items.getLocation(address)

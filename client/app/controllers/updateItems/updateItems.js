@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('EditItemCtrl', function($scope, Request) {
+.controller('EditItemCtrl', function($scope, Request, Helpers) {
 
   $scope.getItemById = function(itemId) {
     Request.items.itemById(itemId).then(function(item) {
@@ -9,8 +9,9 @@ angular.module('shareAustin')
   },
 
   $scope.editItem = function(item) {
+    
     // Changes user input address to url end-path
-    var address = Helpers.urlifyAddress(item.streetAddress);
+    var address = Helpers.urlifyAddress(item.address);
 
     // Request to google maps api for location info 
     Request.items.getLocation(address)
