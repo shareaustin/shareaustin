@@ -26,7 +26,7 @@ module.exports = function(passport){
 				if (user){
 					//user already exists
 					console.log('user already exisits!!')
-					return done(new Error('accoutn exists for email'));
+					return done(new Error('account exists for email'));
 				} else {
 					new User({
 						'email': email,
