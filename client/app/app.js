@@ -2,7 +2,7 @@
 angular.module('shareAustin', [
   'ui.router',
   'ui.bootstrap',
-  'ngAnimate',
+  // 'ngAnimate',
   'stripe',
   'hSweetAlert'
 ])
