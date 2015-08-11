@@ -19,14 +19,19 @@ angular.module('shareAustin')
 
     // For each item, place a marker corresponding to its latitude and longitude
     for (var i = 0; i < $scope.items.length; i++) {
-      // Set coordinates
-      var latLng = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].lng)
-      var markerData = {
-                          position : latLng,
-                          title    : $scope.items[i].name
-                        };
+      
       // Create marker, set on map
+      var latLng = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].lng)
+      var markerSettings = {
+                              position : latLng,
+                              title    : $scope.items[i].name,
+                              clickable: true
+                            };
       var newMark = new google.maps.Marker(markerData)
+      google.maps.event.addListener(newMark, 'click', function(event) {
+        console.log(event)
+      })
+
       newMark.setMap($scope.map);
     }
   }
