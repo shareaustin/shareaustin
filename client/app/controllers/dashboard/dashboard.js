@@ -50,11 +50,29 @@ angular.module('shareAustin')
   $scope.deactivateItem(2);
 })
 
-.controller('TransactionHistory', function ($scope) {
-  $scope.transactions = [
-    {transaction_name: "sale one"},
-    {transaction_name: "sale two"},
-  ]
+.controller('TransactionHistory', function ($scope, Request) {
+  $scope.transactions = [];
+
+  $scope.fetchSoldTransactions = function() { 
+     Request.user.fetchSoldTransactions()
+     .then(function (results){
+       $scope.soldTransactions = results;
+       $scope.transactions = $scope.transactions.concat(results)
+       console.log("inside trans controller", results)
+     })
+   }
+
+  $scope.fetchBoughtTransactions = function() { 
+     Request.user.fetchBoughtTransactions()
+     .then(function (results){
+       $scope.boughtTransactions = results;
+       $scope.transactions = $scope.transactions.concat(results)
+       console.log("inside trans controller", results)
+     })
+   }
+   $scope.fetchSoldTransactions();
+   $scope.fetchBoughtTransactions();
+
 })
 .controller('CurrentListingCtrl', function ($scope) {
   $scope.listings = [
