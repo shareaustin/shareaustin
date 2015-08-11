@@ -52,6 +52,11 @@
 
 /*----- Item Description ------*/
 /*.item:nth-child(even) {padding-right: 20px;}*/
+.img-crop {
+  object-fit: cover;
+  /*width: 450px;
+  height: 300px;*/
+}
 .item-title-desc {
   padding: 15px 0;
 }
