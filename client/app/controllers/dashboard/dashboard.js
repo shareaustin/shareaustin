@@ -52,9 +52,16 @@ angular.module('shareAustin')
 
 .controller('TransactionHistory', function ($scope) {
   $scope.transactions = [
-    {transaction_name: "sale one"},
-    {transaction_name: "sale two"},
-  ]
+  //   {transaction_name: "sale one"},
+  //   {transaction_name: "sale two"},
+   ]
+  $scope.fetchTransaction = function(transaction) { // -- BS
+    Request.transactions.fetchTransaction(transaction)
+    .then(function (results){
+      $scope.transaction.id = results.id;
+    })
+  }
+
 })
 .controller('CurrentListingCtrl', function ($scope) {
   $scope.listings = [

@@ -89,7 +89,19 @@ angular.module('shareAustin')
           return resp.data;
         })
       }
-  }
+    },
+    transactions: { // -- BS
+      fetchTransaction: function(transaction) {
+        return $http({
+          method: 'GET',
+          url: 'api/fetchTransaction',
+          data: {transaction_id: transaction.id} 
+        })
+        .then(function(resp){
+          return resp.data;
+        })
+      }
+    }
 }
   return reqObj;
 })
