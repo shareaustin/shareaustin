@@ -4,7 +4,6 @@
 <div class="container-fluid">
    <div class="row top-margin">
      <div class="col-sm-6">
-					<!-- <div ng-repeat="item in items" ng-class="$even ? '' : 'row'"> -->
 						<div ng-repeat="item in items" class="item pull-left col-sm-6">
 							<h3 ng-click="updateItem(item, $event)" class="pointer">{{ item.name | limitTo: 25 }}</h3>
 							<img ng-click="updateItem(item, $event)" class="img-responsive pointer"  src="../img/canoe.jpg"/>
@@ -15,9 +14,7 @@
 							<button class="btn btn-primary btn-md" ng-click="">Rent It!</button>
 							<button class="btn btn-primary btn-md" ng-click="">Add to Favorites</button>
 						</div>
-					<!-- </div> -->
 		 </div>
-
 		 <div class="col-sm-6 col-sm-offset-6 fixed">
 		 		<!-- Mysteriously, this empty ng-click is needed to reroute from map -->
 		 		<div ng-click="" id="map" class="google-map"></div>
