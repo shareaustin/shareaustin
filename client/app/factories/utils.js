@@ -70,6 +70,7 @@ angular.module('shareAustin')
           data: item
         })
         .then(function(resp){
+          console.log('inside submit new list util: ', resp.data)
           return resp.data;
         })
       },
@@ -189,12 +190,17 @@ angular.module('shareAustin')
 
 .factory('Item', function ($http, Upload) {
   var itemDescription = {}
+  var primaryPhotoUrl = ''
   function set(data) {
     itemDescription = data;
   };
 
   function get() {
    return itemDescription;
+  };
+  
+  function getPrimaryPhotoUrl(){
+    return primaryPhotoUrl;
   };
 
   function uploadPhoto(item_id, file){
@@ -210,7 +216,8 @@ angular.module('shareAustin')
       console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
     })
     .success(function (data, status, headers, config){
-      console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
+      console.log('file ' + config.file.name + ' uploaded. Response: ' + JSON.stringify(data));
+      itemDescription.photo_url = data.photo_url;
     })
     .error(function (data, status, headers, config){
       console.log('error status: ' + status);
@@ -220,6 +227,7 @@ angular.module('shareAustin')
   return {
    set: set,
    get: get,
+   getPrimaryPhotoUrl: getPrimaryPhotoUrl,
    uploadPhoto: uploadPhoto
   }
 })
