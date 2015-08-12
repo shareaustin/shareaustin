@@ -110,17 +110,17 @@ angular.module('shareAustin')
   // /]
 })
 
-.controller('FavoritesCtrl', function ($scope){
-  $scope.favorites = [ 
-    {
-      favorite_name: 'Bob Saget Cutout'
-    }
-  ]
-  // $scope.fetchFavorites = function () {
-  //   Request.favorites.fetchFavorites();
-  //   .then(function (results){
-  //     $scope.favorites.id = results.id;
-
-  //   })
-  // }
+.controller('FavoritesCtrl', function ($scope, Request){
+  $scope.favorites = [] 
+    // {
+    //   favorite_name: 'Bob Saget Cutout'
+    // }
+  $scope.fetchFavoriteItems = function () {
+     Request.favorites.fetchFavoriteItems()
+     .then(function (results){
+      console.log("favorites results: "+ results)
+     $scope.favorites.id = results.id;
+    })
+   }
+  $scope.fetchFavoriteItems(); 
 })
