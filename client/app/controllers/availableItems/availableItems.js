@@ -35,9 +35,7 @@ angular.module('shareAustin')
 
       //Event handlers for icons
       setEvent(newMark, 'mouseover', function(event) {
-        var windowStr = Helpers.createHTMLStr(this.item.name, this.item.price_per_day,
-          "http://drdeclutterblog.com/wp-content/uploads/2011/08/canoe.thumbnail.JPG"
-        )
+        var windowStr = Helpers.createHTMLStr(this.item.name, this.item.price_per_day, this.item.photo_url)
 
         window.infoWindow = new google.maps.InfoWindow({
           content: windowStr,
@@ -76,7 +74,7 @@ angular.module('shareAustin')
   $scope.updateItem = function ($event) {
     console.log("Event ", $event)
     Item.set($event)
-    $location.path('../item-description');
+    $location.path('/item-description');
   }
   // Immediately invoked with page
   $scope.newFavorite = function ($event) {

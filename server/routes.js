@@ -74,5 +74,6 @@ module.exports = function (app, passport) {
 
   app.post('/api/user/item/photos/upload', upload.single('file'), itemHandler.linkPhoto);
 
+  app.post('/api/getItemPhotos/', itemHandler.getPhotos);
   return app;
 }

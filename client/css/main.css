@@ -75,15 +75,28 @@
   overflow: hidden;
 }
 
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+}
+
 /*----- All Items ------*/
 .google-map {
   position: fixed;
   height: 95vh;
 }
+.mapMarkerImg {
+  object-fit: cover;
+  width:100px;
+  height: 65px;
+}
 .button-container {margin-left: 10px;}
 /*----- Centering & Cropping Images -----*/
 .centerCrop {
   object-fit: cover;
+  width: 300px;
+  height: 200px;
 }
 
 .overflow {overflow: hidden;}

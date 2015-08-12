@@ -6,7 +6,7 @@
      <div class="col-sm-6">
 				<div ng-repeat="item in items" class="item pull-left col-sm-6">
 					<h4 ng-click="updateItem(item, $event)" class="item-title">{{ item.name | limitTo: 25 }}</h4>
-					<img ng-click="updateItem(item, $event)" class="img-responsive pointer"  src="../img/canoe.jpg"/>
+					<img ng-click="updateItem(item, $event)" class="centerCrop img-responsive pointer"  ng-src="{{item.photo_url}}"/>
 					<p>Seller: {{ item.seller_username }} {{ item.price_per_hour | currency }} per hour</p>
 					<p class="item-description">{{ item.description | limitTo: 133 }}</p>
 					<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
