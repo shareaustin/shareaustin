@@ -1,6 +1,5 @@
-.top-margin {
-  margin-top: 50px;
-}
+.top-margin {margin-top: 50px;}
+.top-margin-sm {margin-top: 20px;}
 .ul-reset {
   list-style: none;
   /*padding-left: 20px;*/
