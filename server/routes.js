@@ -37,6 +37,7 @@ module.exports = function (app, passport) {
 
   app.post('/api/addItem', itemHandler.addItem);
   app.post('/api/editItem', itemHandler.editItem);
+  app.get('/api/currentListings', itemHandler.getCurrentListings)
   //app.post('/api/deactivateItemById', itemHandler.deactivateItemById)
 
   //app.post('/api/signIn', userHandler.signIn)
@@ -63,6 +64,7 @@ module.exports = function (app, passport) {
 
   app.get('/api/user', isLoggedIn, userHandler.getUser);
   app.get('/api/user/items', userHandler.getItems);
+
   app.get('/api/user/soldTransactions', userHandler.getSoldTransactions);
   app.get('/api/user/boughtTransactions', userHandler.getBoughtTransactions);
 

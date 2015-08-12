@@ -1,10 +1,10 @@
 <div ng-repeat="item in listings" >
   <a class="fa fa-times remove"></a>
-  <a class="fa fa-pencil edit"></a>
+  <a ng-click="updateItem(item)" class="fa fa-pencil edit"></a>
   <ul class="ul-reset">
     <li class="li-rows">
-      <span>{{item.item_name}}</span>
-      <span>{{item.item_price}}</span>
+      <span>{{item.name }}</span>
+      <span>{{item.price_per_day | currency}}</span>
     </li>
   </ul>
 </div>

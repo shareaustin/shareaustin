@@ -5,8 +5,11 @@ angular.module('shareAustin')
   $scope.$watch('files', function(){
     $scope.uploadPhoto($scope.files, $scope.item);
   });
+  
   $scope.getItemById = function(itemId) {
     Request.items.itemById(itemId).then(function(item) {
+      console.log("getItembyId returns:")
+      console.log(item)
       $scope.item = item;
     })
   },
@@ -43,5 +46,5 @@ angular.module('shareAustin')
   }
   // Hard coded for now to display item 1
   // Should display any selected item
-  $scope.getItemById(1);
+  $scope.getItemById(Item.get().id);
 });

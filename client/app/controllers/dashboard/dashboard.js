@@ -74,21 +74,34 @@ angular.module('shareAustin')
    $scope.fetchBoughtTransactions();
 
 })
-.controller('CurrentListingCtrl', function ($scope) {
-  $scope.listings = [
-    {
-      item_name: "Canoe",
-      item_price: "$20"
-    },
-    {
-      item_name: "Kayak",
-      item_price: "$30"
-    },
-    {
-      item_name: "Boat",
-      item_price: "$30"
-    }
-  ]
+.controller('CurrentListingCtrl', function ($scope, Item, Request, $location) {
+  $scope.listings = [];
+    Request.items.fetchCurrentListings()
+    .then(function (results) {
+      console.log(results)
+      $scope.listings = results.data;
+    })
+
+  $scope.updateItem = function ($event) {
+    console.log("Event ", $event)
+    Item.set($event)
+    $location.path('/edit-item');
+  }
+
+
+    // {
+    //   item_name: "Canoe",
+    //   item_price: "$20"
+    // },
+    // {
+    //   item_name: "Kayak",
+    //   item_price: "$30"
+    // },
+    // {
+    //   item_name: "Boat",
+    //   item_price: "$30"
+    // }
+  // /]
 })
 
 .controller('FavoritesCtrl', function ($scope){
