@@ -5,6 +5,7 @@ angular.module('shareAustin')
   $scope.currentItem = {};
   $scope.items = [];
 
+  $scope.fav = {}
   $scope.setupMap = function() {
     console.log($scope.items)
 
@@ -20,7 +21,7 @@ angular.module('shareAustin')
 
     // For each item, place a marker corresponding to its latitude and longitude
     for (var i = 0; i < $scope.items.length; i++) {
-      
+
       var latLng = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].lng)
       var markerSettings = {
                               position : latLng,
@@ -28,13 +29,13 @@ angular.module('shareAustin')
                               item     : $scope.items[i],
                               title    : "Hello World!"
                             };
-      
+
       var newMark   = new google.maps.Marker(markerSettings)
       var setEvent = google.maps.event.addListener;
 
       //Event handlers for icons
       setEvent(newMark, 'mouseover', function(event) {
-        var windowStr = Helpers.createHTMLStr(this.item.name, this.item.price_per_day, 
+        var windowStr = Helpers.createHTMLStr(this.item.name, this.item.price_per_day,
           "http://drdeclutterblog.com/wp-content/uploads/2011/08/canoe.thumbnail.JPG"
         )
 
@@ -56,7 +57,7 @@ angular.module('shareAustin')
 
   // Fetches all available items for display
   $scope.fetchAvailableItems = function() {
-    Request.items.fetchAvailableItems()    
+    Request.items.fetchAvailableItems()
       .then(function (results){
         $scope.items = results;
         // Setup map AFTER all items have been fetched
@@ -78,5 +79,15 @@ angular.module('shareAustin')
     $location.path('../item-description');
   }
   // Immediately invoked with page
+  $scope.newFavorite = function ($event) {
+    $scope.fav.item_id = $event.id
+    Request.user.fetchUser()
+    .then(function (results) {
+      console.log("NEW FAV GET USER ", results)
+      $scope.fav.user_id = results.id
+      console.log("SCOPE.fav ", $scope.fav)
+    })
+    Request.favorites.addFavorite($scope.fav)
+  }
   $scope.fetchAvailableItems()
 })

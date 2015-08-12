@@ -27,7 +27,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
-      fetchSoldTransactions: function() { 
+      fetchSoldTransactions: function() {
         return $http({
           method: 'GET',
           url: '/api/user/soldTransactions',
@@ -36,7 +36,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
-      fetchBoughtTransactions: function() { 
+      fetchBoughtTransactions: function() {
         return $http({
           method: 'GET',
           url: '/api/user/boughtTransactions',
@@ -113,6 +113,17 @@ angular.module('shareAustin')
           url:    "https://maps.googleapis.com/maps/api/geocode/json?"+address,
         }).then(function(resp) {
           return resp.data;
+        })
+      }
+    },
+    favorites: {
+      addFavorite: function(item) {
+        return $http({
+          method: "POST",
+          url: "api/addFavorite",
+        }).then(function(resp) {
+          console.log(resp.data)
+          return resp.data
         })
       }
     }
