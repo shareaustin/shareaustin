@@ -65,10 +65,26 @@
 /*----- All Items ------*/
 .google-map {
   height: 95vh;
-  width: 100%;
 }
-
+.map-position {
+  left: 0;
+  top: 0;
+}
 /*----- Centering & Cropping Images -----*/
 .centerCrop {
   object-fit: cover;
+}
+
+.green {color: green;}
+.overflow {overflow: hidden;}
+.absolute {position: absolute;}
+/*.fixed {position: fixed;}*/
+
+.fixed {
+        position: fixed;
+        /*width: 45%;*/
+}
+.scrollit {
+        float: left;
+        width: 45%
 }
