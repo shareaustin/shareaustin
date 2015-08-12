@@ -8,10 +8,10 @@ module.exports = function(){
           user.increments('id').primary();
           user.string('first_name');
           user.string('last_name');
-          user.string('username')
+          user.string('username');
           user.string('email');
           user.string('password');
-          user.text('photo_url')
+          user.text('photo_url');
         })
         .then(function(table){
           console.log("Created Table users")
@@ -32,6 +32,7 @@ module.exports = function(){
           item.string('address');
           item.varchar('lat');
           item.varchar('lng');
+          item.text('photo_url');
         })
         .then(function (table){
           console.log('Created Table items', table)
