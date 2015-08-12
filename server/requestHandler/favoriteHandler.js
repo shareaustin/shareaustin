@@ -1,4 +1,5 @@
 var Favorite = require('../model/favorite.js')
+var Item     = require('../model/item.js')
 
 module.exports = {
   addFavorite: function (req, res) {
@@ -12,11 +13,15 @@ module.exports = {
     .then(res.json("Item Favorited"))
   },
   userFavoriteItems: function(req,res) {
-    console.log("in user favs")
-    var userId = req.user ? req.user.attributes.id : 1;
-    Favorite.where({'user_id':userId}).fetchAll()
-    .then(function(model) {
-      console.log("User favorites model: ", model);
+    var favorites = req.body
+    var model  = []
+    function callback() {
+      for (var i = 0; i < favorites.length; i++) {
+        model.push(Item.getItemById(favorites[i].item_id))
+        return model
+      }
+    }
+    callback().then(function(model){
       res.json(model)
     })
   }
