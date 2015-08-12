@@ -34,8 +34,8 @@
 
 /*----- Main Nav ------*/
 .main-nav-wrapper {
+  background: white;
   /*position: fixed;*/
-  /*z-index: 2;*/
 }
 .main-nav {
   border-bottom: 1px solid #eee;
@@ -62,6 +62,7 @@
   padding: 15px 0;
 }
 .item-title-wrapper {padding: 15px 0;}
+.item > img {border: 1px solid lightgray;}
 
 /*----- All Items ------*/
 .google-map {
@@ -74,9 +75,9 @@
   object-fit: cover;
 }
 
-.green {color: green;}
 .overflow {overflow: hidden;}
 .absolute {position: absolute;}
 .fixed {position: fixed;}
+.z-index {z-index: 100;}
 
-.z-index {z-index: 0;}
+.pointer:hover {cursor:pointer;}

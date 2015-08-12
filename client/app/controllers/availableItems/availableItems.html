@@ -1,21 +1,21 @@
 
-<div class="fixed" ng-include="'shared/navigation.html'"></div>
+<div class="fixed z-index" ng-include="'shared/navigation.html'"></div>
 
 <div class="container-fluid">
-   <div class="row top-margin z-index">
+   <div class="row top-margin">
      <div class="col-sm-6">
-					<div ng-repeat="item in items" ng-class="$even ? '' : 'row'">
-						<div class="item col-sm-6">
-							<h3 ng-click="updateItem(item, $event)">{{ item.name | limitTo: 25 }}</h3>
-							<img class="img-responsive"  src="http://www.hitchsafe.com/Applications/Canoe-Accessories.jpg"/>
+					<!-- <div ng-repeat="item in items" ng-class="$even ? '' : 'row'"> -->
+						<div ng-repeat="item in items" class="item pull-left col-sm-6">
+							<h3 ng-click="updateItem(item, $event)" class="pointer">{{ item.name | limitTo: 25 }}</h3>
+							<img ng-click="updateItem(item, $event)" class="img-responsive pointer"  src="../img/canoe.jpg"/>
 							<p>Seller: {{ item.seller_username }} {{ item.price_per_hour | currency }} per hour</p>
-							<p>Description: {{ item.description | limitTo: 133 }}</p>
+							<p>{{ item.description | limitTo: 133 }}</p>
 							<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
 							<!-- <p class="inline">{{ item.price_per_day | currency }}/day</p> -->
 							<button class="btn btn-primary btn-md" ng-click="">Rent It!</button>
 							<button class="btn btn-primary btn-md" ng-click="">Add to Favorites</button>
 						</div>
-					</div>
+					<!-- </div> -->
 		 </div>
 
 		 <div class="col-sm-6 col-sm-offset-6 fixed">
