@@ -16,7 +16,6 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
-
       fetchSellerRating: function(){
         return $http({
           method: 'GET',
@@ -27,7 +26,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
-      fetchSoldTransactions: function() {
+      fetchSoldTransactions: function() { 
         return $http({
           method: 'GET',
           url: '/api/user/soldTransactions',
@@ -36,7 +35,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
-      fetchBoughtTransactions: function() {
+      fetchBoughtTransactions: function() { 
         return $http({
           method: 'GET',
           url: '/api/user/boughtTransactions',
@@ -55,12 +54,6 @@ angular.module('shareAustin')
         .then(function(resp){
           console.log(resp.data);
           return resp.data;
-        })
-      },
-      fetchCurrentListings:function() {
-        return $http({
-          method: "GET",
-          url   : "api/currentListings"
         })
       },
       submitNewListing: function(item) {
@@ -84,7 +77,6 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
-
       itemById: function(itemId) {
         console.log("utils itemId:" +itemId)
        return $http({
@@ -114,31 +106,6 @@ angular.module('shareAustin')
           url:    "https://maps.googleapis.com/maps/api/geocode/json?"+address,
         }).then(function(resp) {
           return resp.data;
-        })
-      },
-      itemPhotos: function(itemId) {
-       // console.log("utils itemPhotos itemId:" +itemId)
-       return $http({
-        method: 'POST',
-        url: '/api/getItemPhotos/',
-        data: { itemId : itemId.id }
-        })
-        .then(function(resp){
-        // console.log(resp.data);
-        return resp.data;
-        })
-      }
-    },
-    favorites: {
-      addFavorite: function(item) {
-        console.log("utils fav item ", item)
-        return $http({
-          method: "POST",
-          url: "/api/addFavorite",
-          data: item
-        }).then(function(resp) {
-          console.log(resp.data)
-          return resp.data
         })
       }
     }
@@ -190,7 +157,7 @@ angular.module('shareAustin')
 
 .factory('Item', function ($http, Upload) {
   var itemDescription = {}
-  var primaryPhotoUrl = ''
+
   function set(data) {
     itemDescription = data;
   };
@@ -199,10 +166,6 @@ angular.module('shareAustin')
    return itemDescription;
   };
   
-  function getPrimaryPhotoUrl(){
-    return primaryPhotoUrl;
-  };
-
   function uploadPhoto(item_id, file){
     console.log('in item util. item id is ', item_id)
 
@@ -227,7 +190,6 @@ angular.module('shareAustin')
   return {
    set: set,
    get: get,
-   getPrimaryPhotoUrl: getPrimaryPhotoUrl,
    uploadPhoto: uploadPhoto
   }
 })
