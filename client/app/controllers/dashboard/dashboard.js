@@ -2,10 +2,10 @@ angular.module('shareAustin')
 
 .controller('DashboardCtrl', function ($scope, Request) {
   $scope.user = {
-    first_name: '',
-    last_name: '',
-    username: '',
-    photo_url: 'http://res.cloudinary.com/drw6xrsdi/image/upload/c_scale,w_200/v1439385037/default_avatar_wvynf1.jpg',
+    first_name: 'Bert',
+    last_name: 'Knee',
+    username: 'bert_knee',
+    photo_url: 'http://img2.wikia.nocookie.net/__cb20150221203401/villains/images/e/ec/Nice-old-lady-1-.jpg',
     rating: '3',
   }
 
@@ -57,7 +57,7 @@ angular.module('shareAustin')
      Request.user.fetchSoldTransactions()
      .then(function (results){
        $scope.soldTransactions = results;
-       $scope.transactions = $scope.transactions.concat(results)
+       //$scope.transactions = $scope.transactions.concat(results)
        console.log("inside trans controller", results)
      })
    }
@@ -66,7 +66,7 @@ angular.module('shareAustin')
      Request.user.fetchBoughtTransactions()
      .then(function (results){
        $scope.boughtTransactions = results;
-       $scope.transactions = $scope.transactions.concat(results)
+       //$scope.transactions = $scope.transactions.concat(results)
        console.log("inside trans controller", results)
      })
    }
