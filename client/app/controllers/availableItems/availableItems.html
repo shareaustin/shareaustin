@@ -1,29 +1,23 @@
 
-<div ng-include="'shared/navigation.html'"></div>
+<div class="fixed z-index" ng-include="'shared/navigation.html'"></div>
 
 <div class="container-fluid">
-   <div class="row">
+   <div class="row top-margin">
      <div class="col-sm-6">
-				<h2>Listings</h2>
-					<!-- <div ng-repeat="item in items"> -->
-						<div class="item col-sm-6" ng-repeat="item in items">
-							<h3 ng-click="updateItem(item, $event)">{{ item.name }}</h3>
-							<img class="img-responsive"  src="http://www.hitchsafe.com/Applications/Canoe-Accessories.jpg"/>
-							<p>Seller: {{ item.seller_username }}</p>
-							<p>Availabile: {{ item.available }}</p>
-							<p>Description: {{ item.description }}</p>
-							<p>Price Per Hour: {{ item.price_per_hour }}</p>
-							<p>Price Per Day: {{ item.price_per_day }}</p>
-							<button ng-click="">Rent It!</button>
-							<button ng-click="">Add to Favorites</button>
-						<!-- </div> -->
-					</div>
+						<div ng-repeat="item in items" class="item pull-left col-sm-6">
+							<h3 ng-click="updateItem(item, $event)" class="pointer">{{ item.name | limitTo: 25 }}</h3>
+							<img ng-click="updateItem(item, $event)" class="img-responsive pointer"  src="../img/canoe.jpg"/>
+							<p>Seller: {{ item.seller_username }} {{ item.price_per_hour | currency }} per hour</p>
+							<p>{{ item.description | limitTo: 133 }}</p>
+							<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
+							<!-- <p class="inline">{{ item.price_per_day | currency }}/day</p> -->
+							<button class="btn btn-primary btn-md" ng-click="">Rent It!</button>
+							<button class="btn btn-primary btn-md" ng-click="">Add to Favorites</button>
+						</div>
 		 </div>
-		 <div class="col-sm-6">
-	 	 	<div ng-app='shareaustin' ng-controller='AvailableItemsCtrl'>
+		 <div class="col-sm-6 col-sm-offset-6 fixed">
 		 		<!-- Mysteriously, this empty ng-click is needed to reroute from map -->
 		 		<div ng-click="" id="map" class="google-map"></div>
-		 	</div>
 		 </div>
 	 </div>
 </div>

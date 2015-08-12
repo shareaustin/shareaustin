@@ -1,6 +1,5 @@
-.top-margin {
-  margin-top: 50px;
-}
+.top-margin {margin-top: 50px;}
+.top-margin-sm {margin-top: 20px;}
 .ul-reset {
   list-style: none;
   /*padding-left: 20px;*/
@@ -34,6 +33,7 @@
 
 /*----- Main Nav ------*/
 .main-nav-wrapper {
+  background: white;
   /*position: fixed;*/
 }
 .main-nav {
@@ -61,14 +61,22 @@
   padding: 15px 0;
 }
 .item-title-wrapper {padding: 15px 0;}
+.item > img {border: 1px solid lightgray;}
 
 /*----- All Items ------*/
 .google-map {
+  position: fixed;
   height: 95vh;
-  width: 100%;
 }
 
 /*----- Centering & Cropping Images -----*/
 .centerCrop {
   object-fit: cover;
 }
+
+.overflow {overflow: hidden;}
+.absolute {position: absolute;}
+.fixed {position: fixed;}
+.z-index {z-index: 100;}
+
+.pointer:hover {cursor:pointer;}
