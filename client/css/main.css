@@ -96,6 +96,7 @@
   height: 65px;
 }
 .button-container {margin-left: 10px;}
+.newitem-button-container {margin: 10px 0;}
 /*----- Centering & Cropping Images -----*/
 .centerCrop {
   object-fit: cover;
@@ -109,3 +110,10 @@
 .z-index {z-index: 100;}
 
 .pointer:hover {cursor:pointer;}
+.drop-box {
+  background: #eee;
+  margin: 10px 0;
+  border-radius: 5px;
+  height: 150px;
+  cursor: pointer;
+}

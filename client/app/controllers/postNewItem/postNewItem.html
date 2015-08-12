@@ -14,8 +14,10 @@
 					<input type="text" ng-model='item.price_per_hour'/><br>
 					<label>Price Per Day:</labeL><br>
 					<input type="text" ng-model='item.price_per_day'/><br>
-					<button ng-click="addPhoto(item)">Add Photo</button><br>
-					<button ng-click="submitNewListing(item)">Submit</button>
+          <div class="newitem-button-container">
+  					<button ng-click="addPhoto(item)" class="btn btn-md btn-primary">Add Photo</button>
+  					<button ng-click="submitNewListing(item)" class="btn btn-md btn-primary">Submit</button>
+          </div>
 				</form>
 			</div>
 		</div>
