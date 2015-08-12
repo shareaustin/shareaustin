@@ -63,6 +63,14 @@ angular.module('shareAustin')
         $scope.setupMap();
       })
   };
+
+  //Clicking "Rent" button takes user to transaction view
+  $scope.rentItem = function ($event) {
+    console.log("Event ", $event)
+    Item.set($event)
+    $location.path('/transaction');
+  }
+
   // Changes item selected for detailed viewing
   $scope.updateItem = function ($event) {
     console.log("Event ", $event)

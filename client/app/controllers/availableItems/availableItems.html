@@ -11,7 +11,7 @@
 							<p>{{ item.description | limitTo: 133 }}</p>
 							<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
 							<!-- <p class="inline">{{ item.price_per_day | currency }}/day</p> -->
-							<button class="btn btn-primary btn-md" ng-click="">Rent It!</button>
+							<button class="btn btn-primary btn-md" ng-click="rentItem(item, $event)">Rent It!</button>
 							<button class="btn btn-primary btn-md" ng-click="">Add to Favorites</button>
 						</div>
 		 </div>
