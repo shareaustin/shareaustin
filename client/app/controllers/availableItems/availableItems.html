@@ -5,14 +5,16 @@
    <div class="row top-margin">
      <div class="col-sm-6">
 						<div ng-repeat="item in items" class="item pull-left col-sm-6">
-							<h3 ng-click="updateItem(item, $event)" class="pointer">{{ item.name | limitTo: 25 }}</h3>
+							<h4 ng-click="updateItem(item, $event)" class="item-title">{{ item.name | limitTo: 25 }}</h4>
 							<img ng-click="updateItem(item, $event)" class="img-responsive pointer"  src="../img/canoe.jpg"/>
 							<p>Seller: {{ item.seller_username }} {{ item.price_per_hour | currency }} per hour</p>
-							<p>{{ item.description | limitTo: 133 }}</p>
+							<p class="item-description">{{ item.description | limitTo: 133 }}</p>
 							<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
 							<!-- <p class="inline">{{ item.price_per_day | currency }}/day</p> -->
-							<button class="btn btn-primary btn-md" ng-click="rentItem(item, $event)">Rent It!</button>
-							<button class="btn btn-primary btn-md" ng-click="">Add to Favorites</button>
+							<div class="row button-container">
+                <button class="btn btn-primary btn-md col-sm-5" ng-click="rentItem(item, $event)">Rent It!</button>
+  							<button class="btn btn-default btn-md col-sm-5 col-sm-offset-1" ng-click="">Favorite</button>
+			        </div>
 						</div>
 		 </div>
 		 <div class="col-sm-6 col-sm-offset-6 fixed">
