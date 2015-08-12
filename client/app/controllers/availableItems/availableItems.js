@@ -80,14 +80,15 @@ angular.module('shareAustin')
   }
   // Immediately invoked with page
   $scope.newFavorite = function ($event) {
-    $scope.fav.item_id = $event.id
     Request.user.fetchUser()
     .then(function (results) {
-      console.log("NEW FAV GET USER ", results)
+      // console.log("NEW FAV GET USER ", results)
+      $scope.fav.item_id = $event.id
       $scope.fav.user_id = results.id
-      console.log("SCOPE.fav ", $scope.fav)
+      // console.log("SCOPE.fav ", $scope.fav)
+    }).then(function () {
+      Request.favorites.addFavorite($scope.fav)
     })
-    Request.favorites.addFavorite($scope.fav)
   }
   $scope.fetchAvailableItems()
 })

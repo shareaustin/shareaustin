@@ -118,9 +118,11 @@ angular.module('shareAustin')
     },
     favorites: {
       addFavorite: function(item) {
+        console.log("utils fav item ", item)
         return $http({
           method: "POST",
-          url: "api/addFavorite",
+          url: "/api/addFavorite",
+          data: item
         }).then(function(resp) {
           console.log(resp.data)
           return resp.data
