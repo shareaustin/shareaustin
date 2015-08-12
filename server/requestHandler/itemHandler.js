@@ -65,13 +65,13 @@ module.exports = {
 		})
 	},
 
-	// deactivateItemById: function(req, res) {
-	// 	var itemId = req.body.itemId;
-	// 	new Item({ id : itemId}).destroy().
-	// 	then(function () {
-	// 		res.json("Deleted")
-	// 	}) 
-	// },
+	deactivateItemById: function(req, res) {
+		new Item({id: req.body.id})
+  	.save({active: 'false'}, {patch: true})
+		.then(function (model) {
+			res.json("Deleted item")
+		}) 
+	},
 
 	linkPhoto: function(req, res){
 		var path = __dirname + '/../uploads/' + req.file.originalname;
