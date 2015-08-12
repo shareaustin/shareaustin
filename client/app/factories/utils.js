@@ -114,6 +114,18 @@ angular.module('shareAustin')
         }).then(function(resp) {
           return resp.data;
         })
+      },
+      itemPhotos: function(itemId) {
+       // console.log("utils itemPhotos itemId:" +itemId)
+       return $http({
+        method: 'POST',
+        url: '/api/getItemPhotos/',
+        data: { itemId : itemId.id }
+        })
+        .then(function(resp){
+        // console.log(resp.data);
+        return resp.data;
+        })
       }
     },
     favorites: {
