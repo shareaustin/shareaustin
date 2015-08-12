@@ -16,6 +16,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+
       fetchSellerRating: function(){
         return $http({
           method: 'GET',
@@ -26,7 +27,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
-      fetchSoldTransactions: function() { 
+      fetchSoldTransactions: function() {
         return $http({
           method: 'GET',
           url: '/api/user/soldTransactions',
@@ -35,7 +36,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
-      fetchBoughtTransactions: function() { 
+      fetchBoughtTransactions: function() {
         return $http({
           method: 'GET',
           url: '/api/user/boughtTransactions',
@@ -56,6 +57,12 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+      fetchCurrentListings:function() {
+        return $http({
+          method: "GET",
+          url   : "api/currentListings"
+        })
+      },
       submitNewListing: function(item) {
         return $http({
           method: 'POST',
@@ -63,7 +70,6 @@ angular.module('shareAustin')
           data: item
         })
         .then(function(resp){
-          console.log('inside submit new list util: ', resp.data)
           return resp.data;
         })
       },
@@ -77,6 +83,7 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
+
       itemById: function(itemId) {
         console.log("utils itemId:" +itemId)
        return $http({
@@ -106,6 +113,31 @@ angular.module('shareAustin')
           url:    "https://maps.googleapis.com/maps/api/geocode/json?"+address,
         }).then(function(resp) {
           return resp.data;
+        })
+      },
+      itemPhotos: function(itemId) {
+       // console.log("utils itemPhotos itemId:" +itemId)
+       return $http({
+        method: 'POST',
+        url: '/api/getItemPhotos/',
+        data: { itemId : itemId.id }
+        })
+        .then(function(resp){
+        // console.log(resp.data);
+        return resp.data;
+        })
+      }
+    },
+    favorites: {
+      addFavorite: function(item) {
+        console.log("utils fav item ", item)
+        return $http({
+          method: "POST",
+          url: "/api/addFavorite",
+          data: item
+        }).then(function(resp) {
+          console.log(resp.data)
+          return resp.data
         })
       }
     }
@@ -157,7 +189,6 @@ angular.module('shareAustin')
 
 .factory('Item', function ($http, Upload) {
   var itemDescription = {}
-
   function set(data) {
     itemDescription = data;
   };
@@ -165,7 +196,7 @@ angular.module('shareAustin')
   function get() {
    return itemDescription;
   };
-  
+
   function uploadPhoto(item_id, file){
     console.log('in item util. item id is ', item_id)
 
@@ -179,7 +210,7 @@ angular.module('shareAustin')
       console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
     })
     .success(function (data, status, headers, config){
-      console.log('file ' + config.file.name + ' uploaded. Response: ' + JSON.stringify(data));
+      console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
       itemDescription.photo_url = data.photo_url;
     })
     .error(function (data, status, headers, config){
