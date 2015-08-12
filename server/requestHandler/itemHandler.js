@@ -50,6 +50,18 @@ module.exports = {
 		})
 	},
 
+	getCurrentListings: function(req, res) {
+		var id = req.user ? req.user.attributes.id : 1
+		Item.where(
+			{	'available': 'true',
+				'seller_id': id	
+			}).fetchAll()
+		
+		.then(function (model) {
+			res.json(model)
+		})
+	},
+
 	// deactivateItemById: function(req, res) {
 	// 	var itemId = req.body.itemId;
 	// 	new Item({ id : itemId}).destroy().

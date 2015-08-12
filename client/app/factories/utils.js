@@ -16,6 +16,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+
       fetchSellerRating: function(){
         return $http({
           method: 'GET',
@@ -56,6 +57,12 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+      fetchCurrentListings:function() {
+        return $http({
+          method: "GET",
+          url   : "api/currentListings"
+        })
+      },
       submitNewListing: function(item) {
         return $http({
           method: 'POST',
@@ -76,6 +83,7 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
+
       itemById: function(itemId) {
         console.log("utils itemId:" +itemId)
        return $http({
