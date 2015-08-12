@@ -1,5 +1,5 @@
-<div ng-repeat="item in listings" >
-  <a class="fa fa-times remove"></a>
+<div ng-repeat="item in listings" ng-show="item.active === true">
+  <a ng-click="removeItem(item)" class="fa fa-times remove"></a>
   <a ng-click="updateItem(item)" class="fa fa-pencil edit"></a>
   <ul class="ul-reset">
     <li class="li-rows">

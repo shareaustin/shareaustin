@@ -88,6 +88,12 @@ angular.module('shareAustin')
     $location.path('/edit-item');
   }
 
+  $scope.removeItem = function($event) {
+    console.log("Event ", $event)
+    $event.active = false;
+    Request.items.deactivateItem($event)
+  }
+
 
     // {
     //   item_name: "Canoe",

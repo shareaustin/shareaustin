@@ -84,6 +84,17 @@ angular.module('shareAustin')
         })
       },
 
+      deactivateItem: function(item) {
+        return $http({
+         method: 'POST',
+         url: '/api/deactivateItemById',
+         data: item
+        })
+        .then(function(resp){
+         return resp.data;
+        })
+      },
+
       itemById: function(itemId) {
         console.log("utils itemId:" +itemId)
        return $http({
