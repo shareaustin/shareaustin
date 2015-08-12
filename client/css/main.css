@@ -84,6 +84,8 @@
 /*----- Centering & Cropping Images -----*/
 .centerCrop {
   object-fit: cover;
+  width: 300px;
+  height: 200px;
 }
 
 .overflow {overflow: hidden;}
