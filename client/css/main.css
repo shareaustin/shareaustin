@@ -57,18 +57,30 @@
   /*width: 450px;
   height: 300px;*/
 }
-.item-title-desc {
+/*.item-title-desc {
   padding: 15px 0;
+}*/
+
+.item-title {
+  cursor: pointer;
+  overflow: hidden;
+  height: 19px;
 }
+.item {margin-bottom: 10px;}
 .item-title-wrapper {padding: 15px 0;}
 .item > img {border: 1px solid lightgray;}
+.item-description {
+  min-height: 60px;
+  max-height: 100px;
+  overflow: hidden;
+}
 
 /*----- All Items ------*/
 .google-map {
   position: fixed;
   height: 95vh;
 }
-
+.button-container {margin-left: 10px;}
 /*----- Centering & Cropping Images -----*/
 .centerCrop {
   object-fit: cover;
