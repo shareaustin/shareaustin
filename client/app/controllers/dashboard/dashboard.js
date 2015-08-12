@@ -74,13 +74,20 @@ angular.module('shareAustin')
    $scope.fetchBoughtTransactions();
 
 })
-.controller('CurrentListingCtrl', function ($scope, Request) {
+.controller('CurrentListingCtrl', function ($scope, Item, Request, $location) {
   $scope.listings = [];
     Request.items.fetchCurrentListings()
     .then(function (results) {
       console.log(results)
       $scope.listings = results.data;
     })
+
+  $scope.updateItem = function ($event) {
+    console.log("Event ", $event)
+    Item.set($event)
+    $location.path('/edit-item');
+  }
+
 
     // {
     //   item_name: "Canoe",
