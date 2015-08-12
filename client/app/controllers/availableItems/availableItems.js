@@ -75,7 +75,7 @@ angular.module('shareAustin')
   $scope.updateItem = function ($event) {
     console.log("Event ", $event)
     Item.set($event)
-    $location.path('/item-description');
+    $location.path('../item-description');
   }
   // Immediately invoked with page
   $scope.fetchAvailableItems()

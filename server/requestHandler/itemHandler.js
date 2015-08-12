@@ -43,6 +43,7 @@ module.exports = {
 	},
 	getItemById: function(req, res) {
 		var itemId = req.body.itemId;
+		console.log("itemId: "+ itemId +" type: "+ typeof itemId)
 		Item.where({'id': itemId }).fetch()
 		.then(function (model) {
 			console.log("model" + model)

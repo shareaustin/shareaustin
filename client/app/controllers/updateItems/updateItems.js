@@ -7,6 +7,8 @@ angular.module('shareAustin')
   });
   $scope.getItemById = function(itemId) {
     Request.items.itemById(itemId).then(function(item) {
+      console.log("getItembyId returns:")
+      console.log(item)
       $scope.item = item;
     })
   },
@@ -43,5 +45,6 @@ angular.module('shareAustin')
   }
   // Hard coded for now to display item 1
   // Should display any selected item
-  $scope.getItemById(1);
+  console.log(Item.get().id)
+  $scope.getItemById(Item.get().id);
 });
