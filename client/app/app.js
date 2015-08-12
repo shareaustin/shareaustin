@@ -68,6 +68,12 @@ angular.module('shareAustin', [
     templateUrl: '/app/controllers/postNewItem/postNewItem.html',
     controller: 'PostNewItemCtrl'
   })
+  .state('itemPrimaryPhoto', {
+    url: '/item-primary-photo',
+    templateUrl: '/app/controllers/postNewItem/primaryPhoto.html',
+    controller: 'ItemPrimaryPhotoCtrl'
+
+  })
   .state('editItem', {
     url: '/edit-item',
     templateUrl: '/app/controllers/updateItems/updateItems.html',

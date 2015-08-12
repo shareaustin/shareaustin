@@ -32,7 +32,9 @@ module.exports = {
 			'lng'						: item.lng
 		}
 		new Item(attr).save()
-		.then(res.json("Item added!")) 
+		.then(function (item){
+			res.json(item);
+		}) 
 	},
 	editItem: function(req, res) {
 		console.log("in edit item handler")
@@ -76,7 +78,7 @@ module.exports = {
 		cloudinary.uploader.upload(path, function(result){
 			new ItemPhoto({
 				'item_id': req.body.item_id,
-				'url': result.secure_url,
+				'photo_url': result.secure_url,
 			}).save().then(function(photo){
 				fs.unlink(path, function (){
 					console.log('removed ' + path)

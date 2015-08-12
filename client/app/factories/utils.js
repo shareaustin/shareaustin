@@ -211,6 +211,7 @@ angular.module('shareAustin')
     })
     .success(function (data, status, headers, config){
       console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
+      itemDescription.photo_url = data.photo_url;
     })
     .error(function (data, status, headers, config){
       console.log('error status: ' + status);
