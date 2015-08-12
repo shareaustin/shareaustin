@@ -1,5 +1,6 @@
 var userHandler = require('./requestHandler/userHandler.js');
 var itemHandler = require('./requestHandler/itemHandler.js');
+var favoriteHandler = require('./requestHandler/favoriteHandler.js');
 var transactionHandler = require('./requestHandler/transactionHandler.js');
 var multer = require('multer');
 var storage = multer.diskStorage({
@@ -24,13 +25,13 @@ module.exports = function (app, passport) {
   app.get('/api/availableItems', itemHandler.getAvailableItems);
   app.post('/api/getItemById', itemHandler.getItemById);
   //app.get('/api/isLoggedIn', userHandler.isLoggedIn)
-  
+
   //app.get('/api/sellerReviews', userHandler.sellerReviews)
   //app.get('/api/sellerRatings', userHandler.sellerRatings)
-  
+
   //app.get('/api/buyerReviews', userHandler.buyerReviews)
   //app.get('/api/buyerRatings', userHandler.buyerRatings)
-  
+
   //app.get('/api/userTransactions', userHandler.userTransactions)
   //app.get('/api/userFavorites', userHandler.userFavorites)
   app.post('/api/addTransaction', transactionHandler.addTransaction);
@@ -47,7 +48,7 @@ module.exports = function (app, passport) {
   //app.post('api/addReview', ratingsHandler.addReview)
   //app.post('api/removeReview', ratingsHandler.removeReview)
 
-  //app.post('api/addFavorite'  , favoriteHandler.addFavorite)
+  app.post('/api/addFavorite', favoriteHandler.addFavorite)
   //app.post('api/removeFavorite', favoriteHandler.removeFavorite)
 
   //app.post('api/addRating'  , ratingHandler.addRating)
@@ -55,7 +56,7 @@ module.exports = function (app, passport) {
   app.post('/signup', passport.authenticate('signup', {
     successRedirect: '/api/user',
     failureRedirect: '/'
-  })); 
+  }));
 
   app.post('/signin', passport.authenticate('signin', {
     successRedirect: '/api/user',
@@ -75,4 +76,3 @@ module.exports = function (app, passport) {
 
   return app;
 }
-
