@@ -1,22 +1,18 @@
+  <ul class="list-group">
 <div ng-repeat="soldTransaction in soldTransactions" >
-  <a class="fa fa-times remove"></a>
-  <a class="fa fa-pencil edit"></a>
-  <ul class="ul-reset">
-    <li class="li-rows">
-      <span>{{soldTransaction}}</span>
+    <li class="list-group-item list-group-item-success">
+      <span>{{soldTransaction.start_date.substr(0,10)}}: You earned ${{soldTransaction.price}} for your rental</span>
     </li>
-  </ul>
 </div>
+  </ul>
 
+  <ul class="list-group">
 <div ng-repeat="boughtTransaction in boughtTransactions" >
-  <a class="fa fa-times remove"></a>
-  <a class="fa fa-pencil edit"></a>
-  <ul class="ul-reset">
-    <li class="li-rows">
-      <span>{{boughtTransaction}}</span>
+    <li class="list-group-item list-group-item-info">
+      <span>{{boughtTransaction.start_date.substr(0,10)}}: You paid ${{boughtTransaction.price}} to rent an item</span>
     </li>
-  </ul>
 </div>
+  </ul>
 
 <!-- <div ng-repeat="transaction in transactions" >
   <a class="fa fa-times remove"></a>

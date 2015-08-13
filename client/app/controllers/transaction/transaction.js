@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('TransactionCtrl', function($scope, $http, Request, sweet, Item) {
+.controller('TransactionCtrl', function($scope, $http, Request, sweet, Item, Auth) {
  
 //TODO -- Populate transaction.buyer_id with user's logged-in id
 
@@ -36,10 +36,10 @@ angular.module('shareAustin')
     return dateObj.getFullYear() + "-" + (dateObj.getUTCMonth() + 1) + "-" + dateObj.getDate() + " " + dateObj.getHours() + ":" + dateObj.getMinutes();
   }
 
-//TEMPORARY - dummy transaction data
+//Send logged-in user, selected item, and rental duration in request to server
   $scope.transaction = {
     item_id    : $scope.item.id,
-    buyer_id   : '1',
+    buyer_id   : Auth.getUser() ? Auth.getUser().id : 1,
     duration   : $scope.calculateDuration()
   }
 

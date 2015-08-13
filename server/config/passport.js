@@ -21,6 +21,7 @@ module.exports = function(passport){
 	}, 
 	function(req, email, password, done){
 		process.nextTick(function(){
+			console.log('**** PASSPORT AUTH USER PROPERTIES **** : ', req.body);
 			new User({'email': email}).fetch()
 			.then(function(user){
 				if (user){
@@ -31,6 +32,8 @@ module.exports = function(passport){
 					new User({
 						'email': email,
 						'password': password,
+						'first_name': req.body.first_name,
+						'last_name': req.body.last_name
 					}).save().then(function(user){
 						return done(null, user);
 					});
