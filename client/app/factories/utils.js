@@ -151,11 +151,11 @@ angular.module('shareAustin')
           return resp.data
         })
       },
-      fetchFavoriteItems: function(favorites) {
+      fetchFavoriteItems: function(user_id) {
         return $http({
-          method: "GET",
+          method: "POST",
           url   : "/api/userFavoriteItems",
-          data  : favorites
+          data  : {"userId" : user_id} ,
         }).then(function(resp) {
           return resp.data
         })

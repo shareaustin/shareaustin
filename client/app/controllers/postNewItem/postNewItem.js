@@ -17,6 +17,7 @@ angular.module('shareAustin')
 
         // Sets properties not found from form input  
         item.seller_id = Auth.getUser() ? Auth.getUser().id : 1;
+        console.log("expect this = 1: " + item.seller_id)
         item.lat       = locationInfo.lat;
         item.lng       = locationInfo.lng;
         item.address   = locationInfo.address;
