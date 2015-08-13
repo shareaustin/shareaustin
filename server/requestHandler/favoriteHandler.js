@@ -6,7 +6,7 @@ module.exports = {
     console.log('***ADD FAVORITE*** ', req.body)
 
     var attr = {
-      'user_id' : req.body.user_id,
+      'user_id' : req.body.user_id ? req.body.user_id : 4,
       'item_id' : req.body.item_id
     }
     new Favorite(attr).save()

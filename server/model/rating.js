@@ -3,4 +3,4 @@ var Rating = bookshelf.Model.extend({
 	tableName: 'ratings',
 });
 
-module.exports = bookshelf.model('Rating', Rating)
+module.exports = bookshelf.model('Rating', Rating);
