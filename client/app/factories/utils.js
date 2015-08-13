@@ -150,8 +150,17 @@ angular.module('shareAustin')
           console.log(resp.data)
           return resp.data
         })
+      },
+      fetchFavoriteItems: function(favorites) {
+        return $http({
+          method: "GET",
+          url   : "/api/userFavoriteItems",
+          data  : favorites
+        }).then(function(resp) {
+          return resp.data
+        })
       }
-    }
+    },
 }
   return reqObj;
 })

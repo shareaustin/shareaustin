@@ -33,8 +33,8 @@ module.exports = function (app, passport) {
   //app.get('/api/buyerRatings', userHandler.buyerRatings)
 
   //app.get('/api/userTransactions', userHandler.userTransactions)
-  //app.get('/api/userFavorites', userHandler.userFavorites)
-  app.post('/api/addTransaction', transactionHandler.addTransaction);
+  app.get('/api/userFavoriteItems'  , favoriteHandler.userFavoriteItems)
+  app.post('/api/addTransaction' , transactionHandler.addTransaction);
 
   app.post('/api/addItem', itemHandler.addItem);
   app.post('/api/editItem', itemHandler.editItem);
