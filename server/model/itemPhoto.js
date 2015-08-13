@@ -1,6 +1,7 @@
-var db = require('../db/db.js');
+var bookshelf = require('../db/db.js');
 
-module.exports = db.Model.extend({
+var ItemPhoto= bookshelf.Model.extend({
 	tableName: 'item_photos',
   
 });
+module.exports = bookshelf.model('ItemPhoto', ItemPhoto);

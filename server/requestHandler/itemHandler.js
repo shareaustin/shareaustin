@@ -96,6 +96,15 @@ module.exports = {
 			console.log("Item photos model: ", model);
 			res.json(model);
 		})
+	},
+
+	getSeller: function(req, res){
+		var id = req.user ? req.user.attributes.id : 1;
+		new Item({id:id}).fetch({
+			withRelated: ['seller']
+		}).then(function(item){
+			res.json(item);
+		})
 	}
 
 }
