@@ -1,4 +1,4 @@
-<div ng-repeat="soldTransaction in soldTransactions" >
+<!-- <div ng-repeat="soldTransaction in soldTransactions" >
   <a class="fa fa-times remove"></a>
   <a class="fa fa-pencil edit"></a>
   <ul class="ul-reset">
@@ -16,15 +16,15 @@
       <span>{{boughtTransaction.item_id}}</span>
     </li>
   </ul>
-</div>
+</div> -->
 
-<!-- <div ng-repeat="transaction in transactions" >
+<div ng-repeat="transaction in transactions" >
   <a class="fa fa-times remove"></a>
   <a class="fa fa-pencil edit"></a>
   <ul class="ul-reset">
     <li class="li-rows">
-      <span>{{transaction}}</span>
+      <span>{{transaction.transaction_name}}</span>
+      <span>{{transaction.transaction_price}}</span>
     </li>
   </ul>
 </div>
- -->

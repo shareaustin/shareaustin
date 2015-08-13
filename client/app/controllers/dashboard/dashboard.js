@@ -51,27 +51,36 @@ angular.module('shareAustin')
 })
 
 .controller('TransactionHistory', function ($scope, Request) {
-  $scope.transactions = [];
+  $scope.transactions = [
+    {
+      transaction_name: 'Intex Challenger Kayak',
+      transaction_price: '$100.00'
+    },
+    {
+      transaction_name: 'Sorrento Mountain Bike',
+      transaction_price: '$75.00'
+    }
+  ];
 
-  $scope.fetchSoldTransactions = function() { 
-     Request.user.fetchSoldTransactions()
-     .then(function (results){
-       $scope.soldTransactions = results;
-       //$scope.transactions = $scope.transactions.concat(results)
-       console.log("inside trans controller", results)
-     })
-   }
+  // $scope.fetchSoldTransactions = function() { 
+  //    Request.user.fetchSoldTransactions()
+  //    .then(function (results){
+  //      $scope.soldTransactions = results;
+  //      //$scope.transactions = $scope.transactions.concat(results)
+  //      console.log("inside trans controller", results)
+  //    })
+  //  }
 
-  $scope.fetchBoughtTransactions = function() { 
-     Request.user.fetchBoughtTransactions()
-     .then(function (results){
-       $scope.boughtTransactions = results;
-       //$scope.transactions = $scope.transactions.concat(results)
-       console.log("inside trans controller", results)
-     })
-   }
-   $scope.fetchSoldTransactions();
-   $scope.fetchBoughtTransactions();
+  // $scope.fetchBoughtTransactions = function() { 
+  //    Request.user.fetchBoughtTransactions()
+  //    .then(function (results){
+  //      $scope.boughtTransactions = results;
+  //      //$scope.transactions = $scope.transactions.concat(results)
+  //      console.log("inside trans controller", results)
+  //    })
+  //  }
+  //  $scope.fetchSoldTransactions();
+  //  $scope.fetchBoughtTransactions();
 
 })
 .controller('CurrentListingCtrl', function ($scope, Item, Request, $location) {

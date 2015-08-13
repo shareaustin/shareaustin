@@ -5,7 +5,7 @@ var Rating = require('./rating.js');
  
 module.exports = db.Model.extend({
   tableName: 'transactions',
-  items: function (){
-    return this.belongsTo('Item', [item_name])
+  item: function (){
+    return this.belongsTo(Item)
   }
 });
