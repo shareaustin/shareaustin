@@ -96,13 +96,9 @@ angular.module('shareAustin')
 .controller('FavoritesCtrl', function ($scope, Request, Auth){
   $scope.favorites = [] ;
   var userId = Auth.getUser() ? Auth.getUser().id : 1;
-  console.log("checkout user:")
-  console.log(userId)  
   $scope.fetchFavoriteItems = function (userId) {
-     console.log("fav ctr "+userId)
      Request.favorites.fetchFavoriteItems(userId)
      .then(function (results){
-      console.log("crucial Results "+results)
      $scope.favorites = results;
     })
    }
