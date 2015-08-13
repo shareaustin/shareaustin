@@ -33,7 +33,7 @@ module.exports = function (app, passport) {
   //app.get('/api/buyerRatings', userHandler.buyerRatings)
 
   //app.get('/api/userTransactions', userHandler.userTransactions)
-  app.post('/api/userFavoriteItems'  , favoriteHandler.userFavoriteItems)
+  app.get('/api/userFavoriteItems'  , favoriteHandler.userFavoriteItems)
   app.post('/api/addTransaction' , transactionHandler.addTransaction);
 
   app.post('/api/addItem', itemHandler.addItem);

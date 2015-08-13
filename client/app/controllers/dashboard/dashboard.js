@@ -118,7 +118,8 @@ angular.module('shareAustin')
   $scope.fetchFavoriteItems = function () {
      Request.favorites.fetchFavoriteItems()
      .then(function (results){
-      console.log("favorites results: "+ results)
+      console.log("Below:")
+      console.log(results)
      $scope.favorites.id = results.id;
     })
    }

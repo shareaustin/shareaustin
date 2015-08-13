@@ -13,16 +13,14 @@ module.exports = {
     .then(res.json("Item Favorited"))
   },
   userFavoriteItems: function(req,res) {
-    var favorites = req.body
-    var model  = []
-    function callback() {
-      for (var i = 0; i < favorites.length; i++) {
-        model.push(Item.getItemById(favorites[i].item_id))
-        return model
-      }
-    }
-    callback().then(function(model){
-      res.json(model)
+    userId = req.body.user ? req.body.user.attributes.id : 1
+    Favorite.where({ user_id : userId}).fetchAll({
+      withRelated: ['item']
     })
+    .then(function(response) {
+      console.log("!!!")
+      console.log(response)
+      res.json(response)   
+    });
   }
 }
