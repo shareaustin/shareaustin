@@ -1,9 +1,18 @@
-<div class="row">
-	<div ngf-drop ngf-select ng-model="files" ngf-multiple="true" ngf-stop-propagation="true" class="drop-box">
-		<h4> Click Here or Drag & Drop to Upload Primary image photo. Click done when finished</h4>
-	  <span class="glyphicon glyphicon-upload light-purple" aria-hidden="true"></span>
-	</div>
-</div>
-<div class="row">
-	<button ng-click="update()">Done</button>
+<div ng-include="'shared/navigation.html'"></div>
+<div class="container">
+  <div class="row text-center item-title-wrapper">
+    <div class="col-sm-4 col-sm-offset-4">
+      <h2>Add Photo(s)</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 text-center">
+    	<div ngf-drop ngf-select ng-model="files" ngf-multiple="true" ngf-stop-propagation="true" class="drop-box">
+    		<h4>Click here (or drag and drop) to add photos to your listing.</h4>
+    	  <div class="row"><span class="glyphicon glyphicon-upload light-purple" aria-hidden="true"></span></div>
+      </div>
+      	<div class="row"><button class="btn btn-md btn-primary" ng-click="update()">Done</button></div>
+        <h4>Click done when finished.</h4>
+    </div>
+  </div>
 </div>
