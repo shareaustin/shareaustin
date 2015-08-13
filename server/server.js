@@ -8,8 +8,6 @@ var session = require('express-session');
 var passport = require('passport');
 var multer = require('multer');
 var upload = require('./config/multer')(multer);
-var cloudinary = require('cloudinary');
-require('./config/cloudinary')(cloudinary)
 
 var db = require('./db/db.js')
 require('./db/schema.js')();
@@ -32,7 +30,7 @@ app.use (session({
 
 // Writes all the routes to the server instance in the routes.js file
 
-routes(app, passport, upload, cloudinary)
+routes(app, passport, upload)
 var server = app.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;
