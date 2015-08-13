@@ -2,91 +2,102 @@ angular.module('shareAustin')
 
 .controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item) {
 
+  // Initialize containers for data
   $scope.currentItem = {};
   $scope.items = [];
-
   $scope.fav = {}
-  $scope.setupMap = function() {
-    console.log($scope.items)
 
-    // Austin view centered on capitol building
-    var mapOptions = {
-      zoom: 13,
-      center: new google.maps.LatLng(30.27415, -97.73996),
-      mapTypeId: google.maps.MapTypeId.TERRAIN
-    }
-
-    // Places map in container with id 'map'
-    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions)
-
-    // For each item, place a marker corresponding to its latitude and longitude
-    for (var i = 0; i < $scope.items.length; i++) {
-
-      var latLng = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].lng)
-      var markerSettings = {
-                              position : latLng,
-                              map      : $scope.map,
-                              item     : $scope.items[i],
-                              title    : "Hello World!"
-                            };
-
-      var newMark   = new google.maps.Marker(markerSettings)
-      var setEvent = google.maps.event.addListener;
-
-      //Event handlers for icons
-      setEvent(newMark, 'mouseover', function(event) {
-        var windowStr = Helpers.createHTMLStr(this.item.name, this.item.price_per_day, this.item.photo_url)
-
-        window.infoWindow = new google.maps.InfoWindow({
-          content: windowStr,
-          maxWidth: 150
-        })
-
-        infoWindow.open($scope.map, this)
-      });
-      setEvent(newMark, 'mouseout', function(event) {
-        window.infoWindow.close(); // Passing in nothing changes icon to default
-      });
-      setEvent(newMark, 'click', function(event)  {
-        $scope.updateItem(this.item);
-      });
-    }
-  }
-
-  // Fetches all available items for display
-  $scope.fetchAvailableItems = function() {
+  // Fetches all available items for display; sets up map with these items; 
+  $scope.loadPage = function() {
     Request.items.fetchAvailableItems()
       .then(function (results){
         $scope.items = results;
-        // Setup map AFTER all items have been fetched
         $scope.setupMap();
       })
   };
 
-  //Clicking "Rent" button takes user to transaction view
+  // "Rent" button takes user to transaction view
   $scope.rentItem = function ($event) {
     console.log("Event ", $event)
     Item.set($event)
     $location.path('/transaction');
   }
 
-  // Changes item selected for detailed viewing
-  $scope.updateItem = function ($event) {
-    console.log("Event ", $event)
+  // Stores information to be used in detailed view, 
+  // Then, navigates to detailed view
+  $scope.loadDetailedView = function ($event) {
     Item.set($event)
     $location.path('/item-description');
   }
+
+  // Sets google map display, zoomed on Austin;
+  // Loops through scope.items, creating pins for each item;
+  // Sets upp hover, mouseout, and click events.
+  $scope.setupMap = function() {
+
+    var mapSettings = {
+      zoom      : 13,
+      center    : new google.maps.LatLng(30.27415, -97.73996),
+      MapTypeId : google.maps.MapTypeId.TERRAIN
+    }
+
+    // Creates map and places it in the div with id 'map'
+    $scope.map = new google.maps.Map(document.getElementById('map'), mapSettings)
+
+    // Creates a google map pin/marker for each item in scope
+    for (var i = 0; i < $scope.items.length; i++) { 
+      // Latitude & Longitude
+      var latLng = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].lng)
+      // Note: item is not a googlemap property; stored in marker for our convenience.
+      var markerSettings = {
+                              position : latLng,
+                              map      : $scope.map,
+                              item     : $scope.items[i],
+                            };                      
+      var newMark   = new google.maps.Marker(markerSettings)
+
+      // Note: stores google maps addListener FUNCTION to a shorter variable name
+      var setEvent = google.maps.event.addListener;
+
+      // Mouseover marker event
+      setEvent(newMark, 'mouseover', function(event) {
+        var customHtml    = Helpers.createHTMLStr(this.item.name, this.item.price_per_day, this.item.photo_url)
+        // Save info window to global scope, for use in mouseout event
+        window.infoWindow = new google.maps.InfoWindow({content : customHtml, 
+                                                        maxWidth: 150         })
+        infoWindow.open($scope.map, this) //this refers to the marker that was clicked
+      })
+        
+      });
+
+      // Event when mouse leaves the marker
+      setEvent(newMark, 'mouseout', function(event) {
+        
+        // Close the info window
+        window.infoWindow.close();
+      });
+
+      // On click, load the corresponding item to details page
+      // and navigate to details page
+      setEvent(newMark, 'click', function(event)  {
+        // See line #
+        $scope.loadDetailedView(this.item);
+      });
+    } //end for loop
+  } // end function setupMap
+
+
   // Immediately invoked with page
   $scope.newFavorite = function ($event) {
-    Request.user.fetchUser()
-    .then(function (results) {
-      // console.log("NEW FAV GET USER ", results)
-      $scope.fav.item_id = $event.id
-      $scope.fav.user_id = results.id
-      // console.log("SCOPE.fav ", $scope.fav)
-    }).then(function () {
-      Request.favorites.addFavorite($scope.fav)
-    })
+
+    // Set new favorite with item id, and userId
+    $scope.fav.item_id = $event.id
+    $scope.fav.user_id = Auth.user().id
+
+    // Post this favorite to database
+    Request.favorites.addFavorite($scope.fav)
   }
-  $scope.fetchAvailableItems()
+
+  // Initially loads page
+  $scope.loadPage()
 })
