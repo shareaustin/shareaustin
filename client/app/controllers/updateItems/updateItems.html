@@ -1,7 +1,7 @@
 <div ng-include="'shared/navigation.html'"></div>
 <div class="container top-margin">
    <div class="row">
-     <div class="col-sm-3 col-sm-offset-4">
+     <div class="col-sm-4 col-sm-offset-1">
       <h2>Update Listing</h2>
         <form id="newListingForm">
           <label>Title:</labeL><br>
@@ -15,12 +15,14 @@
           <label>Price Per Day:</labeL><br>
           <input type="text" ng-model='item.price_per_day'/><br>
           <!-- <button ng-click="addPhoto(item)">Add Photo</button><br> -->
-            <div ngf-drop ngf-select ng-model="files" ngf-multiple="true" ngf-stop-propagation="true" class="drop-box">
-              <p>Click Here or Drag & Drop to Upload {{files.length}}</p>
-              <span class="glyphicon glyphicon-upload light-purple" aria-hidden="true"></span>
-          </div>
           <button ng-click="editItem(item)" class="btn btn-md btn-primary">Submit</button>
         </form>
       </div>
-    </div>
-  </div>
+          <div class="col-sm-4 col-sm-offset-1 text-center">
+            <div ngf-drop ngf-select ng-model="files" ngf-multiple="true" ngf-stop-propagation="true" class="drop-box">
+              <p>Click Here or Drag & Drop to Upload {{files.length}}</p>
+              <span class="glyphicon glyphicon-upload light-purple" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
