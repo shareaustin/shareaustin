@@ -18,8 +18,6 @@ module.exports = {
       withRelated: ['item']
     })
     .then(function(response) {
-      console.log("!!!")
-      console.log(response)
       res.json(response)   
     });
   }

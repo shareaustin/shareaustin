@@ -81,46 +81,24 @@ angular.module('shareAustin')
       console.log(results)
       $scope.listings = results.data;
     })
-
   $scope.updateItem = function ($event) {
     console.log("Event ", $event)
     Item.set($event)
     $location.path('/edit-item');
   }
-
   $scope.removeItem = function($event) {
     console.log("Event ", $event)
     $event.active = false;
     Request.items.deactivateItem($event)
   }
-
-
-    // {
-    //   item_name: "Canoe",
-    //   item_price: "$20"
-    // },
-    // {
-    //   item_name: "Kayak",
-    //   item_price: "$30"
-    // },
-    // {
-    //   item_name: "Boat",
-    //   item_price: "$30"
-    // }
-  // /]
 })
 
 .controller('FavoritesCtrl', function ($scope, Request){
-  $scope.favorites = [] 
-    // {
-    //   favorite_name: 'Bob Saget Cutout'
-    // }
+  $scope.favorites = [] ;
   $scope.fetchFavoriteItems = function () {
      Request.favorites.fetchFavoriteItems()
      .then(function (results){
-      console.log("Below:")
-      console.log(results)
-     $scope.favorites.id = results.id;
+     $scope.favorites = results;
     })
    }
   $scope.fetchFavoriteItems(); 
