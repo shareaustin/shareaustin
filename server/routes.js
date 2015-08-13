@@ -2,18 +2,6 @@ var userHandler = require('./requestHandler/userHandler.js');
 var itemHandler = require('./requestHandler/itemHandler.js');
 var favoriteHandler = require('./requestHandler/favoriteHandler.js');
 var transactionHandler = require('./requestHandler/transactionHandler.js');
-var multer = require('multer');
-var storage = multer.diskStorage({
-  destination: function(req, file, func){
-    func(null, __dirname + '/uploads')
-  },
-
-  filename: function(req, file, func){
-    func(null, file.originalname)
-  }
-});
-
-var upload = multer({storage: storage})
 
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()){
@@ -21,7 +9,7 @@ function isLoggedIn(req, res, next){
   }
   res.redirect('/')
 }
-module.exports = function (app, passport) {
+module.exports = function (app, passport, upload) {
   app.get('/api/availableItems', itemHandler.getAvailableItems);
   app.post('/api/getItemById', itemHandler.getItemById);
   //app.get('/api/isLoggedIn', userHandler.isLoggedIn)

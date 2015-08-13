@@ -1,12 +1,9 @@
 var Item = require('../model/item.js');
 var ItemPhoto = require('../model/itemPhoto.js');
-var cloudinary = require('cloudinary');
 var fs = require('fs');
-cloudinary.config({
-	'cloud_name': 'drw6xrsdi',
-	'api_key': '535674769165867',
-	'api_secret': 'U7QPapkI4VzvwC0ict0dsC2PpD4'
-})
+var cloudinary = require('cloudinary');
+require('../config/cloudinary')(cloudinary)
+
 
 module.exports = {
 	getAvailableItems: function(req, res) {
