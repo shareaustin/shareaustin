@@ -70,8 +70,9 @@
 .item-title-wrapper {padding: 15px 0;}
 .item > img {border: 1px solid lightgray;}
 .item-description {
-  min-height: 60px;
-  max-height: 100px;
+/*  min-height: 60px;
+  max-height: 80px;*/
+  height: 60px;
   overflow: hidden;
 }
 .single-item-description {
@@ -113,7 +114,14 @@
 .drop-box {
   background: #eee;
   margin: 10px 0;
+  padding: 50px 50px 10px;
   border-radius: 5px;
-  height: 150px;
+  height: 300px;
   cursor: pointer;
+}
+
+.glyphicon-upload {
+    padding-top: 20px;
+    font-size: 100px;
+    opacity: 0.5;
 }
