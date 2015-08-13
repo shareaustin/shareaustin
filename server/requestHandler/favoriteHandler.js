@@ -13,7 +13,11 @@ module.exports = {
     .then(res.json("Item Favorited"))
   },
   userFavoriteItems: function(req,res) {
-    userId = req.body.user ? req.body.user.attributes.id : 1
+    console.log("look here")
+    console.log(req.body)
+    var userId = req.body.userId ? req.body.userId : 1
+    console.log("look HERE")
+    console.log(userId)
     Favorite.where({ user_id : userId}).fetchAll({
       withRelated: ['item']
     })

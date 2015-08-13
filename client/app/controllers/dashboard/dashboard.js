@@ -93,13 +93,18 @@ angular.module('shareAustin')
   }
 })
 
-.controller('FavoritesCtrl', function ($scope, Request){
+.controller('FavoritesCtrl', function ($scope, Request, Auth){
   $scope.favorites = [] ;
-  $scope.fetchFavoriteItems = function () {
-     Request.favorites.fetchFavoriteItems()
+  var userId = Auth.getUser() ? Auth.getUser().id : 1;
+  console.log("checkout user:")
+  console.log(userId)  
+  $scope.fetchFavoriteItems = function (userId) {
+     console.log("fav ctr "+userId)
+     Request.favorites.fetchFavoriteItems(userId)
      .then(function (results){
+      console.log("crucial Results "+results)
      $scope.favorites = results;
     })
    }
-  $scope.fetchFavoriteItems(); 
+  $scope.fetchFavoriteItems(userId); 
 })
