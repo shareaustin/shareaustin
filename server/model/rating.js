@@ -1,4 +1,6 @@
-var db = require('../db/db.js');
-module.exports = db.Model.extend({
-	tableName: 'ratings'
+var bookshelf = require('../db/db.js');
+var Rating = bookshelf.Model.extend({
+	tableName: 'ratings',
 });
+
+module.exports = bookshelf.model('Rating', Rating)

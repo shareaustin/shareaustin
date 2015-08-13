@@ -1,4 +1,6 @@
-var db = require('../db/db.js');
-module.exports = db.Model.extend({
-	tableName: 'messages'
+var bookshelf = require('../db/db.js');
+var Message = bookshelf.Model.extend({
+	tableName: 'messages',
 });
+
+module.exports = bookshelf.model('Message', Message);

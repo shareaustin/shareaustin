@@ -1,4 +1,6 @@
 var User = require('../model/user.js');
+var Transaction = require('../model/transaction.js');
+
 module.exports = {
 	getUser: function (req, res) {
 		console.log('=======================')
@@ -20,19 +22,24 @@ module.exports = {
 	},
 
 	getSoldTransactions: function(req, res){
-		var id = req.user ? req.user.attributes.id : 1
-		new User({'id': id}).soldTransactions().fetch()
-		.then(function(transactions){
+		var id = req.user ? req.user.attributes.id : 1;
+
+		new User({id:id}).related('soldTransactions').fetch({
+			withRelated: [ 'item', 'rating']
+		}).then(function(transactions){
+			console.log('==============================');
 			res.json(transactions)
-		})
+		});
 	},
 
 	getBoughtTransactions: function(req, res){
-		var id = req.user ? req.user.attributes.id : 1
-		new User({'id': id}).boughtTransactions().fetch()
-		.then(function(transactions){
+		var id = req.user ? req.user.attributes.id : 1;
+
+		new User({id:id}).related('boughtTransactions').fetch({
+			withRelated: ['item', 'rating']
+		}).then(function(transactions){
 			res.json(transactions)
-		})
+		});
 	},
 
 	getBuyerRatings: function(req, res){
