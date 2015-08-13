@@ -25,23 +25,11 @@ angular.module('shareAustin')
     return totalHours;
   }
 
-//TEMPORARY -- Manually set the item info
-  // $scope.item = {
-  //   name: 'Kayak',
-  //     photo_url: 'http://pics.woodenpropeller.com/kayak10.jpg',
-  //     seller_username: 'kayakBob',
-  //     available: 'true',
-  //     description: 'This is a sweet kayak! Please rent it forever! Dog included!',
-  //     price_per_hour: '10',
-  //     price_per_day: '40',
-  //     // total_price: this.price_per_hour * $scope.calculateDuration()
-  // }
-
   $scope.item = Item.get();
   $scope.item.total_price = this.price_per_hour * $scope.calculateDuration();
 
   //Set price that is displayed
-  $scope.rentalPrice = function() { return Math.floor($scope.item.price_per_hour * $scope.calculateDuration())};
+  $scope.rentalPrice = function() { return Math.max(0, Math.floor($scope.item.price_per_hour * $scope.calculateDuration()))};
 
   //Date format for database and price calculation
   $scope.dateFormatter = function (dateObj) {
@@ -57,22 +45,34 @@ angular.module('shareAustin')
 
 //Save the transaction to the database
   $scope.saveTransaction = function(status, response) {
-    $http.post('/api/addTransaction', { 
-      stripe_token : response.id,
-      item_id      : $scope.transaction.item_id,
-      buyer_id     : $scope.transaction.buyer_id,
-      start_date   : $scope.dateFormatter($scope.rentalStartDate),
-      end_date     : $scope.dateFormatter($scope.rentalEndDate),
-      duration     : $scope.calculateDuration()
-    })
-    .then(function(response) {
+    //Check for valid rental duration
+    var rentalDuration = $scope.calculateDuration();
+
+    if (rentalDuration >= 1) {
+      $http.post('/api/addTransaction', { 
+        stripe_token : response.id,
+        item_id      : $scope.transaction.item_id,
+        buyer_id     : $scope.transaction.buyer_id,
+        start_date   : $scope.dateFormatter($scope.rentalStartDate),
+        end_date     : $scope.dateFormatter($scope.rentalEndDate),
+        duration     : $scope.calculateDuration()
+      })
+      .then(function(response) {
+        sweet.show({
+              title: "<small>Payment Confirmation</small>",
+              text: '<p>You were charged:<br>$' + response.data.price + '.00</p>',
+              type: 'success',
+              html: true
+          });
+      });
+    } else {
       sweet.show({
-            title: "<small>Payment Confirmation</small>",
-            text: '<p>You were charged:<br>$' + response.data.price + '.00</p>',
-            type: 'success',
-            html: true
-        });
-    });
+        title: "<small>Error</small>",
+              text: '<p>Please enter a rental duration of at least one hour.</p>',
+              type: 'error',
+              html: true
+      });
+    }
   }
 
 });
