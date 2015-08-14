@@ -59,8 +59,8 @@ angular.module('shareAustin')
       },
       fetchCurrentListings:function() {
         return $http({
-          method: "GET",
-          url   : "api/currentListings"
+          method: 'GET',
+          url   : 'api/currentListings'
         })
       },
       submitNewListing: function(item) {
@@ -143,8 +143,8 @@ angular.module('shareAustin')
       addFavorite: function(item) {
         console.log("utils fav item ", item)
         return $http({
-          method: "POST",
-          url: "/api/addFavorite",
+          method: 'POST',
+          url: '/api/addFavorite',
           data: item
         }).then(function(resp) {
           console.log(resp.data)
@@ -153,9 +153,18 @@ angular.module('shareAustin')
       },
       fetchFavoriteItems: function(user_id) {
         return $http({
-          method: "POST",
-          url   : "/api/userFavoriteItems",
+          method: 'POST',
+          url   : '/api/userFavoriteItems',
           data  : {"userId" : user_id} ,
+        }).then(function(resp) {
+          return resp.data
+        })
+      },
+      removeFavoriteItems: function(favorite) {
+        return $http({
+          method: 'POST',
+          url: '/api/removeFavorite',
+          data: favorite
         }).then(function(resp) {
           return resp.data
         })
