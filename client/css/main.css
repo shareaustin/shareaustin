@@ -362,7 +362,7 @@ a:hover {
 .grid-bg {
   background: url(../img/grid.png);
   height: 100%;
-  opacity: .5;
+  /*opacity: .5;*/
 }
 .auth-bg {
   background: url('../img/trees.jpeg') center center no-repeat;
@@ -392,5 +392,6 @@ a:hover {
 .home-bg {
   background: url('../img/hike-in-woods.jpeg') center bottom no-repeat;
   height: 100vh;
+
   background-size: cover;
 }
