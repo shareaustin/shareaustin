@@ -5,8 +5,8 @@
     <h2 class="home-title">What Do You Need Today?</h2>
     <p class="home-sub-title"> Find what you need for as long as you need it</p>
     <form>
-      <input class="home-search-bar" type="text"> <br>
-      <button class="button button-block">Find It</button>
+      <input ng-model="search" class="home-search-bar" type="text"> <br>
+      <button ng-click="sendSearch(search)"class="button button-block">Find It</button>
     </form>
   </div>
 </div>

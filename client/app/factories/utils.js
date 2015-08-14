@@ -231,6 +231,9 @@ angular.module('shareAustin')
 })
 
 .factory('Item', function ($http, Upload) {
+  var search = {
+    term: ""
+  }
   var itemDescription = {}
   function set(data) {
     itemDescription = data;
@@ -264,7 +267,8 @@ angular.module('shareAustin')
   return {
    set: set,
    get: get,
-   uploadPhoto: uploadPhoto
+   uploadPhoto: uploadPhoto,
+   search: search
   }
 })
 
