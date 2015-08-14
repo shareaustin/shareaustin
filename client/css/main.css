@@ -104,6 +104,22 @@
 }
 .button-container {margin-left: 10px;}
 .newitem-button-container {margin: 10px 0;}
+
+.padR-10 {padding-right: 10px;}
+.search-icon {
+  position: relative;
+  left: 25px;
+  /*top: 300px;*/
+}
+.items-search {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px 0 10px 30px;
+}
+.rating-picker-wrapper {
+  font-size: 1.6em;
+  padding: 0 10px 0px 20px;
+}
 /*----- Centering & Cropping Images -----*/
 .centerCrop {
   object-fit: cover;
