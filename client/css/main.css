@@ -130,9 +130,9 @@
 
 
 /*----- Sign In Sign Up Form -----*/
-*, *:before, *:after {
+/**, *:before, *:after {
   box-sizing: border-box;
-}
+}*/
 
 /*html {
   overflow-y: scroll;
@@ -205,7 +205,7 @@ a:hover {
   font-size: 2em;
 }
 
-label {
+.auth-form label {
   /*position: absolute;*/
   transform: translateY(6px);
   /*left: 13px;*/
@@ -217,26 +217,26 @@ label {
   font-weight: thin;
 }
 
-label .req {
+.auth-form label .req {
   margin: 2px;
   color: #1ab188;
 }
 
-label.active {
+.auth-form label.active {
   transform: translateY(50px);
   left: 2px;
   font-size: 14px;
 }
 
-label.active .req {
+.auth-form label.active .req {
   opacity: 0;
 }
 
-label.highlight {
+.auth-form label.highlight {
   color: #ffffff;
 }
 
-input, textarea {
+.auth-form input, textarea {
   font-size: 14px;
   display: block;
   width: 100%;
@@ -250,12 +250,12 @@ input, textarea {
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-input:focus, textarea:focus {
+.auth-form input:focus, textarea:focus {
   outline: 0;
   border-color: #1ab188;
 }
 
-textarea {
+.auth-form textarea {
   border: 2px solid #a0b3b0;
   resize: vertical;
 }
