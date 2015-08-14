@@ -91,25 +91,22 @@ angular.module('shareAustin')
 
 .controller('FavoritesCtrl', function ($scope, Request, Auth){
   $scope.favorites = [] ;
-  var userId = Auth.getUser() ? Auth.getUser().id : 1;
+  $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
   $scope.fetchFavoriteItems = function (userId) {
-     Request.favorites.fetchFavoriteItems(userId)
+     Request.favorites.fetchFavoriteItems($scope.userId)
      .then(function (results){
      $scope.favorites = results;
     })
    }
   $scope.removeFavoriteItems = function (favorite) {
+    console.log("in remove favorites")
     Request.favorites.removeFavoriteItems(favorite)
-    favorite.remove()
     .then(function() {
-      $scope.apply(function (){
-        var favorite = 
-
-      });
+      $scope.fetchFavoriteItems($scope.userId);
 
     })
 
   }
-  $scope.fetchFavoriteItems(userId);
-  $scope.removeFavoriteItems(favorite);
+  $scope.fetchFavoriteItems($scope.userId);
+  //$scope.removeFavoriteItems(favorite);
 })

@@ -163,6 +163,10 @@ angular.module('shareAustin')
       removeFavoriteItems: function(favorite) {
         return $http({
           method: 'POST',
+          url: '/api/removeFavorite',
+          data: favorite
+        }).then(function(resp) {
+          return resp.data
         })
       }
     },
