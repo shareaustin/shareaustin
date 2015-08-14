@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
+var morgan = require('morgan')
 var multer = require('multer');
 var upload = require('./config/multer')(multer);
 
@@ -17,7 +18,7 @@ require('./config/passport.js')(passport)
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(__dirname + '/../client'));
-
+app.use(morgan('dev'));
 // app.use session has to be above passport.use
 app.use (session({
   secret: 'hello',
