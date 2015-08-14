@@ -19,13 +19,9 @@
                 <td class="" align="center">Sat</td>
             </tr>
             <tr ng-repeat="week in weeks">
-                <td class="" align="center">{{calDay}}</td>
-                <td class="" align="center">{{calDay+1}}</td>
-                <td class="" align="center">{{calDay+1}}</td>
-                <td class="" align="center">{{calDay+1}}</td>
-                <td class="" align="center">{{calDay+1}}</td>
-                <td class="" align="center">{{calDay+1}}</td>
-                <td class="" align="center">{{calDay+1}}</td>
+                <td ng-repeat="days in daysOfMonth[$index]">
+                <td class="" align="center">{{daysOfMonth[$index]}}</td>
+                </td>
             </tr>
         </tbody>
     </table>
