@@ -98,5 +98,18 @@ angular.module('shareAustin')
      $scope.favorites = results;
     })
    }
-  $scope.fetchFavoriteItems(userId); 
+  $scope.removeFavoriteItems = function (favorite) {
+    Request.favorites.removeFavoriteItems(favorite)
+    favorite.remove()
+    .then(function() {
+      $scope.apply(function (){
+        var favorite = 
+
+      });
+
+    })
+
+  }
+  $scope.fetchFavoriteItems(userId);
+  $scope.removeFavoriteItems(favorite);
 })
