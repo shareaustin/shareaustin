@@ -7,27 +7,17 @@ require('../config/cloudinary')(cloudinary)
 
 module.exports = {
 	getAvailableItems: function(req, res) {
-		Item.where({'available': 'true'}).fetchAll()
+		Item.where({'available': 'true'}).fetchAll({
+			withRelated: ['seller.soldTransactions.rating']
+		})
 		.then(function (model) {
 			res.json(model)
 		})
 	},
 
 	addItem : function(req, res) {
-		var item = req.body;
-		console.log(item);
-		var attr = {
-			'seller_id'     : item.seller_id,
-			'name'          : item.name,
-			'description'   : item.description,
-			'available'     : item.available,
-			'active'				: item.active,
-			'price_per_hour': item.price_per_hour,
-			'price_per_day' : item.price_per_day,
-			'address'				: item.address,
-			'lat'						: item.lat,
-			'lng'						: item.lng
-		}
+		var attr = req.body;
+		attr.seller_id = req.body.user ? req.body.user.attributes.id : 1;
 		new Item(attr).save()
 		.then(function (item){
 			res.json(item);
