@@ -1,9 +1,11 @@
-
+<!-- Navigation bar -->
 <div class="fixed z-index" ng-include="'shared/navigation.html'"></div>
-
+<!-- Container for main page -->
 <div class="container-fluid">
    <div class="row top-margin">
+   	 <!-- Contains all listings -->
      <div class="col-sm-6">
+				<!-- Container for individual items -->   
 				<div ng-repeat="item in items" class="item pull-left col-sm-6">
 					<h4 ng-click="updateItem(item, $event)" class="item-title">{{ item.name | limitTo: 25 }}</h4>
 					<img ng-click="updateItem(item, $event)" class="centerCrop img-responsive pointer"  ng-src="{{item.photo_url}}"/>
@@ -18,7 +20,7 @@
 				</div>
 		 </div>
 		 <div class="col-sm-6 col-sm-offset-6 fixed">
-		 		<!-- Mysteriously, this empty ng-click is needed to reroute from map -->
+		 		<!-- Mysteriously, this empty ng-click is needed to reroute from map. Why!??!? -->
 		 		<div ng-click="" id="map" class="google-map"></div>
 		 </div>
 	 </div>

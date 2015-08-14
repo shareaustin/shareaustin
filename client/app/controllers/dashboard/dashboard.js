@@ -1,6 +1,7 @@
 angular.module('shareAustin')
 
 .controller('DashboardCtrl', function ($scope, Request) {
+  // Hardcoded user
   $scope.user = {
     first_name: '',
     last_name: '',
@@ -33,21 +34,16 @@ angular.module('shareAustin')
   }
 
   $scope.deactivateItem = function(itemId) {
-
-    var item = {
-      id     : itemId,
-      active : false
-    }
-
-    Request.items.editItem(item)
-    .then(function(results) {
-      console.log(results)
-    })
+    var item = {id : itemId,  active : false }
+    Request.items.editItem(item).then(
+      function(results) {
+        console.log(results) 
+      })
   }
 
   $scope.fetchUser();
   $scope.fetchSellerRating();
-  $scope.deactivateItem(2);
+  //$scope.deactivateItem(2);  // Hardcoded test on item 2
 })
 
 .controller('TransactionHistory', function ($scope, Request) {
