@@ -39,6 +39,7 @@
 .main-nav-wrapper {
   background: white;
   position: fixed;
+  background-image: none;
   width: 100%;
 }
 .main-nav {
@@ -273,7 +274,21 @@ a:hover {
   text-align: right;
 }
 
+/*---- Home Search -----*/
+.home-search-wrapper {
+  margin: 0 auto;
+  padding-top: 50vh;
+  width: 500px;
+}
+.home-search-bar {
+  width: 100%;
+}
 /*---- Background Images -----*/
+.grid-bg {
+  background: url(../img/grid.png);
+  height: 100%;
+  opacity: .5;
+}
 .auth-bg {
   background: url('../img/trees.jpeg') center center no-repeat;
   height: 100vh;
@@ -298,4 +313,9 @@ a:hover {
 
 .day:hover, .calendar {
   cursor: pointer;
+}
+.home-bg {
+  background: url('../img/hike-in-woods.jpeg') center bottom no-repeat;
+  height: 100vh;
+  background-size: cover;
 }

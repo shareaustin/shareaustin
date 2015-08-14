@@ -10,11 +10,16 @@ angular.module('shareAustin', [
 ])
 // Injects 'state managers'
 .config(function ($stateProvider, $urlRouterProvider) {
-   $urlRouterProvider.otherwise('/auth')
+   $urlRouterProvider.otherwise('/')
 
   //  If path is '/dashboard', change to state
   // 'dashboard' which updates used template & controller
-  $stateProvider.state('dashboard', {
+  $stateProvider.state ('home', {
+    url: '/',
+    templateUrl: '/app/controllers/home/home.html',
+    controller: 'HomeCtrl'
+  })
+  .state('dashboard', {
     url: '/dashboard',
     abstract: true,
     templateUrl: '/app/controllers/dashboard/dashboard.html',
