@@ -32,9 +32,41 @@
   list-style: none;
   /*padding-left: 20px;*/
 }
+.btn {transition: all .2s ease-in-out;}
+.btn:hover {transform: scale(1.05);}
 
+.btn-green {background: #1ab188; color: white;}
+.btn-green:hover, .btn-green:focus, .btn-green:active  {
+  background: #1B9F7B;
+  color: white;
+}
+.btn-white {background: white; color: #1B9F7B; border: 1px solid #1B9F7B;}
+.btn-white:hover, .btn-white:focus, .btn-white:active  {
+  background: white;
+  color: #1B9F7B;
+  border: 1px solid #1B9F7B;
+}
+.btn-ghost-white {background: ghostwhite;color: #1B9F7B;}
+.btn-ghost-white:hover, .btn-ghost-white:focus, .btn-ghost-white:active  {
+  background: ghostwhite;
+  color: #1B9F7B;
+}
 
+.btn-ghost-seafoam {
+  background: transparent;
+  border: 3px solid #75EFCE;
+  color: #75EFCE;
+}
+.btn-ghost-seafoam:hover, .btn-ghost-seafoam:focus, .btn-ghost-seafoam:active {
+  border: 3px solid darkgreen;
+  color: darkgreen;
+}
 
+.btn-xxl {
+  padding: 12px 26px;
+  font-size: 1.7em;
+  border-radius: 5px;
+}
 /*----- Main Nav ------*/
 .main-nav-wrapper {
   background: white;
@@ -107,6 +139,7 @@
 .newitem-button-container {margin: 10px 0;}
 
 .padR-10 {padding-right: 10px;}
+.marR-10 {margin-right: 10px;}
 .search-icon {
   position: relative;
   left: 25px;
@@ -280,7 +313,7 @@ a:hover {
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
-
+.button-padding {padding: 15px 10px;}
 .button:hover, .button:focus {background: #179b77;}
 .button-block {
   display: block;
@@ -294,10 +327,12 @@ a:hover {
 /*---- Home Search -----*/
 .home-title {
   color: #1ab188;
+  font-size: 2.7em;
 }
 .home-sub-title {
   color: white;
   font-size: 1.3em;
+  margin-bottom: 30px;
 }
 .home-search-wrapper {
   margin: 0 auto;
@@ -314,6 +349,7 @@ a:hover {
   color: white;
   font-size: 1.5em;
   padding-left: 10px;
+  margin-bottom: 10px;
 }
 .home-search-bar input:focus {
   outline: 0 none;
