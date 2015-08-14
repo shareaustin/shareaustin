@@ -6,7 +6,8 @@
    	 <!-- Contains all listings -->
      <div class="col-sm-6">
 				<!-- Container for individual items -->
-				<div ng-repeat="item in items" class="item pull-left col-sm-6">
+        <input type="text" ng-model="search">
+				<div ng-repeat="item in items | filter:search" class="item pull-left col-sm-6">
 					<h4 ng-click="loadDetailedView(item, $event)" class="item-title">{{ item.name | limitTo: 25 }}</h4>
 					<img ng-click="loadDetailedView(item, $event)" class="centerCrop img-responsive pointer"  ng-src="{{item.photo_url}}"/>
 					<p>{{ item.price_per_hour | currency }} per hour</p>
