@@ -1,4 +1,4 @@
-<div class="col-sm-3 col-sm-offset-1">
+<!-- <div class="col-sm-3 col-sm-offset-1">
   <form novalidate>
     <label>Email</label><br>
     <input type="text" ng-model="user.email"/><br>
@@ -6,4 +6,17 @@
     <input type="password" ng-model="user.password"/><br>
     <button ng-click="submitSignIn(user)" class="top-margin-sm btn btn-primary btn-md">Submit</button>
   </form>
-</div>
+</div> -->
+
+<form ng-submit="submitSignIn(user)" novalidate>
+  <div class="field-wrap">
+    <label>Email Address<span class="req">*</span></label>
+    <input type="email" ng-model="user.email"/>
+  </div>
+  <div class="field-wrap">
+    <label>Password<span class="req">*</span></label>
+    <input type="password" ng-model="user.password"/>
+  </div>
+  <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
+  <button class="button button-block"/>Log In</button>
+</form>

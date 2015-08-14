@@ -1,6 +1,5 @@
-<div class="col-sm-3 col-sm-offset-1">
+<!-- <div class="col-sm-3 col-sm-offset-1">
   <form class="top-margin" novalidate>
-    <!-- <p>New Account!</p> -->
     <label>First Name</label><br>
     <input type="text" ng-model="user.first_name"/><br>
     <label>Last Name</label><br>
@@ -11,4 +10,26 @@
     <input type="password" ng-model="user.password"/><br>
     <button ng-click="submitSignUp(user)" class="top-margin-sm btn btn-primary btn-md">Submit</button>
   </form>
-</div>
+</div> -->
+
+<form ng-submit="submitSignUp(user)">
+  <div class="top-row">
+    <div class="field-wrap">
+      <label>First Name<span class="req">*</span></label>
+      <input type="text" ng-model="user.first_name" required />
+    </div>
+    <div class="field-wrap">
+      <label>Last Name<span class="req">*</span></label>
+      <input type="text" ng-model="user.last_name" required/>
+    </div>
+  </div>
+  <div class="field-wrap">
+    <label>Email Address<span class="req">*</span></label>
+    <input type="email" ng-model="user.email" required/>
+  </div>
+  <div class="field-wrap">
+    <label>Password<span class="req">*</span></label>
+    <input type="password" ng-model="user.password" required/>
+  </div>
+  <button type="submit" class="button button-block"/>Get Started</button>
+</form>

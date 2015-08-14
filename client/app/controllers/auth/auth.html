@@ -1,4 +1,4 @@
-<div ng-include="'shared/navigation.html'"></div>
+<!-- <div ng-include="'shared/navigation.html'"></div>
 <div class="containter top-margin">
 	<div class="row">
 	  <div class="col-sm-5 col-sm-offset-1 top-padding">
@@ -10,5 +10,17 @@
 	        <div ui-view=""> </div>
 	    </tabset>
 	  </div>
+	</div>
+</div> -->
+
+<div ng-include="'shared/navigation.html'"></div>
+<div class="auth-bg padding-top">
+	<div class="auth-form">
+	  <p class="auth-form-headline">ShareAustin</p>
+	  <ul class="tab-group">
+	    <li ng-click="change('logIn')" ng-class="active ? 'active' : ''" class="tab"><a ui-sref=".signin">Log In</a></li>
+	    <li ng-click="change('signUp')" ng-class="active ? '' : 'active'" class="tab"><a ui-sref=".signup">Sign Up</a></li>
+	  </ul>
+	  <div ui-view=""></div>
 	</div>
 </div>

@@ -1,7 +1,11 @@
 angular.module('shareAustin')
 
 .controller('AuthCtrl', function inject($scope, Auth){
-	$scope.user = {};
+	$scope.active = 'logIn'
+	$scope.change = function (status) {
+		if (status === 'logIn') $scope.active = true
+		if (status === 'signUp') $scope.active = false
+	};
 })
 .controller('SignUpCtrl', function inject($scope, $location, Auth, sweet){
 	$scope.submitSignUp = function(user){
@@ -9,7 +13,7 @@ angular.module('shareAustin')
 		.then(function(user){
 				Auth.setUser(user);
 				$location.path('/dashboard')
-				
+
 		})
 		.catch(function(err){
 			console.log(err)
