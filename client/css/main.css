@@ -197,10 +197,6 @@ a:hover {
   color: #ffffff;
 }
 
-.tab-content > div:last-child {
-  display: none;
-}
-
 .auth-form-headline {
   text-align: center;
   color: #ffffff;
