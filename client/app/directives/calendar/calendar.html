@@ -1,0 +1,32 @@
+<div class="calendar" ng-controller="CalendarCtrl">
+    <table class="table-bordered">
+    <thead class="">
+        <td colspan="7" align="center">
+            <i class="fa fa-angle-left" ng-click="previous()"></i>
+            <!-- <span>{{month.format("MMMM, YYYY")}}</span> -->
+            <span>{{month}}</span>
+            <i class="fa fa-angle-right" ng-click="next()"></i>
+        </td>
+    </thead>
+        <tbody>
+            <tr>
+                <td class="" align="center">Sun</td>
+                <td class="" align="center">Mon</td>
+                <td class="" align="center">Tue</td>
+                <td class="" align="center">Wed</td>
+                <td class="" align="center">Thu</td>
+                <td class="" align="center">Fri</td>
+                <td class="" align="center">Sat</td>
+            </tr>
+            <tr ng-repeat="week in weeks">
+                <td class="" align="center">{{calDay}}</td>
+                <td class="" align="center">{{calDay+1}}</td>
+                <td class="" align="center">{{calDay+1}}</td>
+                <td class="" align="center">{{calDay+1}}</td>
+                <td class="" align="center">{{calDay+1}}</td>
+                <td class="" align="center">{{calDay+1}}</td>
+                <td class="" align="center">{{calDay+1}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
