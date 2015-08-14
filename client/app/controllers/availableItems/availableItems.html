@@ -7,14 +7,7 @@
      <div class="col-sm-6">
 				<!-- Container for individual items -->
         <div class="text-center">
-          <div class="inline rating-picker-wrapper">
-            <i class="fa fa-usd padR-10"></i>
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd padR-10"></i>
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd"></i>
-          </div>
+          <span>Sort Name, Rating or Price</span>
           <i class="fa fa-search search-icon"></i>
           <input class="items-search" placeholder="Filter By Search" type="text" ng-model="search">
           <div class="inline rating-picker-wrapper">
@@ -23,6 +16,13 @@
             <i class="fa fa-star-o"></i>
             <i class="fa fa-star-o"></i>
             <i class="fa fa-star-o"></i>
+          </div>
+          <div class="inline rating-picker-wrapper">
+            <i class="fa fa-usd"></i>
+            <i class="fa fa-usd"></i>
+            <i class="fa fa-usd"></i>
+            <i class="fa fa-usd"></i>
+            <i class="fa fa-usd"></i>
           </div>
         </div>
 				<div ng-repeat="item in items | filter:{name: search}" class="item pull-left col-sm-6">

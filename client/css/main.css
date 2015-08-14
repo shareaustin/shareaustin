@@ -41,6 +41,7 @@
   position: fixed;
   background-image: none;
   width: 100%;
+  z-index: 100;
 }
 .main-nav {
   border-bottom: 1px solid #eee;
@@ -114,7 +115,7 @@
 .items-search {
   border: 1px solid gray;
   border-radius: 5px;
-  padding: 10px 0 10px 30px;
+  padding: 5px 0 5px 30px;
 }
 .rating-picker-wrapper {
   font-size: 1.6em;
