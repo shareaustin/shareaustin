@@ -107,6 +107,20 @@ angular.module('shareAustin')
         return resp.data;
         })
       },
+
+      fetchItemTransactions: function(itemId, today) {
+        console.log("fetching transactions for item: ", itemId);
+        return $http({
+          method: 'POST',
+          url: 'api/getItemTransactions/',
+          data: { item_id: itemId, today: today }
+          })
+          .then(function(resp){
+            console.log(resp.data);
+            return resp.data;
+          })
+      },
+
       addTransaction: function(transaction) {
         return $http({
          method: 'POST',

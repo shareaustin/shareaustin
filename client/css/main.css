@@ -280,7 +280,19 @@ a:hover {
   background-position: cover;
 }
 
-
+/*---- Favorite Buttons -----*/
 .favorited, .favorited:focus, .favorited:hover {
   background-color: green;
 }
+
+/*----- Calendar Event Styling -----*/
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }

@@ -85,4 +85,14 @@ module.exports = {
       res.json(model)
     })
   },
+  getItemTransactions: function(req, res) {
+    console.log("getItemTransactions request: ", req.body);
+    var item_id = req.body.item_id;
+    var today = req.body.today;
+    Transaction.where({'item_id': item_id }).fetchAll()
+    .then(function (model) {
+      console.log("model" + model)
+      res.json(model)
+    })
+  }
 }
