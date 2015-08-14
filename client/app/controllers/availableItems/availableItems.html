@@ -5,10 +5,10 @@
    <div class="row top-margin">
    	 <!-- Contains all listings -->
      <div class="col-sm-6">
-				<!-- Container for individual items -->   
+				<!-- Container for individual items -->
 				<div ng-repeat="item in items" class="item pull-left col-sm-6">
-					<h4 ng-click="updateItem(item, $event)" class="item-title">{{ item.name | limitTo: 25 }}</h4>
-					<img ng-click="updateItem(item, $event)" class="centerCrop img-responsive pointer"  ng-src="{{item.photo_url}}"/>
+					<h4 ng-click="loadDetailedView(item, $event)" class="item-title">{{ item.name | limitTo: 25 }}</h4>
+					<img ng-click="loadDetailedView(item, $event)" class="centerCrop img-responsive pointer"  ng-src="{{item.photo_url}}"/>
 					<p>{{ item.price_per_hour | currency }} per hour</p>
 					<p class="item-description">{{ item.description | limitTo: 133 }}</p>
 					<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
