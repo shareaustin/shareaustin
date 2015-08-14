@@ -1,6 +1,8 @@
+<!-- Navigation bar -->
 <div ng-include="'shared/navigation.html'"></div>
 <div class="container top-margin">
   <div class="row">
+    <!-- Container for user profile info -->
     <div class="col-sm-3">
       <img class="img-crop" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
       <!-- <p>Username: {{user.username}}</p> -->
@@ -8,6 +10,7 @@
       <!-- <p>Rating: {{user.rating}}</p> -->
       <button class="btn btn-primary btn-md" ng-click="">Change Photo</button>
     </div>
+    <!-- Tabs table for user's current listings, transaction, and favorites -->
     <div class="col-sm-6 col-sm-offset-2">
       <tabset class="" justified="true">
         <tab ui-sref=".currentListings" heading="Current Listings"></tab>
