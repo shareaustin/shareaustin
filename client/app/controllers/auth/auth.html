@@ -13,41 +13,14 @@
 	</div>
 </div> -->
 
-
 <div ng-include="'shared/navigation.html'"></div>
 <div class="auth-bg padding-top">
 	<div class="auth-form">
 	  <p class="auth-form-headline">ShareAustin</p>
 	  <ul class="tab-group">
-	    <li class="tab active"><a ui-sref=".signin">Log In</a></li>
-	    <li class="tab"><a ui-sref=".signup">Sign Up</a></li>
+	    <li ng-click="change('logIn')" ng-class="active ? 'active' : ''" class="tab"><a ui-sref=".signin">Log In</a></li>
+	    <li ng-click="change('signUp')" ng-class="active ? '' : 'active'" class="tab"><a ui-sref=".signup">Sign Up</a></li>
 	  </ul>
-	  <div ui-view="">
-	    <!-- <div id="signup">
-	      <form action="/" method="post">
-	      <div class="top-row">
-	        <div class="field-wrap">
-	          <label>First Name<span class="req">*</span></label>
-	          <input type="text" required autocomplete="off" />
-	        </div>
-	        <div class="field-wrap">
-	          <label>Last Name<span class="req">*</span></label>
-	          <input type="text"required autocomplete="off"/>
-	        </div>
-	      </div>
-	      <div class="field-wrap">
-	        <label>Email Address<span class="req">*</span></label>
-	        <input type="email"required autocomplete="off"/>
-	      </div>
-	      <div class="field-wrap">
-	        <label>Password<span class="req">*</span></label>
-	        <input type="password"required autocomplete="off"/>
-	      </div>
-	      <button type="submit" class="button button-block"/>Get Started</button>
-	      </form>
-	    </div> -->
-
-
-	  </div><!-- tab-content -->
-	</div> <!-- /form -->
+	  <div ui-view=""></div>
+	</div>
 </div>
