@@ -28,7 +28,8 @@ module.exports = {
     Favorite.where({'user_id' : userId, 'item_id' : itemId})
     .destroy()
     .then(function(resp){
-      console.log(resp)
+      console.log("testing this right now:"+resp)
+      res.json(resp)
     })
   }
 }

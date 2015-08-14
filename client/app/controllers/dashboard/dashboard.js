@@ -100,10 +100,10 @@ angular.module('shareAustin')
    }
   $scope.removeFavoriteItems = function (favorite) {
     console.log("in remove favorites")
+    console.log(favorite)
     Request.favorites.removeFavoriteItems(favorite)
-    .then(function() {
-      $scope.fetchFavoriteItems($scope.userId);
-
+    .then(function(results) {
+      $scope.fetchFavoriteItems($scope.userId)
     })
 
   }

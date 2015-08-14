@@ -2,7 +2,7 @@
   <a class="fa fa-times remove" ng-click="removeFavoriteItems(favorite)"></a>
   <ul class="ul-reset">
     <li class="li-rows">
-      <span>{{favorite.item.name}}</span>
+      <span ng-show="favorite.item !== undefined"> {{favorite.item.name}}</span>
     </li>
   </ul>
 </div>

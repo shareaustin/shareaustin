@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item) {
+.controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item, Auth) {
   
   // Allows this controller to be expanded into mapSetup file
   angular.module('shareAustin').expandAvailableItems($scope, Request, Helpers)  
@@ -38,7 +38,7 @@ angular.module('shareAustin')
 
     // Sets new favorite with item id, and userId
     $scope.fav.item_id =  $event.id;
-    $scope.fav.user_id =  Auth.user().id;
+    $scope.fav.user_id =  Auth.getUser().id;
 
     // Posts this favorite to database
     Request.favorites.addFavorite($scope.fav)
