@@ -2,7 +2,7 @@ angular.module('shareAustin')
 
 .controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item) {
   
-  // Allows this controller to be expanded into googlemMap.js file
+  // Allows this controller to be expanded into mapSetup file
   angular.module('shareAustin').expandAvailableItems($scope, Request, Helpers)  
 
   // Initialize containers for data
@@ -14,10 +14,8 @@ angular.module('shareAustin')
   $scope.loadPage = function() {
     Request.items.fetchAvailableItems()
       .then(function (results){
-        console.log("B")
-        console.log(results)
         $scope.items = results;
-        $scope.setupMap();
+        $scope.setupMap(); // function defined in mapSetup.js
       })
   };
 
@@ -29,13 +27,13 @@ angular.module('shareAustin')
   }
 
   // Stores information to be used in detailed view, 
-  // Then, navigates to detailed view
+  // Then navigates to detailed view
   $scope.loadDetailedView = function ($event) {
     Item.set($event)
     $location.path('/item-description');
   }
 
-  // Immediately invoked with page
+  // Occurs when user favorites an item
   $scope.newFavorite = function ($event) {
 
     // Sets new favorite with item id, and userId
