@@ -11,12 +11,29 @@ angular.module('shareAustin')
   $scope.fav         = {};
   $scope.search = Item.search.term
 
-  // Fetches all available items for display; sets up map with these items;
+  $scope.avgRating = function (items) {
+    // console.log($scope.items[0].seller.soldTransactions.length)
+    var total, len;
+    items.forEach(function (item) {
+      var len = 0
+      total = item.seller.soldTransactions.reduce(function (prev, stars) {
+        if (stars.rating.seller_rating) {
+          len++;
+         return prev + stars.rating.seller_rating
+        }
+        return prev
+      },0)
+      item.seller.avgStars = Math.ceil(total/len)
+    })
+  }
+
   // Fetches all available items for display; sets up map with these items;
   $scope.loadPage = function() {
     Request.items.fetchAvailableItems()
       .then(function (results){
         $scope.items = results;
+        $scope.avgRating($scope.items)
+        console.log($scope.items)
         $scope.setupMap(); // function defined in mapSetup.js
         $scope.fetchFavoriteItems();
       })

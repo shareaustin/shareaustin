@@ -30,6 +30,7 @@
 					<img ng-click="loadDetailedView(item, $event)" class="centerCrop img-responsive pointer"  ng-src="{{item.photo_url}}"/>
 					<p>
             {{item.seller.first_name}} {{item.seller.last_name}}
+            {{item.seller.avg}}
             {{ item.price_per_day | currency }} per day
           </p>
 					<p class="item-description">{{ item.description | limitTo: 133 }}</p>
