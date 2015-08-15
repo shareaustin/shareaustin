@@ -22,7 +22,8 @@ return {
             _buildMonth(scope, start, scope.month);
 
             scope.select = function(day) {
-                scope.selected = day.date;  
+                scope.selected = day.date; 
+                console.log("clicked on: ", scope.selected); 
             };
 
             scope.next = function() {

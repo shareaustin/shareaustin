@@ -286,13 +286,7 @@ a:hover {
 }
 
 /*----- Calendar Event Styling -----*/
-  .full button span {
-    background-color: limegreen;
-    border-radius: 32px;
-    color: black;
-  }
-  .partially button span {
-    background-color: orange;
-    border-radius: 32px;
-    color: black;
-  }
+.day.selected {
+  color: white;
+  background-color: rgba(19, 35, 47, 0.9);
+}
