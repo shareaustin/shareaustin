@@ -63,9 +63,11 @@ module.exports = function(){
       })
       .createTable('messages', function (message){
         message.increments('id').primary();
-        message.integer('chat_id').references('id').inTable('chats');
+        message.integer('chat_item_id').notNullable();
+        message.integer('chat_buyer_id').notNullable();
+	//message.integer(['chat_item_id', 'chat_buyer_id']);
         message.text('text');
-        messge.boolean('seen');
+        message.boolean('seen');
       })
       .then(function(){
         console.log('Created Tables...')
