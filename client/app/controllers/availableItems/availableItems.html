@@ -32,7 +32,8 @@
   					<img ng-click="loadDetailedView(item, $event)" class="centerCrop center-block img-responsive pointer"  ng-src="{{item.photo_url}}"/>
   					<p class="text-center">
               {{item.seller.first_name}} {{item.seller.last_name}}
-              {{item.seller.avg}}
+              <i ng-repeat="item in item.seller.starsArr track by $index" ng-class="item ? 'fa fa-star' : 'fa fa-star-o'"></i>
+              <!-- {{item.seller.avgStars}} -->
               {{ item.price_per_day | currency }} per day
             </p>
   					<p class="item-description">{{ item.description | limitTo: 133 }}</p>

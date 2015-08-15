@@ -12,18 +12,26 @@ angular.module('shareAustin')
   $scope.search = Item.search.term
 
   $scope.avgRating = function (items) {
-    // console.log($scope.items[0].seller.soldTransactions.length)
     var total, len;
     items.forEach(function (item) {
       var len = 0
-      total = item.seller.soldTransactions.reduce(function (prev, stars) {
+      total = item.seller.soldTransactions.reduce(function (prev, stars,i, arr) {
+
         if (stars.rating.seller_rating) {
           len++;
+
          return prev + stars.rating.seller_rating
         }
         return prev
       },0)
       item.seller.avgStars = Math.ceil(total/len)
+      if (isNaN(item.seller.avgStars)) item.seller.avgStars = 0
+      if (item.seller.avgStars || item.seller.avgStars === 0) {
+        item.seller.starsArr = [false,false,false,false, false]
+        for (var i = 0; i <= item.seller.avgStars-1; i++) {
+          item.seller.starsArr[i] = true
+        }
+      }
     })
   }
 
