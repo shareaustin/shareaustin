@@ -23,20 +23,16 @@ module.exports = {
 
 	getSoldTransactions: function(req, res){
 		var id = req.user ? req.user.attributes.id : 1;
-		console.log("GST id:"+id)
-
 		new User({id:id}).related('soldTransactions').fetch({
 			withRelated: [ 'item', 'rating']
 		}).then(function(transactions){
 			console.log('==============================');
-			console.log("sold transactions ", transactions)
 			res.json(transactions)
 		});
 	},
 
 	getBoughtTransactions: function(req, res){
 		var id = req.user ? req.user.attributes.id : 1;
-
 		new User({id:id}).related('boughtTransactions').fetch({
 			withRelated: ['item', 'rating']
 		}).then(function(transactions){

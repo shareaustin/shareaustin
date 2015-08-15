@@ -64,8 +64,75 @@ angular.module('shareAustin')
        $scope.boughtTransactions = results;
        $scope.transactions = $scope.transactions.concat(results)
        console.log("inside trans controller", results)
+       $scope.setStatusMessage();
      })
    }
+
+  // Function does different things depending on status and if bought/sold
+  $scope.statusFunctionality = function(trns) {
+    if (trns.bought){
+      switch(trns.status) {
+        case "started":
+          // change path to message with buyer
+          break;
+        case "in-rent": 
+          break; // go to details
+        case "returned": 
+          break; // gpop-up rating form
+        case "overdue" : 
+          break; // go to message
+        default: break;
+      }
+    }
+    else {
+      switch(trns.status) {
+        case "started": 
+          break; //msg buyer
+        case "in-rent": 
+          break; // go to details
+        case "returned": 
+          break; // pop up rating form
+        case "overdue": 
+          break; // go to message
+        default: break;
+      }
+    }
+  } 
+
+  $scope.setStatusMessage = function() {
+    for (var i = 0; i < $scope.boughtTransactions.length; i++) {
+      switch($scope.boughtTransactions[i].status) {
+        case "started" :
+          $scope.boughtTransactions[i].statusMessage = "Message Owner!"; break;
+        case "in-rent" :
+          $scope.boughtTransactions[i].statusMessage = "Due Date:";      break; //+ dueData
+        case "returned":
+          $scope.boughtTransactions[i].statusMessage = "Rate Seller";    break;
+        case "complete":
+          $scope.boughtTransactions[i].statusMessage = "Complete";       break;
+        case "overdue" :
+          $scope.boughtTransactions[i].statusMessage = "Overdue!";       break;
+        default: break;
+      }
+      $scope.boughtTransactions[i].bought = true;
+    }
+    for (var i = 0; i < $scope.soldTransactions.length; i++) {
+      switch($scope.soldTransactions[i].status) {
+        case "started" :
+          $scope.soldTransactions[i].statusMessage = "Message Renter!";    break;
+        case "in-rent" :
+          $scope.soldTransactions[i].statusMessage = "Return Date:";       break; //+ dueData
+        case "returned":
+          $scope.soldTransactions[i].statusMessage = "Rate Renter";        break;
+        case "complete":
+          $scope.soldTransactions[i].statusMessage = "Complete";           break;
+        case "overdue" :
+          $scope.soldTransactions[i].statusMessage = "Overdue! Report user"; break;
+        default: break;
+      }
+    }
+  }
+
    $scope.fetchSoldTransactions();
    $scope.fetchBoughtTransactions();
 
