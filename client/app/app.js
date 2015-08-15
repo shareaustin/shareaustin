@@ -3,6 +3,7 @@ angular.module('shareAustin', [
   'ui.router',
   'ui.bootstrap',
   // 'ngAnimate',
+  'btford.socket-io',
   'ngFileUpload',
   'stripe',
   'hSweetAlert'
@@ -78,6 +79,11 @@ angular.module('shareAustin', [
     url: '/edit-item',
     templateUrl: '/app/controllers/updateItems/updateItems.html',
     controller: 'EditItemCtrl'
+  })
+  .state('chat', {
+    url: '/chat',
+    templateUrl: '/app/controllers/chat/chat.html',
+    controller: 'ChatCtrl'
   })
 })
 //Initializes Stripe

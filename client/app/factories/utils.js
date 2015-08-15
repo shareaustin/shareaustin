@@ -253,3 +253,7 @@ angular.module('shareAustin')
    uploadPhoto: uploadPhoto
   }
 })
+
+.factory('Socket', function(socketFactory){
+  return socketFactory();
+})
