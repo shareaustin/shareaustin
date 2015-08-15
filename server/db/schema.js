@@ -41,6 +41,7 @@ module.exports = function(){
         transaction.string('duration');
         transaction.string('price');
         transaction.string('stripe_token');
+        transaction.string('status');
       })
       .createTable('item_photos', function (photo){
         photo.increments('id').primary();

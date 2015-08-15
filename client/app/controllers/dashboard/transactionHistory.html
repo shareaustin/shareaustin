@@ -2,6 +2,7 @@
 <div ng-repeat="soldTransaction in soldTransactions" >
     <li class="list-group-item list-group-item-success">
       <span>{{soldTransaction.start_date.substr(0,10)}}: You earned ${{soldTransaction.price}} for your rental</span>
+      <span ng-click="statusFunctionality()">{{ soldTransaction.statusMessage }} <span>
     </li>
 </div>
   </ul>
@@ -10,6 +11,7 @@
 <div ng-repeat="boughtTransaction in boughtTransactions" >
     <li class="list-group-item list-group-item-info">
       <span>{{boughtTransaction.start_date.substr(0,10)}}: You paid ${{boughtTransaction.price}} to rent an item</span>
+      <span ng-click="statusFunctionality()"> {{ boughtTransaction.statusMessage }} <span>
     </li>
 </div>
   </ul>
