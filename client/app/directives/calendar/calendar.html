@@ -1,10 +1,13 @@
-<table class="table-bordered table-condensed calendar" ng-controller="CalendarCtrl">
+<table class="table-bordered table-condensed" ng-controller="CalendarCtrl">
+<tr class="table-condensed" colspan="7">
+    <td colspan="7">Availability</td>
+</tr>
 <tr class="table-condensed" colspan="7">
     <td colspan="7"><i class="fa fa-angle-left" ng-click="previous()"></i>
     {{month.format("MMMM, YYYY")}}
     <i class="fa fa-angle-right" ng-click="next()"></i></td>
 </tr>
-<tr class="week names" colspan="7">
+<tr class="" colspan="7">
     <td class="day">Sun</td>
     <td class="day">Mon</td>
     <td class="day">Tue</td>
@@ -13,7 +16,7 @@
     <td class="day">Fri</td>
     <td class="day">Sat</td>
 </tr>
-<tr class="week" ng-repeat="week in weeks">
-    <td class="day" ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth,  reserved: isReserved(day) }" ng-click="" ng-repeat="day in week.days">{{day.number}}</td>
+<tr class="" ng-repeat="week in weeks">
+    <td class="" ng-class="{ reserved: isReserved(day) }" ng-click="" ng-repeat="day in week.days">{{day.number}}</td>
 </tr>
 </table>

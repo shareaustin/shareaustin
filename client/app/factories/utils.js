@@ -109,7 +109,7 @@ angular.module('shareAustin')
       },
 
       fetchItemTransactions: function(itemId, today) {
-        console.log("fetching transactions for item: ", itemId);
+        // console.log("fetching transactions for item: ", itemId);
         return $http({
           method: 'POST',
           url: 'api/getItemTransactions/',

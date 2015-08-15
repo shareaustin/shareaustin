@@ -393,8 +393,8 @@ a:hover {
 }
 
 .reserved {
-  color: white;
-  background-color: #aaa;
+  color: #aaa;
+  background-color: #ccc;
 }
 
 .day:hover, .calendar {

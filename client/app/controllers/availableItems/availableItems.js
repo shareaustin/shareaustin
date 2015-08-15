@@ -50,9 +50,9 @@ angular.module('shareAustin')
   $scope.fetchFavoriteItems = function (userId) {
      Request.favorites.fetchFavoriteItems($scope.userId)
      .then(function (results){
-      console.log("at promise")
-      console.log($scope.items)
-      console.log(results)
+      // console.log("at promise")
+      // console.log($scope.items)
+      // console.log(results)
      $scope.favorites = results;
      $scope.crossCheckFavs();
     })
@@ -62,7 +62,7 @@ angular.module('shareAustin')
   for (var i = 0; i < $scope.items.length; i++) {
       for (var j = 0 ; j < $scope.favorites.length; j++) {
        if ($scope.favorites[j].item_id===$scope.items[i].id) {
-        console.log("if worked")
+        // console.log("if worked")
         $scope.items[i].favorited = true;
        }
       }
