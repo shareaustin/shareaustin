@@ -1,21 +1,47 @@
 angular.module('shareAustin')
 
 .controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item, Auth) {
- 
+
   // Allows this controller to be expanded into mapSetup file
-  angular.module('shareAustin').expandAvailableItems($scope, Request, Helpers)  
+  angular.module('shareAustin').expandAvailableItems($scope, Request, Helpers)
 
   // Initialize containers for data
   $scope.currentItem = {};
   $scope.items       = [];
   $scope.fav         = {};
-  //$scope.class       = "";
+  $scope.search = Item.search.term
 
-  // Fetches all available items for display; sets up map with these items; 
+  $scope.avgRating = function (items) {
+    var total, len;
+    items.forEach(function (item) {
+      var len = 0
+      total = item.seller.soldTransactions.reduce(function (prev, stars,i, arr) {
+
+        if (stars.rating.seller_rating) {
+          len++;
+
+         return prev + stars.rating.seller_rating
+        }
+        return prev
+      },0)
+      item.seller.avgStars = Math.ceil(total/len)
+      if (isNaN(item.seller.avgStars)) item.seller.avgStars = 0
+      if (item.seller.avgStars || item.seller.avgStars === 0) {
+        item.seller.starsArr = [false,false,false,false, false]
+        for (var i = 0; i <= item.seller.avgStars-1; i++) {
+          item.seller.starsArr[i] = true
+        }
+      }
+    })
+  }
+
+  // Fetches all available items for display; sets up map with these items;
   $scope.loadPage = function() {
     Request.items.fetchAvailableItems()
       .then(function (results){
         $scope.items = results;
+        $scope.avgRating($scope.items)
+        console.log($scope.items)
         $scope.setupMap(); // function defined in mapSetup.js
         $scope.fetchFavoriteItems();
       })
@@ -38,8 +64,8 @@ angular.module('shareAustin')
        if ($scope.favorites[j].item_id===$scope.items[i].id) {
         console.log("if worked")
         $scope.items[i].favorited = true;
-       } 
-      } 
+       }
+      }
      }
   }
 
@@ -51,7 +77,7 @@ angular.module('shareAustin')
     $location.path('/transaction');
   }
 
-  // Stores information to be used in detailed view, 
+  // Stores information to be used in detailed view,
   // Then navigates to detailed view
   $scope.loadDetailedView = function ($event) {
     Item.set($event)

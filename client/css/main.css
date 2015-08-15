@@ -21,25 +21,64 @@
 	color: #eee;
 	cursor: pointer;
 }
+
 /*----- Helpers ------*/
 .inline {display: inline;}
 .block {display: block;}
 .padding-top {padding-top: 70px;}
 .padding-top-percent {padding-top: 20vh;}
-.top-margin {margin-top: 50px;}
+.top-margin {margin-top: 46px;}
 .top-margin-sm {margin-top: 20px;}
 .ul-reset {
   list-style: none;
   /*padding-left: 20px;*/
 }
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+.btn {transition: all .2s ease-in-out;}
+.btn:hover {transform: scale(1.05);}
 
+.btn-green {background: #1ab188; color: white;}
+.btn-green:hover, .btn-green:focus, .btn-green:active  {
+  background: #1B9F7B;
+  color: white;
+}
+.btn-white {background: white; color: #1B9F7B; border: 1px solid #1B9F7B;}
+.btn-white:hover, .btn-white:focus, .btn-white:active  {
+  background: white;
+  color: #1B9F7B;
+  border: 1px solid #1B9F7B;
+}
+.btn-ghost-white {background: ghostwhite;color: #1B9F7B;}
+.btn-ghost-white:hover, .btn-ghost-white:focus, .btn-ghost-white:active  {
+  background: ghostwhite;
+  color: #1B9F7B;
+}
 
+.btn-ghost-seafoam {
+  background: transparent;
+  border: 3px solid #75EFCE;
+  color: #75EFCE;
+}
+.btn-ghost-seafoam:hover, .btn-ghost-seafoam:focus, .btn-ghost-seafoam:active {
+  border: 3px solid darkgreen;
+  color: darkgreen;
+}
 
+.btn-xxl {
+  padding: 12px 26px;
+  font-size: 1.7em;
+  border-radius: 5px;
+}
 /*----- Main Nav ------*/
 .main-nav-wrapper {
   background: white;
   position: fixed;
+  background-image: none;
   width: 100%;
+  z-index: 100;
 }
 .main-nav {
   border-bottom: 1px solid #eee;
@@ -92,6 +131,12 @@
 }
 
 /*----- All Items ------*/
+.filter-bar {
+  background: #F6F6F6;
+  padding: 5px 0;
+  border: 1px solid lightgray;
+  z-index: 30;
+}
 .google-map {
   position: fixed;
   height: 95vh;
@@ -103,6 +148,23 @@
 }
 .button-container {margin-left: 10px;}
 .newitem-button-container {margin: 10px 0;}
+
+.padR-10 {padding-right: 10px;}
+.marR-10 {margin-right: 10px;}
+.search-icon {
+  position: relative;
+  left: 25px;
+  /*top: 300px;*/
+}
+.items-search {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px 0 5px 30px;
+}
+.rating-picker-wrapper {
+  font-size: 1.6em;
+  padding: 0 10px 0px 20px;
+}
 /*----- Centering & Cropping Images -----*/
 .centerCrop {
   object-fit: cover;
@@ -262,7 +324,7 @@ a:hover {
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
-
+.button-padding {padding: 15px 10px;}
 .button:hover, .button:focus {background: #179b77;}
 .button-block {
   display: block;
@@ -273,7 +335,46 @@ a:hover {
   text-align: right;
 }
 
+/*---- Home Search -----*/
+.home-title {
+  color: #1ab188;
+  font-size: 2.7em;
+}
+.home-sub-title {
+  color: white;
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+.home-search-wrapper {
+  margin: 0 auto;
+  padding-top: 35vh;
+  width: 500px;
+  text-align: center;
+}
+.home-search-bar {
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px 0;
+  background-color: rgba(77, 80, 79, 0.49);
+  color: white;
+  font-size: 1.5em;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.home-search-bar input:focus {
+  outline: 0 none;
+  border-color: #1ab188;
+  /*outline-style:none;
+  box-shadow:none;
+  border-color:transparent;*/
+}
 /*---- Background Images -----*/
+.grid-bg {
+  background: url(../img/grid.png);
+  height: 100%;
+  /*opacity: .5;*/
+}
 .auth-bg {
   background: url('../img/trees.jpeg') center center no-repeat;
   height: 100vh;
@@ -282,7 +383,7 @@ a:hover {
 
 /*---- Favorite Buttons -----*/
 .favorited, .favorited:focus, .favorited:hover {
-  background-color: green;
+  background-color: #F6F2C8;
 }
 
 /*----- Calendar Event Styling -----*/
@@ -299,3 +400,11 @@ a:hover {
 .day:hover, .calendar {
   cursor: pointer;
 }
+.home-bg {
+  background: url('../img/hike-in-woods.jpeg') center bottom no-repeat;
+  height: 100vh;
+  background-size: cover;
+}
+
+input {color: #333;}
+textarea {color: #333}
