@@ -27,11 +27,15 @@
 .block {display: block;}
 .padding-top {padding-top: 70px;}
 .padding-top-percent {padding-top: 20vh;}
-.top-margin {margin-top: 50px;}
+.top-margin {margin-top: 46px;}
 .top-margin-sm {margin-top: 20px;}
 .ul-reset {
   list-style: none;
   /*padding-left: 20px;*/
+}
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
 }
 .btn {transition: all .2s ease-in-out;}
 .btn:hover {transform: scale(1.05);}
@@ -127,6 +131,12 @@
 }
 
 /*----- All Items ------*/
+.filter-bar {
+  background: #F6F6F6;
+  padding: 5px 0;
+  border: 1px solid lightgray;
+  z-index: 30;
+}
 .google-map {
   position: fixed;
   height: 95vh;

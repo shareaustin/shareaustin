@@ -2,11 +2,11 @@
 <div class="fixed z-index" ng-include="'shared/navigation.html'"></div>
 <!-- Container for main page -->
 <div class="container-fluid">
-   <div class="row top-margin">
+   <div class="row no-gutter top-margin">
    	 <!-- Contains all listings -->
      <div class="col-sm-6">
 				<!-- Container for individual items -->
-        <div class="text-center">
+        <div class="text-center filter-bar fixed col-sm-6">
           <span>Sort Name, Rating or Price</span>
           <i class="fa fa-search search-icon"></i>
           <input class="items-search" placeholder="Filter By Search" type="text" ng-model="search">
@@ -25,22 +25,25 @@
             <i class="fa fa-usd"></i>
           </div>
         </div>
-				<div ng-repeat="item in items | filter:{name: search}" class="item pull-left col-sm-6">
-					<h4 ng-click="loadDetailedView(item, $event)" class="item-title">{{ item.name | limitTo: 25 }}</h4>
-					<img ng-click="loadDetailedView(item, $event)" class="centerCrop img-responsive pointer"  ng-src="{{item.photo_url}}"/>
-					<p>
-            {{item.seller.first_name}} {{item.seller.last_name}}
-            {{item.seller.avg}}
-            {{ item.price_per_day | currency }} per day
-          </p>
-					<p class="item-description">{{ item.description | limitTo: 133 }}</p>
-					<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
-					<!-- <p class="inline">{{ item.price_per_day | currency }}/day</p> -->
-					<div class="row button-container">
-            <button class="btn btn-green btn-md col-sm-5" ng-click="rentItem(item, $event)">Rent</button>
-						<button class="btn btn-white btn-md col-sm-5 col-sm-offset-1" ng-class="{ 'favorited' : item.favorited }" ng-click="newFavorite(item,$event)">Favorite</button>
-	        </div>
-				</div>
+
+        <div class="top-margin">
+  				<div ng-repeat="item in items | filter:{name: search}" class="item pull-left col-sm-6">
+  					<h4 ng-click="loadDetailedView(item, $event)" class="text-center item-title">{{ item.name | limitTo: 25 }}</h4>
+  					<img ng-click="loadDetailedView(item, $event)" class="centerCrop center-block img-responsive pointer"  ng-src="{{item.photo_url}}"/>
+  					<p class="text-center">
+              {{item.seller.first_name}} {{item.seller.last_name}}
+              {{item.seller.avg}}
+              {{ item.price_per_day | currency }} per day
+            </p>
+  					<p class="item-description">{{ item.description | limitTo: 133 }}</p>
+  					<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
+  					<!-- <p class="inline">{{ item.price_per_day | currency }}/day</p> -->
+  					<div class="row button-container">
+              <button class="btn btn-green btn-md col-sm-5" ng-click="rentItem(item, $event)">Rent</button>
+  						<button class="btn btn-white btn-md col-sm-5 col-sm-offset-1" ng-class="{ 'favorited' : item.favorited }" ng-click="newFavorite(item,$event)">Favorite</button>
+  	        </div>
+  				</div>
+  		 </div>
 		 </div>
 		 <div class="col-sm-6 col-sm-offset-6 fixed">
 		 		<!-- Mysteriously, this empty ng-click is needed to reroute from map. Why!??!? -->
