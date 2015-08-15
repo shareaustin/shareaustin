@@ -383,7 +383,7 @@ a:hover {
 
 /*---- Favorite Buttons -----*/
 .favorited, .favorited:focus, .favorited:hover {
-  background-color: green;
+  background-color: #F6F2C8;
 }
 
 /*----- Calendar Event Styling -----*/
