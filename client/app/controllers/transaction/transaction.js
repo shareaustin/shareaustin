@@ -21,7 +21,7 @@ angular.module('shareAustin')
     var endsAt = $scope.rentalEndDate.valueOf();
     // console.log('Transaction Ends At: ', endsAt);
     var totalHours = (endsAt - startsAt) / ( 60 * 60 * 1000 );
-    console.log("Duration of rental: ", totalHours);
+    // console.log("Duration of rental: ", totalHours);
     return totalHours;
   }
 
