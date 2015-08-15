@@ -17,7 +17,6 @@ module.exports = {
 
 	addItem : function(req, res) {
 		var attr = req.body;
-		attr.seller_id = req.body.user ? req.body.user.attributes.id : 1;
 		new Item(attr).save()
 		.then(function (item){
 			res.json(item);

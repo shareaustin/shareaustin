@@ -14,6 +14,6 @@
     <td class="day">Sat</td>
 </tr>
 <tr class="week" ng-repeat="week in weeks">
-    <td class="day" ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected), reserved: 0 }" ng-click="select(day)" ng-repeat="day in week.days">{{day.number}}</td>
+    <td class="day" ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth,  reserved: isReserved(day) }" ng-click="" ng-repeat="day in week.days">{{day.number}}</td>
 </tr>
 </table>

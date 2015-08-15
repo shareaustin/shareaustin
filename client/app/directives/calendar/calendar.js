@@ -1,10 +1,51 @@
 angular.module("shareAustin")
 
-.controller('CalendarCtrl', function ($scope, CalEvents) {
+.controller('CalendarCtrl', function ($scope, CalEvents, Item, Request) {
   $scope.day = moment();
+  $scope.today = new Date();
+  //Get item's transactions to show availability
+  $scope.getEvents = function() {
+    var itemId = Item.get().id;
+    var events = [];
+    var startDate;
+    Request.items.fetchItemTransactions(Item.get().id, $scope.today)
+    .then(function(data){
+      $scope.itemTransactions = data;
+      // console.log("$scope.itemTransactions: ", $scope.itemTransactions);
+      for (var i = 0; i < $scope.itemTransactions.length; i++) {
+        startDate = $scope.itemTransactions[i].start_date;
+        startDate = new Date(startDate);
+        // console.log("start date: ", startDate);
+        events.push(startDate);
+      }
+    })
+    .then(function() {
+      // console.log("Calendar events: ", events);
+      // console.log("First Event: ", events[0].date);
+      CalEvents.set(events);
+      // console.log("Stored in CalEvents factory: ", CalEvents.get());
+      return CalEvents.get();
+    });
+  }
+
+// $scope.getEvents().then(function() {console.log("Returned promise after calling events!")});
+
   $scope.calEvents = CalEvents.get();
   // console.log(CalEvents.get());
   console.log("$scope.calEvents: ", $scope.calEvents);
+  //the iterated day.date matches $scope.calEvents[i]
+  $scope.isReserved = function(day) {
+    // console.log("day passed in: ", day);
+    // console.log("typeof day.date._d", typeof day.date._d);
+    // console.log("first event passed in: ", $scope.calEvents[0]);
+    for (var i = 0; i < $scope.calEvents.length; i++) {
+        if (day.date._d.toString() === $scope.calEvents[i].toString()) {
+            // console.log("found event match for: ", day.date._d.toString());
+            return true;
+        }
+    }
+    return false;
+  }
 })
 
 .directive('calendar', function() {
