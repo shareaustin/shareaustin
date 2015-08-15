@@ -92,12 +92,14 @@ angular.module('shareAustin')
 .controller('FavoritesCtrl', function ($scope, Request, Auth, Item, $location){
   $scope.favorites = [] ;
   $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
+  
   $scope.fetchFavoriteItems = function (userId) {
      Request.favorites.fetchFavoriteItems($scope.userId)
      .then(function (results){
      $scope.favorites = results;
     })
    }
+
   $scope.removeFavoriteItems = function (favorite) {
     console.log("in remove favorites")
     console.log(favorite)

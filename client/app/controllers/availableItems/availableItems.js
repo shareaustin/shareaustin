@@ -28,21 +28,21 @@ angular.module('shareAustin')
       console.log($scope.items)
       console.log(results)
      $scope.favorites = results;
-     for (var i = 0; i < $scope.items.length; i++) {
-      for (var j = 0; j < $scope.favorites.length; j++) {
-        console.log("favs:")
-        console.log($scope.favorites[j])
-        console.log("items:")
-        console.log($scope.items[i])
+     $scope.crossCheckFavs();
+    })
+  }
 
+  $scope.crossCheckFavs = function() {
+  for (var i = 0; i < $scope.items.length; i++) {
+      for (var j = 0 ; j < $scope.favorites.length; j++) {
        if ($scope.favorites[j].item_id===$scope.items[i].id) {
         console.log("if worked")
         $scope.items[i].favorited = true;
        } 
       } 
      }
-    })
   }
+
 
   // "Rent" button takes user to transaction view
   $scope.rentItem = function ($event) {
@@ -72,7 +72,9 @@ angular.module('shareAustin')
     $scope.fav.user_id =  Auth.getUser() ? Auth.getUser().id : 1;
 
     // Posts this favorite to database
-    Request.favorites.addFavorite($scope.fav)
+    Request.favorites.addFavorite($scope.fav).then(function() {
+      $scope.fetchFavoriteItems();
+    })
   }
 
   // Initially loads page

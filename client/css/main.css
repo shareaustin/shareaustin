@@ -281,6 +281,6 @@ a:hover {
 }
 
 
-.favorited {
-  background-color: black;
+.favorited, .favorited:focus, .favorited:hover {
+  background-color: green;
 }
