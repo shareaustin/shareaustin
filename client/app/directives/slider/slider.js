@@ -6,9 +6,9 @@ angular.module('shareAustin')
   $scope.getItemPhotos = function() {
     Request.items.itemPhotos(Item.get())
     .then(function(data){
-      console.log("response from server: ", data);
+      // console.log("response from server: ", data);
       for (var i = 0; i < data.length; i++) {
-        console.log("Item Photo URL: ", data[i].photo_url);
+        // console.log("Item Photo URL: ", data[i].photo_url);
         $scope.slides.push({'image': data[i].photo_url});
       }
     });

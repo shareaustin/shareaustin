@@ -290,3 +290,12 @@ a:hover {
   color: white;
   background-color: rgba(19, 35, 47, 0.9);
 }
+
+.reserved {
+  color: white;
+  background-color: #aaa;
+}
+
+.day:hover, .calendar {
+  cursor: pointer;
+}

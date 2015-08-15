@@ -1,7 +1,10 @@
 angular.module("shareAustin")
 
-.controller('CalendarCtrl', function ($scope) {
+.controller('CalendarCtrl', function ($scope, CalEvents) {
   $scope.day = moment();
+  $scope.calEvents = CalEvents.get();
+  // console.log(CalEvents.get());
+  console.log("$scope.calEvents: ", $scope.calEvents);
 })
 
 .directive('calendar', function() {
