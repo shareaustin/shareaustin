@@ -33,6 +33,8 @@
   /*padding-left: 20px;*/
 }
 
+
+
 /*----- Main Nav ------*/
 .main-nav-wrapper {
   background: white;
@@ -276,4 +278,9 @@ a:hover {
   background: url('../img/trees.jpeg') center center no-repeat;
   height: 100vh;
   background-position: cover;
+}
+
+
+.favorited {
+  background-color: black;
 }
