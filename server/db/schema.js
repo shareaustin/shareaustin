@@ -56,16 +56,16 @@ module.exports = function(){
 
       })
       .createTable('chats', function (chat){
-         chat.increments('id').primary();
-         chat.integer('creator_id').references('id').inTable('users');
-         chat.integer('guest_id').references('id').inTable('users');
+         chat.integer('item_id')
+         chat.integer('buyer_id').references('id').inTable('users');
          chat.string('status');
+         chat.primary(['item_id', 'buyer_id']);
       })
       .createTable('messages', function (message){
         message.increments('id').primary();
         message.integer('chat_id').references('id').inTable('chats');
-        message.integer('sender_id').references('id').inTable('users');
-        message.integer('receiver_id').references('id').inTable('users');
+        message.text('text');
+        messge.boolean('seen');
       })
       .then(function(){
         console.log('Created Tables...')

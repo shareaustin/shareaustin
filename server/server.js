@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
-var routes = require('./routes.js');
-
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -10,7 +10,7 @@ var morgan = require('morgan')
 var multer = require('multer');
 var upload = require('./config/multer')(multer);
 
-var db = require('./db/db.js')
+//var db = require('./db/db.js')
 require('./db/schema.js')();
 
 require('./config/passport.js')(passport)
@@ -28,13 +28,25 @@ app.use (session({
  app.use(passport.initialize());
  app.use(passport.session());
 
+//app.get('/io', function(req, res){
+//	res.sendFile(__dirname + '/io.html');
+//})
 
 // Writes all the routes to the server instance in the routes.js file
+require('./routes.js')(app, passport, upload);
 
-routes(app, passport, upload)
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+io.on('connect', function(socket){
+	console.log('new user connection...\n');
+	//socket.broadcast.emit('hello user')
+	socket.on('chat message', function(msg){
+		console.log('message: ' + msg);
+	});
+	socket.on('disconnect', function(){
+		console.log('client disconnected');
+	});
 
-  console.log("Example app listening at http://%s:%s", host, port)
-} )
+});
+
+http.listen(3000, function(){
+	console.log('listening on port 3000');
+})

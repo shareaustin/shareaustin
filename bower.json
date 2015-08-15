@@ -29,7 +29,8 @@
     "stripe-angular": "~1.0.2",
     "sweetalert": "~1.1.0",
     "angular-h-sweetalert": "~1.4.6",
-    "angular-slick": "~0.2.1"
+    "angular-slick": "~0.2.1",
+    "angular-socket-io": "~0.7.0"
   },
   "resolutions": {
     "angular": "~1.4.3"
