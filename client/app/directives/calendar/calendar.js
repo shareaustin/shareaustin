@@ -5,43 +5,67 @@ angular.module("shareAustin")
   $scope.today = new Date();
   //Get item's transactions to show availability
   $scope.getEvents = function() {
+    $scope.events = [];
     var itemId = Item.get().id;
-    var events = [];
-    var startDate;
-    Request.items.fetchItemTransactions(Item.get().id, $scope.today)
+    var eventDates;
+    Request.items.fetchItemTransactions(itemId, $scope.today)
     .then(function(data){
       $scope.itemTransactions = data;
       // console.log("$scope.itemTransactions: ", $scope.itemTransactions);
       for (var i = 0; i < $scope.itemTransactions.length; i++) {
-        startDate = $scope.itemTransactions[i].start_date;
-        startDate = new Date(startDate);
+        eventDates = {startDate: moment($scope.itemTransactions[i].start_date), endDate: moment($scope.itemTransactions[i].end_date)};
         // console.log("start date: ", startDate);
-        events.push(startDate);
+        $scope.events.push(eventDates);
       }
     })
     .then(function() {
       // console.log("Calendar events: ", events);
       // console.log("First Event: ", events[0].date);
-      CalEvents.set(events);
+      CalEvents.set($scope.events);
       // console.log("Stored in CalEvents factory: ", CalEvents.get());
+      // console.log("$scope.events: ", $scope.events);  
       return CalEvents.get();
     });
   }
 
+  $scope.getEvents();
 // $scope.getEvents().then(function() {console.log("Returned promise after calling events!")});
 
-  $scope.calEvents = CalEvents.get();
+  // $scope.calEvents = CalEvents.get();
   // console.log(CalEvents.get());
-  console.log("$scope.calEvents: ", $scope.calEvents);
-  //the iterated day.date matches $scope.calEvents[i]
+  // console.log("$scope.events: ", $scope.events);
+
   $scope.isReserved = function(day) {
     // console.log("day passed in: ", day);
     // console.log("typeof day.date._d", typeof day.date._d);
     // console.log("first event passed in: ", $scope.calEvents[0]);
-    for (var i = 0; i < $scope.calEvents.length; i++) {
-        if (day.date._d.toString() === $scope.calEvents[i].toString()) {
+
+    var events = $scope.events.sort(function(a,b) {
+      if (a.valueOf() < b.valueOf()) {
+          return -1;
+      }
+      if (a.valueOf() > b.valueOf()) {
+        return 1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+    // console.log("sorted events from isReserved: ", events);
+    for (var i = 0; i < events.length; i++) {
+        // console.log("day.date", day.date);
+        // console.log("events [", i, "].startDate: ", events[i].startDate)
+        // console.log("events [", i, "].endDate: ", events[i].endDate)
+        // console.log(day.date.isBetween(events[i].startDate, events[i].endDate))
+        // console.log(day.date.isAfter("2010-01-01"))
+        var startDatePrev = moment(events[i].startDate);
+        startDatePrev.date(startDatePrev.date()-1);
+        // console.log("startDate: ", events[i].startDate);
+        // console.log("startDatePrev: ", startDatePrev);
+        if (day.date.isSame(events[i].startDate) || day.date.isSame(events[i].endDate) || day.date.isBetween(startDatePrev, events[i].endDate)) {
             // console.log("found event match for: ", day.date._d.toString());
             return true;
+        } else {
+          // console.log("no match")
         }
     }
     return false;
@@ -67,7 +91,7 @@ return {
 
             scope.select = function(day) {
                 scope.selected = day.date; 
-                console.log("clicked on: ", scope.selected); 
+                // console.log("clicked on: ", scope.selected); 
             };
 
             scope.next = function() {
