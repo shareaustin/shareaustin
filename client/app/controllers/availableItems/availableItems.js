@@ -1,7 +1,7 @@
 angular.module('shareAustin')
 
 .controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item, Auth) {
-  
+ 
   // Allows this controller to be expanded into mapSetup file
   angular.module('shareAustin').expandAvailableItems($scope, Request, Helpers)  
 

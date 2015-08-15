@@ -1,8 +1,19 @@
-<div ng-controller="CalendarCtrl">
-    <!-- <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre> -->
-
-    <h4>Availability</h4>
-    <div style="display:inline-block; min-height:290px;">
-      <datepicker ng-model="dt" min-date="minDate" show-weeks="false" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
-    </div>
-</div>
+<table class="table-bordered table-condensed">
+<tr class="table-condensed" colspan="7">
+    <td colspan="7"><i class="fa fa-angle-left" ng-click="previous()"></i>
+    {{month.format("MMMM, YYYY")}}
+    <i class="fa fa-angle-right" ng-click="next()"></i></td>
+</tr>
+<tr class="week names" colspan="7">
+    <td class="day">Sun</td>
+    <td class="day">Mon</td>
+    <td class="day">Tue</td>
+    <td class="day">Wed</td>
+    <td class="day">Thu</td>
+    <td class="day">Fri</td>
+    <td class="day">Sat</td>
+</tr>
+<tr class="week" ng-repeat="week in weeks">
+    <td class="day" ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }" ng-click="select(day)" ng-repeat="day in week.days">{{day.number}}</td>
+</tr>
+</table>
