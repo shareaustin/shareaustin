@@ -22,7 +22,7 @@ module.exports = {
 	},
 
 	getSoldTransactions: function(req, res){
-		var id = req.user ? req.user.attributes.id : 1;
+		console.log("get sold transactions:"+req.user)
 
 		new User({id:id}).related('soldTransactions').fetch({
 			withRelated: [ 'item', 'rating']

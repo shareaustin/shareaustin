@@ -31,6 +31,7 @@ angular.module('shareAustin')
         return $http({
           method: 'GET',
           url: '/api/user/soldTransactions',
+          data: Auth.getUser() ? Auth.getUser.id : 1
         })
         .then(function(resp){
           return resp.data;
