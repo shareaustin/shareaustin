@@ -21,6 +21,7 @@
 	color: #eee;
 	cursor: pointer;
 }
+
 /*----- Helpers ------*/
 .inline {display: inline;}
 .block {display: block;}
@@ -392,6 +393,8 @@ a:hover {
 .home-bg {
   background: url('../img/hike-in-woods.jpeg') center bottom no-repeat;
   height: 100vh;
-
   background-size: cover;
 }
+
+input {color: #333;}
+textarea {color: #333}
