@@ -79,7 +79,7 @@ module.exports = {
 		var itemId = req.body.itemId;
 		ItemPhoto.where({'item_id':itemId}).fetchAll()
 		.then(function(model) {
-			console.log("Item photos model: ", model);
+			// console.log("Item photos model: ", model);
 			res.json(model);
 		})
 	},

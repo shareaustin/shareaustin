@@ -23,8 +23,8 @@ module.exports = {
     new Item({'id' : transaction.item_id}).fetch()
     .then(function(res) {
       // console.log('Item Price Per Hour: ', res.attributes.price_per_hour);
-      console.log('Rental Duration in Hours: ', transaction.duration);
-      attr.price = res.attributes.price_per_hour * transaction.duration;
+      console.log('Rental Duration in Days: ', transaction.duration);
+      attr.price = res.attributes.price_per_day * transaction.duration;
       // console.log('Transaction Item Returned: ', res);
      
       // Get the credit card details submitted by the form
@@ -57,13 +57,16 @@ module.exports = {
       .then(function(user){
       // console.log('Lookup of transaction buyer: ', user.attributes);
       var buyer = user.attributes;
+      //Change start_date string to ISO string for moment formatting
+      var momentStartDate = new Date(transaction.start_date);
+      momentStartDate = momentStartDate.toISOString();
       //Send an email receipt of the transaction
       mandrill('/messages/send', {
           message: {
               to: [{email: buyer.email, name: buyer.first_name + " " + buyer.last_name}],
               from_email: 'payment@shareaustin.com',
               subject: "ShareAustin - Payment Confirmation",
-              text: "Congratulations, " + buyer.first_name + "! Your ShareAustin rental was approved. You have been charged $" + transaction.price + ".00 for your rental, which will begin on " + moment(transaction.start_date).format("dddd","MMMM") + " at " + moment(transaction.start_date).format("h:mm a") + ". Enjoy! -- The ShareAustin Team"
+              text: "Congratulations, " + buyer.first_name + "! Your ShareAustin rental was approved. You have been charged $" + transaction.price + ".00 for your rental, which will begin on " + moment(momentStartDate).format("dddd","MMMM") + ", " + moment(momentStartDate).format("MM-DD-YYYY") + ". Enjoy! -- The ShareAustin Team"
           }
       }, function(error, response)
       {
