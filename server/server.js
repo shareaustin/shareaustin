@@ -28,25 +28,13 @@ app.use (session({
  app.use(passport.initialize());
  app.use(passport.session());
 
-//app.get('/io', function(req, res){
-//	res.sendFile(__dirname + '/io.html');
-//})
 
 // Writes all the routes to the server instance in the routes.js file
 require('./routes.js')(app, passport, upload);
 
-io.on('connect', function(socket){
-	console.log('new user connection...\n');
-	//socket.broadcast.emit('hello user')
-	socket.on('chat message', function(msg){
-		console.log('message: ' + msg);
-	});
-	socket.on('disconnect', function(){
-		console.log('client disconnected');
-	});
-
-});
+// Maps event listeners to io
+require('./ioHandler.js')(io);
 
 http.listen(3000, function(){
-	console.log('listening on port 3000');
+  console.log('listening on port 3000');
 })

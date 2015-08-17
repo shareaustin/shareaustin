@@ -85,9 +85,14 @@ angular.module('shareAustin', [
     templateUrl: '/app/controllers/updateItems/updateItems.html',
     controller: 'EditItemCtrl'
   })
-  .state('chat', {
-    url: '/chat',
-    templateUrl: '/app/controllers/chat/chat.html',
+  .state('chatList', {
+    url: '/chatList',
+    templateUrl: '/app/controllers/chatList/chatList.html',
+    controller: 'ChatListCtrl'
+  }).
+  state('chatList.chat', {
+    url: '',
+    templateUrl: '/app/controllers/chatList/chat.html',
     controller: 'ChatCtrl'
   })
 })
