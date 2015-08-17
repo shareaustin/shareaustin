@@ -50,6 +50,7 @@ module.exports = function(){
       })
       .createTable('ratings', function (rating){
         rating.integer('transaction_id').references('id').inTable('transactions').primary();
+        rating.integer('item_id').references('id').inTable('items');
         rating.integer('seller_rating');
         rating.text('seller_review');
         rating.integer('buyer_rating');
