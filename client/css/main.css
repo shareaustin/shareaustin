@@ -29,6 +29,7 @@
 .padding-top-percent {padding-top: 20vh;}
 .top-margin {margin-top: 46px;}
 .top-margin-sm {margin-top: 20px;}
+.font-half-inc {font-size: 1.5em}
 .ul-reset {
   list-style: none;
   /*padding-left: 20px;*/
@@ -398,6 +399,25 @@ a:hover {
   background-color: #F6F2C8;
 }
 
+/*----- Calendar Styling -----*/
+.cal td {
+  width: 40px;
+  height: 40px;
+}
+.cal-arrows {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.cal-weeks {
+  font-size: 1.35em;
+  /*cursor: pointer;*/
+  background: #1ab188;
+  color: white;
+}
+.cal-days {
+  font-size: 1.2em;
+}
 /*----- Calendar Event Styling -----*/
 .day.selected {
   color: white;
@@ -410,7 +430,9 @@ a:hover {
 }
 
 .day:hover, .calendar {
-  cursor: pointer;
+  /*cursor: pointer;
+  background: #1ab188;
+  color: white;*/
 }
 .home-bg {
   background: url('../img/hike-in-woods.jpeg') center bottom no-repeat;
