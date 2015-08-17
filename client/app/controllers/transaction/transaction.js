@@ -6,10 +6,12 @@ angular.module('shareAustin')
 
 //Formatting for date and time pickers
   $scope.rentalStartDate = new Date();
+  $scope.rentalStartDate.setHours($scope.rentalStartDate.getHours() + 1);
   $scope.rentalStartDate.setMinutes("0");
   $scope.rentalStartDate.setSeconds("0");
   $scope.rentalStartDate.setMilliseconds("0");
   $scope.rentalEndDate = new Date();
+  $scope.rentalEndDate.setHours($scope.rentalStartDate.getHours() + 1);
   $scope.rentalEndDate.setMinutes("0");
   $scope.rentalEndDate.setSeconds("0");
   $scope.rentalEndDate.setMilliseconds("0");
@@ -20,16 +22,21 @@ angular.module('shareAustin')
     // console.log('Transaction Starts At: ', startsAt);
     var endsAt = $scope.rentalEndDate.valueOf();
     // console.log('Transaction Ends At: ', endsAt);
-    var totalHours = (endsAt - startsAt) / ( 60 * 60 * 1000 );
-    // console.log("Duration of rental: ", totalHours);
-    return totalHours;
+    var totalDays = Math.round((endsAt - startsAt) / ( 60 * 60 * 1000 ) / 24);
+    // console.log("Duration of rental: ", totalDays);
+    if (totalDays === 0) {
+      // if duration of rental is same day, charge for one day
+      return 1;
+    } else {
+      return totalDays;
+    }
   }
 
   $scope.item = Item.get();
-  $scope.item.total_price = this.price_per_hour * $scope.calculateDuration();
+  $scope.item.total_price = this.price_per_day * $scope.calculateDuration();
 
   //Set price that is displayed
-  $scope.rentalPrice = function() { return Math.max(0, Math.floor($scope.item.price_per_hour * $scope.calculateDuration()))};
+  $scope.rentalPrice = function() { return Math.max(0, Math.floor($scope.item.price_per_day * $scope.calculateDuration()))};
 
   //Date format for database and price calculation
   $scope.dateFormatter = function (dateObj) {
@@ -68,7 +75,7 @@ angular.module('shareAustin')
     } else {
       sweet.show({
         title: "<small>Error</small>",
-              text: '<p>Please enter a rental duration of at least one hour.</p>',
+              text: '<p>Please enter a rental duration of at least one day.</p>',
               type: 'error',
               html: true
       });
