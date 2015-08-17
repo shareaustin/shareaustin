@@ -1,12 +1,29 @@
 <div ng-include="'shared/navigation.html'"></div>
 <div class="container padding-top">
-  <div class="row text-center item-title-wrapper">
+  <div class="row text-center item-title-wrapper no-l-gutter">
     <div class="col-sm-10 col-sm-offset-1">
       <slider></slider>
-      <h2 class="inline text-center item-title-desc">{{item.name}} ${{item.price_per_day}}</h2>
-      <p class="single-item-description">{{item.description}}</p>
-      <calendar class="col-sm-4 col-sm-offset-4"></calendar>
-      <button class="btn btn-primary btn-lg col-sm-4 col-sm-offset-4" ng-click="rentRedirect()">Rent</button>
+      <div class="single-desc">
+        <h2 class="inline text-center item-title-desc">{{item.name}} ${{item.price_per_day}}</h2>
+        <p class="single-item-description">{{item.description}}</p>
+        <button class="btn btn-green btn-lg col-sm-4 margin-left-12" ng-click="rentRedirect()">Rent Item</button>
+        <button class="btn btn-white btn-lg col-sm-4 col-sm-offset-1" ng-click="">Msg Seller</button>
+      </div>
     </div>
   </div>
+    <div class="row text-center item-title-wrapper">
+      <div class="">
+        <calendar class="cal"></calendar>
+      </div>
+      <div class="col-sm-6 col-md-5 review-wrapper p-b-lg">
+        <p class="review-title">Reviews</p>
+        <ul class="ul-reset item-desc-list no-p-l">
+          <li>This kayak is amazing and the seller was super nice!</li>
+          <li>This kayak is amazing and the seller was super nice!</li>
+          <li>This kayak is amazing and the seller was super nice!</li>
+          <li>This kayak is amazing and the seller was super nice!</li>
+          <li>This kayak is amazing and the seller was super nice!</li>
+        </ul>
+      </div>
+    </div>
 </div>

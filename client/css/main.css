@@ -29,12 +29,17 @@
 .padding-top-percent {padding-top: 20vh;}
 .top-margin {margin-top: 46px;}
 .top-margin-sm {margin-top: 20px;}
+.margin-left-12 {margin-left: 12%;}
+.font-half-inc {font-size: 1.5em}
 .ul-reset {
   list-style: none;
   /*padding-left: 20px;*/
 }
 .no-gutter > [class*='col-'] {
     padding-right:0;
+    padding-left:0;
+}
+.no-l-gutter > [class*='col-'] {
     padding-left:0;
 }
 .btn {transition: all .2s ease-in-out;}
@@ -104,7 +109,13 @@
 /*.item-title-desc {
   padding: 15px 0;
 }*/
-
+.item-desc-list > li {
+  padding: 10px 0;
+  border: 1px solid #eee;
+}
+.item-desc-list > li:nth-child(odd) {
+  background-color: #EBF6F0;
+}
 .item-title {
   cursor: pointer;
   overflow: hidden;
@@ -119,11 +130,22 @@
   height: 60px;
   overflow: hidden;
 }
+.single-desc {
+  border: 1px solid #eee;
+  border-top: none;
+  padding-bottom: 70px;
+}
 .single-item-description {
   padding: 0 10%;
   margin: 18px 0;
+  font-size: 15px;
 }
-
+.review-title {
+  font-size: 2em;
+  /*margin-top: -10px;*/
+  margin: 0;
+  border: 1px solid #eee;
+}
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
   width: 100%;
   height: 450px;
@@ -398,6 +420,26 @@ a:hover {
   background-color: #F6F2C8;
 }
 
+/*----- Calendar Styling -----*/
+.cal td {
+  width: 40px;
+  height: 40px;
+}
+.cal-arrows {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.cal-arrows:hover {color: #1ab188;}
+
+.cal-weeks {
+  font-size: 1.35em;
+  /*cursor: pointer;*/
+  background: #1ab188;
+  color: white;
+}
+.cal-days {
+  font-size: 1.2em;
+}
 /*----- Calendar Event Styling -----*/
 .day.selected {
   color: white;
@@ -410,7 +452,9 @@ a:hover {
 }
 
 .day:hover, .calendar {
-  cursor: pointer;
+  /*cursor: pointer;
+  background: #1ab188;
+  color: white;*/
 }
 .home-bg {
   background: url('../img/hike-in-woods.jpeg') center bottom no-repeat;
