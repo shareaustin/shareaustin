@@ -37,6 +37,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   list-style: none;
   /*padding-left: 20px;*/
 }
+.bold-700 {font-weight: 700;}
 .no-gutter > [class*='col-'] {
     padding-right:0;
     padding-left:0;
