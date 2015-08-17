@@ -6,10 +6,12 @@ angular.module('shareAustin')
 
 //Formatting for date and time pickers
   $scope.rentalStartDate = new Date();
+  $scope.rentalStartDate.setHours($scope.rentalStartDate.getHours() + 1);
   $scope.rentalStartDate.setMinutes("0");
   $scope.rentalStartDate.setSeconds("0");
   $scope.rentalStartDate.setMilliseconds("0");
   $scope.rentalEndDate = new Date();
+  $scope.rentalEndDate.setHours($scope.rentalStartDate.getHours() + 1);
   $scope.rentalEndDate.setMinutes("0");
   $scope.rentalEndDate.setSeconds("0");
   $scope.rentalEndDate.setMilliseconds("0");
