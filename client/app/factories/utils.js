@@ -272,6 +272,18 @@ angular.module('shareAustin')
   }
 })
 
+.factory("SaveTransaction", function() {
+  transactionDescription = {}
+  function set(data) {
+    transactionDescription = data
+  }
+  function get() {
+    return transactionDescription
+  }
+  return  { set: set, get: get }
+
+})
+
 .factory('Socket', function(socketFactory){
   var socket = socketFactory()
   socket.on('connect', function(){
