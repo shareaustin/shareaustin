@@ -30,7 +30,8 @@
     "sweetalert": "~1.1.0",
     "angular-h-sweetalert": "~1.4.6",
     "angular-slick": "~0.2.1",
-    "angular-socket-io": "~0.7.0"
+    "angular-socket-io": "~0.7.0",
+    "spacing-classes": "~1.0.1"
   },
   "resolutions": {
     "angular": "~1.4.3"
