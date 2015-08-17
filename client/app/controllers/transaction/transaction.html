@@ -7,7 +7,7 @@
    </div>
    <div class="col-sm-4">
    <!-- RENTAL INFO FORM -->
-      <h4>Rental Information</h4>
+      <!-- <h4>Rental Information</h4> -->
       <form class="transparent-form tf-overide">
       <label>{{item.name}}</label><br>
       <label ng-model="item">Price Per Day: ${{item.price_per_day || 0}}</label><br>
@@ -32,7 +32,7 @@
     <!-- PAYMENT FORM -->
     <div class="col-sm-4">
       <h4>Payment Information</h4>
-      <form stripe:form="saveTransaction">
+      <form class="transparent-form tf-overide" stripe:form="saveTransaction">
         <fieldset>
           <label>Card Number</label><br>
           <input type="text" size="20" data-stripe="number" value="4242424242424242"/><br>
