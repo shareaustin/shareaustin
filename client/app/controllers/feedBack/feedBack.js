@@ -1,13 +1,15 @@
 angular.module('shareAustin')
 
-.controller('Feedback', function ($scope, SaveTransaction, Item) {
+.controller('Feedback', function ($scope, SaveTransaction, Item, Request) {
   
   // A lot of functions for a few stars... may have overcomplicated this
 
   // Initialize rating at zero
-  $scope.transaction = SaveTransaction;
-  $scope.transaction.rating = 0;
-  $scope.transaction.review = "";
+  $scope.ratingAndReview = {};
+  $scope.transaction = SaveTransaction.get();
+
+  $scope.ratingAndReview.rating = 0;
+  $scope.ratingAndReview.review = "";
 
   // This object is use with ng-class to style the stars;
   // When turnOn is set to true, a turn-on css animation is activated;
@@ -21,7 +23,7 @@ angular.module('shareAustin')
   }
   // Sets all classes to false
   function restart() {
-    $scope.transaction.rating = 0;
+    $scope.ratingAndReview.rating = 0;
     for (var i=1; i<=5; i++) {  
       $scope.ratingPicker[i].turnOn = false
       $scope.ratingPicker[i].turnOff = false 
@@ -41,7 +43,7 @@ angular.module('shareAustin')
   // Makes stars greater than the rating fade at mouseout
   $scope.starsFade = function() {
     for (var i = 1; i <= 5; i++) {
-      if (i > $scope.transaction.rating) {
+      if (i > $scope.ratingAndReview.rating) {
         turnOff(i)
       } 
     }
@@ -49,21 +51,20 @@ angular.module('shareAustin')
   // Turns on the stars up to the one that is hovered over
   function starsExpand (num) {
     for (var i = 1; i<=5; i++) {
-      if (!$scope.transaction.rating) {
+      if (!$scope.ratingAndReview.rating) {
         i <= num ? turnOn(i) : turnOff(i);
       }
     }
   }
-
-  // Upon click, sets transaction.rating, making appropriate stars expand and fade
+  // Upon click, sets ratingAndReview.rating, making appropriate stars expand and fade
   function clickStar(num) {
-    if ($scope.transaction.rating) {
+    if ($scope.ratingAndReview.rating) {
       restart();
       starsExpand(num);
-      $scope.transaction.rating = num
+      $scope.ratingAndReview.rating = num
     }
     else { 
-      $scope.transaction.rating = num 
+      $scope.ratingAndReview.rating = num 
     }
   }
   // Functions for each star being hovered over
@@ -79,5 +80,9 @@ angular.module('shareAustin')
   $scope.chooseFour  = function() { clickStar(4) }
   $scope.chooseFive  = function() { clickStar(5) }
 })
+
+$scope.submitRatingAndReview(ratingAndReview) {
+  Request.
+}
 
 

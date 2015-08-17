@@ -46,6 +46,15 @@ angular.module('shareAustin')
         })
       },
     },
+    ratings: {
+      addRating: function(rating) {
+        method: "POST",
+        url   : "api/addRating",
+        data  : rating
+      }).then(function(resp) {
+        return resp.data;
+      }
+    },
     items: {
       fetchAvailableItems: function() {
         return $http({
@@ -132,6 +141,19 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
+
+      updateTransaction: function(transaction) {
+        return $http({
+          method: "POST",
+          url   : "api/updateTransaction",
+          data  : transaction
+        })
+        .then(function(resp) {
+          console.log(resp.data)
+          return resp.data
+        })
+      }
+
       getLocation: function(address) {
         return $http({
           method: "GET",
