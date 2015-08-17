@@ -105,7 +105,13 @@
 /*.item-title-desc {
   padding: 15px 0;
 }*/
-
+.item-desc-list > li {
+  padding: 10px 0;
+  border: 1px solid #eee;
+}
+.item-desc-list > li:nth-child(odd) {
+  background-color: #EBF6F0;
+}
 .item-title {
   cursor: pointer;
   overflow: hidden;
@@ -120,11 +126,22 @@
   height: 60px;
   overflow: hidden;
 }
+.single-desc {
+  border: 1px solid #eee;
+  border-top: none;
+  padding-bottom: 70px;
+}
 .single-item-description {
   padding: 0 10%;
   margin: 18px 0;
+  font-size: 15px;
 }
-
+.review-title {
+  font-size: 2em;
+  /*margin-top: -10px;*/
+  margin: 0;
+  border: 1px solid #eee;
+}
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
   width: 100%;
   height: 450px;
