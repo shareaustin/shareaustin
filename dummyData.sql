@@ -71,4 +71,7 @@ insert into ratings (transaction_id, item_id, seller_rating, buyer_rating, buyer
 insert into ratings (transaction_id, item_id, seller_rating, buyer_rating, buyer_review) values ('15', '1', '4', '4', 'Seller threw in all the accessories that we needed, which was awesome. The paddle had some nicks in it, but still held up on our trip down the Comal River. Thanks!');
 insert into ratings (transaction_id, item_id, seller_rating, buyer_rating, buyer_review) values ('16', '1', '4', '5', 'I was going to Wimberley for the weekend and wanted to check out the Blanco. The Challenger was a perfect kayak for this trip.');
 insert into ratings (transaction_id, item_id, seller_rating, buyer_rating, buyer_review) values ('2', '4', '4', '4', 'We rented this tent for the weekend and took it to Inks Lake Sate Park. It rained a little Saturday night, but the waterproofing kept us nice and dry. Having this with us made the trip really easy!');
-
+insert into ratings (transaction_id, seller_rating, buyer_rating) values ('1', '5', '5');
+insert into ratings (transaction_id, seller_rating, buyer_rating) values ('2', '4', '4');
+insert into chats (item_id, buyer_id, status) values ('1', '2', 'pending');
+insert into chats (item_id, buyer_id, status) values ('3', '1', 'pending');
