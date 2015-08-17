@@ -49,6 +49,8 @@ insert into transactions (item_id, buyer_id, start_date, end_date, duration, pri
 insert into transactions (item_id, buyer_id, start_date, end_date, duration, price, status) values ('1','5','2015-08-14','2015-08-15','24','100', 'in-rent');
 insert into transactions (item_id, buyer_id, start_date, end_date, duration, price, status) values ('4','5','2015-08-15','2015-08-16','24','50' , 'returned'); 
 insert into transactions (item_id, buyer_id, start_date, end_date, duration, price, status) values ('3','5','2015-08-16','2015-08-17','24','125', 'returned');
+insert into transactions (item_id, buyer_id, start_date, end_date, duration, price, status) values ('1','5','2015-08-11','2015-08-12','24','125', 'returned');
+insert into transactions (item_id, buyer_id, start_date, end_date, duration, price, status) values ('1','2','2015-08-05','2015-08-06','24','125', 'returned');
 insert into favorites (user_id, item_id) values ('1','1');
 insert into favorites (user_id, item_id) values ('1','2');
 insert into favorites (user_id, item_id) values ('1','3');
@@ -64,6 +66,9 @@ insert into favorites (user_id, item_id) values ('4','7');
 insert into favorites (user_id, item_id) values ('5','2');
 insert into favorites (user_id, item_id) values ('5','8');
 insert into favorites (user_id, item_id) values ('5','1');
-insert into ratings (transaction_id, seller_rating, buyer_rating) values ('1', '5', '5');
-insert into ratings (transaction_id, seller_rating, buyer_rating) values ('2', '4', '4');
+insert into ratings (transaction_id, item_id, seller_rating, buyer_rating, buyer_review) values ('1', '1', '5', '5', 'Used this on Town Lake and it handled great. Kayak was well maintained. Would definitely rent from this seller again.');
+insert into ratings (transaction_id, item_id, seller_rating, buyer_rating, buyer_review) values ('7', '1', '5', '4', 'I really like the Challenger Kayak, so I was glad to see someone in Austin had it. It was a little dirty when we picked it up, but otherwise good.');
+insert into ratings (transaction_id, item_id, seller_rating, buyer_rating, buyer_review) values ('15', '1', '4', '4', 'Seller threw in all the accessories that we needed, which was awesome. The paddle had some nicks in it, but still held up on our trip down the Comal River. Thanks!');
+insert into ratings (transaction_id, item_id, seller_rating, buyer_rating, buyer_review) values ('16', '1', '4', '5', 'I was going to Wimberley for the weekend and wanted to check out the Blanco. The Challenger was a perfect kayak for this trip.');
+insert into ratings (transaction_id, item_id, seller_rating, buyer_rating, buyer_review) values ('2', '4', '4', '4', 'We rented this tent for the weekend and took it to Inks Lake Sate Park. It rained a little Saturday night, but the waterproofing kept us nice and dry. Having this with us made the trip really easy!');
 
