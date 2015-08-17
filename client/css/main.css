@@ -156,6 +156,18 @@
   left: 25px;
   /*top: 300px;*/
 }
+.clear-search-icon {
+  position: relative;
+  right: 25px;
+  opacity: 0.5;
+  /*top: 300px;*/
+}
+.clear-search-icon.invisible {
+  position: relative;
+  right: 25px;
+  opacity: 0;
+  /*top: 300px;*/
+}
 .items-search {
   border: 1px solid gray;
   border-radius: 5px;
