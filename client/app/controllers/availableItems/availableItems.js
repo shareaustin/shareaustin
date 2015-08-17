@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item, Auth) {
+.controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item, Auth, filterFilter) {
 
   // Allows this controller to be expanded into mapSetup file
   angular.module('shareAustin').expandAvailableItems($scope, Request, Helpers)
@@ -10,6 +10,13 @@ angular.module('shareAustin')
   $scope.items       = [];
   $scope.fav         = {};
   $scope.search = Item.search.term
+
+  $scope.$watch('search', function() {
+    // console.log('search has changed!');
+    $scope.updateMarkers();
+    console.table($scope.filteredItems);
+    // $scope.setupMap();
+  })
 
   $scope.avgRating = function (items) {
     var total, len;
@@ -43,6 +50,7 @@ angular.module('shareAustin')
         $scope.avgRating($scope.items)
         console.log($scope.items)
         $scope.setupMap(); // function defined in mapSetup.js
+        console.log("$scope.map: ", $scope.map);
         $scope.fetchFavoriteItems();
       })
   };

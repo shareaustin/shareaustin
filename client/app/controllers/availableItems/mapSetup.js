@@ -4,6 +4,9 @@ angular.module('shareAustin')
 // (think of them as the same controller)     
 .expandAvailableItems = function($scope, Request, Helpers) {
 
+  //Create array containing map markers
+  $scope.markerArray = [];
+
   //Creates/renders google map with markers, mouse events, and info window 
   $scope.setupMap = function() {
 
@@ -29,6 +32,10 @@ angular.module('shareAustin')
                             };                      
       var newMark   = new google.maps.Marker(markerSettings)
 
+      //Add the new marker to the markerArray
+      $scope.markerArray.push(newMark);
+      console.log("$scope.markerArray", $scope.markerArray);
+
       // Stores this function to a variable for less typing :)
       var setEvent = google.maps.event.addListener;
 
@@ -53,4 +60,20 @@ angular.module('shareAustin')
       });
     }//end for-loop
   }//end setupMap
+
+  //begin updating marker visibility based on filtered search results
+  // $scope.updateMarkers = function() {
+  //   if ($scope.filteredItems.length === 0) {
+  //     for (var i = 0; i < $scope.markerArray.length; i++) {
+  //       $scope.markerArray[i].setVisible(true);
+  //     }
+  //   } else {
+  //     for (var i = 0; i < $scope.filteredItems.length; i++) {
+  //       if ($scope.markerArray.indexOf($scope.filteredItems[i]) !== -1) {
+  //         console.log('match!!!');
+  //       }
+  //     }
+  //   }
+  // }
+  //end updating marker visibility based on filtered search results
 };
