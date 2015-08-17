@@ -7,7 +7,7 @@ require('../config/cloudinary')(cloudinary)
 
 module.exports = {
 	getAvailableItems: function(req, res) {
-		Item.where({'available': 'true'}).fetchAll({
+		Item.where({'available': 'true', 'active': 'true'}).fetchAll({
 			withRelated: ['seller.soldTransactions.rating']
 		})
 		.then(function (model) {
