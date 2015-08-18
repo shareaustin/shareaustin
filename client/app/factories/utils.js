@@ -46,6 +46,17 @@ angular.module('shareAustin')
         })
       },
     },
+    ratings: {
+      addRating: function(rating) {
+        return $http({
+          method: "POST",
+          url   : "api/addRating",
+          data  : rating
+        }).then(function(resp) {
+          return resp.data;
+          })
+      },
+    },
     items: {
       fetchAvailableItems: function() {
         return $http({
@@ -83,7 +94,6 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
-
       deactivateItem: function(item) {
         return $http({
          method: 'POST',
@@ -94,7 +104,6 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
-
       itemById: function(itemId) {
         console.log("utils itemId:" +itemId)
        return $http({
@@ -103,11 +112,10 @@ angular.module('shareAustin')
         data: { itemId : itemId }
         })
         .then(function(resp){
-        console.log(resp.data);
-        return resp.data;
+          console.log(resp.data);
+          return resp.data;
         })
       },
-
       fetchItemTransactions: function(itemId, today) {
         // console.log("fetching transactions for item: ", itemId);
         return $http({
@@ -120,7 +128,6 @@ angular.module('shareAustin')
             return resp.data;
           })
       },
-
       addTransaction: function(transaction) {
         return $http({
          method: 'POST',
@@ -130,6 +137,17 @@ angular.module('shareAustin')
         .then(function(resp){
          console.log(resp.data)
          return resp.data;
+        })
+      },
+      updateTransaction: function(transaction) {
+        return $http({
+          method: "POST",
+          url   : "api/updateTransaction",
+          data  : transaction
+        })
+        .then(function(resp) {
+          console.log(resp.data)
+          return resp.data
         })
       },
       getLocation: function(address) {
@@ -146,12 +164,11 @@ angular.module('shareAustin')
         method: 'POST',
         url: '/api/getItemPhotos/',
         data: { itemId : itemId.id }
+        }).then(function(resp) {
+          // console.log(resp.data);
+          return resp.data;
         })
-        .then(function(resp){
-        // console.log(resp.data);
-        return resp.data;
-        })
-      }
+      },
     },
     favorites: {
       addFavorite: function(item) {
@@ -173,7 +190,7 @@ angular.module('shareAustin')
         }).then(function(resp) {
           return resp.data
         })
-      },
+      }, 
       removeFavoriteItems: function(favorite) {
         return $http({
           method: 'POST',
@@ -183,8 +200,8 @@ angular.module('shareAustin')
           return resp.data
         })
       }
-    },
-}
+    }
+  }  
   return reqObj;
 })
 .factory('Auth', function($http){
@@ -270,6 +287,18 @@ angular.module('shareAustin')
    uploadPhoto: uploadPhoto,
    search: search
   }
+})
+
+.factory("SaveTransaction", function() {
+  transactionDescription = {}
+  function set(data) {
+    transactionDescription = data
+  }
+  function get() {
+    return transactionDescription
+  }
+  return  { set: set, get: get }
+
 })
 
 .factory('Socket', function(socketFactory){

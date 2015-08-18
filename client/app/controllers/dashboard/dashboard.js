@@ -46,7 +46,7 @@ angular.module('shareAustin')
   //$scope.deactivateItem(2);  // Hardcoded test on item 2
 })
 
-.controller('TransactionHistory', function ($scope, Request) {
+.controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location) {
   $scope.transactions = [];
 
   $scope.fetchSoldTransactions = function() { 
@@ -70,15 +70,18 @@ angular.module('shareAustin')
 
   // Function does different things depending on status and if bought/sold
   $scope.statusFunctionality = function(trns) {
-    if (trns.bought){
+   if (trns.bought){
+    console.log(trns)
       switch(trns.status) {
         case "started":
           // change path to message with buyer
           break;
         case "in-rent": 
           break; // go to details
-        case "returned": 
-          break; // gpop-up rating form
+        case "returned":
+          SaveTransaction.set(trns);
+          $location.path("/feedback") 
+          break; // pop-up rating form
         case "overdue" : 
           break; // go to message
         default: break;
@@ -91,13 +94,15 @@ angular.module('shareAustin')
         case "in-rent": 
           break; // go to details
         case "returned": 
+          SaveTransaction.set(trns);
+          $location.path("/feedback")
           break; // pop up rating form
         case "overdue": 
           break; // go to message
         default: break;
       }
     }
-  } 
+  }
 
   $scope.setStatusMessage = function() {
     for (var i = 0; i < $scope.boughtTransactions.length; i++) {

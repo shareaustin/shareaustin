@@ -78,7 +78,6 @@ angular.module('shareAustin', [
     url: '/item-primary-photo',
     templateUrl: '/app/controllers/postNewItem/primaryPhoto.html',
     controller: 'ItemPrimaryPhotoCtrl'
-
   })
   .state('editItem', {
     url: '/edit-item',
@@ -94,6 +93,11 @@ angular.module('shareAustin', [
     url: '',
     templateUrl: '/app/controllers/chatList/chat.html',
     controller: 'ChatCtrl'
+  })
+  .state('feedback', {
+    url: "/feedback",
+    templateUrl: "/app/controllers/feedback/feedback.html",
+    controller: "Feedback"
   })
 })
 //Initializes Stripe

@@ -498,5 +498,39 @@ a:hover {
 .tf-payment label {
   padding: 10px 2% 10px 0;
 }
+
+i.fa.fa-star-o {
+  opacity: 0.5
+}
+
+i.fa.fa-star-o.turnOn {
+    -webkit-animation: pulsate 0.5s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    color: green;
+}
+
+
+i.fa.fa-star-o.turnOff {
+    -webkit-animation: pulsateBack 0.5s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    color: black;
+}
+
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(1.0, 1.0); opacity: 0.5;}
+    100% {-webkit-transform: scale(1.3, 1.3); opacity: 1.0;}
+}
+
+@-webkit-keyframes pulsateBack {
+    0% {-webkit-transform: scale(1.3, 1.3); opacity: 1.0;}
+    100% {-webkit-transform: scale(1.0, 1.0); opacity: 0.5;}
+}
+
+i.fa.fa-star-o:hover {
+    font-weight: bold;
+}
+
 input {color: #333;}
 textarea {color: #333}
