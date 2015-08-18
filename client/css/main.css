@@ -498,5 +498,11 @@ a:hover {
 .tf-payment label {
   padding: 10px 2% 10px 0;
 }
+
+/*----- Image Slider -----*/
+.carousel-control {
+  height: 450px;
+}
+
 input {color: #333;}
 textarea {color: #333}

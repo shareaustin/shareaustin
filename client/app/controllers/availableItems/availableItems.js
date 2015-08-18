@@ -11,12 +11,12 @@ angular.module('shareAustin')
   $scope.fav         = {};
   $scope.search = Item.search.term
 
-  $scope.$watch('search', function() {
-    // console.log('search has changed!');
-    $scope.updateMarkers();
-    console.table($scope.filteredItems);
-    // $scope.setupMap();
-  })
+  // $scope.$watch('search', function() {
+  //   console.log('search has changed!');
+  //   $scope.updateMarkers();
+  //   console.table($scope.filteredItems);
+  //   $scope.setupMap();
+  // })
 
   $scope.avgRating = function (items) {
     var total, len;

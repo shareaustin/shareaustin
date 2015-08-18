@@ -18,6 +18,20 @@ angular.module('shareAustin')
     // Creates map and places it in the div with id 'map'
     $scope.map = new google.maps.Map(document.getElementById('map'), mapSettings)
 
+    $scope.map.set('styles', 
+
+      //BEGIN map style array
+
+
+      [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"visibility":"on"}]},{"featureType":"administrative","elementType":"labels","stylers":[{"visibility":"on"},{"color":"#716464"},{"weight":"0.01"}]},{"featureType":"administrative.country","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"administrative.country","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"landscape.natural.landcover","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"geometry.stroke","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"labels.text.stroke","stylers":[{"visibility":"simplified"}]},{"featureType":"poi.attraction","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"geometry.fill","stylers":[{"visibility":"off"}]},{"featureType":"poi.government","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"poi.school","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#787878"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"simplified"},{"color":"#a05519"},{"saturation":"-13"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"color":"#fcfcfc"},{"visibility":"on"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#636363"}]},{"featureType":"road.highway","elementType":"labels.text.stroke","stylers":[{"weight":"4.27"},{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"labels.icon","stylers":[{"visibility":"on"},{"weight":"0.01"}]},{"featureType":"road.local","elementType":"all","stylers":[{"saturation":"43"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"simplified"},{"color":"#84afa3"},{"lightness":52}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#7ca0a4"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]}]
+
+
+      //END map style array
+
+
+    );
+
+
     // Creates a google map pin/marker for each item in scope
     for (var i = 0; i < $scope.items.length; i++) { 
       // Latitude & Longitude
@@ -25,16 +39,21 @@ angular.module('shareAustin')
       
       // **Note: item is not a googlemap property; but stored here to associate markers
       //   with items (later, this.item refers to a marker's item)
+      
       var markerSettings = {
                               position : latLng,
                               map      : $scope.map,
                               item     : $scope.items[i], //**See note
+                              icon     : {
+                                url    : 'http://i.imgur.com/sX0Co13.png',
+                                scaledSize   : {width: 48, height: 48}
+                              }
                             };                      
       var newMark   = new google.maps.Marker(markerSettings)
 
       //Add the new marker to the markerArray
       $scope.markerArray.push(newMark);
-      console.log("$scope.markerArray", $scope.markerArray);
+      // console.log("$scope.markerArray", $scope.markerArray);
 
       // Stores this function to a variable for less typing :)
       var setEvent = google.maps.event.addListener;
@@ -60,6 +79,21 @@ angular.module('shareAustin')
       });
     }//end for-loop
   }//end setupMap
+
+  // var searchbar = document.getElementById('item-search');
+
+  //     searchbar.addEventListener("keydown", function() {
+  //       var searchText = searchbar.value;
+  //       for (var i = 0; i < $scope.markerArray.length; i++) {
+  //         if ($scope.markerArray[i].item.name.indexOf(searchText) !== -1) {
+  //           // console.log(searchText);
+  //           // console.table($scope.markerArray[i].item.name);
+  //           $scope.markerArray[i].setVisible(true);
+  //         } else {
+  //           $scope.markerArray[i].setVisible(false);
+  //         }
+  //       };
+  //     })
 
   //begin updating marker visibility based on filtered search results
   // $scope.updateMarkers = function() {
