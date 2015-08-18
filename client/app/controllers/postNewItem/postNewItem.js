@@ -79,7 +79,7 @@ angular.module('shareAustin')
      //  console.log("Success response from cloudinary: ", resp.data);
      // })
      $location.path('/dashboard');
-     Item.setPhotoStatus(false);
+     // Item.setPhotoStatus(false);
     } else {
       console.log("Item photo not yet uploaded.");
     }

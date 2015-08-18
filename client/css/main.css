@@ -476,22 +476,15 @@ a:hover {
 
 /*----- Photo Loading Bar -----*/
 .photoloader {
-  -webkit-transform: translateZ(0);
   opacity: 0;
   margin: 0 auto;
-  padding-left: -50px;
-  transform: scale(0.5);
   transition: all .25s;
    -moz-transition: all .25s ease-in-out;
    -webkit-transition: all .25s ease-in-out;
 }
 
 .photoloader.show {
-  -webkit-transform: translateZ(0);
   opacity: 1;
-  margin: 0 auto;
-  padding-left: -50px;
-  transform: scale(1);
 }
 
 
