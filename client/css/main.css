@@ -492,8 +492,11 @@ a:hover {
   height: 100vh;
 }
 .tf-overide input {
-  width: inherit !important;
-  padding: 10px 0 !important;
+  width: inherit;
+  padding: 10px 0;
+}
+.tf-payment label {
+  padding: 10px 2% 10px 0;
 }
 input {color: #333;}
 textarea {color: #333}

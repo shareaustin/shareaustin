@@ -1,7 +1,8 @@
 <div ng-include="'shared/navigation.html'"></div>
 <div class="container transparent-form-body padding-top">
+  <h2 class="text-center m-b-lg">{{item.name}}</h2>
  <div class="row">
-   <div class="col-sm-4">
+   <div class="col-sm-5 col-sm-offset-2">
     <!-- <img ng-src="{{item.photo_url}}" class="centerCrop img-responsive"> -->
     <calendar></calendar>
    </div>
@@ -9,7 +10,7 @@
    <!-- RENTAL INFO FORM -->
       <!-- <h4>Rental Information</h4> -->
       <form class="transparent-form tf-overide">
-      <label>{{item.name}}</label><br>
+      <!-- <label>{{item.name}}</label><br> -->
       <label ng-model="item">Price Per Day: ${{item.price_per_day || 0}}</label><br>
       <label ng-model="item">Total: ${{rentalPrice() || 0}}</label>
         <fieldset>
@@ -28,24 +29,26 @@
         </fieldset>
       </form>
     </div>
+  </div>
 
     <!-- PAYMENT FORM -->
-    <div class="col-sm-4">
-      <h4>Payment Information</h4>
-      <form class="transparent-form tf-overide" stripe:form="saveTransaction">
-        <fieldset>
-          <label>Card Number</label><br>
-          <input type="text" size="20" data-stripe="number" value="4242424242424242"/><br>
-          <label>Expiration Date</label><br>
-          <input type="text" size="2" data-stripe="exp-month" value="01"/>
-          <input type="text" size="4" data-stripe="exp-year" value="2016"/><br>
-          <label>CVC</label><br>
-          <input type="password" size="3" data-stripe="cvc" value="123"/><br><br>
-        </fieldset>
-        <button type="submit" class="btn btn-lg btn-green">Submit Rental</button>
-      </form>
+    <div class="row top-margin m-l-lg">
+      <div class="col-sm-9 col-sm-offset-2">
+        <h4>Payment Information</h4>
+        <form class="transparent-form tf-overide tf-payment" stripe:form="saveTransaction">
+          <!-- <fieldset> -->
+            <label>Card Number</label>
+            <input type="text" size="20" data-stripe="number" value="4242424242424242"/>
+            <label>Expiration Date</label>
+            <input type="text" size="2" data-stripe="exp-month" value="01"/>
+            <input type="text" size="4" data-stripe="exp-year" value="2016"/>
+            <label>CVC</label>
+            <input type="password" size="3" data-stripe="cvc" value="123"/>
+          <!-- </fieldset> -->
+          <button type="submit" class="btn btn-lg btn-green m-l-lg">Submit Rental</button>
+        </form>
+      </div>
     </div>
-  </div>
 </div>
 
 <!-- <calendar selected="day"></calendar> -->
