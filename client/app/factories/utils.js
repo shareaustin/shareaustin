@@ -248,6 +248,14 @@ angular.module('shareAustin')
 })
 
 .factory('Item', function ($http, Upload) {
+  var photoSuccess = false;
+  function setPhotoStatus (status) {
+    photoSuccess = status;
+  }
+  function getPhotoStatus (status) {
+    return photoSuccess;
+  }
+
   var search = {
     term: ""
   }
@@ -273,6 +281,7 @@ angular.module('shareAustin')
       console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
     })
     .success(function (data, status, headers, config){
+      setPhotoStatus(true);
       console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
       itemDescription.photo_url = data.photo_url;
     })
@@ -285,7 +294,9 @@ angular.module('shareAustin')
    set: set,
    get: get,
    uploadPhoto: uploadPhoto,
-   search: search
+   search: search,
+   setPhotoStatus: setPhotoStatus,
+   getPhotoStatus: getPhotoStatus
   }
 })
 

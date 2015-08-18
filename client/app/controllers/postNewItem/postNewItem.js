@@ -43,13 +43,25 @@ angular.module('shareAustin')
   };
 })
 .controller('ItemPrimaryPhotoCtrl', function ($scope, $location, Item, Request){
+  $scope.photoStatus = function() {
+    return Item.getPhotoStatus();
+  };
+
   $scope.item = Item.get();
   $scope.$watch('files', function(){
     $scope.uploadPhoto($scope.files, $scope.item);
+    // $scope.photoStatus();
   })
 
+  Item.setPhotoStatus(true);
+  console.log("Item.getPhotoStatus() ", Item.getPhotoStatus());
+  console.log($scope.photoStatus());
+
+
   $scope.uploadPhoto = function(files, item){
+    // $scope.photoStatus = true;
     if (files && files.length){
+      Item.setPhotoStatus(false);
       files.forEach(Item.uploadPhoto.bind(null, item.id));
       //Request.items.editItem(Item.get())
     }
@@ -58,7 +70,18 @@ angular.module('shareAustin')
   }
 
    $scope.update = function(){
+    if (Item.getPhotoStatus() === true) {
+     // $scope.photoStatus = false;
+     // console.log("$scope.photoStatus: ", $scope.photoStatus);
+     // console.log("Item photo uploaded. Redirecting to dashboard.");
      Request.items.editItem(Item.get())
-     $location.path('/dashboard')
+     // .then(function(resp){
+     //  console.log("Success response from cloudinary: ", resp.data);
+     // })
+     $location.path('/dashboard');
+     // Item.setPhotoStatus(false);
+    } else {
+      console.log("Item photo not yet uploaded.");
+    }
    }
 });
