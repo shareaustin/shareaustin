@@ -2,6 +2,7 @@ var userHandler = require('./requestHandler/userHandler.js');
 var itemHandler = require('./requestHandler/itemHandler.js');
 var favoriteHandler = require('./requestHandler/favoriteHandler.js');
 var transactionHandler = require('./requestHandler/transactionHandler.js');
+var ratingHandler = require('./requestHandler/ratingHandler.js')
 
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()){
@@ -24,7 +25,7 @@ module.exports = function (app, passport, upload) {
   app.post('/api/userFavoriteItems'  , favoriteHandler.userFavoriteItems)
   app.post('/api/addTransaction' , transactionHandler.addTransaction);
   app.post('/api/getItemTransactions/', transactionHandler.getItemTransactions);
-  app.post('/api/updateTransaction/', transactionHandler.updateTransaction)
+  //app.post('/api/updateTransaction/', transactionHandler.updateTransaction)
 
   app.post('/api/addItem', itemHandler.addItem);
   app.post('/api/editItem', itemHandler.editItem);
@@ -40,7 +41,7 @@ module.exports = function (app, passport, upload) {
 
   app.post('/api/addFavorite', favoriteHandler.addFavorite)
   app.post('/api/removeFavorite', favoriteHandler.removeFavorite)
-  app.post('/api/addRating',RatingHandler.addRating)
+  app.post('/api/addRating',ratingHandler.addRating)
 
   //app.post('api/addRating'  , ratingHandler.addRating)
 

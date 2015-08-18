@@ -98,15 +98,13 @@ module.exports = {
       console.log("model" + model)
       res.json(model)
     })
-  },
-
-  updateTransaction: function(req, res) {
-    var item = req.body;
-    Transaction
-    console.log("in edit item handler")
-    new Transaction(where {item_id : item.item_id}, buyer ).save(item, {patch: true})
-    .then(res.json("Transaction updated!"))
-  }
-
-  }
+  }, 
 }
+
+  // updateTransaction: function(req, res) {
+  //   var item = req.body;
+  //   Transaction
+  //   console.log("in edit item handler")
+  //   new Transaction(where {item_id : item.item_id}, buyer ).save(item, {patch: true})
+  //   .then(res.json("Transaction updated!"))
+  // }

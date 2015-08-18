@@ -1,15 +1,16 @@
 angular.module('shareAustin')
 
-.controller('Feedback', function ($scope, SaveTransaction, Item, Request) {
+.controller('Feedback', function ($scope, SaveTransaction, Item, Request, Auth) {
   
   // A lot of functions for a few stars... may have overcomplicated this
 
   // Initialize rating at zero
-  $scope.ratingAndReview = {};
+  $scope.userInput = {};
   $scope.transaction = SaveTransaction.get();
+  $scope.user = Auth.getUser();
 
-  $scope.ratingAndReview.rating = 0;
-  $scope.ratingAndReview.review = "";
+  $scope.userInput.rating = 0;
+  $scope.userInput.review = "";
 
   // This object is use with ng-class to style the stars;
   // When turnOn is set to true, a turn-on css animation is activated;
@@ -23,7 +24,7 @@ angular.module('shareAustin')
   }
   // Sets all classes to false
   function restart() {
-    $scope.ratingAndReview.rating = 0;
+    $scope.userInput.rating = 0;
     for (var i=1; i<=5; i++) {  
       $scope.ratingPicker[i].turnOn = false
       $scope.ratingPicker[i].turnOff = false 
@@ -43,7 +44,7 @@ angular.module('shareAustin')
   // Makes stars greater than the rating fade at mouseout
   $scope.starsFade = function() {
     for (var i = 1; i <= 5; i++) {
-      if (i > $scope.ratingAndReview.rating) {
+      if (i > $scope.userInput.rating) {
         turnOff(i)
       } 
     }
@@ -51,20 +52,20 @@ angular.module('shareAustin')
   // Turns on the stars up to the one that is hovered over
   function starsExpand (num) {
     for (var i = 1; i<=5; i++) {
-      if (!$scope.ratingAndReview.rating) {
+      if (!$scope.userInput.rating) {
         i <= num ? turnOn(i) : turnOff(i);
       }
     }
   }
-  // Upon click, sets ratingAndReview.rating, making appropriate stars expand and fade
+  // Upon click, sets userInput.rating, making appropriate stars expand and fade
   function clickStar(num) {
-    if ($scope.ratingAndReview.rating) {
+    if ($scope.userInput.rating) {
       restart();
       starsExpand(num);
-      $scope.ratingAndReview.rating = num
+      $scope.userInput.rating = num
     }
     else { 
-      $scope.ratingAndReview.rating = num 
+      $scope.userInput.rating = num 
     }
   }
   // Functions for each star being hovered over
@@ -79,10 +80,26 @@ angular.module('shareAustin')
   $scope.chooseThree = function() { clickStar(3) }
   $scope.chooseFour  = function() { clickStar(4) }
   $scope.chooseFive  = function() { clickStar(5) }
-})
 
-$scope.submitRatingAndReview(ratingAndReview) {
-  Request.
+
+
+$scope.submitRatingAndReview = function() {
+  var ratingAndReview = {};
+  ratingAndReview.transaction_id = $scope.transaction.id;
+  ratingAndReview.item_id        = $scope.transaction.item_id;
+
+  if ($scope.transaction.buyer_id === $scope.user.id) {
+    ratingAndReview.seller_rating = $scope.userInput.rating;
+    ratingAndReview.seller_review = $scope.userInput.review;
+  }
+  else {
+    ratingAndReview.buyer_rating  = $scope.userInput.rating;
+    ratingAndReview.seller_rating = $scope.userInput.review;
+  }
+
+  Request.ratings.addRating(ratingAndReview);
 }
+
+})
 
 
