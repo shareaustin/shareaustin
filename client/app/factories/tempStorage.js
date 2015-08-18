@@ -1,20 +1,26 @@
 angular.module('shareAustin')
-// getter/setter which stores item information primarily for the itemDesciption view
+
 .factory('Item', function ($http, Upload) {
+  var photoSuccess = false;
+  function setPhotoStatus (status) {
+    photoSuccess = status;
+  }
+  function getPhotoStatus (status) {
+    return photoSuccess;
+  }
+
   var search = {
     term: ""
   }
   var itemDescription = {}
-  
-  // Getter and setter
   function set(data) {
     itemDescription = data;
   };
+
   function get() {
    return itemDescription;
   };
 
-  // Upload photo functionality
   function uploadPhoto(item_id, file){
     console.log('in item util. item id is ', item_id)
 
@@ -28,6 +34,7 @@ angular.module('shareAustin')
       console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
     })
     .success(function (data, status, headers, config){
+      setPhotoStatus(true);
       console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
       itemDescription.photo_url = data.photo_url;
     })
@@ -36,12 +43,13 @@ angular.module('shareAustin')
     });
   }
 
-  // Return object with the these function as properties
   return {
    set: set,
    get: get,
    uploadPhoto: uploadPhoto,
-   search: search
+   search: search,
+   setPhotoStatus: setPhotoStatus,
+   getPhotoStatus: getPhotoStatus
   }
 })
 
