@@ -94,6 +94,8 @@ angular.module('shareAustin')
         case "in-rent": 
           break; // go to details
         case "returned": 
+          SaveTransaction.set(trns);
+          $location.path("/feedback")
           break; // pop up rating form
         case "overdue": 
           break; // go to message

@@ -7,7 +7,8 @@ angular.module('shareAustin')
   // Initialize rating at zero
   $scope.userInput = {};
   $scope.transaction = SaveTransaction.get();
-  $scope.user = Auth.getUser();
+  $scope.user = {};
+  $scope.user.id = Auth.getUser() ? Auth.getUser().id : 1;
 
   $scope.userInput.rating = 0;
   $scope.userInput.review = "";
@@ -94,7 +95,7 @@ $scope.submitRatingAndReview = function() {
   }
   else {
     ratingAndReview.buyer_rating  = $scope.userInput.rating;
-    ratingAndReview.seller_rating = $scope.userInput.review;
+    ratingAndReview.buyer_review  = $scope.userInput.review;
   }
 
   Request.ratings.addRating(ratingAndReview);
