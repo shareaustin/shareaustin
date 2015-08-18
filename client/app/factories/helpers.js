@@ -20,12 +20,12 @@ angular.module('shareAustin')
       },
 
       createHTMLStr: function(title, price, imageUrl) {
-        var contentString = 
-          '<div id="content">' +
-            '<h5  id="firstHeading" class="firstHeading">' + title + '</h5>'+
-            '<div id="bodyContent">'+
-              '<h6> ' + (price ? "$"+price : "Free!") + '</h6>'+  
+        var contentString =
+          '<div id="content" class="maps-wrapper">' +
               '<img src="'+imageUrl+'" class="mapMarkerImg img-responsive">'+
+            '<div id="bodyContent" class="maps-content text-center">'+
+              '<span  id="firstHeading" class="maps-title">' + title + '</span>'+
+              '<span class="maps-price"> ' + (price ? "$"+price : "Free!") + '</span>'+
             '</div>'+
           '</div>'
         return contentString;

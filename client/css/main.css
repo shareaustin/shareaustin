@@ -156,6 +156,22 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   object-fit: cover;
 }
 
+/*----- Google Maps Style ------*/
+.mapMarkerImg {
+  object-fit: cover;
+  width: 250px;
+  /*height: 200px;*/
+}
+.maps-wrapper {
+}
+.maps-title {
+  font-size: 1.2em;
+  display: inline-block;
+  padding: 10px 10px 0 0;
+}
+.maps-price {font-size: 1.05em;}
+.maps-content {}
+
 /*----- All Items ------*/
 .filter-bar {
   background: #F6F6F6;
@@ -167,11 +183,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   position: fixed;
   height: 95vh;
 }
-.mapMarkerImg {
-  object-fit: cover;
-  width:100px;
-  height: 65px;
-}
+
 .button-container {margin-left: 10px;}
 .newitem-button-container {margin: 10px 0;}
 
