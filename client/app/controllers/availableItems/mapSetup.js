@@ -1,10 +1,10 @@
 angular.module('shareAustin')
 
-// This file shares $scope with availableItems.js 
-// (think of them as the same controller)     
+// This file shares $scope with availableItems.js
+// (think of them as the same controller)
 .expandAvailableItems = function($scope, Request, Helpers) {
 
-  //Creates/renders google map with markers, mouse events, and info window 
+  //Creates/renders google map with markers, mouse events, and info window
   $scope.setupMap = function() {
 
     var mapSettings = {
@@ -16,17 +16,17 @@ angular.module('shareAustin')
     $scope.map = new google.maps.Map(document.getElementById('map'), mapSettings)
 
     // Creates a google map pin/marker for each item in scope
-    for (var i = 0; i < $scope.items.length; i++) { 
+    for (var i = 0; i < $scope.items.length; i++) {
       // Latitude & Longitude
       var latLng = new google.maps.LatLng($scope.items[i].lat, $scope.items[i].lng)
-      
+
       // **Note: item is not a googlemap property; but stored here to associate markers
       //   with items (later, this.item refers to a marker's item)
       var markerSettings = {
                               position : latLng,
                               map      : $scope.map,
                               item     : $scope.items[i], //**See note
-                            };                      
+                            };
       var newMark   = new google.maps.Marker(markerSettings)
 
       // Stores this function to a variable for less typing :)
@@ -34,12 +34,14 @@ angular.module('shareAustin')
 
       // Mouseover marker event
       setEvent(newMark, 'mouseover', function(event) {
-        // custom html string needed to create info window; see factories/helpers 
+        // custom html string needed to create info window; see factories/helpers
         var customHtml    = Helpers.createHTMLStr(this.item.name, this.item.price_per_day, this.item.photo_url)
         // Creates info-window, saves it to $scope
-        $scope.infoWindow = new google.maps.InfoWindow({content : customHtml, 
-                                                        maxWidth: 150         })
-        $scope.infoWindow.open($scope.map, this) // <-- Open it in the map, at 'this' marker's location 
+        $scope.infoWindow = new google.maps.InfoWindow({
+          content : customHtml,
+          maxWidth: 250
+        })
+        $scope.infoWindow.open($scope.map, this) // <-- Open it in the map, at 'this' marker's location
       });
 
       // When the mouse leaves a marker, close the info window
