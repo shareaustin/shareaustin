@@ -2,6 +2,8 @@ angular.module('shareAustin')
   .factory('Helpers', function(){
 
     var helperObj = {
+
+      // Makes the address appropriate to send to as endpath for google api
       urlifyAddress : function(address) {
         console.log(address)
         var result = "address="
@@ -31,5 +33,7 @@ angular.module('shareAustin')
         return contentString;
       },
     }
+
+
     return helperObj
 })
