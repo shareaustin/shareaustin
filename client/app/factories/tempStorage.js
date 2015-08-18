@@ -1,4 +1,4 @@
-Angular.module('shareAustin')
+angular.module('shareAustin')
 // getter/setter which stores item information primarily for the itemDesciption view
 .factory('Item', function ($http, Upload) {
   var search = {

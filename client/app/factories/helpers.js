@@ -1,4 +1,6 @@
 angular.module('shareAustin')
+
+  // This factory is for miscellaneous non-request helper function
   .factory('Helpers', function(){
 
     var helperObj = {
@@ -13,6 +15,8 @@ angular.module('shareAustin')
         }
         return result
       },
+
+      // Google api returns lots of info, this function creates an object with only what we need
       simplifyLocation : function(googleResponse) {
         return {
           address : googleResponse.results[0].formatted_address,
@@ -21,6 +25,7 @@ angular.module('shareAustin')
         }
       },
 
+      // Creates html string necessary for construction of info window
       createHTMLStr: function(title, price, imageUrl) {
         var contentString =
           '<div id="content" class="maps-wrapper">' +
@@ -34,6 +39,6 @@ angular.module('shareAustin')
       },
     }
 
-
+    // Return these functions, of course
     return helperObj
 })

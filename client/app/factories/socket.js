@@ -1,5 +1,5 @@
 // Provides websocket functionality
-Angular.module('shareAustin')
+angular.module('shareAustin')
   .factory('Socket', function(socketFactory){
     var socket = socketFactory()
     socket.on('connect', function(){
