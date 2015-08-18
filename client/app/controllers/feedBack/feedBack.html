@@ -1,0 +1,23 @@
+<div ng-include="'shared/navigation.html'"></div>
+<div class="container padding-top">
+   <div class="row">
+     <div class="col-sm-3 col-sm-offset-4">
+        <h3>Rate This Transaction</h3>
+        <h4> Overall </h4>
+          <div class="inline rating-picker-wrapper">
+            <i ng-mouseover="hoverOne()"  ng-mouseleave="starsFade()" ng-click="chooseOne()"   ng-class="ratingPicker[1]" class="fa fa-star-o"></i>
+            <i ng-mouseover="hoverTwo()"  ng-mouseleave="starsFade()" ng-click="chooseTwo()"   ng-class="ratingPicker[2]" class="fa fa-star-o"></i>
+            <i ng-mouseover="hoverThree()"ng-mouseleave="starsFade()" ng-click="chooseThree()" ng-class="ratingPicker[3]" class="fa fa-star-o"></i>
+            <i ng-mouseover="hoverFour()" ng-mouseleave="starsFade()" ng-click="chooseFour()"  ng-class="ratingPicker[4]" class="fa fa-star-o"></i>
+            <i ng-mouseover="hoverFive()" ng-mouseleave="starsFade()" ng-click="chooseFive()"  ng-class="ratingPicker[5]" class="fa fa-star-o"></i>
+          </div>
+          <br>
+          <label>Details:</labeL><br>
+          <textarea rows="4" cols="50" style="resize: none" form="newListingForm" placeholder="Enter a brief description here ..." ng-model='item.description'></textarea><br>
+          <div class="newitem-button-container">
+            <button ng-click="submitNewListing(item)" class="btn btn-md btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
