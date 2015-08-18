@@ -473,6 +473,28 @@ a:hover {
   background: #1ab188;
   color: white;*/
 }
+
+/*----- Photo Loading Bar -----*/
+.photoloader {
+  -webkit-transform: translateZ(0);
+  opacity: 0;
+  margin: 0 auto;
+  padding-left: -50px;
+  transform: scale(0.5);
+  transition: all .25s;
+   -moz-transition: all .25s ease-in-out;
+   -webkit-transition: all .25s ease-in-out;
+}
+
+.photoloader.show {
+  -webkit-transform: translateZ(0);
+  opacity: 1;
+  margin: 0 auto;
+  padding-left: -50px;
+  transform: scale(1);
+}
+
+
 .home-bg {
   background: url('../img/hike-in-woods.jpeg') center bottom no-repeat;
   height: 100vh;
