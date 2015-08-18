@@ -375,12 +375,13 @@ a:hover {
 /*---- Home Search -----*/
 .home-title {
   color: #1ab188;
-  font-size: 2.7em;
+  font-size: 4em;
+  font-weight: 700;
 }
 .home-sub-title {
   color: white;
-  font-size: 1.3em;
-  margin-bottom: 30px;
+  font-size: 1.5em;
+  margin-bottom: 20px;
 }
 .home-search-wrapper {
   margin: 0 auto;
@@ -389,7 +390,7 @@ a:hover {
   text-align: center;
 }
 .home-search-bar {
-  width: 100%;
+  width: 85%;
   border: 1px solid gray;
   border-radius: 5px;
   padding: 10px 0;
