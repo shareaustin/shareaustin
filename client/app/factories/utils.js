@@ -56,6 +56,13 @@ angular.module('shareAustin')
           return resp.data;
           })
       },
+      fetchRating: function(trsn_id) {
+        return$http({
+          method: "POST",
+          url   : "api/addRating",
+          data  : {id : trsn_id}
+        })
+      }
     },
     items: {
       fetchAvailableItems: function() {

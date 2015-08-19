@@ -83,6 +83,10 @@ angular.module('shareAustin')
   $scope.chooseFive  = function() { clickStar(5) }
 
 
+$scope.getRating = function() {
+  Request.ratings.getRating($scope.transaction.id)
+}
+
 
 $scope.submitRatingAndReview = function() {
   var ratingAndReview = {};
