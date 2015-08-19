@@ -1,6 +1,15 @@
 angular.module('shareAustin')
 
 .factory('Chat', function($http){
+  var room = '';
+  function getRoom(){
+    return room;
+  };
+ 
+  function setRoom(name){
+    room = name;
+  };
+
   function userChats(){
     return $http({
       method: "GET",
@@ -11,6 +20,8 @@ angular.module('shareAustin')
     });
   };
   return {
+    getRoom: getRoom,
+    setRoom: setRoom,
     userChats: userChats,
   }
 })
