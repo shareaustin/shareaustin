@@ -25,6 +25,7 @@ module.exports = function (app, passport, upload) {
   //app.get('/api/userTransactions', userHandler.userTransactions)
   app.post('/api/userFavoriteItems'  , favoriteHandler.userFavoriteItems)
   app.post('/api/addTransaction' , transactionHandler.addTransaction);
+  app.post('/api/updateTransaction', transactionHandler.updateTransaction)
   app.post('/api/getItemTransactions/', transactionHandler.getItemTransactions);
   //app.post('/api/updateTransaction/', transactionHandler.updateTransaction)
 
@@ -43,8 +44,8 @@ module.exports = function (app, passport, upload) {
   app.post('/api/addFavorite', favoriteHandler.addFavorite)
   app.post('/api/removeFavorite', favoriteHandler.removeFavorite)
   app.post('/api/addRating',ratingHandler.addRating)
-
-  //app.post('api/addRating'  , ratingHandler.addRating)
+  app.post('/api/updateRating', ratingHandler.updateRating)
+  app.post('/api/fetchRating',ratingHandler.getRating)
 
   app.post('/signup', passport.authenticate('signup', {
     successRedirect: '/api/user',

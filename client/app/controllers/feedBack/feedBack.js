@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('Feedback', function ($scope, SaveTransaction, Item, Request, Auth) {
+.controller('Feedback', function ($scope, $location, SaveTransaction, Item, Request, Auth) {
   
   // A lot of functions for a few stars... may have overcomplicated this
 
@@ -83,22 +83,67 @@ angular.module('shareAustin')
   $scope.chooseFive  = function() { clickStar(5) }
 
 
+$scope.getRating = function() {
+  Request.ratings.fetchRating($scope.transaction.id).then(function(response) {
+  if (response.data === null) { 
+    $scope.newRating = true;
+  }
+  else { 
+    console.log("rating exists!")
+    console.log(response.data)
+    $scope.newRating = false;
+  }
 
-$scope.submitRatingAndReview = function() {
-  var ratingAndReview = {};
+  })
+}
+
+$scope.getRating($scope.transaction.id);
+
+$scope.submitRatingAndReview = function() { 
+  
+  ratingAndReview = {}
   ratingAndReview.transaction_id = $scope.transaction.id;
   ratingAndReview.item_id        = $scope.transaction.item_id;
 
-  if ($scope.transaction.buyer_id === $scope.user.id) {
+  trsnUpdate = { id: $scope.transaction.id };
+
+  var buyerSubmission = ($scope.transaction.buyer_id === $scope.user.id)
+
+  if (buyerSubmission) {
     ratingAndReview.seller_rating = $scope.userInput.rating;
     ratingAndReview.seller_review = $scope.userInput.review;
+
   }
   else {
     ratingAndReview.buyer_rating  = $scope.userInput.rating;
     ratingAndReview.buyer_review  = $scope.userInput.review;
   }
 
-  Request.ratings.addRating(ratingAndReview);
+  if ($scope.newRating) {
+    console.log("Brand new rating")
+    Request.ratings.addRating(ratingAndReview);
+
+    // if buyer submission update transaction status to seller review done
+    if (buyerSubmission) {
+      trsnUpdate.status = 'rating from seller pending'
+      Request.items.updateTransaction(trsnUpdate)
+      $location.path("/dashboard")
+    }
+    else {
+      trsnUpdate.status = 'rating from buyer pending'
+      Request.items.updateTransaction(trsnUpdate)
+      $location.path("/dashboard")
+    }
+    // if not   update transaction status to buyer review done
+    
+  }
+  else {
+    console.log("update Existing rating")
+    trsnUpdate.status = "complete";
+    Request.items.updateTransaction(trsnUpdate)
+    Request.ratings.updateRating(ratingAndReview);
+    $location.path("/dashboard")
+  }
 }
 
 })

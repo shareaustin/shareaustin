@@ -81,7 +81,11 @@ angular.module('shareAustin')
         case "returned":
           SaveTransaction.set(trns);
           $location.path("/feedback") 
-          break; // pop-up rating form
+          break;
+        case "rating from buyer pending":
+          SaveTransaction.set(trns)
+          $location.path("/feedback")
+          break;
         case "overdue" : 
           break; // go to message
         default: break;
@@ -97,6 +101,9 @@ angular.module('shareAustin')
           SaveTransaction.set(trns);
           $location.path("/feedback")
           break; // pop up rating form
+        case "rating from seller pending":
+          SaveTransaction.set(trns)
+          $location.path("/feedback")
         case "overdue": 
           break; // go to message
         default: break;
@@ -113,6 +120,10 @@ angular.module('shareAustin')
           $scope.boughtTransactions[i].statusMessage = "Due Date:";      break; //+ dueData
         case "returned":
           $scope.boughtTransactions[i].statusMessage = "Rate Seller";    break;
+        case "rating from buyer pending": 
+          $scope.boughtTransactions[i].statusMessage = "Rate Seller";
+        case "rating from seller pending": 
+          $scope.boughtTransactions[i].statusMessage = "Complete";  
         case "complete":
           $scope.boughtTransactions[i].statusMessage = "Complete";       break;
         case "overdue" :
@@ -129,6 +140,10 @@ angular.module('shareAustin')
           $scope.soldTransactions[i].statusMessage = "Return Date:";       break; //+ dueData
         case "returned":
           $scope.soldTransactions[i].statusMessage = "Rate Renter";        break;
+        case "rating from seller pending":
+          $scope.soldTransactions[i].statusMessage = "Rate Renter";       break;
+        case "rating from buyer pending":
+          $scope.soldTransactions[i].statusMessage = "Complete";          break;
         case "complete":
           $scope.soldTransactions[i].statusMessage = "Complete";           break;
         case "overdue" :
