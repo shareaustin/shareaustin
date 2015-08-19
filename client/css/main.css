@@ -8,14 +8,15 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   float: left;
   font-size: 1.65em;
   left: 10px;
-  top: 3px;
+  top: 10px;
 }
 .remove {
 	position: relative;
 	float: right;
 	font-size: 1.65em;
-	top: 3px;
+	top: 10px;
 	right: 10px;
+  vertical-align: middle;
 	/*color: #50597b;*/
 }
 .remove:hover, .edit:hover {
@@ -563,3 +564,59 @@ i.fa.fa-star-o:hover {
 
 input {color: #333;}
 textarea {color: #333}
+
+/*----- Current Listings -----*/
+.li-rows-l-padding {
+  padding-left: 30px;
+  vertical-align: middle;
+}
+
+.li-rows-v-align {
+  vertical-align: middle;
+}
+
+.li-rows-transaction-msg {
+  text-align: right;
+  vertical-align: middle;
+  color: #1ab188;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  padding: 2px 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.li-rows-transaction-msg {
+  vertical-align: middle;
+  color: #EEEEEE;
+  background-color: #1ab188;
+  transition: .25s all ease-in-out;
+}
+
+.li-rows-transaction-msg:hover {
+  vertical-align: middle;
+  color: #EEEEEE;
+  background-color: #18906f;
+}
+
+.li-rows-transaction-msg.static {
+  color: #EEEEEE;
+  border: 1px #18906f;
+}
+
+/*----- Dashboard -----*/
+.nav-tabs.nav-justified > li > a:hover {
+  background-color: #EBF6F0;
+}
+
+.nav-tabs.nav-justified > li > a:focus {
+  background-color: #EBF6F0;
+}
+
+.nav-tabs.nav-justified > .active > a, 
+.nav-tabs.nav-justified > .active > a:hover, 
+.nav-tabs.nav-justified > .active > a:focus {
+  background-color: #EBF6F0;
+  border-bottom-color: #EEEEEE;
+}
+

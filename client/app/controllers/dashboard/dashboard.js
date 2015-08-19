@@ -115,9 +115,9 @@ angular.module('shareAustin')
     for (var i = 0; i < $scope.boughtTransactions.length; i++) {
       switch($scope.boughtTransactions[i].status) {
         case "started" :
-          $scope.boughtTransactions[i].statusMessage = "Message Owner!"; break;
+          $scope.boughtTransactions[i].statusMessage = "Message Owner"; break;
         case "in-rent" :
-          $scope.boughtTransactions[i].statusMessage = "Due Date:";      break; //+ dueData
+          $scope.boughtTransactions[i].statusMessage = "Due Date: " + $scope.boughtTransactions[i].end_date.substr(0,10);      break; //+ dueData
         case "returned":
           $scope.boughtTransactions[i].statusMessage = "Rate Seller";    break;
         case "rating from buyer pending": 
@@ -127,7 +127,7 @@ angular.module('shareAustin')
         case "complete":
           $scope.boughtTransactions[i].statusMessage = "Complete";       break;
         case "overdue" :
-          $scope.boughtTransactions[i].statusMessage = "Overdue!";       break;
+          $scope.boughtTransactions[i].statusMessage = "Overdue";       break;
         default: break;
       }
       $scope.boughtTransactions[i].bought = true;
@@ -135,9 +135,9 @@ angular.module('shareAustin')
     for (var i = 0; i < $scope.soldTransactions.length; i++) {
       switch($scope.soldTransactions[i].status) {
         case "started" :
-          $scope.soldTransactions[i].statusMessage = "Message Renter!";    break;
+          $scope.soldTransactions[i].statusMessage = "Message Renter";    break;
         case "in-rent" :
-          $scope.soldTransactions[i].statusMessage = "Return Date:";       break; //+ dueData
+          $scope.soldTransactions[i].statusMessage = "Return Date: " + $scope.soldTransactions[i].end_date.substr(0,10);;       break; //+ dueData
         case "returned":
           $scope.soldTransactions[i].statusMessage = "Rate Renter";        break;
         case "rating from seller pending":
@@ -147,7 +147,7 @@ angular.module('shareAustin')
         case "complete":
           $scope.soldTransactions[i].statusMessage = "Complete";           break;
         case "overdue" :
-          $scope.soldTransactions[i].statusMessage = "Overdue! Report user"; break;
+          $scope.soldTransactions[i].statusMessage = "Overdue (Report User)"; break;
         default: break;
       }
     }

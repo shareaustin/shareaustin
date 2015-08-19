@@ -50,7 +50,7 @@ insert into transactions (item_id, buyer_id, start_date, end_date, duration, pri
 insert into transactions (item_id, buyer_id, start_date, end_date, duration, price, status) values ('4','5','2015-08-15','2015-08-16','24','50' , 'returned');
 insert into transactions (item_id, buyer_id, start_date, end_date, duration, price, status) values ('3','5','2015-08-16','2015-08-17','24','125', 'returned');
 insert into transactions (item_id, buyer_id, start_date, end_date, duration, price, status) values ('1','5','2015-08-11','2015-08-12','24','125', 'returned');
-insert into transactions (item_id, buyer_id, start_date, end_date, duration, price, status) values ('1','2','2015-08-05','2015-08-06','24','125', 'returned');
+insert into transactions (item_id, buyer_id, start_date, end_date, duration, price, status) values ('1','2','2015-08-05','2015-08-06','24','125', 'complete');
 insert into favorites (user_id, item_id) values ('1','1');
 insert into favorites (user_id, item_id) values ('1','2');
 insert into favorites (user_id, item_id) values ('1','3');

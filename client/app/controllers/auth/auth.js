@@ -32,6 +32,7 @@ angular.module('shareAustin')
 	$scope.submitSignIn = function(user){
 		Auth.signin(user)
 		.then(function(user){
+        console.log("successful signin response: ", user);
 				Auth.setUser(user);
 				$location.path('/dashboard')
 

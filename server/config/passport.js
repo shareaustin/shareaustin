@@ -49,8 +49,10 @@ module.exports = function(passport){
 	}, 
 	function(req, email, password, done){
 		process.nextTick(function(){
+			console.log("inside process.nextTick");
 			new User({'email': email}).fetch()
 			.then(function(user){
+				console.log("signin user fetch request: ", user);
 				if(!user){
 					return done(new Error("user doesn't exist"))
 				} else if ( user.attributes.password !== password){
@@ -58,6 +60,9 @@ module.exports = function(passport){
 				} else{
 					return done(null, user)
 				}
+			})
+			.catch(function(err) {
+				console.log("error in signin fetch request: ", err);
 			});
 		});
 	}));
