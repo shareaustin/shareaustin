@@ -252,15 +252,11 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 
 
 /*----- Sign In Sign Up Form -----*/
-/**, *:before, *:after {
-  box-sizing: border-box;
-}*/
-
-/*html {
-  overflow-y: scroll;
-}*/
-
-/*body {font-family: 'Titillium Web', sans-serif;}*/
+ .form-warning {
+   color: tomato;
+   padding: 10px 0 0 10px;
+   font-weight: 300;
+ }
 a {
   text-decoration: none;
   color: #1ab188;
@@ -325,6 +321,7 @@ a:hover {
   pointer-events: none;
   font-size: 16px;
   font-weight: thin;
+  padding-bottom: 10px;
 }
 .auth-form label .req {
   margin: 2px;
@@ -419,12 +416,9 @@ a:hover {
   padding-left: 10px;
   margin-bottom: 10px;
 }
-.home-search-bar input:focus {
-  outline: 0 none;
-  border-color: #1ab188;
-  /*outline-style:none;
-  box-shadow:none;
-  border-color:transparent;*/
+.home-search-bar,input:focus {
+  outline: none;
+  /*border-color: #1ab188;*/
 }
 /*---- Background Images -----*/
 .grid-bg {

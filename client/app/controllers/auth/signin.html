@@ -10,14 +10,20 @@
 
 <form ng-submit="submitSignIn(user)" name="signin" novalidate>
   <div class="field-wrap">
-    <label>Email Address<span class="req">*</span></label>
+    <label>
+      <span class="req">*</span>
+      Email Address
+      <span ng-show="signin.email.$invalid && !signin.email.$pristine" class="form-warning">Must Be A Valid Email</span>
+    </label>
     <input type="email" name="email" ng-model="user.email" required/>
-    <p ng-show="signin.email.$invalid && !signin.email.$pristine" style="color: tomato;"> Please Enter A Valid Email</p>
   </div>
   <div class="field-wrap">
-    <label>Password<span class="req">*</span></label>
+    <label>
+      <span class="req">*</span>
+      Password
+      <span ng-show="signin.password.$invalid && !signin.password.$pristine" class="form-warning">Must Be At Least 8 Characters</span>
+    </label>
     <input type="password" name="password" ng-model="user.password" ng-minlength="8" required/>
-    <p ng-show="signin.password.$invalid && !signin.password.$pristine" style="color:tomato;">Password Must Be At Least 8 Characters</p>
   </div>
   <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
   <button class="button button-block" ng-disabled="signin.$invalid"/>Log In</button>
