@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('Feedback', function ($scope, SaveTransaction, Item, Request, Auth) {
+.controller('Feedback', function ($scope, $location, SaveTransaction, Item, Request, Auth) {
   
   // A lot of functions for a few stars... may have overcomplicated this
 
@@ -125,12 +125,14 @@ $scope.submitRatingAndReview = function() {
 
     // if buyer submission update transaction status to seller review done
     if (buyerSubmission) {
-      trsnUpdate.status = 'missing buyer rating'
+      trsnUpdate.status = 'rating from seller pending'
       Request.items.updateTransaction(trsnUpdate)
+      $location.path("/dashboard")
     }
     else {
-      trsnUpdate.status = 'missing seller rating'
+      trsnUpdate.status = 'rating from buyer pending'
       Request.items.updateTransaction(trsnUpdate)
+      $location.path("/dashboard")
     }
     // if not   update transaction status to buyer review done
     
@@ -140,6 +142,7 @@ $scope.submitRatingAndReview = function() {
     trsnUpdate.status = "completeTest";
     Request.items.updateTransaction(trsnUpdate)
     Request.ratings.updateRating(ratingAndReview);
+    $location.path("/dashboard")
   }
 }
 
