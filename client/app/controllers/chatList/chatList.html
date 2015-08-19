@@ -3,21 +3,23 @@
   <div class="row">
     <div><h1>{{title}}</h1></div>
             
-      <div class="col-sm-6" ng-repeat="rentChat in rentChats">
-        <ul>
+      <div class="col-sm-6">
+        <h2>My items</h2>
+        <ul ng-repeat="rentChat in rentChats">
           <li>
-        <a ui-sref=".chat" ng-click="joinRoom(rentChat)">enter chat</a>
-  	    <span>Rent: {{rentChat.item_id}}, {{rentChat.buyer_id}}</span>
-  	  </li>
+            <a ui-sref=".chat" ng-click="joinRoom(rentChat)">enter chat</a>
+  	        <span>Rent: {{rentChat.item_id}}, {{rentChat.buyer_id}}</span>
+  	      </li>
         </ul>
       </div>
   
-      <div class="col-sm-6" ng-repeat="sellChat in sellChats">
-        <ul>
+      <div class="col-sm-6" >
+        <h2>Im interested in</h2>
+        <ul ng-repeat="sellChat in sellChats">
           <li>
-        <a ui-sref=".chat" ng-click="joinRoom(sellChat)">enter chat</a>
-  	    <span>Sell: {{sellChat.item_id}}, {{sellChat.buyer_id}}</span>
-  	  </li>
+            <a ui-sref=".chat" ng-click="joinRoom(sellChat)">enter chat</a>
+  	        <span>Sell: {{sellChat.item_id}}, {{sellChat.buyer_id}}</span>
+  	      </li>
         </ul>
       </div>
  

@@ -14,22 +14,38 @@ angular.module('shareAustin')
   
   //$scope.currentChat = $scope.rentChats[0];
   $scope.joinRoom = function(chat){
-    $scope.chat = chat.item_id + chat.buyer_id;
+    $scope.room = chat.item_id + "-" + chat.buyer_id;
   };
 })
 
 .controller('ChatCtrl', function($scope, $location,  Socket){
-  $scope.leave = function(){
-   $location.path('/chatList'); 
-  };
 
-  Socket.on('welcome', function(msg){
-    console.log('controller received welcome event: ', msg);
-    Socket.emit('resp', $scope.chat);
+  Socket.on('connect', function(){
+    Socket.emit('enter chat', $scope.room)
+  });
+
+  Socket.on('chat history', function(chat){
+    console.log('controller received chat: ', chat);
+    $scope.chat = chat;
   });
 
   Socket.on($scope.chat, function(msg){
 
     console.log(msg);
   });
+
+  Socket.on('incoming', function(data){
+    //console.log('recieved: ' + data.msg + ' from ' + data.sender)
+    console.log('incoming event')
+    $scope.chat.messages.push(data);
+  });
+
+  $scope.sendMessage = function(){
+    Socket.emit('message', $scope.message);
+    $scope.message = '';
+  }; 
+
+  $scope.leave = function(){
+   $location.path('/chatList'); 
+  };
 })
