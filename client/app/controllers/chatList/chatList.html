@@ -1,23 +1,23 @@
 <div ng-include="'shared/navigation.html'"></div>
-<div class="container padding-top">
+<div class="container padding-top transparent-form-body">
   <div class="row">
-    <div><h1>{{title}}</h1></div>
+    <div align="center"><h1>{{title}}</h1></div>
             
-      <div class="col-sm-6">
-        <h2>My items</h2>
-        <ul ng-repeat="chat in buyerChats">
+      <div class="col-sm-4 col-sm-offset-3">
+        <h2>My Items</h2>
+        <ul class="list-unstyled" ng-repeat="chat in buyerChats">
           <li>
-            <a ui-sref=".chat" ng-click="joinRoom(chat)">enter chat</a>
+            <a ui-sref=".chat" ng-click="joinRoom(chat)">Enter Chat</a>
   	        <span>Rent: {{chat.item_id}}, {{chat.buyer_id}}</span>
   	      </li>
         </ul>
       </div>
   
-      <div class="col-sm-6" >
-        <h2>Im interested in</h2>
-        <ul ng-repeat="chat in sellerChats">
+      <div class="col-sm-4" >
+        <h2>I'm Interested In:</h2>
+        <ul class="list-unstyled" ng-repeat="chat in sellerChats">
           <li>
-            <a ui-sref=".chat" ng-click="joinRoom(chat)">enter chat</a>
+            <a ui-sref=".chat" ng-click="joinRoom(chat)">Enter Chat</a>
   	        <span>Sell: {{chat.item_id}}, {{chat.buyer_id}}</span>
   	      </li>
         </ul>
