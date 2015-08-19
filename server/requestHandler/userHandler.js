@@ -40,29 +40,17 @@ module.exports = {
 		});
 	},
 
-/*	getBuyerRatings: function(req, res){
-		var id = req.user ? req.user.attributes.id : 1
-		new User({'id': id}).buyerRatings().fetch()
-	  .then(function(model){
-	  	res.json(model)
-	  });
-	},
-
-	getSellerRatings: function(req, res){
-		var id = req.user ? req.user.attributes.id : 1
-	  new User({'id': id}).sellerRatings()
-	  .then(function(model){
-	  	res.json(model)
-	  });
-	},
-*/
   getChats: function(req, res){
 		var id = req.user ? req.user.attributes.id : 1
     var resp = {}
-    new User({id:id}).buyerChats().fetch()
+    new User({id:id}).buyerChats().fetch({
+      withRelated: ['item', 'seller']
+    })
     .then(function(bChats){
       resp.buyerChats = bChats;
-      return new User({id:id}).sellerChats().fetch()
+      return new User({id:id}).sellerChats().fetch({
+        withRelated: ['item', 'buyer']
+      })
     }).then(function(sChats){
       resp.sellerChats = sChats;
       res.json(resp);
