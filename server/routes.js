@@ -46,8 +46,6 @@ module.exports = function (app, passport, upload) {
   app.post('/api/updateRating', ratingHandler.updateRating)
   app.post('/api/fetchRating',ratingHandler.getRating)
 
-  //app.post('api/addRating'  , ratingHandler.addRating)
-
   app.post('/signup', passport.authenticate('signup', {
     successRedirect: '/api/user',
     failureRedirect: '/'
