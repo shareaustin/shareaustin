@@ -1,7 +1,7 @@
 angular.module('shareAustin')
 
 .controller('ChatListCtrl', function($scope, $state, $location, Chat){
-  $scope.title = 'Chat Room';
+  $scope.title = 'Messages';
  
   Chat.userChats().then(function(chats){
     $scope.buyerChats = chats.buyerChats;
