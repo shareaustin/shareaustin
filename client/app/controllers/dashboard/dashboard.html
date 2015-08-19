@@ -1,13 +1,13 @@
 <!-- Navigation bar -->
 <div ng-include="'shared/navigation.html'"></div>
-<div class="container padding-top">
-<h2 class="text-center m-b-lg">Welcome Back, {{}}.</h2>
+<div class="container padding-top single-desc">
+<h2 class="text-center m-b-lg">Welcome Back, {{user.first_name}}.</h2>
   <div class="row">
     <!-- Container for user profile info -->
     <div class="col-sm-3 col-sm-offset-2">
       <img class="img-crop" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
       <!-- <p>Username: {{user.username}}</p> -->
-      <p ng-show="user.first_name !== undefined">Name: {{user.first_name + ' ' + user.last_name}}</p>
+      <p ng-show="user.first_name !== undefined">{{user.first_name + ' ' + user.last_name}}</p>
       <!-- <p>Rating: {{user.rating}}</p> -->
       <button class="btn btn-green btn-md" ng-click="">Change Photo</button>
     </div>

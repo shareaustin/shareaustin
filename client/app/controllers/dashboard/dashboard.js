@@ -141,9 +141,9 @@ angular.module('shareAustin')
         case "returned":
           $scope.soldTransactions[i].statusMessage = "Rate Renter";        break;
         case "rating from seller pending":
-          $scope.soldTransactions[i].statusMessage = "Rate Renter";       break;
+          $scope.soldTransactions[i].statusMessage = "Complete";       break;
         case "rating from buyer pending":
-          $scope.soldTransactions[i].statusMessage = "Complete";          break;
+          $scope.soldTransactions[i].statusMessage = "Rate Renter";         break;
         case "complete":
           $scope.soldTransactions[i].statusMessage = "Complete";           break;
         case "overdue" :

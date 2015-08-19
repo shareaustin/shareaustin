@@ -571,8 +571,25 @@ textarea {color: #333}
   vertical-align: middle;
 }
 
+.li-rows-l-favorite {
+  padding-left: 30px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
 .li-rows-v-align {
   vertical-align: middle;
+}
+
+.li-rows-transaction-date {
+  text-align: right;
+  vertical-align: middle;
+  color: #1ab188;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  padding: 2px 5px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 .li-rows-transaction-msg {
