@@ -99,12 +99,11 @@ module.exports = {
       res.json(model)
     })
   }, 
+  updateTransaction: function(req, res) {
+    var attr = req.body;
+    new Transaction({id : attr.id}).save(attr, {patch: true})
+    .then(res.json("Transaction updated!"))
+  }
 }
 
-  // updateTransaction: function(req, res) {
-  //   var item = req.body;
-  //   Transaction
-  //   console.log("in edit item handler")
-  //   new Transaction(where {item_id : item.item_id}, buyer ).save(item, {patch: true})
-  //   .then(res.json("Transaction updated!"))
-  // }
+
