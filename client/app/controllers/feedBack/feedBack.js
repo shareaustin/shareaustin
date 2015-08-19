@@ -104,6 +104,9 @@ $scope.submitRatingAndReview = function() {
   ratingAndReview = {}
   ratingAndReview.transaction_id = $scope.transaction.id;
   ratingAndReview.item_id        = $scope.transaction.item_id;
+
+  trsnUpdate = { id: $scope.transaction.id };
+
   var buyerSubmission = ($scope.transaction.buyer_id === $scope.user.id)
 
   if (buyerSubmission) {
@@ -119,22 +122,23 @@ $scope.submitRatingAndReview = function() {
   if ($scope.newRating) {
     console.log("Brand new rating")
     Request.ratings.addRating(ratingAndReview);
-    
+
     // if buyer submission update transaction status to seller review done
     if (buyerSubmission) {
-      $scope.transaction.status = 'missing buyer rating'
-      Request.items.updateTransaction($scope.transaction)
+      trsnUpdate.status = 'missing buyer rating'
+      Request.items.updateTransaction(trsnUpdate)
     }
     else {
-      $scope.transaction.status = 'missing seller rating'
-      Request.items.updateTransaction($scope.transaction)
+      trsnUpdate.status = 'missing seller rating'
+      Request.items.updateTransaction(trsnUpdate)
     }
     // if not   update transaction status to buyer review done
     
   }
   else {
     console.log("update Existing rating")
-  
+    trsnUpdate.status = "completeTest";
+    Request.items.updateTransaction(trsnUpdate)
     Request.ratings.updateRating(ratingAndReview);
   }
 }
