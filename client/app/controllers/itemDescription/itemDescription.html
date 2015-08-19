@@ -18,11 +18,7 @@
       <div class="col-sm-6 col-md-5 review-wrapper p-b-lg">
         <p class="review-title">Reviews</p>
         <ul class="ul-reset item-desc-list no-p-l">
-          <li>This kayak is amazing and the seller was super nice!</li>
-          <li>This kayak is amazing and the seller was super nice!</li>
-          <li>This kayak is amazing and the seller was super nice!</li>
-          <li>This kayak is amazing and the seller was super nice!</li>
-          <li>This kayak is amazing and the seller was super nice!</li>
+          <li ng-repeat="review in sellerReviews">{{review}}</li>
         </ul>
       </div>
     </div>
