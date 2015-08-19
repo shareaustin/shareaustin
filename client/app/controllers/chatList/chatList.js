@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('ChatListCtrl', function($scope, $location, Chat){
+.controller('ChatListCtrl', function($scope, $state, $location, Chat){
   $scope.title = 'Chat Room';
  
   Chat.userChats().then(function(chats){
@@ -11,6 +11,12 @@ angular.module('shareAustin')
   $scope.joinRoom = function(chat){
     $scope.room = chat.item_id + "-" + chat.buyer_id;
   };
+  
+  if(Chat.getRoom().length){
+    $scope.room = Chat.getRoom();
+    $state.transitionTo('chatList.chat')
+    console.log('I should be in chat now')
+  }
 })
 
 .controller('ChatCtrl', function($scope, $location,  Socket){

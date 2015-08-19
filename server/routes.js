@@ -66,8 +66,8 @@ module.exports = function (app, passport, upload) {
   app.get('/api/user/boughtTransactions', userHandler.getBoughtTransactions);
   app.get('/api/item/seller', itemHandler.getSeller);
 
-  app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);
-  app.get('/api/user/seller_ratings', userHandler.getSellerRatings);
+//  app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);
+//  app.get('/api/user/seller_ratings', userHandler.getSellerRatings);
   
   app.get('/api/user/chat/messages', chatHandler.getMessages);
 

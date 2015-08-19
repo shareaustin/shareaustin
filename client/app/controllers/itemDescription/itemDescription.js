@@ -1,5 +1,5 @@
 angular.module('shareAustin')
-.controller('ItemDescriptionCtrl', function ($scope, $location, Item, Request, CalEvents) {
+.controller('ItemDescriptionCtrl', function ($scope, $location, Chat, Item, Request, CalEvents) {
   $scope.item = Item.get();
   console.log($scope.item)
   $scope.availItems = Request.items.fetchAvailableItems()
@@ -15,4 +15,10 @@ angular.module('shareAustin')
       return transaction.rating.seller_review
     })
   if (!$scope.sellerReviews.length) $scope.sellerReviews.push("This Item Hasn't Been Reviewed Yet")
+  };
+
+  $scope.chatRedirect = function(){
+    Chat.setRoom('3-1');
+    $location.path('/chatList');
+  };
 })
