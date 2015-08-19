@@ -82,7 +82,7 @@ angular.module('shareAustin')
           SaveTransaction.set(trns);
           $location.path("/feedback") 
           break;
-        case "rating from buyer pending"
+        case "rating from buyer pending":
           SaveTransaction.set(trns)
           $location.path("/feedback")
           break;
@@ -101,7 +101,7 @@ angular.module('shareAustin')
           SaveTransaction.set(trns);
           $location.path("/feedback")
           break; // pop up rating form
-        case "rating from seller pending"
+        case "rating from seller pending":
           SaveTransaction.set(trns)
           $location.path("/feedback")
         case "overdue": 
@@ -124,7 +124,7 @@ angular.module('shareAustin')
           $scope.boughtTransactions[i].statusMessage = "Rate Seller";
         case "rating from seller pending": 
           $scope.boughtTransactions[i].statusMessage = "Complete";  
-        case "complete":0
+        case "complete":
           $scope.boughtTransactions[i].statusMessage = "Complete";       break;
         case "overdue" :
           $scope.boughtTransactions[i].statusMessage = "Overdue!";       break;

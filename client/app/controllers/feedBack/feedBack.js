@@ -139,7 +139,7 @@ $scope.submitRatingAndReview = function() {
   }
   else {
     console.log("update Existing rating")
-    trsnUpdate.status = "completeTest";
+    trsnUpdate.status = "complete";
     Request.items.updateTransaction(trsnUpdate)
     Request.ratings.updateRating(ratingAndReview);
     $location.path("/dashboard")
