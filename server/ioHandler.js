@@ -1,20 +1,41 @@
+var Chat = require('./model/chat.js');
+var Message = require('./model/message.js');
+
+function parseRoom(room){
+  return {
+    item_id: room.match(/\d+/)[0],
+    buyer_id: room.match(/-\d+/)[0].slice(1)
+  }
+};
+
 module.exports = function(io){
-  var rooms = {};
   io.on('connect', function(socket){
     console.log('new user connection...');
-    console.log(socket.id);
     io.emit('welcome', 'everyone');
-    socket.on('chat message', function(msg){
-      console.log('message: ' + msg);
+
+    socket.on('enter chat', function(chat){
+      var room = parseRoom(chat);
+      socket.room = chat;  
+      socket.join(chat);
+      new Chat({'item_id': room.item_id, 'buyer_id': room.buyer_id}).fetch({
+        withRelated: ['messages'],
+      })
+      .then(function(chat){
+        socket.chat = chat.id;
+        socket.emit('chat history', chat);
+      })
     });
-    socket.on('resp', function(data){
-      console.log('client responded saying ', JSON.stringify(data));
-      var room = data;
-      socket.room = room;
-      socket.join(room);
-      console.log(socket.adapter.rooms);
-      console.log('emitting event ' + room + '\n')
-      //socket.broadcast.to(room).emit(room, 'user joined room ' + room);
+
+    socket.on('message', function(msg){
+      console.log('received: ', msg);
+      console.log(socket.room);
+      var room = parseRoom(socket.room);
+      new Message({
+        chat_id: socket.chat, text: msg, seen: true
+      }).save().then(function(msg){
+        console.log(msg.attributes)
+        io.sockets.in(socket.room).emit('incoming', msg)
+      });
     });
     socket.on('disconnect', function(){
       console.log(socket.id);

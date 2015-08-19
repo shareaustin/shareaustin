@@ -3,6 +3,7 @@ var itemHandler = require('./requestHandler/itemHandler.js');
 var favoriteHandler = require('./requestHandler/favoriteHandler.js');
 var transactionHandler = require('./requestHandler/transactionHandler.js');
 var ratingHandler = require('./requestHandler/ratingHandler.js')
+var chatHandler = require('./requestHandler/chatHandler.js');
 
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()){
@@ -58,12 +59,16 @@ module.exports = function (app, passport, upload) {
   app.get('/api/user', isLoggedIn, userHandler.getUser);
   app.get('/api/user/items', userHandler.getItems);
 
+  app.get('/api/user/chats', userHandler.getChats);
+
   app.get('/api/user/soldTransactions', userHandler.getSoldTransactions);
   app.get('/api/user/boughtTransactions', userHandler.getBoughtTransactions);
   app.get('/api/item/seller', itemHandler.getSeller);
 
   app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);
   app.get('/api/user/seller_ratings', userHandler.getSellerRatings);
+  
+  app.get('/api/user/chat/messages', chatHandler.getMessages);
 
   app.post('/api/user/item/photos/upload', upload.single('file'), itemHandler.linkPhoto);
 
