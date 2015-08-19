@@ -8,15 +8,15 @@
   </form>
 </div> -->
 
-<form ng-submit="submitSignIn(user)" novalidate>
+<form ng-submit="submitSignIn(user)" name="signin" novalidate>
   <div class="field-wrap">
     <label>Email Address<span class="req">*</span></label>
-    <input type="email" ng-model="user.email"/>
+    <input type="email" ng-model="user.email" required/>
   </div>
   <div class="field-wrap">
     <label>Password<span class="req">*</span></label>
-    <input type="password" ng-model="user.password"/>
+    <input type="password" ng-model="user.password" required/>
   </div>
   <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
-  <button class="button button-block"/>Log In</button>
+  <button class="button button-block" ng-disabled="signin.$invalid"/>Log In</button>
 </form>
