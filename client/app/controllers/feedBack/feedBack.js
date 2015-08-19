@@ -85,18 +85,26 @@ angular.module('shareAustin')
 
 $scope.getRating = function() {
   Request.ratings.fetchRating($scope.transaction.id).then(function(response) {
-    console.log("error: ")
-    console.log(error)
-    console.log("resp : ")
-    console.log(response)
+  if (response.data === null) { 
+    console.log("Rating doesn't exist!")
+    $scope.ratingAndReview = {};
+  }
+  else { 
+    console.log("rating exists!")
+    console.log(response.data)
+    $scope.ratingAndReview = response.data
+  }
+
   })
 }
 
-$scope.getRating();
+$scope.getRating($scope.transaction.id);
 
 $scope.submitRatingAndReview = function() {
-  var ratingAndReview = {};
+  //ratingAndReview = $scope.ratingAndReview 
+  ratingAndReview = {}
   ratingAndReview.transaction_id = $scope.transaction.id;
+  console.log("defined? "+ ratingAndReview.transaction_id)
   ratingAndReview.item_id        = $scope.transaction.item_id;
 
   if ($scope.transaction.buyer_id === $scope.user.id) {
@@ -108,7 +116,7 @@ $scope.submitRatingAndReview = function() {
     ratingAndReview.buyer_review  = $scope.userInput.review;
   }
 
-  //Request.ratings.addRating(ratingAndReview);
+  Request.ratings.addRating(ratingAndReview);
 }
 
 })
