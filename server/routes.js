@@ -3,6 +3,7 @@ var itemHandler = require('./requestHandler/itemHandler.js');
 var favoriteHandler = require('./requestHandler/favoriteHandler.js');
 var transactionHandler = require('./requestHandler/transactionHandler.js');
 var ratingHandler = require('./requestHandler/ratingHandler.js')
+var chatHandler = require('./requestHandler/chatHandler.js');
 
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()){
@@ -64,6 +65,8 @@ module.exports = function (app, passport, upload) {
 
   app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);
   app.get('/api/user/seller_ratings', userHandler.getSellerRatings);
+  
+  app.get('/api/user/chat/messages', chatHandler.getMessages);
 
   app.post('/api/user/item/photos/upload', upload.single('file'), itemHandler.linkPhoto);
 
