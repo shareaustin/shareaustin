@@ -10,4 +10,11 @@ module.exports = {
       res.json(rating);
     }) 
   },
+  getRating : function(req, res) {
+    var id = req.body.id
+    Rating.where({ transaction_id = id }).fetch()
+    .then(function(model) { 
+      res.json(model)
+    })
+  }
 }
