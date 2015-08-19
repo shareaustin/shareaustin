@@ -56,6 +56,15 @@ angular.module('shareAustin')
           return resp.data;
           })
       },
+      updateRating: function(rating) {
+        return $http({
+          method: "POST",
+          url   : "api/updateRating",
+          data  : rating
+        }).then(function(resp) {
+          return resp.data;
+        })
+      }
       fetchRating: function(trsn_id) {
         return $http({
           method: "POST",

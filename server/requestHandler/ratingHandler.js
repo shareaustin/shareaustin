@@ -19,5 +19,17 @@ module.exports = {
 
       res.json(model)
     })
+  },
+  updateRating : function(req, res) {
+    var attr = req.body;
+    console.log("edit rating handler")
+    new Rating({
+      transaction_id : attr.transaction_id
+    }).save(attr, {patch: true})
+    .then(res.json("Rating updated!"))
+    // new Item({
+    //   id: 1
+    // }).save(req.body, {patch: true})
+    // .then(res.json("Item updated!"))
   }
 }
