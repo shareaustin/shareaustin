@@ -12,8 +12,11 @@ module.exports = {
   },
   getRating : function(req, res) {
     var id = req.body.id
-    Rating.where({ transaction_id = id }).fetch()
-    .then(function(model) { 
+    console.log("gr id: "+id)
+    Rating.where({ transaction_id : id }).fetch()
+    .then(function(model, error) {
+      console.log("model:"+model+" error:"+error)
+
       res.json(model)
     })
   }

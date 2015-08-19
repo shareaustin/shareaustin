@@ -57,9 +57,9 @@ angular.module('shareAustin')
           })
       },
       fetchRating: function(trsn_id) {
-        return$http({
+        return $http({
           method: "POST",
-          url   : "api/addRating",
+          url   : "api/fetchRating",
           data  : {id : trsn_id}
         })
       }

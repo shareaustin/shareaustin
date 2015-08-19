@@ -84,9 +84,15 @@ angular.module('shareAustin')
 
 
 $scope.getRating = function() {
-  Request.ratings.getRating($scope.transaction.id)
+  Request.ratings.fetchRating($scope.transaction.id).then(function(response) {
+    console.log("error: ")
+    console.log(error)
+    console.log("resp : ")
+    console.log(response)
+  })
 }
 
+$scope.getRating();
 
 $scope.submitRatingAndReview = function() {
   var ratingAndReview = {};
@@ -102,7 +108,7 @@ $scope.submitRatingAndReview = function() {
     ratingAndReview.buyer_review  = $scope.userInput.review;
   }
 
-  Request.ratings.addRating(ratingAndReview);
+  //Request.ratings.addRating(ratingAndReview);
 }
 
 })

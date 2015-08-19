@@ -43,7 +43,7 @@ module.exports = function (app, passport, upload) {
   app.post('/api/addFavorite', favoriteHandler.addFavorite)
   app.post('/api/removeFavorite', favoriteHandler.removeFavorite)
   app.post('/api/addRating',ratingHandler.addRating)
-  app.post('/api/fetchRating'. ratingHandler.getRating)
+  app.post('/api/fetchRating',ratingHandler.getRating)
 
   //app.post('api/addRating'  , ratingHandler.addRating)
 
