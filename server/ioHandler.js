@@ -21,8 +21,6 @@ module.exports = function(io){
         withRelated: ['messages'],
       })
       .then(function(chat){
-        console.log(socket.id + ' entered chat in the promise' + socket.room);
-        console.log(JSON.stringify(chat) + '\n');
         socket.chat = chat.id;
         socket.emit('chat history', chat);
       })
@@ -30,7 +28,6 @@ module.exports = function(io){
 
     socket.on('message', function(msg){
       console.log('received: ', msg);
-    //  console.log(socket.adapter.rooms);
       console.log(socket.room);
       var room = parseRoom(socket.room);
       new Message({
@@ -38,7 +35,6 @@ module.exports = function(io){
       }).save().then(function(msg){
         console.log(msg.attributes)
         io.sockets.in(socket.room).emit('incoming', msg)
-        //io.sockets.in(socket.room).emit('incoming',  msg.attributes)
       });
     });
     socket.on('disconnect', function(){

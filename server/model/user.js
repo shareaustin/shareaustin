@@ -15,6 +15,15 @@ var User = bookshelf.Model.extend({
 		return this.hasMany('Transaction', 'buyer_id')
 	},
 
+  buyerChats: function(){
+    return this.hasMany('Chat', 'buyer_id');
+  },
+
+  sellerChats: function(){
+    return this.hasMany('Chat', 'seller_id')
+    .through('Item');
+  },
+ 
 	buyerRatings: function(){
 		return this.hasMany('Rating', 'buyer_id')
 		.through('Transaction')

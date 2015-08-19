@@ -59,6 +59,8 @@ module.exports = function (app, passport, upload) {
   app.get('/api/user', isLoggedIn, userHandler.getUser);
   app.get('/api/user/items', userHandler.getItems);
 
+  app.get('/api/user/chats', userHandler.getChats);
+
   app.get('/api/user/soldTransactions', userHandler.getSoldTransactions);
   app.get('/api/user/boughtTransactions', userHandler.getBoughtTransactions);
   app.get('/api/item/seller', itemHandler.getSeller);

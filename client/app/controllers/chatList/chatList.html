@@ -5,20 +5,20 @@
             
       <div class="col-sm-6">
         <h2>My items</h2>
-        <ul ng-repeat="rentChat in rentChats">
+        <ul ng-repeat="chat in buyerChats">
           <li>
-            <a ui-sref=".chat" ng-click="joinRoom(rentChat)">enter chat</a>
-  	        <span>Rent: {{rentChat.item_id}}, {{rentChat.buyer_id}}</span>
+            <a ui-sref=".chat" ng-click="joinRoom(chat)">enter chat</a>
+  	        <span>Rent: {{chat.item_id}}, {{chat.buyer_id}}</span>
   	      </li>
         </ul>
       </div>
   
       <div class="col-sm-6" >
         <h2>Im interested in</h2>
-        <ul ng-repeat="sellChat in sellChats">
+        <ul ng-repeat="chat in sellerChats">
           <li>
-            <a ui-sref=".chat" ng-click="joinRoom(sellChat)">enter chat</a>
-  	        <span>Sell: {{sellChat.item_id}}, {{sellChat.buyer_id}}</span>
+            <a ui-sref=".chat" ng-click="joinRoom(chat)">enter chat</a>
+  	        <span>Sell: {{chat.item_id}}, {{chat.buyer_id}}</span>
   	      </li>
         </ul>
       </div>
