@@ -557,21 +557,22 @@ a:hover {
   padding: 10px 2% 10px 0;
 }
 
-i.fa.fa-star-o {
+i.fa.fa-star {
   opacity: 0.5
 }
 
-i.fa.fa-star-o.turnOn {
+i.fa.fa-star.turnOn {
     /*-webkit-animation: pulsate 0.5s;*/
     /*-webkit-animation-iteration-count: 1;*/
     /*-webkit-animation-fill-mode: forwards;*/
     transform: scale(1.3);
     transition: .25s all ease-in-out;
     color: #0A3227;
+    opacity: 0.8;
 }
 
 
-i.fa.fa-star-o.turnOff {
+i.fa.fa-star.turnOff {
     transition: .25s all ease-in-out;
     /*-webkit-animation: pulsateBack 0.5s;*/
     /*-webkit-animation-iteration-count: 1;*/
@@ -589,8 +590,8 @@ i.fa.fa-star-o.turnOff {
     100% {-webkit-transform: scale(1.0, 1.0); opacity: 0.5;}
 }
 
-i.fa.fa-star-o:hover {
-    font-weight: bold;
+i.fa.fa-star:hover {
+    color: #0A3227;
 }
 
 input {color: #333;}
