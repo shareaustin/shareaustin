@@ -37,6 +37,7 @@ module.exports = function(io){
         io.sockets.in(socket.room).emit('incoming', msg)
       });
     });
+
     socket.on('disconnect', function(){
       console.log(socket.id);
 
