@@ -8,6 +8,7 @@ angular.module('shareAustin')
   $scope.rentRedirect = function () {
     $location.path('/transaction')
   }
+
   // Reviews - Filters seller reivews by id
   if ($scope.item.seller) { 
     $scope.sellerReviews = $scope.item.seller.soldTransactions
@@ -22,6 +23,7 @@ angular.module('shareAustin')
 
   if (!$scope.sellerReviews.length) {
    $scope.sellerReviews.push("This Item Hasn't Been Reviewed Yet")
+
   };
 
   $scope.chatRedirect = function(){
