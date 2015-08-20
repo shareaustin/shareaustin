@@ -215,6 +215,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .rating-picker-wrapper {
   font-size: 1.6em;
   padding: 0 10px 0px 20px;
+  cursor: pointer;
 }
 /*----- Centering & Cropping Images -----*/
 .centerCrop {
@@ -534,18 +535,21 @@ i.fa.fa-star-o {
 }
 
 i.fa.fa-star-o.turnOn {
-    -webkit-animation: pulsate 0.5s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-fill-mode: forwards;
-    color: green;
+    /*-webkit-animation: pulsate 0.5s;*/
+    /*-webkit-animation-iteration-count: 1;*/
+    /*-webkit-animation-fill-mode: forwards;*/
+    transform: scale(1.3);
+    transition: .25s all ease-in-out;
+    color: #0A3227;
 }
 
 
 i.fa.fa-star-o.turnOff {
-    -webkit-animation: pulsateBack 0.5s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-fill-mode: forwards;
-    color: black;
+    transition: .25s all ease-in-out;
+    /*-webkit-animation: pulsateBack 0.5s;*/
+    /*-webkit-animation-iteration-count: 1;*/
+    /*-webkit-animation-fill-mode: forwards;*/
+    /*color: black;*/
 }
 
 @-webkit-keyframes pulsate {
