@@ -10,11 +10,8 @@ angular.module('shareAustin')
   $scope.rentalStartDate.setMinutes("0");
   $scope.rentalStartDate.setSeconds("0");
   $scope.rentalStartDate.setMilliseconds("0");
-  $scope.rentalEndDate = new Date();
-  $scope.rentalEndDate.setHours($scope.rentalStartDate.getHours() + 1);
-  $scope.rentalEndDate.setMinutes("0");
-  $scope.rentalEndDate.setSeconds("0");
-  $scope.rentalEndDate.setMilliseconds("0");
+  $scope.rentalEndDate = '';
+
 
 //Duration of rental sent to server to calculate price
   $scope.calculateDuration = function() {
