@@ -557,7 +557,7 @@ a:hover {
   padding: 10px 2% 10px 0;
 }
 
-i.fa.fa-star {
+.star-transparent {
   opacity: 0.5
 }
 
@@ -590,7 +590,7 @@ i.fa.fa-star.turnOff {
     100% {-webkit-transform: scale(1.0, 1.0); opacity: 0.5;}
 }
 
-i.fa.fa-star:hover {
+.star-transparent:hover {
     color: #0A3227;
 }
 
