@@ -25,8 +25,11 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 	cursor: pointer;
 }
 
+/*----- Override ------*/
+.btn:focus {outline: none;}
 /*----- Helpers ------*/
 .inline {display: inline;}
+.inline-block {display: inline-block;}
 .block {display: block;}
 .dark-gray {color: #6A6A6A;}
 .transparent {color: transparent;}
@@ -474,16 +477,26 @@ a:hover {
   color: white;*/
 }
 /*---- Chat/Message Style -----*/
+.chat-submit {
+  display: inline;
+  margin-top: -40px;
+  margin-left: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+.text-area-padding {
+  padding: 10px 0 10px 10px;
+  /*resize: none; */
+  width: 450px;
+  height:48px;
+}
 .chat-messages {
-  background-color: white;
+  /*background-color: white;*/
+  border: 1px solid;
+  border-radius: 5px;
   width: 675px;
   height: 250px;
   overflow: scroll;
-}
-
-.chat-submit {
-  /*float:left;*/
-  display: inline;
 }
 
 .chat-submit > button {
