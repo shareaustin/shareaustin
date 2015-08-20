@@ -1,13 +1,17 @@
 <div class="row">
-  <div class="col-sm-4 col-sm-offset-3">
+  <div class="col-sm-6 col-sm-offset-3">
   <h2>Item Name:</h2>
-  <ul class="list-unstyled" ng-repeat="message in chat.messages">
-    <li>{{message.text}}</li>
-  </ul>
+    <div class="chat-messages">
+      <ul class="list-unstyled" ng-repeat="message in chat.messages">
+        <li>{{message.text}}</li>
+      </ul>
+    </div>
   <form>
-    <textarea rows="4" cols="50" style="resize: none" placeholder="Enter your message here" ng-model='message'></textarea>
-    <br>
-    <button class="btn btn-lg btn-green" ng-click="sendMessage()">Send</button>
+    <!-- <input type="text" size="75" ng-model="message"> -->
+    <div class="chat-submit">
+    <textarea rows="1" cols="50" style="resize: none; width: 550px" placeholder="Enter your message here" ng-model='message'></textarea>
+    <button class="btn btn-lg btn-green inline" ng-click="sendMessage()">Send</button>
+   </div>
   </form>
  </div>
 </div>         

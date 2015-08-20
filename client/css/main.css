@@ -479,7 +479,23 @@ a:hover {
   background: #1ab188;
   color: white;*/
 }
+/*---- Chat/Message Style -----*/
+.chat-messages {
+  background-color: white;
+  width: 675px;
+  height: 250px;
+  overflow: scroll;
+}
 
+.chat-submit {
+  /*float:left;*/
+  display: inline;
+}
+
+.chat-submit > button {
+  /*float: right;*/
+  display: inline;
+}
 /*----- Photo Loading Bar -----*/
 .photoloader {
   opacity: 0;
