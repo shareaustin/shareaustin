@@ -157,6 +157,10 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   object-fit: cover;
 }
 
+.carousel-control {
+  height: 450px;
+}
+
 /*----- Google Maps Style ------*/
 .mapMarkerImg {
   object-fit: cover;
