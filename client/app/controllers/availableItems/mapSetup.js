@@ -2,7 +2,7 @@ angular.module('shareAustin')
 
 // This file shares $scope with availableItems.js
 // (think of them as the same controller)
-.expandAvailableItems = function($scope, Request, Helpers) {
+.expandAvailableItems = function($scope, Request, Helpers, $filter) {
 
   //Creates/renders google map with markers, mouse events, and info window
   $scope.setupMap = function() {
@@ -14,7 +14,7 @@ angular.module('shareAustin')
     }
     // Creates map and places it in the div with id 'map'
     $scope.map = new google.maps.Map(document.getElementById('map'), mapSettings)
-
+    $scope.markerArray = [];
     // Creates a google map pin/marker for each item in scope
     for (var i = 0; i < $scope.items.length; i++) {
       // Latitude & Longitude
@@ -53,6 +53,33 @@ angular.module('shareAustin')
       setEvent(newMark, 'click', function(event)  {
         $scope.loadDetailedView(this.item); // this.item comes from line 28
       });
+    $scope.markerArray.push(newMark)  
     }//end for-loop
   }//end setupMap
+  
+  var searchbar = document.getElementById('searchBar');
+
+  // on keyup, filter map markers!
+  searchbar.addEventListener("keyup", function() {
+    $scope.filterMap()
+  })
+
+  // Filters map pins based on search bar
+  $scope.filterMap = function() {
+
+    var searchText = searchbar.value;
+    var filteredItems = $filter('filter')($scope.items, {name: searchText})
+    
+    for (var i = 0; i < $scope.markerArray.length; i++) {
+      $scope.markerArray[i].setVisible(false);
+      
+      for (var j = 0; j < filteredItems.length; j++ ) {
+        if (filteredItems[j].id === $scope.markerArray[i].item.id) {
+          $scope.markerArray[i].setVisible(true);
+        }
+      }
+    }
+  }  
+
 };
+

@@ -1,9 +1,9 @@
 angular.module('shareAustin')
 
-.controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item, Auth) {
+.controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item, Auth, $filter) {
 
   // Allows this controller to be expanded into mapSetup file
-  angular.module('shareAustin').expandAvailableItems($scope, Request, Helpers)
+  angular.module('shareAustin').expandAvailableItems($scope, Request, Helpers, $filter)
 
   // Initialize containers for data
   $scope.currentItem = {};
@@ -11,6 +11,8 @@ angular.module('shareAustin')
   $scope.fav         = {};
   $scope.search = Item.search.term
   $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
+  console.log("test")
+
 
 
   $scope.avgRating = function (items) {
