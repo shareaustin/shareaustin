@@ -434,7 +434,7 @@ a:hover {
 
 /*---- Favorite Buttons -----*/
 .favorited, .favorited:focus, .favorited:hover {
-  background-color: #F6F2C8;
+  background-color: #DCF4ED;
 }
 
 /*----- Calendar Styling -----*/
@@ -648,10 +648,9 @@ textarea {color: #333}
   background-color: #EBF6F0;
 }
 
-.nav-tabs.nav-justified > .active > a, 
-.nav-tabs.nav-justified > .active > a:hover, 
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:focus {
   background-color: #EBF6F0;
   border-bottom-color: #EEEEEE;
 }
-

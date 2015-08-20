@@ -37,7 +37,7 @@ angular.module('shareAustin')
     var item = {id : itemId,  active : false }
     Request.items.editItem(item).then(
       function(results) {
-        console.log(results) 
+        console.log(results)
       })
   }
 
@@ -49,16 +49,18 @@ angular.module('shareAustin')
 .controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location) {
   $scope.transactions = [];
 
-  $scope.fetchSoldTransactions = function() { 
+  $scope.fetchSoldTransactions = function() {
      Request.user.fetchSoldTransactions()
      .then(function (results){
        $scope.soldTransactions = results;
        $scope.transactions = $scope.transactions.concat(results)
        console.log("inside trans controller", results)
+     }).then(function() {
+       $scope.fetchBoughtTransactions()
      })
    }
 
-  $scope.fetchBoughtTransactions = function() { 
+  $scope.fetchBoughtTransactions = function() {
      Request.user.fetchBoughtTransactions()
      .then(function (results){
        $scope.boughtTransactions = results;
@@ -76,35 +78,36 @@ angular.module('shareAustin')
         case "started":
           // change path to message with buyer
           break;
-        case "in-rent": 
+        case "in-rent":
           break; // go to details
         case "returned":
           SaveTransaction.set(trns);
-          $location.path("/feedback") 
+          $location.path("/feedback")
           break;
         case "rating from buyer pending":
           SaveTransaction.set(trns)
           $location.path("/feedback")
           break;
-        case "overdue" : 
+        case "overdue" :
           break; // go to message
         default: break;
       }
     }
     else {
       switch(trns.status) {
-        case "started": 
+        case "started":
           break; //msg buyer
-        case "in-rent": 
+        case "in-rent":
           break; // go to details
-        case "returned": 
+        case "returned":
           SaveTransaction.set(trns);
           $location.path("/feedback")
           break; // pop up rating form
         case "rating from seller pending":
           SaveTransaction.set(trns)
           $location.path("/feedback")
-        case "overdue": 
+          break;
+        case "overdue":
           break; // go to message
         default: break;
       }
@@ -120,10 +123,10 @@ angular.module('shareAustin')
           $scope.boughtTransactions[i].statusMessage = "Due Date: " + $scope.boughtTransactions[i].end_date.substr(0,10);      break; //+ dueData
         case "returned":
           $scope.boughtTransactions[i].statusMessage = "Rate Seller";    break;
-        case "rating from buyer pending": 
-          $scope.boughtTransactions[i].statusMessage = "Rate Seller";
-        case "rating from seller pending": 
-          $scope.boughtTransactions[i].statusMessage = "Complete";  
+        case "rating from buyer pending":
+          $scope.boughtTransactions[i].statusMessage = "Rate Seller";break;
+        case "rating from seller pending":
+          $scope.boughtTransactions[i].statusMessage = "Complete";  break;
         case "complete":
           $scope.boughtTransactions[i].statusMessage = "Complete";       break;
         case "overdue" :
@@ -154,7 +157,7 @@ angular.module('shareAustin')
   }
 
    $scope.fetchSoldTransactions();
-   $scope.fetchBoughtTransactions();
+  //  $scope.fetchBoughtTransactions();
 
 })
 .controller('CurrentListingCtrl', function ($scope, Item, Request, $location) {
@@ -179,7 +182,7 @@ angular.module('shareAustin')
 .controller('FavoritesCtrl', function ($scope, Request, Auth, Item, $location){
   $scope.favorites = [] ;
   $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
-  
+
   $scope.fetchFavoriteItems = function (userId) {
      Request.favorites.fetchFavoriteItems($scope.userId)
      .then(function (results){
