@@ -652,6 +652,25 @@ textarea {color: #333}
   border: 1px #18906f;
 }
 
+.current-listings {
+  height: 250px;
+  width: 550px;
+  overflow: scroll;
+}
+
+.favorite-list {
+  height: 250px;
+  width: 550px;
+  overflow: scroll;
+}
+
+/*.trans-list {
+  height: 250px;
+  width: 550px;
+  overflow: scroll;
+}*/
+
+
 /*----- Dashboard -----*/
 .nav-tabs.nav-justified > li > a:hover {
   background-color: #EBF6F0;
