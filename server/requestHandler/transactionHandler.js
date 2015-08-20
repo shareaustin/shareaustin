@@ -17,7 +17,8 @@ module.exports = {
       'start_date'   : transaction.start_date,
       'end_date'     : transaction.end_date,
       'stripe_token' : transaction.stripe_token,
-      'duration'     : transaction.duration
+      'duration'     : transaction.duration,
+      'status'       : transaction.status
     }
     //Right now this only calculates total price based on price per hour
     new Item({'id' : transaction.item_id}).fetch()

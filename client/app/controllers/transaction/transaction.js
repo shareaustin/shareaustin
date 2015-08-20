@@ -59,7 +59,8 @@ angular.module('shareAustin')
         buyer_id     : $scope.transaction.buyer_id,
         start_date   : $scope.dateFormatter($scope.rentalStartDate),
         end_date     : $scope.dateFormatter($scope.rentalEndDate),
-        duration     : $scope.calculateDuration()
+        duration     : $scope.calculateDuration(),
+        status       : 'started'
       })
       .then(function(response) {
         sweet.show({
