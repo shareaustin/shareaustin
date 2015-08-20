@@ -1,35 +1,29 @@
-<!-- <div class="col-sm-3 col-sm-offset-1">
-  <form class="top-margin" novalidate>
-    <label>First Name</label><br>
-    <input type="text" ng-model="user.first_name"/><br>
-    <label>Last Name</label><br>
-    <input type="text" ng-model="user.last_name"/><br>
-    <label>Email</label><br>
-    <input type="text" ng-model="user.email"/><br>
-    <label>Password</label><br>
-    <input type="password" ng-model="user.password"/><br>
-    <button ng-click="submitSignUp(user)" class="top-margin-sm btn btn-primary btn-md">Submit</button>
-  </form>
-</div> -->
-
-<form ng-submit="submitSignUp(user)">
+<form ng-submit="submitSignUp(user)" name="signup" novalidate>
   <div class="top-row">
     <div class="field-wrap">
-      <label>First Name<span class="req">*</span></label>
+      <label><span class="req">*</span>First Name</label>
       <input type="text" ng-model="user.first_name" required />
     </div>
     <div class="field-wrap">
-      <label>Last Name<span class="req">*</span></label>
+      <label><span class="req">*</span>Last Name</label>
       <input type="text" ng-model="user.last_name" required/>
     </div>
   </div>
   <div class="field-wrap">
-    <label>Email Address<span class="req">*</span></label>
-    <input type="email" ng-model="user.email" required/>
+    <label>
+      <span class="req">*</span>
+      Email Address
+      <span ng-show="signup.email.$invalid && signup.email.$touched" class="form-warning">Must Be A Valid Email</span>
+    </label>
+    <input type="email" name="email" ng-model="user.email" required/>
   </div>
   <div class="field-wrap">
-    <label>Password<span class="req">*</span></label>
-    <input type="password" ng-model="user.password" required/>
+    <label>
+      <span class="req">*</span>
+      Password
+      <span ng-show="signup.password.$invalid && !signup.password.$pristine" class="form-warning">Must Be At Least 8 Characters</span>
+    </label>
+    <input type="password" name="password" ng-model="user.password" ng-minlength="8" required/>
   </div>
-  <button type="submit" class="button button-block"/>Get Started</button>
+  <button type="submit" class="button button-block" ng-disabled="signup.$invalid"/>Get Started</button>
 </form>
