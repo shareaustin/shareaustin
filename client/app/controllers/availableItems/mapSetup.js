@@ -59,24 +59,27 @@ angular.module('shareAustin')
   
   var searchbar = document.getElementById('searchBar');
 
-  searchbar.addEventListener("keydown", function() {
-    var searchText = searchbar.value;
-    var filteredMarkers = $filter($scope.markerArray, { name: !searchText })
-    for (var i = 0; i < filteredMarkers.length; i++) {
-      filteredMarkers[i].setVisible(false)
-    }
+  // on keyup, filter map markers!
+  searchbar.addEventListener("keyup", function() {
+    $scope.filterMap()
+  })
 
-/*    for (var i = 0; i < $scope.markerArray.length; i++) {
-      if ($scope.markerArray.indexOf(i) !== -1) {
-     //   [i].item.name.indexOf(searchText) !== -1) {
-        // console.log(searchText);
-        // console.table($scope.markerArray[i].item.name);
-        console.log("True!")
-        $scope.markerArray[i].setVisible(true);
-      } else {
-        console.log("False!")
-        $scope.markerArray[i].setVisible(false);
+  // Filters map pins based on search bar
+  $scope.filterMap = function() {
+
+    var searchText = searchbar.value;
+    var filteredItems = $filter('filter')($scope.items, {name: searchText})
+    
+    for (var i = 0; i < $scope.markerArray.length; i++) {
+      $scope.markerArray[i].setVisible(false);
+      
+      for (var j = 0; j < filteredItems.length; j++ ) {
+        if (filteredItems[j].id === $scope.markerArray[i].item.id) {
+          $scope.markerArray[i].setVisible(true);
         }
-      };*/
-    })
+      }
+    }
+  }  
+
 };
+
