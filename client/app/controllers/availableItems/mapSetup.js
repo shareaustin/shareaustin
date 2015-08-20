@@ -64,6 +64,12 @@ angular.module('shareAustin')
     $scope.filterMap()
   })
 
+  $scope.showAll = function() {
+    for (var i = 0; i < $scope.markerArray.length; i++ ) {
+      $scope.markerArray[i].setVisible(true)
+    }
+  }
+
   // Filters map pins based on search bar
   $scope.filterMap = function() {
 
