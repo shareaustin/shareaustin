@@ -15,7 +15,7 @@
             <i class="fa fa-star-o"></i>
           </div>
           <i class="fa fa-search search-icon"></i>
-          <input class="items-search" placeholder="Filter By Search" type="text" ng-model="search">
+          <input class="items-search" id="searchBar" placeholder="Filter By Search" type="text" ng-model="search">
           <i class="fa fa-times clear-search-icon" ng-class="{ invisible: search.length < 1 }" ng-click="search = ''"></i>
           <div class="pointer inline dark-gray rating-picker-wrapper">
             <i class="fa fa-usd"></i>
