@@ -1,22 +1,20 @@
-<!-- <div class="col-sm-3 col-sm-offset-1">
-  <form novalidate>
-    <label>Email</label><br>
-    <input type="text" ng-model="user.email"/><br>
-    <label>Password</label><br>
-    <input type="password" ng-model="user.password"/><br>
-    <button ng-click="submitSignIn(user)" class="top-margin-sm btn btn-primary btn-md">Submit</button>
-  </form>
-</div> -->
-
-<form ng-submit="submitSignIn(user)" novalidate>
+<form ng-submit="submitSignIn(user)" name="signin" novalidate>
   <div class="field-wrap">
-    <label>Email Address<span class="req">*</span></label>
-    <input type="email" ng-model="user.email"/>
+    <label>
+      <span class="req">*</span>
+      Email Address
+      <span ng-show="signin.email.$invalid && signin.email.$touched" class="form-warning">Must Be A Valid Email</span>
+    </label>
+    <input type="email" name="email" ng-model="user.email" required/>
   </div>
   <div class="field-wrap">
-    <label>Password<span class="req">*</span></label>
-    <input type="password" ng-model="user.password"/>
+    <label>
+      <span class="req">*</span>
+      Password
+      <span ng-show="signin.password.$invalid && !signin.password.$pristine" class="form-warning">Must Be At Least 8 Characters</span>
+    </label>
+    <input type="password" name="password" ng-model="user.password" ng-minlength="8" required/>
   </div>
   <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
-  <button class="button button-block"/>Log In</button>
+  <button class="button button-block" ng-disabled="signin.$invalid"/>Log In</button>
 </form>

@@ -3,19 +3,19 @@
    <div class="row">
      <div class="col-sm-4 col-sm-offset-4">
 				<h2 class="">Let's Make Some Money</h2>
-				<form id="newListingForm" class="transparent-form">
+				<form id="newListingForm" class="transparent-form" name="newListing" ng-submit="submitNewListing(item)" novalidate>
 					<!-- <label>Title:</labeL><br> -->
-					<input type="text" placeholder="Title"ng-model='item.name'/><br>
+					<input type="text" placeholder="Title" ng-model='item.name'/><br>
 					<!-- <label>Description:</labeL><br> -->
 					<!-- <label>Address:</label><br> -->
 					<input type="text" placeholder="Address" ng-model='item.address'/><br>
 					<!-- <label>Price Per Hour:</labeL><br> -->
-					<input type="text" placeholder="Price Per Hour" ng-model='item.price_per_hour'/><br>
 					<!-- <label>Price Per Day:</labeL><br> -->
-					<input type="text" placeholder="Price Per Day" ng-model='item.price_per_day'/><br>
+					<input type="number" name="day" min="1" placeholder="Price Per Day" ng-model='item.price_per_day'/><br>
+          <span class="form-warning" ng-show="newListing.day.$invalid && !newListing.day.$pristine"></span>
 					<textarea rows="4" cols="50" style="resize: none" form="newListingForm" placeholder="Enter a brief description" ng-model='item.description'></textarea><br>
           <div class="newitem-button-container">
-  					<button ng-click="submitNewListing(item)" class="btn btn-lg btn-green">Submit</button>
+  					<button ng-disabled="signin.$invalid" class="btn btn-lg btn-green">Submit</button>
           </div>
 				</form>
 			</div>
