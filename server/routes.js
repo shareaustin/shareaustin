@@ -57,7 +57,8 @@ module.exports = function (app, passport, upload) {
     failureRedirect: '/'
   }));
 
-  app.get('/api/user', isLoggedIn, userHandler.getUser);
+  //app.get('/api/user', isLoggedIn, userHandler.getUser);
+  app.get('/api/user',  userHandler.getUser);
   app.get('/api/user/items', userHandler.getItems);
 
   app.get('/api/user/chats', userHandler.getChats);
@@ -74,5 +75,7 @@ module.exports = function (app, passport, upload) {
   app.post('/api/user/item/photos/upload', upload.single('file'), itemHandler.linkPhoto);
 
   app.post('/api/getItemPhotos/', itemHandler.getPhotos);
+
+  app.post('/api/chats/find-or-create', chatHandler.findOrCreate);
   return app;
 }

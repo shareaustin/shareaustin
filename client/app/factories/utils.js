@@ -12,7 +12,8 @@ angular.module('shareAustin')
           url: '/api/user'
         })
         .then(function(resp){
-          //console.log(resp.data);
+          console.log('in request.user.fetchUser')
+          console.log(resp.data);
           return resp.data;
         })
       },

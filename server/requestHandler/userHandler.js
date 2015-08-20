@@ -3,8 +3,6 @@ var Transaction = require('../model/transaction.js');
 
 module.exports = {
 	getUser: function (req, res) {
-		console.log('=======================')
-		console.log(req.user)
 		var id = req.user ? req.user.attributes.id : 1
 		new User({'id': id}).fetch()
 		.then(function (model) {
