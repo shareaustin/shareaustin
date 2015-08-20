@@ -10,6 +10,8 @@ angular.module('shareAustin')
   $scope.items       = [];
   $scope.fav         = {};
   $scope.search = Item.search.term
+  $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
+
 
   $scope.avgRating = function (items) {
     var total, len;
@@ -60,6 +62,7 @@ angular.module('shareAustin')
 
   $scope.crossCheckFavs = function() {
   for (var i = 0; i < $scope.items.length; i++) {
+    $scope.items[i].favorited = false;
       for (var j = 0 ; j < $scope.favorites.length; j++) {
        if ($scope.favorites[j].item_id===$scope.items[i].id) {
         // console.log("if worked")
@@ -68,7 +71,6 @@ angular.module('shareAustin')
       }
      }
   }
-
 
   // "Rent" button takes user to transaction view
   $scope.rentItem = function ($event) {
@@ -99,7 +101,7 @@ angular.module('shareAustin')
 
     // Posts this favorite to database
     Request.favorites.addFavorite($scope.fav).then(function() {
-      $scope.fetchFavoriteItems();
+      $scope.fetchFavoriteItems($scope.userId);
     })
   }
 
