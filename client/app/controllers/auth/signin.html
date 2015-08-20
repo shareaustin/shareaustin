@@ -13,7 +13,7 @@
     <label>
       <span class="req">*</span>
       Email Address
-      <span ng-show="signin.email.$invalid && !signin.email.$pristine" class="form-warning">Must Be A Valid Email</span>
+      <span ng-show="signin.email.$invalid && signin.email.$touched" class="form-warning">Must Be A Valid Email</span>
     </label>
     <input type="email" name="email" ng-model="user.email" required/>
   </div>
