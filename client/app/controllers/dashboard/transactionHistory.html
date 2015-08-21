@@ -4,7 +4,7 @@
       <li class="">
         <span class="li-rows-transaction-date">{{soldTransaction.payment_date.substr(0,10)}}</span>
         <span class="li-rows-l-padding"> You earned ${{soldTransaction.price}} for your rental</span>
-        <span ng-class="{static: boughtTransactions[$index].statusMessage === 'Complete'}" class="pull-right li-rows-transaction-msg" ng-click="statusFunctionality(soldTransaction)">{{ soldTransaction.statusMessage }} <span>
+        <span ng-class="{static: boughtTransactions[$index].display === 'Complete'}" class="pull-right li-rows-transaction-msg" ng-click="statusFunctionality(soldTransaction)">{{ soldTransaction.display }} <span>
       </li>
     </ul>
   </div>
@@ -14,7 +14,7 @@
       <li class="">
         <span class="li-rows-transaction-date">{{boughtTransaction.payment_date.substr(0,10)}}</span>
         <span class="li-rows-l-padding"> You paid ${{boughtTransaction.price}} to rent an item</span>
-        <span ng-class="{static: boughtTransactions[$index].statusMessage === 'Complete'}" class="pull-right li-rows-transaction-msg" ng-click="statusFunctionality(boughtTransaction)"> {{ boughtTransaction.statusMessage }} <span>
+        <span ng-class="{static: boughtTransactions[$index].display === 'Complete'}" class="pull-right li-rows-transaction-msg" ng-click="statusFunctionality(boughtTransaction)"> {{ boughtTransaction.display }} <span>
       </li>
     </ul>
   </div>
