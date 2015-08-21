@@ -52,6 +52,7 @@ angular.module('shareAustin')
   $scope.fetchSoldTransactions();
   $scope.fetchBoughtTransactions();
 
+  // Fetches sold transactions, sets display properties, and concats them with $scope.transactions
   $scope.fetchSoldTransactions = function() {
      Request.user.fetchSoldTransactions()
       .then(function (results){
@@ -60,7 +61,7 @@ angular.module('shareAustin')
         $scope.transactions = $scope.transactions.concat(results)
       })
   }
-
+  // Fetches bought transactions, sets display properties, and concats them with $scope.transactions
   $scope.fetchBoughtTransactions = function() {
      Request.user.fetchBoughtTransactions()
      .then(function (results){
@@ -70,16 +71,15 @@ angular.module('shareAustin')
      })
    }
 
-  // Function does different things depending on status and if bought/sold
+  // Provides different functionality for depending on the status of a transaction
   $scope.statusFunctionality = function(trns) {
    if (trns.bought){
-    console.log(trns)
       switch(trns.status) {
         case "started":
           // change path to message with buyer
           break;
         case "in-rent":
-          break; // go to details
+          break; // go to details??
         case "returned":
           SaveTransaction.set(trns);
           $location.path("/feedback")
@@ -93,23 +93,30 @@ angular.module('shareAustin')
         default: break;
       }
     }
+    // if sold transaction;
     else {
       switch(trns.status) {
         case "started":
-          break; //msg buyer
+          //msg buyer
+          break; 
         case "in-rent":
-          break; // go to details
+          // go to details?
+          break; 
         case "returned":
+          // Go to feedback page with trns info
           SaveTransaction.set(trns);
           $location.path("/feedback")
-          break; // pop up rating form
+          break; 
         case "rating from seller pending":
+          // Go to feedbacj page with trns info
           SaveTransaction.set(trns)
           $location.path("/feedback")
           break;
         case "overdue":
-          break; // go to message
-        default: break;
+          // go to message?
+          break; 
+        default: 
+          break;
       }
     }
   }
