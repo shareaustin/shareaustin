@@ -1,6 +1,6 @@
 <div class="trans-list">
   <div ng-repeat="soldTransaction in soldTransactions" >
-    <ul class="ul-reset item-desc-list no-p-l">
+    <ul class="ul-reset item-desc-list no-p-l dash-zebra">
       <li class="">
         <span class="li-rows-transaction-date">{{soldTransaction.payment_date.substr(0,10)}}</span>
         <span class="li-rows-l-padding"> You earned ${{soldTransaction.price}} for your rental</span>
@@ -19,4 +19,3 @@
     </ul>
   </div>
 </div>
-
