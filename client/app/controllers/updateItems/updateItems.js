@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('EditItemCtrl', function ($scope, Helpers, Item, Request) {
+.controller('EditItemCtrl', function ($scope, Helpers, Item, Request, sweet) {
 
   $scope.$watch('files', function(){
     $scope.uploadPhoto($scope.files, $scope.item);
@@ -36,6 +36,7 @@ angular.module('shareAustin')
         // Updates item based on new values
         Request.items.editItem(item)
     })
+      .then
   };
 
   $scope.uploadPhoto = function(files, item){
