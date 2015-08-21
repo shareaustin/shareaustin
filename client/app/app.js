@@ -116,9 +116,12 @@ angular.module('shareAustin', [
 })
 .run(function($rootScope, $location, $state, Auth){
   $rootScope.$on('$stateChangeStart', function(event, toState){
-    Auth.isAuthorized().then(function(authorized){
-      if(toState.authenticate && !authorized){
+    Auth.isAuthorized().then(function(user){
+      if(toState.authenticate && !user){
         $state.go('auth.signin');
+      }
+      else{
+        Auth.setUser(user);
       }
     });
   });

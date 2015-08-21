@@ -5,17 +5,14 @@ module.exports = {
 
   isAuthorized: function(req, res) {
     var isAuthorized = req.user ? true : false;
-    console.log(isAuthorized);
-    res.json(isAuthorized);    
+    if (isAuthorized){
+      new User({id: req.user.attributes.id}).fetch().then(function(user){
+        res.json(user);
+      })
+    } else {
+      res.json(undefined);    
+    }
   },
-
-	getUser: function (req, res) {
-		var id = req.user ? req.user.attributes.id : 1
-		new User({'id': id}).fetch()
-		.then(function (model) {
-		  res.json(model);
-		})
-	},
 
 	getItems: function(req, res){
 		console.log(Object.keys(req))

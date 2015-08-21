@@ -39,7 +39,6 @@ angular.module('shareAustin')
       method: 'GET',
       url: '/auth',
     }).then(function(resp){
-      console.log('Am i authorized? ', resp.data)
       return(resp.data);
     })
   }
