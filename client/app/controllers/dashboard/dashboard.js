@@ -47,39 +47,37 @@ angular.module('shareAustin')
 })
 
 .controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location) {
+  
   $scope.transactions = [];
 
+  // Fetches sold transactions, sets display properties, and concats them with $scope.transactions
   $scope.fetchSoldTransactions = function() {
      Request.user.fetchSoldTransactions()
-     .then(function (results){
-       $scope.soldTransactions = results;
-       $scope.transactions = $scope.transactions.concat(results)
-       console.log("inside trans controller", results)
-     }).then(function() {
-       $scope.fetchBoughtTransactions()
-     })
-   }
-
+      .then(function (results){
+        $scope.soldTransactions = results;
+        $scope.setSoldDisplay();
+        $scope.transactions = $scope.transactions.concat(results)
+      })
+  }
+  // Fetches bought transactions, sets display properties, and concats them with $scope.transactions
   $scope.fetchBoughtTransactions = function() {
      Request.user.fetchBoughtTransactions()
      .then(function (results){
        $scope.boughtTransactions = results;
+       $scope.setBoughtDisplay();
        $scope.transactions = $scope.transactions.concat(results)
-       console.log("inside trans controller", results)
-       $scope.setStatusMessage();
      })
    }
 
-  // Function does different things depending on status and if bought/sold
+  // Provides different functionality for depending on the status of a transaction
   $scope.statusFunctionality = function(trns) {
    if (trns.bought){
-    console.log(trns)
       switch(trns.status) {
         case "started":
           // change path to message with buyer
           break;
         case "in-rent":
-          break; // go to details
+          break; // go to details??
         case "returned":
           SaveTransaction.set(trns);
           $location.path("/feedback")
@@ -93,71 +91,109 @@ angular.module('shareAustin')
         default: break;
       }
     }
+    // if sold transaction;
     else {
       switch(trns.status) {
         case "started":
-          break; //msg buyer
+          //msg buyer
+          break; 
         case "in-rent":
-          break; // go to details
+          // go to details?
+          break; 
         case "returned":
+          // Go to feedback page with trns info
           SaveTransaction.set(trns);
           $location.path("/feedback")
-          break; // pop up rating form
+          break; 
         case "rating from seller pending":
+          // Go to feedbacj page with trns info
           SaveTransaction.set(trns)
           $location.path("/feedback")
           break;
         case "overdue":
-          break; // go to message
-        default: break;
+          // go to message?
+          break; 
+        default: 
+          break;
       }
     }
   }
 
-  $scope.setStatusMessage = function() {
+  $scope.setBoughtDisplay = function() {
+    // Inititialize reuse variables
+    var display = ""
+    var endDate = ""
+    // Loop through bought transactions
     for (var i = 0; i < $scope.boughtTransactions.length; i++) {
+      // Save end date
+      endDate = $scope.boughtTransactions[i].end_date.substr(0,10)
+      // Different display set depending on transaction status
       switch($scope.boughtTransactions[i].status) {
         case "started" :
-          $scope.boughtTransactions[i].statusMessage = "Message Owner"; break;
+          display = "Message Owner" ; 
+          break;
         case "in-rent" :
-          $scope.boughtTransactions[i].statusMessage = "Due Date: " + $scope.boughtTransactions[i].end_date.substr(0,10);      break; //+ dueData
+          display = "Due Date: " + endDate  
+          break;
         case "returned":
-          $scope.boughtTransactions[i].statusMessage = "Rate Seller";    break;
+          display = "Rate Seller";    
+          break;
         case "rating from buyer pending":
-          $scope.boughtTransactions[i].statusMessage = "Rate Seller";break;
-        case "rating from seller pending":
-          $scope.boughtTransactions[i].statusMessage = "Complete";  break;
-        case "complete":
-          $scope.boughtTransactions[i].statusMessage = "Complete";       break;
+          display = "Rate Seller";
+          break;
         case "overdue" :
-          $scope.boughtTransactions[i].statusMessage = "Overdue";       break;
-        default: break;
+          display = "Overdue";
+          break;
+        default: 
+          display = "Complete"
+          break;
       }
-      $scope.boughtTransactions[i].bought = true;
-    }
-    for (var i = 0; i < $scope.soldTransactions.length; i++) {
-      switch($scope.soldTransactions[i].status) {
-        case "started" :
-          $scope.soldTransactions[i].statusMessage = "Message Renter";    break;
-        case "in-rent" :
-          $scope.soldTransactions[i].statusMessage = "Return Date: " + $scope.soldTransactions[i].end_date.substr(0,10);;       break; //+ dueData
-        case "returned":
-          $scope.soldTransactions[i].statusMessage = "Rate Renter";        break;
-        case "rating from seller pending":
-          $scope.soldTransactions[i].statusMessage = "Complete";       break;
-        case "rating from buyer pending":
-          $scope.soldTransactions[i].statusMessage = "Rate Renter";         break;
-        case "complete":
-          $scope.soldTransactions[i].statusMessage = "Complete";           break;
-        case "overdue" :
-          $scope.soldTransactions[i].statusMessage = "Overdue (Report User)"; break;
-        default: break;
-      }
+      // Set display as property
+      // adding bought property helps differentiate between bought/sold items
+      $scope.boughtTransactions[i].display = display;
+      $scope.boughtTransactions[i].bought  = true;
     }
   }
 
-   $scope.fetchSoldTransactions();
-  //  $scope.fetchBoughtTransactions();
+  $scope.setSoldDisplay = function() {
+    // Initialize reused variables
+    var display = ""
+    var endDate = ""
+    // Loop thru sold transactions
+    for (var i = 0; i < $scope.soldTransactions.length; i++) {
+      // Set end date
+      endDate = $scope.soldTransactions[i].end_date.substr(0,10)
+      // Different displays depending on the status of the transaction
+      switch($scope.soldTransactions[i].status) {
+        case "started" :
+          display = "Message Renter"    
+          break;
+        case "in-rent" :
+          display = "Return Date: " + endDate;
+          break; 
+        case "returned":
+          display = "Rate Renter"        
+          break;
+        case "rating from buyer pending":
+          display = "Rate Renter"     
+          break;
+        case "overdue" :
+          display = "Overdue (Report User)"
+          break;
+        default: 
+          display= "Complete"
+          break;
+      }
+      // Set the display variable as a property of a transaction
+      // bought property used to differentiate between bought/sold transactions
+      $scope.soldTransactions[i].display = display;
+      $scope.soldTransactions[i].bought  = false;
+    }
+  }
+
+  $scope.fetchSoldTransactions();
+  $scope.fetchBoughtTransactions();
+
 
 })
 .controller('CurrentListingCtrl', function ($scope, Item, Request, $location) {
