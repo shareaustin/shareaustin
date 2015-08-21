@@ -42,7 +42,7 @@ angular.module('shareAustin')
     console.log('hey!!')
   };
 })
-.controller('ItemPrimaryPhotoCtrl', function ($scope, $location, Item, Request){
+.controller('ItemPrimaryPhotoCtrl', function ($scope, $location, Item, Request, sweet){
   $scope.photoStatus = function() {
     return Item.getPhotoStatus();
   };
@@ -75,12 +75,26 @@ angular.module('shareAustin')
      // console.log("$scope.photoStatus: ", $scope.photoStatus);
      // console.log("Item photo uploaded. Redirecting to dashboard.");
      Request.items.editItem(Item.get())
+     .then(function(response) {
+      sweet.show({
+        title: "<small>Upload Confirmation</small>",
+        text: "<p>Your photo has successfully uploaded.</p>",
+        type: "success",
+        html: true
+      });
      // .then(function(resp){
      //  console.log("Success response from cloudinary: ", resp.data);
      // })
-     $location.path('/dashboard');
+     $location.path('/dashboard')
      // Item.setPhotoStatus(false);
+     });
     } else {
+      sweet.show({
+        title: "<small>Error</small>",
+        text: "</p>Your photo was unable to upload.",
+        type: "error",
+        html: true
+      })
       console.log("Item photo not yet uploaded.");
     }
    }
