@@ -38,6 +38,7 @@ module.exports = function(){
         transaction.integer('buyer_id').references('id').inTable('users');
         transaction.dateTime('start_date');
         transaction.dateTime('end_date');
+        transaction.dateTime('payment_date')
         transaction.string('duration');
         transaction.string('price');
         transaction.string('stripe_token');
