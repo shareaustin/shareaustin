@@ -69,6 +69,7 @@ module.exports = function(){
       .createTable('messages', function (message){
         message.increments('id').primary();
         message.integer('chat_id').references('id').inTable('chats');
+        message.integer('sender_id').references('id').inTable('users');
         message.text('text');
         message.boolean('seen');
       })

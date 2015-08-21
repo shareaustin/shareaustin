@@ -18,7 +18,7 @@ module.exports = function(io){
       socket.room = chat;  
       socket.join(chat);
       new Chat({'item_id': room.item_id, 'buyer_id': room.buyer_id}).fetch({
-        withRelated: ['messages'],
+        withRelated: ['messages.sender'],
       })
       .then(function(chat){
         socket.chat = chat.id;
@@ -26,12 +26,15 @@ module.exports = function(io){
       })
     });
 
-    socket.on('message', function(msg){
-      console.log('received: ', msg);
+    socket.on('message', function(data){
+      console.log('received: ', data);
       console.log(socket.room);
       var room = parseRoom(socket.room);
       new Message({
-        chat_id: socket.chat, text: msg, seen: true
+        chat_id: socket.chat, 
+        sender_id: data.sender,
+        text: data.msg, 
+        seen: true
       }).save().then(function(msg){
         console.log(msg.attributes)
         io.sockets.in(socket.room).emit('incoming', msg)

@@ -1,16 +1,21 @@
 angular.module('shareAustin')
 
-.controller('ChatListCtrl', function($scope, $state, $location, Chat, Item){
+.controller('ChatListCtrl', function($scope, $state, $location, Chat, Item, Request){
   $scope.title = 'Messages';
+  Request.user.fetchUser().then(function(user){
+    $scope.user = user;
+    console.log($scope.user)
+  });
  
   Chat.userChats().then(function(chats){
     $scope.buyerChats = chats.buyerChats;
     $scope.sellerChats = chats.sellerChats;
   });
 
-  $scope.joinRoom = function(chat){
+  $scope.joinRoom = function(chat, id){
     $scope.room = chat.item_id + "-" + chat.buyer_id;
     Item.set(chat.item)
+    console.log('the id of person in chat is ', id)
   };
   
   if(Chat.getRoom().length){
@@ -20,9 +25,9 @@ angular.module('shareAustin')
   }
 })
 
-.controller('ChatCtrl', function($rootScope, $scope, $location, $state, $window, Item, Socket){
+.controller('ChatCtrl', function($scope, $location, $state, $window, Item, Socket){
   $scope.item = Item.get();
-  $scope.$on('$stateChangeStart', function(){
+  $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
       $window.location.reload();
   });
 
@@ -39,7 +44,10 @@ angular.module('shareAustin')
   });
 
   $scope.sendMessage = function(){
-    Socket.emit('message', $scope.message);
+    Socket.emit('message', {
+      msg: $scope.message,
+      sender: $scope.user.id,
+    });
     $scope.message = '';
   }; 
   
