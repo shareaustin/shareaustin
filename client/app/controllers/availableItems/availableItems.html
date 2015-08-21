@@ -27,21 +27,23 @@
         </div>
 
         <div class="top-margin">
-  				<div ng-repeat="item in items | filter:{name: search}" class="item pull-left col-sm-6">
+  				<div ng-repeat="item in items | filter:{name: search}" class="item col-sm-6">
   					<h4 ng-click="loadDetailedView(item, $event)" class="text-center item-title">{{ item.name | limitTo: 25 }}</h4>
   					<img ng-click="loadDetailedView(item, $event)" class="centerCrop center-block img-responsive pointer"  ng-src="{{item.photo_url}}"/>
-  					<p class="text-center">
-              {{item.seller.first_name}} {{item.seller.last_name}}
-              <i ng-repeat="item in item.seller.starsArr track by $index" ng-class="item ? 'fa fa-star' : 'fa fa-star-o'"></i>
+  					<div class="text-center item-seller">
+              <span class="p-r-md">{{item.seller.first_name}} {{item.seller.last_name}}</span>
+              <i ng-repeat="item in item.seller.starsArr track by $index" ng-class="item ? 'fa fa-star yellow' : 'fa fa-star-o yellow'"></i>
               <!-- {{item.seller.avgStars}} -->
-              {{ item.price_per_day | currency }} per day
-            </p>
-  					<p class="item-description">{{ item.description | limitTo: 133 }}</p>
-  					<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
-  					<!-- <p class="inline">{{ item.price_per_day | currency }}/day</p> -->
-  					<div class="row button-container">
-              <button class="btn btn-green btn-md col-sm-5" ng-click="rentItem(item, $event)">Rent</button>
-  						<button class="btn btn-white btn-md col-sm-5 col-sm-offset-1" ng-class="{ 'favorited' : item.favorited }" ng-click="newFavorite(item,$event)">Favorite</button>
+              <span class="p-l-md">{{ item.price_per_day | currency }} per day</span>
+            </div>
+            <div class="item-bot-container">
+    					<p class="item-description">{{ item.description | limitTo: 133 }}</p>
+    					<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
+    					<!-- <p class="inline">{{ item.price_per_day | currency }}/day</p> -->
+    					<div class="row button-container">
+                <button class="btn btn-green btn-md col-sm-5" ng-click="rentItem(item, $event)">Rent</button>
+    						<button class="btn btn-white btn-md col-sm-5 col-sm-offset-1" ng-class="{ 'favorited' : item.favorited }" ng-click="newFavorite(item,$event)">Favorite</button>
+    	        </div>
   	        </div>
   				</div>
   		 </div>
