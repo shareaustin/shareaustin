@@ -686,24 +686,11 @@ textarea {color: #333}
   border: 1px #18906f;
 }
 
-.current-listings {
+.current-list, .favorite-list, .trans-list {
   height: 250px;
-  width: 555px;
+  /*width: 555px;*/
   overflow-y: scroll;
 }
-
-.favorite-list {
-  height: 250px;
-  width: 555px;
-  overflow-y: scroll;
-}
-
-.trans-list {
-  height: 250px;
-  width: 555px;
-  overflow-y: scroll;
-}
-
 
 /*----- Dashboard -----*/
 .nav-tabs.nav-justified {
@@ -723,4 +710,12 @@ textarea {color: #333}
 .nav-tabs.nav-justified > .active > a:focus {
   background-color: #EBF6F0;
   border-bottom-color: #EEEEEE;
+}
+.profile-pic {
+  border-radius: 50%;
+}
+.profile-card {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  text-align: center;
 }

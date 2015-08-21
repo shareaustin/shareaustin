@@ -4,15 +4,15 @@
 <h2 class="text-center m-b-lg">Welcome Back, {{user.first_name}}.</h2>
   <div class="row">
     <!-- Container for user profile info -->
-    <div class="col-sm-3 col-sm-offset-2">
-      <img class="img-crop" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
+    <div class="col-sm-3 col-sm-offset-1 profile-card">
+      <img class="img-crop profile-pic" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
       <!-- <p>Username: {{user.username}}</p> -->
       <p ng-show="user.first_name !== undefined">{{user.first_name + ' ' + user.last_name}}</p>
       <!-- <p>Rating: {{user.rating}}</p> -->
       <button class="btn btn-green btn-md" ng-click="">Change Photo</button>
     </div>
     <!-- Tabs table for user's current listings, transaction, and favorites -->
-    <div class="col-sm-6 tab-border">
+    <div class="col-sm-7 col-sm-offset-1 tab-border">
       <tabset justified="true">
         <tab ui-sref=".currentListings" heading="Current Listings"></tab>
         <tab ui-sref=".transactionHistory" heading="All Transactions"></tab>
