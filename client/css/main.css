@@ -204,6 +204,12 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .maps-content {}
 
 /*----- All Items ------*/
+
+/* removes extra padding but only when bigger than tablets */
+@media screen and (min-width: 768px) {
+  .excess-padding > div:nth-child(odd) {padding-right: 0px;}
+}
+
 .filter-bar {
   background: #F6F6F6;
   padding: 5px 0;

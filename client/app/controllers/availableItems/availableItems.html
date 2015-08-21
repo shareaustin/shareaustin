@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <div class="top-margin">
+        <div class="top-margin excess-padding">
   				<div ng-repeat="item in items | filter:{name: search}" class="item col-sm-6">
   					<h4 ng-click="loadDetailedView(item, $event)" class="text-center item-title">{{ item.name | limitTo: 25 }}</h4>
   					<img ng-click="loadDetailedView(item, $event)" class="centerCrop center-block img-responsive pointer"  ng-src="{{item.photo_url}}"/>
