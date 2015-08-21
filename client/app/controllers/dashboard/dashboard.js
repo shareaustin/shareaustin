@@ -49,8 +49,6 @@ angular.module('shareAustin')
 .controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location) {
   
   $scope.transactions = [];
-  $scope.fetchSoldTransactions();
-  $scope.fetchBoughtTransactions();
 
   // Fetches sold transactions, sets display properties, and concats them with $scope.transactions
   $scope.fetchSoldTransactions = function() {
@@ -128,7 +126,7 @@ angular.module('shareAustin')
     // Loop through bought transactions
     for (var i = 0; i < $scope.boughtTransactions.length; i++) {
       // Save end date
-      endDate = $scope.boughtTransactions[i].endDate.subsr(0,10)
+      endDate = $scope.boughtTransactions[i].end_date.substr(0,10)
       // Different display set depending on transaction status
       switch($scope.boughtTransactions[i].status) {
         case "started" :
@@ -192,6 +190,9 @@ angular.module('shareAustin')
       $scope.soldTransactions[i].bought  = false;
     }
   }
+
+  $scope.fetchSoldTransactions();
+  $scope.fetchBoughtTransactions();
 
 
 })
