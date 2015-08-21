@@ -188,8 +188,6 @@ angular.module('shareAustin')
       // bought property used to differentiate between bought/sold transactions
       $scope.soldTransactions[i].display = display;
       $scope.soldTransactions[i].bought  = false;
-      console.log("Testing display property:")
-      console.log($scope.soldTransactions[i].display)
     }
   }
 
