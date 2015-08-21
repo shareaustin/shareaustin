@@ -5,7 +5,7 @@ module.exports = {
   getMessages: function(req, res) {
     console.log('in chatHandler getMessages')
     new Chat().fetch({
-      withRelated: ['messages']
+      withRelated: ['messages.sender']
     }).then(function(chat){
       res.json(chat);
     }) 
