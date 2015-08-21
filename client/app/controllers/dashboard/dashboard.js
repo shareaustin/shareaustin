@@ -56,8 +56,8 @@ angular.module('shareAustin')
      Request.user.fetchSoldTransactions()
       .then(function (results){
         $scope.soldTransactions = results;
-        $scope.transactions = $scope.transactions.concat(results)
         $scope.setSoldDisplay();
+        $scope.transactions = $scope.transactions.concat(results)
       })
   }
 
@@ -65,8 +65,8 @@ angular.module('shareAustin')
      Request.user.fetchBoughtTransactions()
      .then(function (results){
        $scope.boughtTransactions = results;
-       $scope.transactions = $scope.transactions.concat(results)
        $scope.setBoughtDisplay();
+       $scope.transactions = $scope.transactions.concat(results)
      })
    }
 
@@ -115,14 +115,20 @@ angular.module('shareAustin')
   }
 
   $scope.setBoughtDisplay = function() {
+    // Inititialize reuse variables
+    var display = ""
+    var endDate = ""
+    // Loop through bought transactions
     for (var i = 0; i < $scope.boughtTransactions.length; i++) {
-      var display = "";
-      switch($scope.boughtTransactions[i];) {
+      // Save end date
+      endDate = $scope.boughtTransactions[i].endDate.subsr(0,10)
+      // Different display set depending on transaction status
+      switch($scope.boughtTransactions[i].status) {
         case "started" :
           display = "Message Owner" ; 
           break;
         case "in-rent" :
-          display = "Due Date: "+ trns.end_date.substr(0,10);      
+          display = "Due Date: " + endDate  
           break;
         case "returned":
           display = "Rate Seller";    
@@ -137,31 +143,46 @@ angular.module('shareAustin')
           display = "Complete"
           break;
       }
+      // Set display as property
+      // adding bought property helps differentiate between bought/sold items
       $scope.boughtTransactions[i].display = display;
-      $scope.boughtTransactions[i].bought = true;
+      $scope.boughtTransactions[i].bought  = true;
     }
   }
 
   $scope.setSoldDisplay = function() {
+    // Initialize reused variables
+    var display = ""
+    var endDate = ""
+    // Loop thru sold transactions
     for (var i = 0; i < $scope.soldTransactions.length; i++) {
-      var display = ""
-      switch($scope.soldTransactions[i]) {
+      // Set end date
+      endDate = $scope.soldTransactions[i].end_date.substr(0,10)
+      // Different displays depending on the status of the transaction
+      switch($scope.soldTransactions[i].status) {
         case "started" :
-          display = "Message Renter";    break;
+          display = "Message Renter"    
+          break;
         case "in-rent" :
-          display = "Return Date: " + $scope.soldTransactions[i].end_date.substr(0,10);;       break; //+ dueData
+          display = "Return Date: " + endDate;
+          break; 
         case "returned":
-          trns.statusMessage = "Rate Renter";        break;
-        case "rating from seller pending":
-          trns.statusMessage = "Complete";       break;
+          display = "Rate Renter"        
+          break;
         case "rating from buyer pending":
-          trns.statusMessage = "Rate Renter";         break;
-        case "complete":
-          $scope.soldTransactions[i].statusMessage = "Complete";           break;
+          display = "Rate Renter"     
+          break;
         case "overdue" :
-          $scope.soldTransactions[i].statusMessage = "Overdue (Report User)"; break;
-        default: break;
+          display = "Overdue (Report User)"
+          break;
+        default: 
+          display= "Complete"
+          break;
       }
+      // Set the display variable as a property of a transaction
+      // bought property used to differentiate between bought/sold transactions
+      $scope.soldTransactions[i].display = display;
+      $scope.soldTransactions[i].bought  = false;
     }
   }
 
