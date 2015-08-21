@@ -1,6 +1,7 @@
 angular.module('shareAustin')
-.controller('ItemDescriptionCtrl', function ($scope, $location, Chat, Item, Request, CalEvents) {
+.controller('ItemDescriptionCtrl', function ($scope, $location, Auth, Chat, Item, Request, CalEvents) {
   $scope.item = Item.get()
+  $scope.user = Auth.getUser();
 
   // console.log($scope.item)
   $scope.availItems = Request.items.fetchAvailableItems()
@@ -27,15 +28,13 @@ angular.module('shareAustin')
   };
 
   $scope.chatRedirect = function(){
-    Chat.setRoom('3-1');
-    Request.user.fetchUser().then(function(user){
-      var room = $scope.item.id + "-" + user.id;
-      console.log('item description controller fetching user')
-      console.log(room)
-      Chat.joinOrCreate({
-        item_id: $scope.item.id,
-        buyer_id: user.id
-      })
+    var room = $scope.item.id + "-" + $scope.user.id;
+    Chat.setRoom(room);
+    console.log('item description controller fetching user')
+    console.log(room)
+    Chat.joinOrCreate({
+      item_id: $scope.item.id,
+      buyer_id: $scope.user.id
     })
     $location.path('/chatList');
   };

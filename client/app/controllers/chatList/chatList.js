@@ -1,33 +1,29 @@
 angular.module('shareAustin')
 
-.controller('ChatListCtrl', function($scope, $state, $location, Chat, Item, Request){
+.controller('ChatListCtrl', function($scope, $state, $location, Auth, Chat, Item, Request){
   $scope.title = 'Messages';
-  Request.user.fetchUser().then(function(user){
-    $scope.user = user;
-    console.log($scope.user)
-  });
- 
+  $scope.user = Auth.getUser();
+  
   Chat.userChats().then(function(chats){
     $scope.buyerChats = chats.buyerChats;
     $scope.sellerChats = chats.sellerChats;
   });
 
-  $scope.joinRoom = function(chat, id){
+  $scope.joinRoom = function(chat){
     $scope.room = chat.item_id + "-" + chat.buyer_id;
     Item.set(chat.item)
-    console.log('the id of person in chat is ', id)
   };
   
   if(Chat.getRoom().length){
     $scope.room = Chat.getRoom();
+    Chat.setRoom('');
     $state.go('chatList.chat')
-    console.log('I should be in chat now')
   }
 })
 
 .controller('ChatCtrl', function($scope, $location, $state, $window, Item, Socket){
   $scope.item = Item.get();
-  $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+  $scope.$on('$stateChangeStart', function(){
       $window.location.reload();
   });
 

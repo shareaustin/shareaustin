@@ -14,7 +14,6 @@ function isLoggedIn(req, res, next){
 module.exports = function (app, passport, upload) {
   app.get('/api/availableItems', itemHandler.getAvailableItems);
   app.post('/api/getItemById', itemHandler.getItemById);
-  //app.get('/api/isLoggedIn', userHandler.isLoggedIn)
 
   //app.get('/api/sellerReviews', userHandler.sellerReviews)
   //app.get('/api/sellerRatings', userHandler.sellerRatings)
@@ -34,8 +33,6 @@ module.exports = function (app, passport, upload) {
   app.get('/api/currentListings', itemHandler.getCurrentListings)
   app.post('/api/deactivateItemById', itemHandler.deactivateItemById)
 
-  //app.post('/api/signIn', userHandler.signIn)
-  //app.post('/api/signUp', userHandler.signUp)
   //app.post('/api/logout', userHandler.logout)
 
   //app.post('api/addReview', ratingsHandler.addReview)
@@ -59,8 +56,6 @@ module.exports = function (app, passport, upload) {
 
   app.get('/auth', userHandler.isAuthorized);
 
-  //app.get('/api/user', isLoggedIn, userHandler.getUser);
-  app.get('/api/user',  userHandler.getUser);
   app.get('/api/user/items', userHandler.getItems);
 
   app.get('/api/user/chats', userHandler.getChats);
@@ -69,9 +64,6 @@ module.exports = function (app, passport, upload) {
   app.get('/api/user/boughtTransactions', userHandler.getBoughtTransactions);
   app.get('/api/item/seller', itemHandler.getSeller);
 
-//  app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);
-//  app.get('/api/user/seller_ratings', userHandler.getSellerRatings);
-  
   app.get('/api/user/chat/messages', chatHandler.getMessages);
 
   app.post('/api/user/item/photos/upload', upload.single('file'), itemHandler.linkPhoto);

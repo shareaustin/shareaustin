@@ -1,24 +1,7 @@
 angular.module('shareAustin')
 
-.controller('DashboardCtrl', function ($scope, Request) {
-  // Hardcoded user
-  $scope.user = {
-    first_name: '',
-    last_name: '',
-    username: '',
-    photo_url: 'http://res.cloudinary.com/drw6xrsdi/image/upload/c_scale,w_200/v1439385037/default_avatar_wvynf1.jpg',
-    rating: '3',
-  }
-
-  $scope.fetchUser = function() {
-    Request.user.fetchUser()
-    .then(function (results){
-      $scope.user.first_name = results.first_name;
-      $scope.user.last_name = results.last_name;
-      $scope.user.username = results.username;
-      $scope.user.photo_url = results.photo_url;
-    })
-  }
+.controller('DashboardCtrl', function ($scope, Auth, Request) {
+  $scope.user = Auth.getUser();
 
   $scope.fetchSellerRating = function() {
     Request.user.fetchSellerRating()
@@ -41,7 +24,6 @@ angular.module('shareAustin')
       })
   }
 
-  $scope.fetchUser();
   $scope.fetchSellerRating();
   //$scope.deactivateItem(2);  // Hardcoded test on item 2
 })
