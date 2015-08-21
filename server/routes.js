@@ -57,6 +57,8 @@ module.exports = function (app, passport, upload) {
     failureRedirect: '/'
   }));
 
+  app.get('/auth', userHandler.isAuthorized);
+
   //app.get('/api/user', isLoggedIn, userHandler.getUser);
   app.get('/api/user',  userHandler.getUser);
   app.get('/api/user/items', userHandler.getItems);

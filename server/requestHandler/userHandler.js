@@ -2,6 +2,13 @@ var User = require('../model/user.js');
 var Transaction = require('../model/transaction.js');
 
 module.exports = {
+
+  isAuthorized: function(req, res) {
+    var isAuthorized = req.user ? true : false;
+    console.log(isAuthorized);
+    res.json(isAuthorized);    
+  },
+
 	getUser: function (req, res) {
 		var id = req.user ? req.user.attributes.id : 1
 		new User({'id': id}).fetch()
