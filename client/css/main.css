@@ -654,21 +654,21 @@ textarea {color: #333}
 
 .current-listings {
   height: 250px;
-  width: 550px;
-  overflow: scroll;
+  width: 555px;
+  overflow-y: scroll;
 }
 
 .favorite-list {
   height: 250px;
-  width: 550px;
-  overflow: scroll;
+  width: 555px;
+  overflow-y: scroll;
 }
 
-/*.trans-list {
+.trans-list {
   height: 250px;
-  width: 550px;
-  overflow: scroll;
-}*/
+  width: 555px;
+  overflow-y: scroll;
+}
 
 
 /*----- Dashboard -----*/
