@@ -45,12 +45,12 @@ module.exports = function (app, passport, upload) {
   app.post('/api/fetchRating',ratingHandler.getRating)
 
   app.post('/signup', passport.authenticate('signup', {
-    successRedirect: '/api/user',
+    successRedirect: '/',
     failureRedirect: '/'
   }));
 
   app.post('/signin', passport.authenticate('signin', {
-    successRedirect: '/api/user',
+    successRedirect: '/',
     failureRedirect: '/'
   }));
 
