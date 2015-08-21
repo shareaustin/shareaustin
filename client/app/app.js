@@ -6,7 +6,7 @@ angular.module('shareAustin', [
   'btford.socket-io',
   'ngFileUpload',
   'stripe',
-  'hSweetAlert'
+  'hSweetAlert',
 ])
 // Injects 'state managers'
 .config(function ($stateProvider, $urlRouterProvider) {
@@ -23,21 +23,24 @@ angular.module('shareAustin', [
     url: '/dashboard',
     abstract: true,
     templateUrl: '/app/controllers/dashboard/dashboard.html',
-    controller: 'DashboardCtrl'
+    controller: 'DashboardCtrl',
   })
   .state('dashboard.transactionHistory', {
     templateUrl: '/app/controllers/dashboard/transactionHistory.html',
-    controller: 'TransactionHistory'
+    controller: 'TransactionHistory',
+    authenticate: true
   })
   .state('dashboard.currentListings', {
     url: '',
     templateUrl: '/app/controllers/dashboard/currentListings.html',
-    controller: 'CurrentListingCtrl'
+    controller: 'CurrentListingCtrl',
+    authenticate: true
   })
    .state('dashboard.favorites', {
     url: '',
     templateUrl: '/app/controllers/dashboard/favorites.html',
-    controller: 'FavoritesCtrl'
+    controller: 'FavoritesCtrl',
+    authenticate: true
   })
   .state('auth', {
     abstract: true,
@@ -67,40 +70,56 @@ angular.module('shareAustin', [
   .state('transaction', {
     url: '/transaction',
     templateUrl: '/app/controllers/transaction/transaction.html',
-    controller: 'TransactionCtrl'
+    controller: 'TransactionCtrl',
+    authenticate: true
   })
   .state('postNewItem', {
     url: '/new-listing',
     templateUrl: '/app/controllers/postNewItem/postNewItem.html',
-    controller: 'PostNewItemCtrl'
+    controller: 'PostNewItemCtrl',
+    authenticate: true
   })
   .state('itemPrimaryPhoto', {
     url: '/item-primary-photo',
     templateUrl: '/app/controllers/postNewItem/primaryPhoto.html',
-    controller: 'ItemPrimaryPhotoCtrl'
+    controller: 'ItemPrimaryPhotoCtrl',
+    authenticate: true
   })
   .state('editItem', {
     url: '/edit-item',
     templateUrl: '/app/controllers/updateItems/updateItems.html',
-    controller: 'EditItemCtrl'
+    controller: 'EditItemCtrl',
+    authenticate: true
   })
   .state('chatList', {
     url: '/chatList',
     templateUrl: '/app/controllers/chatList/chatList.html',
-    controller: 'ChatListCtrl'
+    controller: 'ChatListCtrl',
+    authenticate: true
   }).
   state('chatList.chat', {
     url: '',
     templateUrl: '/app/controllers/chatList/chat.html',
-    controller: 'ChatCtrl'
+    controller: 'ChatCtrl',
+    authenticate: true
   })
   .state('feedback', {
     url: "/feedback",
     templateUrl: "/app/controllers/feedback/feedback.html",
-    controller: "Feedback"
+    controller: "Feedback",
+    authenticate: true
   })
 })
 //Initializes Stripe
 .config(function(){
   Stripe.setPublishableKey('pk_test_xqHKwEIcwAZh73wo8dcYId1h');
+})
+.run(function($rootScope, $location, $state, Auth){
+  $rootScope.$on('$stateChangeStart', function(event, toState){
+    Auth.isAuthorized().then(function(authorized){
+      if(toState.authenticate && !authorized){
+        $state.go('auth.signin');
+      }
+    });
+  });
 })
