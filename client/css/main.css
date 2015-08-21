@@ -131,6 +131,9 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .dash-zebra > li:nth-child(odd) {
   background-color: #EBF6F0;
 }
+.dash-zebra-yellow > li:nth-child(odd) {
+  background-color: #FFFEE7;
+}
 .item-title {
   cursor: pointer;
   overflow: hidden;
