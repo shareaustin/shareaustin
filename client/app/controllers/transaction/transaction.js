@@ -41,6 +41,7 @@ angular.module('shareAustin')
   $scope.dateFormatter = function (dateObj) {
     return dateObj.getFullYear() + "-" + (dateObj.getUTCMonth() + 1) + "-" + dateObj.getDate() + " " + dateObj.getHours() + ":" + dateObj.getMinutes();
   }
+  console.log($scope.dateFormatter( new Date() ))
 
 //Send logged-in user, selected item, and rental duration in request to server
   $scope.transaction = {
