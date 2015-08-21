@@ -58,5 +58,22 @@ module.exports = {
       res.json(resp);
     })
   },
-  
+	getUserRatings : function (req, res) {
+		var id = req.user ? req.user.attributes.id : 1
+		new User().userRatings()
+		.where({seller_id:id})
+		.then(function (response) {
+			console.log(response)
+			var counter = 0
+			var answer = response.reduce(function (sum, current) {
+				if (current.seller_rating) {
+					counter++
+					return sum + current.seller_rating
+				}
+				else return sum
+			}, 0)
+			answer = (counter === 0 ?  0 : answer/counter)
+			res.json(answer)
+		})
+	}
 };
