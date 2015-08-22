@@ -13,7 +13,7 @@ angular.module('shareAustin')
     room = name;
   };
 
-  // Gets a users history of chats
+  // Gets a user's history of chats
   function userChats(){
     return $http({
       method: "GET",
