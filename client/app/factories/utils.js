@@ -5,7 +5,10 @@ angular.module('shareAustin')
 
 .factory('Request', function($http){
   var reqObj = {
+    
+    // Requests associated with user models
     user: {
+      // Returns an average of that sellers rating
       fetchSellerRating: function(){
         return $http({
           method: 'GET',
@@ -16,6 +19,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+      // Returns all of a seller's sold transactions
       fetchSoldTransactions: function() {
         return $http({
           method: 'GET',
@@ -25,6 +29,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+      // Returns all of a buyer's bought transactions
       fetchBoughtTransactions: function() {
         return $http({
           method: 'GET',
@@ -35,7 +40,9 @@ angular.module('shareAustin')
         })
       },
     },
+    // Request associated with ratings model
     ratings: {
+      // Creates new rating in db
       addRating: function(rating) {
         return $http({
           method: "POST",
@@ -45,6 +52,7 @@ angular.module('shareAustin')
           return resp.data;
           })
       },
+      // Updates an existing rating model
       updateRating: function(rating) {
         return $http({
           method: "POST",
@@ -54,6 +62,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+      // fetches a rating based on transaction id
       fetchRating: function(trsn_id) {
         return $http({
           method: "POST",
@@ -62,7 +71,11 @@ angular.module('shareAustin')
         })
       }
     },
+
+    // Requests associated with items.
+    // Also includes transaction requests
     items: {
+      // get all available items
       fetchAvailableItems: function() {
         return $http({
           method: 'GET',
@@ -73,12 +86,14 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+      // Fetches a user's for-rental listings
       fetchCurrentListings:function() {
         return $http({
           method: 'GET',
           url   : 'api/currentListings'
         })
       },
+      // Creates a new item in db
       submitNewListing: function(item) {
         return $http({
           method: 'POST',
@@ -89,6 +104,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+      // Changes attributes of an existing item in db
       editItem: function(item) {
         return $http({
          method: 'POST',
@@ -99,6 +115,7 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
+      // Used for deleting item from dashboard listings
       deactivateItem: function(item) {
         return $http({
          method: 'POST',
@@ -109,6 +126,7 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
+      // Gets an item based on its id
       itemById: function(itemId) {
         console.log("utils itemId:" +itemId)
        return $http({
@@ -121,6 +139,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+      // get all the transactions associated with an item
       fetchItemTransactions: function(itemId, today) {
         // console.log("fetching transactions for item: ", itemId);
         return $http({
@@ -133,6 +152,7 @@ angular.module('shareAustin')
             return resp.data;
           })
       },
+      //creates a new transaction in db
       addTransaction: function(transaction) {
         return $http({
          method: 'POST',
@@ -144,6 +164,7 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
+      //updates an existing transaction in db
       updateTransaction: function(transaction) {
         return $http({
           method: "POST",
@@ -155,6 +176,7 @@ angular.module('shareAustin')
           return resp.data
         })
       },
+      // Google api, send an address string, get location info
       getLocation: function(address) {
         return $http({
           method: "GET",
@@ -163,6 +185,7 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+      // get all photos associated with an item
       itemPhotos: function(itemId) {
        // console.log("utils itemPhotos itemId:" +itemId)
        return $http({
@@ -175,7 +198,10 @@ angular.module('shareAustin')
         })
       },
     },
+
+    // Requests associated with favorites
     favorites: {
+      // add an item to a user's favorites
       addFavorite: function(item) {
         console.log("utils fav item ", item)
         return $http({
@@ -187,6 +213,7 @@ angular.module('shareAustin')
           return resp.data
         })
       },
+      // Fetches items for a given id
       fetchFavoriteItems: function(user_id) {
         return $http({
           method: 'POST',
@@ -195,7 +222,8 @@ angular.module('shareAustin')
         }).then(function(resp) {
           return resp.data
         })
-      },
+      }, 
+      // deletes a favorite from database
       removeFavoriteItems: function(favorite) {
         return $http({
           method: 'POST',

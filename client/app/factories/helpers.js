@@ -16,7 +16,7 @@ angular.module('shareAustin')
         return result
       },
 
-      // Google api returns lots of info, this function creates an object with only what we need
+      // Simplifies google response, giving only properties we need
       simplifyLocation : function(googleResponse) {
         return {
           address : googleResponse.results[0].formatted_address,

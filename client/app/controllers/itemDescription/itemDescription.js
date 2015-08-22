@@ -1,16 +1,19 @@
 angular.module('shareAustin')
 .controller('ItemDescriptionCtrl', function ($scope, $location, Auth, Chat, Item, Request, CalEvents) {
+  
+  // Get's the item that was clicked from prvious page
   $scope.item = Item.get()
+  // Sets user
   $scope.user = Auth.getUser();
-
-  // console.log($scope.item)
+  // Fetches all available items
   $scope.availItems = Request.items.fetchAvailableItems()
 
+  // Redirects to transactions page
   $scope.rentRedirect = function () {
     $location.path('/transaction')
   }
 
-  // Reviews - Filters seller reivews by id
+  // Reviews - Filters seller reviews by id
   if ($scope.item.seller) { 
     $scope.sellerReviews = $scope.item.seller.soldTransactions
       .filter(function (trans) {
@@ -22,11 +25,12 @@ angular.module('shareAustin')
     $scope.sellerReviews = [];
   }
 
+  // If no reviews, sets a review saying there are no reviews
   if (!$scope.sellerReviews.length) {
    $scope.sellerReviews.push("This Item Hasn't Been Reviewed Yet")
-
   };
 
+  // Sets up chat room in factory and directs us to that page
   $scope.chatRedirect = function(){
     var room = $scope.item.id + "-" + $scope.user.id;
     Chat.setRoom(room);

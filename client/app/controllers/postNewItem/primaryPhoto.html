@@ -1,3 +1,6 @@
+<!-- Add photos view -->
+
+<!-- Navigation bar -->
 <div ng-include="'shared/navigation.html'"></div>
 <div class="container transparent-form-body">
   <div class="row text-center item-title-wrapper top-margin">
@@ -6,14 +9,17 @@
     </div>
   </div>
   <div class="row">
+    <!-- Loading bar -->
     <div class="col-sm-4 col-sm-offset-4 text-center">
       <img class="photoloader" ng-class="{show: !photoStatus()}" src="../../../img/photo-loader.gif"/>
     </div>
+    <!-- Drag 'n drop -->
     <div class="col-sm-4 col-sm-offset-4 text-center">
       <div ngf-drop ngf-select ng-model="files" ngf-multiple="true" ngf-stop-propagation="true" class="drop-box">
         <h4>Drag and Drop or Click Here to Add Photos Your Photos</h4>
         <div class="row"><span class="glyphicon glyphicon-upload light-purple" aria-hidden="true"></span></div>
       </div>
+        <!-- Update/submit button -->
         <div class="row"><button class="btn btn-lg btn-green" ng-click="update()">Done</button></div>
     </div>
   </div>

@@ -1,11 +1,15 @@
+<!-- Message Room -->
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
+  <!-- Shows the item a user is talking about -->
   <h2>{{ item.name }}</h2>
     <div class="chat-messages">
+      <!-- Shows each message -->
       <ul class="list-unstyled p-l-sm" ng-repeat="message in chat.messages">
         <li>{{message.sender.first_name}} {{message.sender.last_name}}: {{message.text}}</li>
       </ul>
     </div>
+    <!-- Submit a message -->
     <div class="chat-submit">
       <form>
         <textarea rows="1" cols="50" placeholder="Enter your message here" ng-model='message' class="inline-block text-area-padding"></textarea>

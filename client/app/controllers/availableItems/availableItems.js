@@ -13,6 +13,7 @@ angular.module('shareAustin')
   $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
   console.log("test")
 
+  // From items extracts average seller ratings
   $scope.avgRating = function (items) {
     var total, len = 0;
     items.forEach(function (item) {
@@ -46,6 +47,7 @@ angular.module('shareAustin')
       })
   };
 
+  // Fetch all favorite items associated with the user
   $scope.fetchFavoriteItems = function (userId) {
      Request.favorites.fetchFavoriteItems($scope.userId)
      .then(function (results){
@@ -57,6 +59,8 @@ angular.module('shareAustin')
     })
   }
 
+  // Looks in the items on the page, if they are also a favorited item
+  // makes a favorited property equal true
   $scope.crossCheckFavs = function() {
   for (var i = 0; i < $scope.items.length; i++) {
     $scope.items[i].favorited = false;
@@ -83,11 +87,12 @@ angular.module('shareAustin')
     $location.path('/item-description');
   }
 
+  // Change any item to a have favorited style
   $scope.favoritedStyle = function(item) {
     item.favorited = true
   }
 
-  // Occurs when user favorites an item
+  // Occurs when user favorites an item, stores favorite in db
   $scope.newFavorite = function ($event) {
 
     $scope.class = "favorited"

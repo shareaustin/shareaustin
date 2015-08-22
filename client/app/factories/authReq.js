@@ -1,15 +1,20 @@
+// Auth factory
 angular.module('shareAustin')
 .factory('Auth', function($http){
+  
   var user = {};
-
+  
+  // Getter
   function getUser(){
     return user;
   };
 
+  //Setter
   function setUser(data){
     user = data;
   };
 
+  // Sign up request
   function signup(user){
     return $http({
       method: 'POST',
@@ -21,6 +26,7 @@ angular.module('shareAustin')
     });
   };
 
+  // Sign in request
   function signin(user){
     return $http({
       method:'POST',
@@ -34,6 +40,7 @@ angular.module('shareAustin')
     });
   };
 
+  // Checks authorization
   function isAuthorized(){
     return $http({
       method: 'GET',
@@ -43,6 +50,7 @@ angular.module('shareAustin')
     })
   }
 
+  // Return these functions as properties of the factory
   return {
     signup: signup,
     signin: signin,

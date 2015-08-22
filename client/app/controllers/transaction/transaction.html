@@ -1,30 +1,34 @@
+<!-- Navigation bar -->
 <div ng-include="'shared/navigation.html'"></div>
+<!-- Main body -->
 <div class="container transparent-form-body padding-top">
+  <!-- Shows item name -->
   <h2 class="text-center m-b-lg">{{item.name}}</h2>
  <div class="row">
+    <!-- Calender -->
    <div class="col-sm-5 col-sm-offset-2">
-    <!-- <img ng-src="{{item.photo_url}}" class="centerCrop img-responsive"> -->
     <calendar></calendar>
    </div>
+
    <div class="col-sm-4">
    <!-- RENTAL INFO FORM -->
       <!-- <h4>Rental Information</h4> -->
       <form class="transparent-form tf-overide">
-      <!-- <label>{{item.name}}</label><br> -->
+      <!-- Displays price per day and total cost -->
       <label ng-model="item">Price Per Day: ${{item.price_per_day || 0}}</label><br>
       <label ng-model="item">Total: ${{rentalPrice() || 0}}</label>
         <fieldset>
+          <!-- Start date dropdown and calendar picker -->
           <div class="input-group">
               <label>Start Date</label><br>
               <input type="date" class="datepicker" datepicker-popup ng-model="rentalStartDate"/>
-              <input type="time" ng-model="rentalStartDate"
-       placeholder="HH:mm" step="900"/>
+              <input type="time" ng-model="rentalStartDate" placeholder="HH:mm" step="900"/>
           </div>
+          <!-- End date selector including calendar -->
           <div class="input-group">
               <label>End Date</label><br>
               <input type="date" class="datepicker" datepicker-popup ng-model="rentalEndDate"/>
-              <input type="time" ng-model="rentalEndDate"
-       placeholder="HH:mm" step="900"/>
+              <input type="time" ng-model="rentalEndDate" placeholder="HH:mm" step="900"/>
           </div>
         </fieldset>
       </form>

@@ -1,12 +1,15 @@
+<!--- Sign in tab which is a nested view of auth.html-->
 <form ng-submit="submitSignIn(user)" name="signin" novalidate>
+  <!-- Email Input -->
   <div class="field-wrap">
     <label>
       <span class="req">*</span>
-      Email Address
+      Email Address 
       <span ng-show="signin.email.$invalid && signin.email.$touched" class="form-warning">Must Be A Valid Email</span>
     </label>
     <input type="email" name="email" ng-model="user.email" required/>
   </div>
+  <!-- Password Input -->
   <div class="field-wrap">
     <label>
       <span class="req">*</span>
@@ -16,5 +19,6 @@
     <input type="password" name="password" ng-model="user.password" ng-minlength="8" required/>
   </div>
   <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
+  <!-- Log In Button -->
   <button class="button button-block" ng-disabled="signin.$invalid"/>Log In</button>
 </form>

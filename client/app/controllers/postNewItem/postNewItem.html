@@ -1,19 +1,22 @@
+<!-- Navigation bar -->
 <div ng-include="'shared/navigation.html'"></div>
+<!-- main container -->
 <div class="container padding-top transparent-form-body">
    <div class="row">
      <div class="col-sm-4 col-sm-offset-4">
 				<h2 class="">List Your Item</h2>
-				<form id="newListingForm" class="transparent-form" name="newListing" ng-submit="submitNewListing(item)" novalidate>
-					<!-- <label>Title:</labeL><br> -->
-					<input type="text" placeholder="Title" ng-model='item.name'/><br>
-					<!-- <label>Description:</labeL><br> -->
-					<!-- <label>Address:</label><br> -->
-					<input type="text" placeholder="Address" ng-model='item.address'/><br>
-					<!-- <label>Price Per Hour:</labeL><br> -->
-					<!-- <label>Price Per Day:</labeL><br> -->
-					<input type="number" name="day" min="1" placeholder="Price Per Day" ng-model='item.price_per_day'/><br>
+				<!-- Submit new listing form -->
+        <form id="newListingForm" class="transparent-form" name="newListing" ng-submit="submitNewListing(item)" novalidate>
+					<!-- Name field -->
+          <input type="text" placeholder="Title" ng-model='item.name'/><br>
+					<!-- Adress field -->
+          <input type="text" placeholder="Address" ng-model='item.address'/><br>
+					<!-- Price per day field -->
+          <input type="number" name="day" min="1" placeholder="Price Per Day" ng-model='item.price_per_day'/><br>
           <span class="form-warning" ng-show="newListing.day.$invalid && !newListing.day.$pristine"></span>
-					<textarea rows="4" cols="50" style="resize: none" form="newListingForm" placeholder="Enter a brief description" ng-model='item.description'></textarea><br>
+					<!-- Description field -->
+          <textarea rows="4" cols="50" style="resize: none" form="newListingForm" placeholder="Enter a brief description" ng-model='item.description'></textarea><br>
+          <!-- Submit button -->
           <div class="newitem-button-container">
   					<button ng-disabled="signin.$invalid" class="btn btn-lg btn-green">Submit</button>
           </div>
