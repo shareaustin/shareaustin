@@ -15,9 +15,9 @@ angular.module('shareAustin')
 
   // From items extracts average seller ratings
   $scope.avgRating = function (items) {
-    var total, len = 0;
     items.forEach(function (item) {
-      total = item.seller.soldTransactions.reduce(function (prev, stars,i, arr) {
+      var total, len = 0;
+      total = item.seller.soldTransactions.reduce(function (prev, stars, i, arr) {
         if (stars.rating.seller_rating) {
           len++;
          return prev + stars.rating.seller_rating
@@ -26,8 +26,8 @@ angular.module('shareAustin')
       },0)
       item.seller.avgStars = Math.ceil(total/len)
       if (isNaN(item.seller.avgStars)) item.seller.avgStars = 0
-      if (item.seller.avgStars || item.seller.avgStars === 0) {
-        item.seller.starsArr = [false,false,false,false, false]
+      if (item.seller.avgStars >= 0) {
+        item.seller.starsArr = [false,false,false,false,false]
         for (var i = 0; i <= item.seller.avgStars-1; i++) {
           item.seller.starsArr[i] = true
         }
