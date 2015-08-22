@@ -85,7 +85,6 @@ angular.module('shareAustin')
 
   // For items that are filtered, sets the markers to not be visible
   $scope.filterMap = function() {
-
     var searchText = searchbar.value;
     var filteredItems = $filter('filter')($scope.items, {name: searchText})    
     for (var i = 0; i < $scope.markerArray.length; i++) {
