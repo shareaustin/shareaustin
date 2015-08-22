@@ -24,7 +24,7 @@ angular.module('shareAustin')
         console.log(results)
       })
   }
-
+})
 .controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location) {
 
   $scope.transactions = [];
