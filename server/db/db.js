@@ -4,11 +4,11 @@ var pg_server = URL.parse(process.env.DATABASE_URL);
 var knex = Knex({
     client: 'pg',
     connection: {
-        host: pg_server.hostname,
-        port: pg_server.port,
-        // user: pg_server.auth.split(':')[0],
-        // password: pg_server.auth.split(':')[1],
-        database: 'DATABASE_URL',
+        host: 'ec2-54-197-255-248.compute-1.amazonaws.com',
+        port: 5432,
+        user: 'zmaussctrrmknq',
+        password: 'YwPHckwGgaUqZYw6jbz0a5-DkJ',
+        database: 'd5nh25dcv5196i',
         ssl: true
     }
 });
