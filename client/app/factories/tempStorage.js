@@ -37,9 +37,21 @@ angular.module('shareAustin')
       setPhotoStatus(true);
       console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
       itemDescription.photo_url = data.photo_url;
+      swal ({
+        title: "<small>Upload Confirmation</small>",
+        text: "<p>Your photo has successfully uploaded.</p>",
+        type: "success",
+        html: true
+      })
     })
     .error(function (data, status, headers, config){
       console.log('error status: ' + status);
+      swal ({
+         title: "<small>Error</small>",
+         text: "</p>Your photo was unable to upload.",
+         type: "error",
+         html: true
+      })
     });
   }
 
