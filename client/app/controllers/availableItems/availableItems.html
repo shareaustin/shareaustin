@@ -5,8 +5,8 @@
    <div class="row no-gutter top-margin">
    	 <!-- Contains all listings -->
      <div class="col-sm-6">
-				<!-- Container for individual items -->
         <div class="text-center filter-bar fixed col-sm-6">
+          <!-- Filter by rating (stars) -->
           <div class="pointer inline dark-gray rating-picker-wrapper">
             <i class="fa fa-star-o"></i>
             <i class="fa fa-star-o"></i>
@@ -14,9 +14,11 @@
             <i class="fa fa-star-o"></i>
             <i class="fa fa-star-o"></i>
           </div>
+          <!-- Search bar -->
           <i class="fa fa-search search-icon"></i>
           <input class="items-search" id="searchBar" placeholder="Filter By Search" type="text" ng-model="search">
           <i class="fa fa-times clear-search-icon" ng-class="{ invisible: search.length < 1 }" ng-click="search = '';showAll()"; ></i>
+          <!-- Price filter ($$$) -->
           <div class="pointer inline dark-gray rating-picker-wrapper">
             <i class="fa fa-usd"></i>
             <i class="fa fa-usd"></i>
@@ -25,8 +27,9 @@
             <i class="fa fa-usd"></i>
           </div>
         </div>
-
+        <!-- Displays all items -->
         <div class="top-margin excess-padding">
+          <!-- Ng repeat creates wrapper for each item -->
   				<div ng-repeat="item in items | filter:{name: search}" class="item col-sm-6">
   					<h4 ng-click="loadDetailedView(item, $event)" class="text-center item-title">{{ item.name | limitTo: 25 }}</h4>
   					<img ng-click="loadDetailedView(item, $event)" class="centerCrop center-block img-responsive pointer"  ng-src="{{item.photo_url}}"/>
@@ -40,6 +43,7 @@
     					<p class="item-description">{{ item.description | limitTo: 133 }}</p>
     					<!-- <p>{{ item.price_per_hour | currency }} per hour</p> -->
     					<!-- <p class="inline">{{ item.price_per_day | currency }}/day</p> -->
+              <!-- Rent and favorites button -->
     					<div class="row button-container">
                 <button class="btn btn-green btn-md col-sm-5" ng-click="rentItem(item, $event)">Rent</button>
     						<button class="btn btn-white btn-md col-sm-5 col-sm-offset-1" ng-class="{ 'favorited' : item.favorited }" ng-click="newFavorite(item,$event)">Favorite</button>
