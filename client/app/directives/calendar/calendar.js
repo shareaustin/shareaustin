@@ -1,5 +1,5 @@
 angular.module("shareAustin")
-// Controller for calendar controll
+// Controller for calendar control
 .controller('CalendarCtrl', function ($scope, CalEvents, Item, Request) {
   
   // Get todays day and date
@@ -55,7 +55,7 @@ angular.module("shareAustin")
     return false;
   }
 })
-// More calendar calendar options: 
+// More calendar options: 
 .directive('calendar', function() {
 return {
         restrict: "E",
