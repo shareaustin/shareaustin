@@ -4,7 +4,7 @@
   <div class="field-wrap">
     <label>
       <span class="req">*</span>
-      Email Address
+      <!--Email Address -->
       <span ng-show="signin.email.$invalid && signin.email.$touched" class="form-warning">Must Be A Valid Email</span>
     </label>
     <input type="email" name="email" ng-model="user.email" required/>
@@ -13,7 +13,6 @@
   <div class="field-wrap">
     <label>
       <span class="req">*</span>
-      Password
       <span ng-show="signin.password.$invalid && !signin.password.$pristine" class="form-warning">Must Be At Least 8 Characters</span>
     </label>
     <input type="password" name="password" ng-model="user.password" ng-minlength="8" required/>
