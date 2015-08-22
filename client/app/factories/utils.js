@@ -9,7 +9,7 @@ angular.module('shareAustin')
       fetchSellerRating: function(){
         return $http({
           method: 'GET',
-          url: '/api/user/seller_ratings'
+          url: '/api/user/seller-ratings'
         })
         .then(function(resp){
           console.log(resp.data);
@@ -195,7 +195,7 @@ angular.module('shareAustin')
         }).then(function(resp) {
           return resp.data
         })
-      }, 
+      },
       removeFavoriteItems: function(favorite) {
         return $http({
           method: 'POST',
@@ -206,6 +206,6 @@ angular.module('shareAustin')
         })
       }
     }
-  }  
+  }
   return reqObj;
 })

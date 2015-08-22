@@ -8,7 +8,7 @@
       <img class="img-crop profile-pic center-block img-responsive" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
       <!-- <p>Username: {{user.username}}</p> -->
       <p ng-show="user.first_name !== undefined">{{user.first_name + ' ' + user.last_name}}</p>
-      <p>{{user.rating}}</p>
+      <p>Seller Rating: {{sellerRating}}</p>
       <button class="btn btn-green btn-md" ng-click="">Change Photo</button>
     </div>
     <!-- Tabs table for user's current listings, transaction, and favorites -->
@@ -21,20 +21,20 @@
       </tabset>
       <div class="row text-center m-t-lg">
         <div class="col-sm-3">
-          <p>{{favorites.length}}</p>
+          <p>{{sellerStats.revenue | currency}}</p>
+          <p>Revenue</p>
+        </div>
+        <div class="col-sm-3">
+          <p>{{sellerStats.avgProfit | currency}}</p>
           <p>Average Profit</p>
         </div>
         <div class="col-sm-3">
-          <p>134</p>
+          <p>{{sellerStats.lended}}</p>
           <p>Items Lended</p>
         </div>
         <div class="col-sm-3">
-          <p>134</p>
+          <p>{{sellerStats.borrowed}}</p>
           <p>Items Borrowed</p>
-        </div>
-        <div class="col-sm-3">
-          <p>134</p>
-          <p>Revenue</p>
         </div>
       </div>
     </div>

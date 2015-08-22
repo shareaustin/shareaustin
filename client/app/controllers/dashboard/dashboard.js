@@ -2,21 +2,36 @@ angular.module('shareAustin')
 
 .controller('DashboardCtrl', function ($scope, Auth, Request) {
   $scope.user = Auth.getUser();
+  $scope.sellerRating;
+  $scope.sellerStats = {}
 
-  // $scope.fetchSellerRating = function() {
-  //   Request.user.fetchSellerRating()
-  //   .then(function (results){
-  //     console.log("fetchsellerrating", results)
-  //     var sellerTransactions = results;
-  //     var ratingsSum = 0;
-  //     for(var i = 0; i < sellerTransactions.length; i++) {
-  //       ratingsSum += sellerTransactions[i].seller_rating;
-  //     }
-  //     var sellerRatingAvg = ratingsSum/sellerTransactions.length;
-  //     $scope.user.rating = sellerRatingAvg;
-  //   })
-  // }
+  $scope.fetchSellerRating = function() {
+    Request.user.fetchSellerRating()
+    .then(function (results){
+      $scope.sellerRating = results
+      console.log("fetchsellerrating", results)
+      console.log("USER INFO ", $scope.user)
+    })
+  }
+  $scope.fetchUserStats = function () {
+    Request.user.fetchSoldTransactions()
+    .then(function (results) {
+      $scope.sellerStats.revenue = $scope.calculateRevenue(results)
+      $scope.sellerStats.lended = results.length
+      $scope.sellerStats.avgProfit = $scope.sellerStats.revenue / results.length
+    })
 
+    Request.user.fetchBoughtTransactions()
+    .then(function (results) {
+      $scope.sellerStats.borrowed = results.length
+    })
+  }
+  $scope.calculateRevenue = function (array) {
+    return array.reduce(function (sum, item) {
+      days = item.duration / 24
+      return sum + (item.price * days)
+    },0)
+  }
   $scope.deactivateItem = function(itemId) {
     var item = {id : itemId,  active : false }
     Request.items.editItem(item).then(
@@ -24,7 +39,10 @@ angular.module('shareAustin')
         console.log(results)
       })
   }
+  $scope.fetchSellerRating()
+  $scope.fetchUserStats()
 })
+
 .controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location) {
 
   $scope.transactions = [];
