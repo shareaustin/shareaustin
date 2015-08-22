@@ -1,14 +1,18 @@
+<!-- Sigm Up, this is a nested view of auth.js -->
 <form ng-submit="submitSignUp(user)" name="signup" novalidate>
   <div class="top-row">
+    <!-- First name form -->
     <div class="field-wrap">
       <label><span class="req">*</span>First Name</label>
       <input type="text" ng-model="user.first_name" required />
     </div>
+    <!-- Last name form -->
     <div class="field-wrap">
       <label><span class="req">*</span>Last Name</label>
       <input type="text" ng-model="user.last_name" required/>
     </div>
   </div>
+  <!-- Email Address form -->
   <div class="field-wrap">
     <label>
       <span class="req">*</span>
@@ -17,6 +21,7 @@
     </label>
     <input type="email" name="email" ng-model="user.email" required/>
   </div>
+  <!-- Password Form -->
   <div class="field-wrap">
     <label>
       <span class="req">*</span>
