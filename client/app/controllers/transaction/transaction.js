@@ -55,6 +55,7 @@ angular.module('shareAustin')
     //Check for valid rental duration
     var rentalDuration = $scope.calculateDuration();
 
+    // User can't rent for less than 1 hour
     if (rentalDuration >= 1) {
       $http.post('/api/addTransaction', { 
         stripe_token : response.id,
@@ -75,6 +76,7 @@ angular.module('shareAustin')
           });
       });
     } else {
+      // User selected <1 hour rental time error handling
       sweet.show({
         title: "<small>Error</small>",
               text: '<p>Please enter a rental duration of at least one day.</p>',
