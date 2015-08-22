@@ -75,7 +75,7 @@ angular.module('shareAustin')
     // Requests associated with items.
     // Also includes transaction requests
     items: {
-      // get all available itesm
+      // get all available items
       fetchAvailableItems: function() {
         return $http({
           method: 'GET',
@@ -115,7 +115,7 @@ angular.module('shareAustin')
          return resp.data;
         })
       },
-      // Not used, delete this ???
+      // Used for deleting item from dashboard listings
       deactivateItem: function(item) {
         return $http({
          method: 'POST',
@@ -201,7 +201,7 @@ angular.module('shareAustin')
 
     // Requests associated with favorites
     favorites: {
-      // add an item to a users favorites
+      // add an item to a user's favorites
       addFavorite: function(item) {
         console.log("utils fav item ", item)
         return $http({
@@ -213,7 +213,7 @@ angular.module('shareAustin')
           return resp.data
         })
       },
-      // Fetches items for a give id
+      // Fetches items for a given id
       fetchFavoriteItems: function(user_id) {
         return $http({
           method: 'POST',
