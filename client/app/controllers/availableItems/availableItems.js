@@ -11,8 +11,11 @@ angular.module('shareAustin')
   $scope.fav         = {};
   $scope.search = Item.search.term
   $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
-  console.log("test")
-
+  $scope.starSearch
+  
+  $scope.starSearch = function ($element) {
+    if ($element.hasClass('star1'))
+  }
   // From items extracts average seller ratings
   $scope.avgRating = function (items) {
     items.forEach(function (item) {
