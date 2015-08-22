@@ -1,10 +1,15 @@
+<!-- Form for submitting ratings and reviews -->
+
+<!-- Navigation bar -->
 <div ng-include="'shared/navigation.html'"></div>
 <div class="container transparent-form-body padding-top">
    <div class="row">
      <div class="col-sm-3 col-sm-offset-4">
+        <!-- Displays the item beings rated -->
         <div class="diplayTransaction"></div>
         <h3>{{transaction.item.name}} </h3>
         <h4> Overall </h4>
+          <!-- Clickable stars for rating -->
           <div class="inline rating-picker-wrapper">
             <i ng-mouseover="hoverOne()"  ng-mouseleave="starsFade()" ng-click="chooseOne()"   ng-class="ratingPicker[1]" class="fa fa-star star-transparent"></i>
             <i ng-mouseover="hoverTwo()"  ng-mouseleave="starsFade()" ng-click="chooseTwo()"   ng-class="ratingPicker[2]" class="fa fa-star star-transparent"></i>
@@ -13,8 +18,10 @@
             <i ng-mouseover="hoverFive()" ng-mouseleave="starsFade()" ng-click="chooseFive()"  ng-class="ratingPicker[5]" class="fa fa-star star-transparent"></i>
           </div>
           <br>
+          <!-- Details area: submit a review -->
           <h4>Details</h4>
           <textarea rows="6" cols="50" style="resize: none" form="newListingForm" placeholder="Please describe your experience with this renter and item. Thank you! :)" ng-model='userInput.review'></textarea>
+          <!-- Submit button -->
           <div class="newitem-button-container">
             <button ng-click="submitRatingAndReview()" class="btn btn-green btn-lg">Submit</button>
           </div>
