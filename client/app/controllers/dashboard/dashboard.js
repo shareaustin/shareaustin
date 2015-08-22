@@ -2,20 +2,36 @@ angular.module('shareAustin')
 
 .controller('DashboardCtrl', function ($scope, Auth, Request) {
   $scope.user = Auth.getUser();
+  $scope.sellerRating;
+  $scope.sellerStats = {}
 
   $scope.fetchSellerRating = function() {
     Request.user.fetchSellerRating()
     .then(function (results){
-      var sellerTransactions = results;
-      var ratingsSum = 0;
-      for(var i = 0; i < sellerTransactions.length; i++) {
-        ratingsSum += sellerTransactions[i].seller_rating;
-      }
-      var sellerRatingAvg = ratingsSum/sellerTransactions.length;
-      $scope.user.rating = sellerRatingAvg;
+      $scope.sellerRating = results
+      console.log("fetchsellerrating", results)
+      console.log("USER INFO ", $scope.user)
     })
   }
+  $scope.fetchUserStats = function () {
+    Request.user.fetchSoldTransactions()
+    .then(function (results) {
+      $scope.sellerStats.revenue = $scope.calculateRevenue(results)
+      $scope.sellerStats.lended = results.length
+      $scope.sellerStats.avgProfit = $scope.sellerStats.revenue / results.length
+    })
 
+    Request.user.fetchBoughtTransactions()
+    .then(function (results) {
+      $scope.sellerStats.borrowed = results.length
+    })
+  }
+  $scope.calculateRevenue = function (array) {
+    return array.reduce(function (sum, item) {
+      days = item.duration / 24
+      return sum + (item.price * days)
+    },0)
+  }
   $scope.deactivateItem = function(itemId) {
     var item = {id : itemId,  active : false }
     Request.items.editItem(item).then(
@@ -23,13 +39,12 @@ angular.module('shareAustin')
         console.log(results)
       })
   }
-
-  $scope.fetchSellerRating();
-  //$scope.deactivateItem(2);  // Hardcoded test on item 2
+  $scope.fetchSellerRating()
+  $scope.fetchUserStats()
 })
 
 .controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location) {
-  
+
   $scope.transactions = [];
 
   // Fetches sold transactions, sets display properties, and concats them with $scope.transactions
@@ -78,15 +93,15 @@ angular.module('shareAustin')
       switch(trns.status) {
         case "started":
           //msg buyer
-          break; 
+          break;
         case "in-rent":
           // go to details?
-          break; 
+          break;
         case "returned":
           // Go to feedback page with trns info
           SaveTransaction.set(trns);
           $location.path("/feedback")
-          break; 
+          break;
         case "rating from seller pending":
           // Go to feedbacj page with trns info
           SaveTransaction.set(trns)
@@ -94,8 +109,8 @@ angular.module('shareAustin')
           break;
         case "overdue":
           // go to message?
-          break; 
-        default: 
+          break;
+        default:
           break;
       }
     }
@@ -112,13 +127,13 @@ angular.module('shareAustin')
       // Different display set depending on transaction status
       switch($scope.boughtTransactions[i].status) {
         case "started" :
-          display = "Message Owner" ; 
+          display = "Message Owner" ;
           break;
         case "in-rent" :
-          display = "Due Date: " + endDate  
+          display = "Due Date: " + endDate
           break;
         case "returned":
-          display = "Rate Seller";    
+          display = "Rate Seller";
           break;
         case "rating from buyer pending":
           display = "Rate Seller";
@@ -126,7 +141,7 @@ angular.module('shareAustin')
         case "overdue" :
           display = "Overdue";
           break;
-        default: 
+        default:
           display = "Complete"
           break;
       }
@@ -148,21 +163,21 @@ angular.module('shareAustin')
       // Different displays depending on the status of the transaction
       switch($scope.soldTransactions[i].status) {
         case "started" :
-          display = "Message Renter"    
+          display = "Message Renter"
           break;
         case "in-rent" :
           display = "Return Date: " + endDate;
-          break; 
+          break;
         case "returned":
-          display = "Rate Renter"        
+          display = "Rate Renter"
           break;
         case "rating from buyer pending":
-          display = "Rate Renter"     
+          display = "Rate Renter"
           break;
         case "overdue" :
           display = "Overdue (Report User)"
           break;
-        default: 
+        default:
           display= "Complete"
           break;
       }

@@ -8,13 +8,13 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   float: left;
   font-size: 1.65em;
   left: 10px;
-  top: 10px;
+  /*top: 10px;*/
 }
 .remove {
 	position: relative;
 	float: right;
 	font-size: 1.65em;
-	top: 10px;
+	/*top: 10px;*/
 	right: 10px;
   vertical-align: middle;
 	/*color: #50597b;*/
@@ -128,8 +128,11 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   padding: 10px 0;
   border: 1px solid #eee;
 }
-.item-desc-list > li:nth-child(odd) {
+.dash-zebra > li:nth-child(odd) {
   background-color: #EBF6F0;
+}
+.dash-zebra-yellow > li:nth-child(odd) {
+  background-color: #FFFEE7;
 }
 .item-title {
   cursor: pointer;
@@ -161,6 +164,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   overflow: hidden;
   padding: 0 3%;
 }
+/* is this used?*/
 .single-desc {
   border: 1px solid #eee;
   border-top: none;
@@ -572,7 +576,7 @@ a:hover {
   font-size: 1.35em;
   padding-top: 10px;
 }
-.transparent-form-body {
+.transparent-form-body, .green-bg {
   background: #EDF2ED;
   color: #578D7D;
   width: 100%;
@@ -682,26 +686,17 @@ textarea {color: #333}
   border: 1px #18906f;
 }
 
-.current-listings {
+.current-list, .favorite-list, .trans-list {
   height: 250px;
-  width: 555px;
+  /*width: 555px;*/
   overflow-y: scroll;
 }
-
-.favorite-list {
-  height: 250px;
-  width: 555px;
-  overflow-y: scroll;
-}
-
-.trans-list {
-  height: 250px;
-  width: 555px;
-  overflow-y: scroll;
-}
-
 
 /*----- Dashboard -----*/
+.nav-tabs.nav-justified {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+}
 .nav-tabs.nav-justified > li > a:hover {
   background-color: #EBF6F0;
 }
@@ -715,4 +710,13 @@ textarea {color: #333}
 .nav-tabs.nav-justified > .active > a:focus {
   background-color: #EBF6F0;
   border-bottom-color: #EEEEEE;
+}
+.profile-pic {
+  border-radius: 50%;
+}
+.profile-card {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
 }

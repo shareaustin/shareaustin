@@ -13,17 +13,12 @@ angular.module('shareAustin')
   $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
   console.log("test")
 
-
-
   $scope.avgRating = function (items) {
-    var total, len;
+    var total, len = 0;
     items.forEach(function (item) {
-      var len = 0
       total = item.seller.soldTransactions.reduce(function (prev, stars,i, arr) {
-
         if (stars.rating.seller_rating) {
           len++;
-
          return prev + stars.rating.seller_rating
         }
         return prev
