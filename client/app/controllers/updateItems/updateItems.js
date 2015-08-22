@@ -2,10 +2,12 @@ angular.module('shareAustin')
 
 .controller('EditItemCtrl', function ($scope, Helpers, Item, Request) {
 
+  // Runs if files are changed
   $scope.$watch('files', function(){
     $scope.uploadPhoto($scope.files, $scope.item);
   });
   
+  // Fetches an item based on id 
   $scope.getItemById = function(itemId) {
     Request.items.itemById(itemId).then(function(item) {
       console.log("getItembyId returns:")
@@ -14,8 +16,8 @@ angular.module('shareAustin')
     })
   },
 
+  // Edits item in database
   $scope.editItem = function(item) {
-    
     // Changes user input address to url end-path
     var address = Helpers.urlifyAddress(item.address);
 
@@ -38,13 +40,14 @@ angular.module('shareAustin')
     })
   };
 
+
   $scope.uploadPhoto = function(files, item){
     console.log('in upload photo. item is ', item)
     if (files && files.length){
       files.forEach(Item.uploadPhoto.bind(null, item.id));
     }
   }
-  // Hard coded for now to display item 1
-  // Should display any selected item
+
+  // Prepopulates form with selected items data
   $scope.getItemById(Item.get().id);
 });
