@@ -2,14 +2,18 @@ angular.module('shareAustin')
 
 .factory('Chat', function($http){
   var room = '';
+  
+  // Getter
   function getRoom(){
     return room;
   };
  
+  // Setter
   function setRoom(name){
     room = name;
   };
 
+  // Gets a users history of chats
   function userChats(){
     return $http({
       method: "GET",
@@ -20,6 +24,7 @@ angular.module('shareAustin')
     });
   };
 
+  // Create or enters a message room
   function joinOrCreate(data){
     return $http({
       method: "POST",
@@ -28,6 +33,7 @@ angular.module('shareAustin')
     })
   };
 
+  // Return methods
   return {
     getRoom: getRoom,
     setRoom: setRoom,

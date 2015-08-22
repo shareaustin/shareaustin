@@ -1,22 +1,26 @@
-<table class="table-bordered table-condensed text-center col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1" ng-controller="CalendarCtrl">
-<!-- <tr class="table-condensed" colspan="7">
-    <td colspan="7">Availability</td>
-</tr> -->
-<tr class="table-condensed cal-days text-center" colspan="7">
-    <td colspan="7" class=""><i class="fa fa-angle-left cal-arrows p-r-md" ng-click="previous()"></i>
-    {{month.format("MMMM, YYYY")}}
-    <i class="fa fa-angle-right cal-arrows p-l-md" ng-click="next()"></i></td>
-</tr>
-<tr class="cal-weeks" colspan="7">
-    <td class="">Sun</td>
-    <td class="">Mon</td>
-    <td class="">Tue</td>
-    <td class="">Wed</td>
-    <td class="">Thu</td>
-    <td class="">Fri</td>
-    <td class="">Sat</td>
-</tr>
-<tr class="cal-days" ng-repeat="week in weeks">
-    <td class="day" ng-class="{ reserved: isReserved(day) }" ng-click="" ng-repeat="day in week.days">{{day.number}}</td>
-</tr>
+<!-- Calendar -->
+<table class="table-bordered table-condensed text-center 
+    col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1" ng-controller="CalendarCtrl">
+    <!-- Shows month at top of calendar -->
+    <tr class="table-condensed cal-days text-center" colspan="7">
+        <td colspan="7" class="">
+            <i class="fa fa-angle-left cal-arrows p-r-md" ng-click="previous()"></i>
+            {{month.format("MMMM, YYYY")}}
+            <i class="fa fa-angle-right cal-arrows p-l-md" ng-click="next()"></i>
+        </td>
+    </tr>
+    <!-- Shows days of week across second row of calendar -->
+    <tr class="cal-weeks" colspan="7">
+        <td class="">Sun</td>
+        <td class="">Mon</td>
+        <td class="">Tue</td>
+        <td class="">Wed</td>
+        <td class="">Thu</td>
+        <td class="">Fri</td>
+        <td class="">Sat</td>
+    </tr>
+    <!-- Populates the calendar with calendar dates -->
+    <tr class="cal-days" ng-repeat="week in weeks">
+        <td class="day" ng-class="{ reserved: isReserved(day) }" ng-click="" ng-repeat="day in week.days">{{day.number}}</td>
+    </tr>
 </table>

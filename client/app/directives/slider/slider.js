@@ -1,8 +1,12 @@
+// Controls picture slider for displaying multiple pictures
 angular.module('shareAustin')
 .controller('SliderCtrl', function ($scope, Request, Item) {
+  // Initialize info
   $scope.myInterval = 0;
   $scope.noWrapSlides = false;
   $scope.slides = [];
+  
+  // Get photos associates with items, add photo url to slides array
   $scope.getItemPhotos = function() {
     Request.items.itemPhotos(Item.get())
     .then(function(data){
@@ -13,9 +17,10 @@ angular.module('shareAustin')
       }
     });
   }
-
   $scope.getItemPhotos();
 })
+
+// Slider directive
 .directive('slider', function () {
   return {
     restrict: "E",

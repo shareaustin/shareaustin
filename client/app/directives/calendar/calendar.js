@@ -1,45 +1,38 @@
 angular.module("shareAustin")
-
+// Controller for calendar controll
 .controller('CalendarCtrl', function ($scope, CalEvents, Item, Request) {
+  
+  // Get todays day and date
   $scope.day = moment();
   $scope.today = new Date();
-  //Get item's transactions to show availability
+
+  //Get item's transactions to show availability on calendar
   $scope.getEvents = function() {
+    
+    // Get item
     $scope.events = [];
     var itemId = Item.get().id;
     var eventDates;
+    
+    // Get item's transactions, then create events when item's are already being used, then set events on calendar
     Request.items.fetchItemTransactions(itemId, $scope.today)
     .then(function(data){
       $scope.itemTransactions = data;
-      // console.log("$scope.itemTransactions: ", $scope.itemTransactions);
       for (var i = 0; i < $scope.itemTransactions.length; i++) {
         eventDates = {startDate: moment($scope.itemTransactions[i].start_date), endDate: moment($scope.itemTransactions[i].end_date)};
-        // console.log("start date: ", startDate);
         $scope.events.push(eventDates);
       }
     })
     .then(function() {
-      // console.log("Calendar events: ", events);
-      // console.log("First Event: ", events[0].date);
       CalEvents.set($scope.events);
-      // console.log("Stored in CalEvents factory: ", CalEvents.get());
-      // console.log("$scope.events: ", $scope.events);  
       return CalEvents.get();
     });
   }
 
   $scope.getEvents();
-// $scope.getEvents().then(function() {console.log("Returned promise after calling events!")});
 
-  // $scope.calEvents = CalEvents.get();
-  // console.log(CalEvents.get());
-  // console.log("$scope.events: ", $scope.events);
-
+  // Determines if a day should be blocked out on the calendar
   $scope.isReserved = function(day) {
-    // console.log("day passed in: ", day);
-    // console.log("typeof day.date._d", typeof day.date._d);
-    // console.log("first event passed in: ", $scope.calEvents[0]);
-
     var events = $scope.events.sort(function(a,b) {
       if (a.valueOf() < b.valueOf()) {
           return -1;
@@ -50,28 +43,19 @@ angular.module("shareAustin")
       // a must be equal to b
       return 0;
     });
-    // console.log("sorted events from isReserved: ", events);
+
     for (var i = 0; i < events.length; i++) {
-        // console.log("day.date", day.date);
-        // console.log("events [", i, "].startDate: ", events[i].startDate)
-        // console.log("events [", i, "].endDate: ", events[i].endDate)
-        // console.log(day.date.isBetween(events[i].startDate, events[i].endDate))
-        // console.log(day.date.isAfter("2010-01-01"))
         var startDatePrev = moment(events[i].startDate);
         startDatePrev.date(startDatePrev.date()-1);
-        // console.log("startDate: ", events[i].startDate);
-        // console.log("startDatePrev: ", startDatePrev);
         if (day.date.isSame(events[i].startDate) || day.date.isSame(events[i].endDate) || day.date.isBetween(startDatePrev, events[i].endDate)) {
-            // console.log("found event match for: ", day.date._d.toString());
             return true;
         } else {
-          // console.log("no match")
         }
     }
     return false;
   }
 })
-
+// More calendar calendar options: 
 .directive('calendar', function() {
 return {
         restrict: "E",
