@@ -168,7 +168,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .single-desc {
   border: 1px solid #eee;
   border-top: none;
-  padding-bottom: 70px;
+  padding-bottom: 30px;
 }
 .single-item-description {
   padding: 0 10%;
@@ -213,7 +213,9 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 @media screen and (min-width: 768px) {
   .excess-padding > div:nth-child(odd) {padding-right: 0px;}
   .item-description {height: 60px;}
+  .single-desc {padding-bottom: 70px;}
   .filter-bar {}
+  .slider-container {padding-left: 0;}
 
 }
 
