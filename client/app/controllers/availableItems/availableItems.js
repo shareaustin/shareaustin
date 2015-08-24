@@ -1,6 +1,6 @@
-angular.module('shareAustin')
+angular.module('shareAustinAvailable', [])
 
-.controller('AvailableItemsCtrl', function($scope, $window, $location, $window, Request, Helpers, Item, Auth, $filter) {
+.controller('AvailableItemsCtrl', ['$scope', function($scope, $window, $location, $window, Request, Helpers, Item, Auth, $filter) {
 
   // Allows this controller to be expanded into mapSetup file
   angular.module('shareAustin').expandAvailableItems($scope, Request, Helpers, $filter)
@@ -188,4 +188,4 @@ angular.module('shareAustin')
 
   // Initially loads page
   $scope.loadPage()
-})
+}])

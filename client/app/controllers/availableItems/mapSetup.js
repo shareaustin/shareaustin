@@ -1,4 +1,4 @@
-angular.module('shareAustin')
+angular.module('shareAustinAvailable', [])
 
 // This file shares $scope with availableItems.js
 // (think of them as the same controller)

@@ -1,15 +1,15 @@
-angular.module('shareAustin')
+angular.module('shareAustinAuth', [])
 
-.controller('AuthCtrl', function inject($scope, Auth){
+.controller('AuthCtrl', ['$scope', function inject($scope, Auth){
 	$scope.active = 'logIn'
 	// Determines which tab is selected
   $scope.change = function (status) {
 		if (status === 'logIn') $scope.active = true
 		if (status === 'signUp') $scope.active = false
 	};
-})
+}])
 // Sign up controller
-.controller('SignUpCtrl', function inject($scope, $location, Auth, sweet){
+.controller('SignUpCtrl', ['$scope', function inject($scope, $location, Auth, sweet){
 	$scope.submitSignUp = function(user){
 		// Request goes thru passport to create a user if valid
     Auth.signup(user)
@@ -33,9 +33,9 @@ angular.module('shareAustin')
 			// $location.path('/auth')
 		});
 	}
-})
+}])
 // Sign in controller
-.controller('SignInCtrl', function inject($scope, $location, Auth, sweet){
+.controller('SignInCtrl', ['$scope', function inject($scope, $location, Auth, sweet){
 	$scope.submitSignIn = function(user){
 		// Passport user validation
     Auth.signin(user)
@@ -59,4 +59,4 @@ angular.module('shareAustin')
 			// $location.path('/auth')
 		});
 	}
-})
+}])

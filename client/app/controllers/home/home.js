@@ -1,5 +1,5 @@
-angular.module('shareAustin')
-.controller ('HomeCtrl', function ($scope, $location, Item) {
+angular.module('shareAustinHome', [])
+.controller ('HomeCtrl', ['$scope', function ($scope, $location, Item) {
   $scope.search = ""
   $scope.sendSearch = function (term) {
     // Sends search data to all-listings, and gos to that path
@@ -7,4 +7,4 @@ angular.module('shareAustin')
     $location.path('/all-listings')
     console.log(Item.search.term)
   }
-})
+}])

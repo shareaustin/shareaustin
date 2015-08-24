@@ -1,6 +1,6 @@
-angular.module('shareAustin')
+angular.module('shareAustinChat', [])
 
-.controller('ChatListCtrl', function($scope, $state, $location, Auth, Chat, Item, Request){
+.controller('ChatListCtrl', ['$scope', function($scope, $state, $location, Auth, Chat, Item, Request){
   // Set title and user
   $scope.title = 'Messages';
   
@@ -25,9 +25,9 @@ angular.module('shareAustin')
     Chat.setRoom('');
     $state.go('chatList.chat')
   }
-})
+}])
 
-.controller('ChatCtrl', function($scope, $location, $state, $window, Item, Socket){
+.controller('ChatCtrl', ['$scope', function($scope, $location, $state, $window, Item, Socket){
   // Gets the item beings  chatted about
   $scope.item = Item.get();
   $scope.$on('$stateChangeStart', function(){
@@ -58,4 +58,4 @@ angular.module('shareAustin')
   $scope.leave = function(){
     $state.go('chatList');
   };
-})
+}])

@@ -1,5 +1,5 @@
-angular.module('shareAustin')
-.controller('ItemDescriptionCtrl', function ($scope, $location, Auth, Chat, Item, Request, CalEvents) {
+angular.module('shareAustinItemDescription', [])
+.controller('ItemDescriptionCtrl', ['$scope', function ($scope, $location, Auth, Chat, Item, Request, CalEvents) {
   
   // Get's the item that was clicked from prvious page
   $scope.item = Item.get()
@@ -46,4 +46,4 @@ angular.module('shareAustin')
     })
     $location.path('/chatList');
   };
-})
+}])
