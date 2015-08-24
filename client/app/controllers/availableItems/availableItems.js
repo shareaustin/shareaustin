@@ -34,6 +34,21 @@ angular.module('shareAustin')
     })
   }
 
+  $scope.filterStars = function(num) {
+    console.log("filter price: items: ")
+    $scope.allItems = $scope.allItems || $scope.items;
+    $scope.items    = [];
+
+    console.log("All items: ")
+    console.log($scope.allItems) 
+    for (var i = 0; i < $scope.allItems.length; i ++) {
+      if (Math.round($scope.allItems[i].seller.avgStars) >= num ) {
+        console.log("Hey!")
+        $scope.items.push($scope.allItems[i])
+      }
+    }
+  }
+
   // Fetches all available items for display; sets up map with these items;
   $scope.loadPage = function() {
     Request.items.fetchAvailableItems()
@@ -95,7 +110,6 @@ angular.module('shareAustin')
   $scope.newFavorite = function ($event) {
 
     $scope.class = "favorited"
-
     // Sets new favorite with item id, and userId
     $scope.fav.item_id =  $event.id;
     $scope.fav.user_id =  Auth.getUser() ? Auth.getUser().id : 1;

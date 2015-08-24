@@ -6,13 +6,16 @@
    	 <!-- Contains all listings -->
      <div class="col-sm-6">
         <div class="text-center filter-bar fixed col-sm-6">
+          <div>
+            <i class="fa fa-times clear-search-icon" ng-click="clearFilters()"> Clear Filters </i>
+          </div> 
           <!-- Filter by rating (stars) -->
           <div class="pointer inline dark-gray rating-picker-wrapper">
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o" ng-click="filterStars(1)"></i>
+            <i class="fa fa-star-o" ng-click="filterStars(2)"></i>
+            <i class="fa fa-star-o" ng-click="filterStars(3)"></i>
+            <i class="fa fa-star-o" ng-click="filterStars(4)"></i>
+            <i class="fa fa-star-o" ng-click="filterStars(5)"></i>
           </div>
           <!-- Search bar -->
           <i class="fa fa-search search-icon"></i>
@@ -20,11 +23,11 @@
           <i class="fa fa-times clear-search-icon" ng-class="{ invisible: search.length < 1 }" ng-click="search = '';showAll()"; ></i>
           <!-- Price filter ($$$) -->
           <div class="pointer inline dark-gray rating-picker-wrapper">
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd"></i>
+            <i class="fa fa-usd" ng-click="filterPrice(1)"></i>
+            <i class="fa fa-usd" ng-click="filterPrice(2)"></i>
+            <i class="fa fa-usd" ng-click="filterPrice(3)"></i>
+            <i class="fa fa-usd" ng-click="filterPrice(4)"></i>
+            <i class="fa fa-usd" ng-click="filterPrice(5)"></i>
           </div>
         </div>
         <!-- Displays all items -->
