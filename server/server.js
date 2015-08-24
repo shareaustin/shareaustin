@@ -28,7 +28,6 @@ app.use (session({
  app.use(passport.initialize());
  app.use(passport.session());
 
-
 // Writes all the routes to the server instance in the routes.js file
 require('./routes.js')(app, passport, upload);
 
