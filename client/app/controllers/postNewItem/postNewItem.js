@@ -78,4 +78,4 @@ angular.module('shareAustinPostNewItem', [])
       console.log("Item photo not yet uploaded.");
     }
    }
-});
+}]);
