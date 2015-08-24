@@ -7,7 +7,11 @@ angular.module('shareAustin')
 
   // Initialize containers for data
   $scope.currentItem = {};
+  
+  // $scope.items changes with filters, $scope.all items allways contains all the items
   $scope.items       = [];
+  $scope.allItems    = [];
+  
   $scope.fav         = {};
   $scope.search = Item.search.term
   $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
@@ -33,14 +37,22 @@ angular.module('shareAustin')
       }
     })
   }
+  $scope.filterPrice = function(num) {
+    var limit = num === 1 ? 10 : num === 2 ? 20 : Infinity;
+    console.log("find price")
+    console.log($scope.allItems);
+    $scope.items = [];
+    for (var i = 0; i <$scope.allItems.length; i++) {
+      if ($scope.allItems[i].price_per_day < limit)
+        $scope.items.push($scope.allItems[i])
+    } 
+  }
 
   $scope.filterStars = function(num) {
     console.log("filter price: items: ")
-    $scope.allItems = $scope.allItems || $scope.items;
+
     $scope.items    = [];
 
-    console.log("All items: ")
-    console.log($scope.allItems) 
     for (var i = 0; i < $scope.allItems.length; i ++) {
       if (Math.round($scope.allItems[i].seller.avgStars) >= num ) {
         console.log("Hey!")
@@ -53,7 +65,8 @@ angular.module('shareAustin')
   $scope.loadPage = function() {
     Request.items.fetchAvailableItems()
       .then(function (results){
-        $scope.items = results;
+        $scope.items    = results;
+        $scope.allItems = results;
         $scope.avgRating($scope.items)
         console.log($scope.items)
         $scope.setupMap(); // function defined in mapSetup.js
