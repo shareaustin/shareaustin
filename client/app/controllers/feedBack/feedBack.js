@@ -7,8 +7,9 @@ angular.module('shareAustin')
   // Initialize rating at zero
   $scope.userInput = {};
   $scope.transaction = SaveTransaction.get();
-  $scope.user = Auth.getUser() ? Auth.getUser() : {};
-  $scope.user.id = Auth.getUser() ? Auth.getUser().id : 1;
+  Auth.getUser().then(function(user){
+    $scope.user = user;
+  })
   console.log("user"); console.log($scope.user)
 
   $scope.userInput.rating = 0;

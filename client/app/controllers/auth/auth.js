@@ -18,6 +18,7 @@ angular.module('shareAustin')
 				Auth.setUser(user);
         // Change location to dashboard
 				$location.path('/dashboard')
+
 		})
     // Error Handling
 		.catch(function(err){
@@ -39,7 +40,7 @@ angular.module('shareAustin')
 		// Passport user validation
     Auth.signin(user)
 		.then(function(user){
-        console.log("successful signin response: ", user);
+        //console.log("successful signin response: ", user);
 				// Set user in factory for use in other files
         Auth.setUser(user);
         // Brings up dashboard view after succesful sign in
