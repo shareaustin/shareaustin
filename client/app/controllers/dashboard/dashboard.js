@@ -1,6 +1,6 @@
-angular.module('shareAustin')
+angular.module('shareAustinDashboard', [])
 
-.controller('DashboardCtrl', function ($scope, Auth, Request) {
+.controller('DashboardCtrl', ['$scope', function ($scope, Auth, Request) {
   $scope.sellerRating;
   $scope.sellerStats = {}
   Auth.getUser().then(function(user){
@@ -43,9 +43,9 @@ angular.module('shareAustin')
   }
   $scope.fetchSellerRating()
   $scope.fetchUserStats()
-})
+}])
 
-.controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location) {
+.controller('TransactionHistory', ['$scope', function ($scope, Request, SaveTransaction, $location) {
 
   $scope.transactions = [];
 
@@ -194,8 +194,8 @@ angular.module('shareAustin')
   $scope.fetchBoughtTransactions();
 
 
-})
-.controller('CurrentListingCtrl', function ($scope, Item, Request, $location) {
+}])
+.controller('CurrentListingCtrl', ['$scope', function ($scope, Item, Request, $location) {
   $scope.listings = [];
     Request.items.fetchCurrentListings()
     .then(function (results) {
@@ -212,9 +212,9 @@ angular.module('shareAustin')
     $event.active = false;
     Request.items.deactivateItem($event)
   }
-})
+}])
 
-.controller('FavoritesCtrl', function ($scope, Request, Auth, Item, $location){
+.controller('FavoritesCtrl', ['$scope', function ($scope, Request, Auth, Item, $location){
   $scope.favorites = [] ;
   $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
 
@@ -240,4 +240,4 @@ angular.module('shareAustin')
   }
   $scope.fetchFavoriteItems($scope.userId);
   //$scope.removeFavoriteItems(favorite);
-})
+}])

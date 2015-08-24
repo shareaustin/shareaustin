@@ -1,6 +1,6 @@
-angular.module('shareAustin')
+angular.module('shareAustinFeedback', [])
 
-.controller('Feedback', function ($scope, $location, SaveTransaction, Item, Request, Auth) {
+.controller('Feedback', ['$scope', function ($scope, $location, SaveTransaction, Item, Request, Auth) {
   
   // A lot of functions for a few stars... may have overcomplicated this
 
@@ -158,6 +158,6 @@ $scope.submitRatingAndReview = function() {
   }
 }
 
-})
+}])
 
 

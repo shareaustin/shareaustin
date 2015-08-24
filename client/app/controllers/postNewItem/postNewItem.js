@@ -1,7 +1,7 @@
-angular.module('shareAustin')
+angular.module('shareAustinPostNewItem', [])
 
 // Controller for posting a new item
-.controller('PostNewItemCtrl', function ($scope, $location, Auth, Item, Request, Helpers) {
+.controller('PostNewItemCtrl', ['$scope', function ($scope, $location, Auth, Item, Request, Helpers) {
   // Initialize the new Listing
   $scope.newListing = {};
 
@@ -38,9 +38,9 @@ angular.module('shareAustin')
         $scope.item = {};
     })
   };
-})
+}])
 // Controller for adding photos to the item
-.controller('ItemPrimaryPhotoCtrl', function ($scope, $location, Item, Request, sweet){
+.controller('ItemPrimaryPhotoCtrl', ['$scope', function ($scope, $location, Item, Request, sweet){
   
   // Getter/setter returns boolean
   $scope.photoStatus = function() {

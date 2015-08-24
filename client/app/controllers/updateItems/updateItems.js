@@ -1,6 +1,6 @@
-angular.module('shareAustin')
+angular.module('shareAustinUpdateItems', [])
 
-.controller('EditItemCtrl', function ($scope, Helpers, Item, Request) {
+.controller('EditItemCtrl', ['$scope', function ($scope, Helpers, Item, Request) {
 
   // Runs if files are changed
   $scope.$watch('files', function(){
@@ -50,4 +50,4 @@ angular.module('shareAustin')
 
   // Prepopulates form with selected items data
   $scope.getItemById(Item.get().id);
-});
+}]);

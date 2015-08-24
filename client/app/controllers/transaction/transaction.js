@@ -1,6 +1,6 @@
-angular.module('shareAustin')
+angular.module('shareAustinTransaction', [])
 
-.controller('TransactionCtrl', function($scope, $http, Request, sweet, Item, Auth) {
+.controller('TransactionCtrl', ['$scope', function($scope, $http, Request, sweet, Item, Auth) {
  
 //TODO -- Populate transaction.buyer_id with user's logged-in id
 
@@ -90,5 +90,4 @@ angular.module('shareAustin')
       });
     }
   }
-
-});
+}]);
