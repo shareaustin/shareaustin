@@ -42,6 +42,12 @@ angular.module('shareAustin', [
     controller: 'FavoritesCtrl',
     authenticate: true
   })
+    .state('about', {
+    url: '/about',
+    templateUrl: '/app/controllers/about/about.html',
+    controller: 'AboutCtrl',
+    authenticate: false
+  })
   .state('auth', {
     abstract: true,
     url: '/auth',
