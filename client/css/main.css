@@ -594,6 +594,21 @@ a:hover {
   opacity: 0.5
 }
 
+.usd-transparent {
+  opacity: 0.5;
+}
+.usd-transparent:hover {
+  color: #0A3227;
+}
+
+
+i.fa.fa-usd.turnOn {
+     transform: scale(1.3);
+    transition: .25s all ease-in-out;
+    color: #0A3227;
+    opacity: 0.8;
+}
+
 i.fa.fa-star.turnOn {
     /*-webkit-animation: pulsate 0.5s;*/
     /*-webkit-animation-iteration-count: 1;*/
@@ -604,13 +619,16 @@ i.fa.fa-star.turnOn {
     opacity: 0.8;
 }
 
-
 i.fa.fa-star.turnOff {
     transition: .25s all ease-in-out;
     /*-webkit-animation: pulsateBack 0.5s;*/
     /*-webkit-animation-iteration-count: 1;*/
     /*-webkit-animation-fill-mode: forwards;*/
     /*color: black;*/
+}
+
+i.fa.fa-usd.turnOff {
+  transition: 0.25s all ease-in-out;
 }
 
 @-webkit-keyframes pulsate {
