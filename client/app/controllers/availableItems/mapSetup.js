@@ -6,7 +6,6 @@ angular.module('shareAustin')
 
   //Creates/renders google map with markers, mouse events, and info window
   $scope.setupMap = function() {
-    console.log("Setting up map")
 
     // Settings
     var mapSettings = {
