@@ -15,10 +15,17 @@
     </div>
   </div>
   <!-- Calendar and reviews -->
-  <div class="row text-center item-title-wrapper">
+    <div class="row text-center item-title-wrapper">
     <!-- Calendar -->
-    <div class="">
-      <calendar class="cal"></calendar>
+      <div class="">
+        <calendar class="cal"></calendar>
+      </div>
+      <div class="col-sm-6 col-md-5 review-wrapper p-b-lg">
+        <p class="review-title">Reviews</p>
+        <ul class="ul-reset item-desc-list no-p-l dash-zebra">
+          <li ng-repeat="review in sellerReviews">{{review}}</li>
+        </ul>
+      </div>
     </div>
     <!-- Reviews -->
     <div class="col-sm-6 col-md-5 review-wrapper p-b-lg">
