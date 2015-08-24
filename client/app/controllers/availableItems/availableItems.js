@@ -37,26 +37,30 @@ angular.module('shareAustin')
       }
     })
   }
+  
+  $scope.clearFilters = function(){
+    $scope.items = $scope.allItems;
+  }
+
   $scope.filterPrice = function(num) {
     var limit = num === 1 ? 10 : num === 2 ? 20 : Infinity;
-    console.log("find price")
-    console.log($scope.allItems);
+    var temp = $scope.items;
     $scope.items = [];
-    for (var i = 0; i <$scope.allItems.length; i++) {
-      if ($scope.allItems[i].price_per_day < limit)
-        $scope.items.push($scope.allItems[i])
+    for (var i = 0; i <$temp.length; i++) {
+      if ($scope.temp[i].price_per_day < limit)
+        $scope.items.push($scope.temp[i])
     } 
   }
 
   $scope.filterStars = function(num) {
-    console.log("filter price: items: ")
 
+    var temp = $scope.items;
     $scope.items    = [];
 
-    for (var i = 0; i < $scope.allItems.length; i ++) {
-      if (Math.round($scope.allItems[i].seller.avgStars) >= num ) {
+    for (var i = 0; i < temp.length; i ++) {
+      if (Math.round(temp[i].seller.avgStars) >= num ) {
         console.log("Hey!")
-        $scope.items.push($scope.allItems[i])
+        $scope.items.push(temp[i])
       }
     }
   }
