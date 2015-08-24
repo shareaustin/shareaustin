@@ -1,4 +1,4 @@
-/*body {font-family: 'Roboto', sans-serif; font-weight: 300;}*/
+/** {border: 1px solid red !important;}*/
 body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .li-rows {
   height: 35px;
@@ -179,7 +179,6 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   font-size: 2em;
   /*margin-top: -10px;*/
   margin: 0;
-  border: 1px solid #eee;
 }
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
   width: 100%;
@@ -216,9 +215,13 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   .single-desc {padding-bottom: 70px;}
   .filter-bar {}
   .slider-container {padding-left: 0;}
+  .review-title {border: 1px solid #eee;}
 
 }
-
+@media screen and (min-width: 775px) and (max-width: 990px) {
+  .slider-container {padding-right: 0;}
+  .review-wrapper {padding: 20px 0 0 0;}
+}
 .filter-bar {
   background: #F6F6F6;
   padding: 5px 0;
@@ -480,8 +483,8 @@ a:hover {
 
 /*----- Calendar Styling -----*/
 .cal td {
-  width: 40px;
-  height: 40px;
+  max-width: 40px;
+  max-height: 40px;
 }
 .cal-arrows {
   font-size: 1.5em;
