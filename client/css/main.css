@@ -208,6 +208,9 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 
 /*----- All Items ------*/
 
+@media screen and (max-width: 767px) {
+  .cal-form-view {margin-left: -7px;}
+}
 /* removes extra padding but only when bigger than tablets */
 @media screen and (min-width: 768px) {
   .excess-padding > div:nth-child(odd) {padding-right: 0px;}
@@ -216,7 +219,9 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   .filter-bar {}
   .slider-container {padding-left: 0;}
   .review-title {border: 1px solid #eee;}
-
+  .transparent-form-body {height: 100vh;}
+  .form-left-margin {margin-left: 30px;}
+  
 }
 @media screen and (min-width: 775px) and (max-width: 990px) {
   .slider-container {padding-right: 0;}
@@ -565,7 +570,7 @@ a:hover {
 }
 
 .transparent-form input {
-  width: 350px;
+  max-width: 350px;
   padding: 20px 0px;
   background: transparent;
   border: 0;
@@ -588,7 +593,7 @@ a:hover {
   background: #EDF2ED;
   color: #578D7D;
   width: 100%;
-  height: 100vh;
+  /*height: 100vh;*/
 }
 .tf-overide input {
   width: inherit;

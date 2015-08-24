@@ -6,11 +6,11 @@
   <h2 class="text-center m-b-lg">{{item.name}}</h2>
  <div class="row">
     <!-- Calender -->
-   <div class="col-sm-5 col-sm-offset-2">
+   <div class="col-sm-5 col-sm-offset-1 col-lg-4 col-lg-offset-2 cal-form-view">
     <calendar></calendar>
    </div>
 
-   <div class="col-sm-4">
+   <div class="col-sm-4 col-sm-offset-1">
    <!-- RENTAL INFO FORM -->
       <!-- <h4>Rental Information</h4> -->
       <form class="transparent-form tf-overide">
@@ -36,7 +36,7 @@
   </div>
 
     <!-- PAYMENT FORM -->
-    <div class="row top-margin m-l-lg">
+    <div class="row top-margin form-left-margin">
       <div class="col-sm-9 col-sm-offset-2">
         <h4>Payment Information</h4>
         <form class="transparent-form tf-overide tf-payment" stripe:form="saveTransaction">
