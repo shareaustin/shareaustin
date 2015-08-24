@@ -14,6 +14,12 @@ module.exports = {
     }
   },
 
+  authorizedUser: function(req, res) {
+    new User({id: req.user.attributes.id}).fetch().then(function(user){
+      res.json(user);
+    })
+  },
+
 	getItems: function(req, res){
 		console.log(Object.keys(req))
 		var id = req.user ? req.user.attributes.id : 1

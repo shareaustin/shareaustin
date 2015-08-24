@@ -3,8 +3,12 @@ angular.module('shareAustin')
   
   // Get's the item that was clicked from prvious page
   $scope.item = Item.get()
+
   // Sets user
-  $scope.user = Auth.getUser();
+  Auth.getUser().then(function(user){
+    $scope.user = user;
+  });
+  
   // Fetches all available items
   $scope.availItems = Request.items.fetchAvailableItems()
 

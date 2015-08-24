@@ -43,13 +43,17 @@ angular.module('shareAustin')
   }
   console.log($scope.dateFormatter( new Date() ))
 
-//Send logged-in user, selected item, and rental duration in request to server
-  $scope.transaction = {
-    item_id    : $scope.item.id,
-    buyer_id   : Auth.getUser() ? Auth.getUser().id : 1,
-    duration   : $scope.calculateDuration()
-  }
+  Auth.getUser().then(function(user){
+    $scope.buyer = user;
+    $scope.transaction = {
+      item_id    : $scope.item.id,
+      buyer_id   : $scope.buyer.id,
+      duration   : $scope.calculateDuration()
+    }
+  })
 
+//Send logged-in user, selected item, and rental duration in request to server
+  
 //Save the transaction to the database
   $scope.saveTransaction = function(status, response) {
     //Check for valid rental duration
@@ -60,7 +64,8 @@ angular.module('shareAustin')
       $http.post('/api/addTransaction', { 
         stripe_token : response.id,
         item_id      : $scope.transaction.item_id,
-        buyer_id     : $scope.transaction.buyer_id,
+        //buyer_id     : $scope.transaction.buyer_id,
+        buyer_id     : $scope.buyer.id,
         start_date   : $scope.dateFormatter($scope.rentalStartDate),
         end_date     : $scope.dateFormatter($scope.rentalEndDate),
         duration     : $scope.calculateDuration(),

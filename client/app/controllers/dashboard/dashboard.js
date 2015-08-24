@@ -1,9 +1,11 @@
 angular.module('shareAustin')
 
 .controller('DashboardCtrl', function ($scope, Auth, Request) {
-  $scope.user = Auth.getUser();
   $scope.sellerRating;
   $scope.sellerStats = {}
+  Auth.getUser().then(function(user){
+    $scope.user = user;
+  })
 
   $scope.fetchSellerRating = function() {
     Request.user.fetchSellerRating()

@@ -1,12 +1,17 @@
 // Auth factory
 angular.module('shareAustin')
+
 .factory('Auth', function($http){
-  
   var user = {};
   
   // Getter
   function getUser(){
-    return user;
+    return $http({
+      method: 'GET',
+      url: '/api/user'
+    }).then(function(resp){
+      return resp.data;
+    })
   };
 
   //Setter
@@ -34,8 +39,6 @@ angular.module('shareAustin')
       data: user,
     })
     .then(function(resp){
-      console.log('in auth factory')
-      console.log(resp.data)
       return resp.data;
     });
   };
@@ -46,6 +49,7 @@ angular.module('shareAustin')
       method: 'GET',
       url: '/auth',
     }).then(function(resp){
+      user = resp.data;
       return(resp.data);
     })
   }

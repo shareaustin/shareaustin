@@ -63,6 +63,7 @@ module.exports = function (app, passport, upload) {
   }));
 
   app.get('/auth', userHandler.isAuthorized);
+  app.get('/api/user', userHandler.authorizedUser);
 
   // Unused/Future Routes
     //app.get('/api/sellerReviews', userHandler.sellerReviews)

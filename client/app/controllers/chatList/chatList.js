@@ -3,7 +3,10 @@ angular.module('shareAustin')
 .controller('ChatListCtrl', function($scope, $state, $location, Auth, Chat, Item, Request){
   // Set title and user
   $scope.title = 'Messages';
-  $scope.user = Auth.getUser();
+  
+  Auth.getUser().then(function(user){
+    $scope.user = user;
+  });
   
   // Fetch the users chats, save them to $scope
   Chat.userChats().then(function(chats){
