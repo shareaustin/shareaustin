@@ -737,9 +737,9 @@ textarea {color: #333}
   padding: 20px;
 }
 
-
+/* For Phones */
 @media screen and (max-width: 767px) {
-  .cal-form-view {margin-left: -7px;}
+  .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
 }
 /* when bigger than phone */
 @media screen and (min-width: 768px) {
