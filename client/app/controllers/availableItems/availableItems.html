@@ -8,11 +8,11 @@
         <div class="text-center filter-bar fixed col-sm-6">
           <!-- Filter by rating (stars) -->
           <div class="pointer inline dark-gray rating-picker-wrapper">
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
+            <i ng-click="filterStars(1);showOnly(items);starStyle(1)" ng-class='stars[1]' class='fa fa-star star-transparent'></i>
+            <i ng-click="filterStars(2);showOnly(items);starStyle(2)" ng-class='stars[2]' class='fa fa-star star-transparent'></i>
+            <i ng-click="filterStars(3);showOnly(items);starStyle(3)" ng-class='stars[3]' class='fa fa-star star-transparent'></i>
+            <i ng-click="filterStars(4);showOnly(items);starStyle(4)" ng-class='stars[4]' class='fa fa-star star-transparent'></i>
+            <i ng-click="filterStars(5);showOnly(items);starStyle(5)" ng-class='stars[5]' class='fa fa-star star-transparent'></i>
           </div>
           <!-- Search bar -->
           <i class="fa fa-search search-icon"></i>
@@ -20,12 +20,13 @@
           <i class="fa fa-times clear-search-icon" ng-class="{ invisible: search.length < 1 }" ng-click="search = '';showAll()"; ></i>
           <!-- Price filter ($$$) -->
           <div class="pointer inline dark-gray rating-picker-wrapper">
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd"></i>
-            <i class="fa fa-usd"></i>
+            <i ng-click="filterPrice(1);showOnly(items);prices(1)" ng-class='dollers[1]' class="fa fa-usd usd-transparent"></i>
+            <i ng-click="filterPrice(2);showOnly(items);prices(2)" ng-class='dollers[2]' class="fa fa-usd usd-transparent"></i>
+            <i ng-click="filterPrice(3);showOnly(items);prices(3)" ng-class='dollers[3]' class="fa fa-usd usd-transparent"></i>
           </div>
+          <div>
+            <button class="fa fa-times clear-search-icon" ng-click="clearFilters();showAll();allOff()"> Clear Filters </button>
+          </div> 
         </div>
         <!-- Displays all items -->
         <div class="top-margin excess-padding">

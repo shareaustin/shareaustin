@@ -7,7 +7,11 @@ angular.module('shareAustin')
 
   // Initialize containers for data
   $scope.currentItem = {};
+  
+  // $scope.items changes with filters, $scope.all items allways contains all the items
   $scope.items       = [];
+  $scope.allItems    = [];
+  
   $scope.fav         = {};
   $scope.search = Item.search.term
   $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
@@ -34,13 +38,93 @@ angular.module('shareAustin')
     })
   }
 
+  $scope.stars = {
+    1: { turnOn: false, turnOff: false},
+    2: { turnOn: false, turnOff: false},
+    3: { turnOn: false, turnOff: false},
+    4: { turnOn: false, turnOff: false},
+    5: { turnOn: false, turnOff: false}
+  }
+
+  $scope.dollers = {
+    1: { turnOn: false, turnOff: false},
+    2: { turnOn: false, turnOff: false},
+    3: { turnOn: false, turnOff: false},
+  }
+
+  $scope.allOff = function() {
+    for (var i = 1; i <= 5; i++ ) {
+      $scope.stars[i].turnOn    = false;
+      $scope.stars[i].turnOff   = false;
+      if ( i<= 3 ) {
+        $scope.dollers[i].turnOn  = false;
+        $scope.dollers[i].turnOff = false;
+      }
+    }
+  }
+
+  $scope.starStyle = function(num) {
+    for (var i = 1; i <= 5; i++) {
+      if (i <= num) {
+        $scope.stars[i].turnOn  = true;
+        $scope.stars[i].turnOff = false;
+      }
+      else {
+        $scope.stars[i].turnOn  = false;
+        $scope.stars[i].turnOff = true;
+      }
+    }
+  }
+
+  $scope.prices = function(num) {
+    for (var i = 1; i <= 3; i++) {
+      if ( i <= num) {
+        $scope.dollers[i].turnOn  = true;
+        $scope.dollers[i].turnOff = false;
+      }
+      else {
+        $scope.dollers[i].turnOn  = false;
+        $scope.dollers[i].turnOff = true;
+      }
+    }
+  }
+
+  $scope.priceStyle = function(num) {
+    for (var i = 1; i <= num; i++) {
+      $scope.dollers[i].on  = true;
+      $scope.dollers[i].off = false;
+    }
+  }
+  
+  $scope.clearFilters = function(){
+    $scope.items = $scope.allItems;
+  }
+
+  $scope.filterPrice = function(num) {
+    var limit = num === 1 ? 10 : num === 2 ? 20 : Infinity;
+    $scope.items = [];
+    for (var i = 0; i < $scope.allItems.length; i++) {
+      if ($scope.allItems[i].price_per_day <= limit)
+        $scope.items.push($scope.allItems[i])
+    } 
+  }
+
+  $scope.filterStars = function(num) {
+    $scope.items    = [];
+    for (var i = 0; i < $scope.allItems.length; i ++) {
+      if (Math.round($scope.allItems[i].seller.avgStars) >= num ) {
+        $scope.items.push($scope.allItems[i])
+      }
+    }
+  }
+
   // Fetches all available items for display; sets up map with these items;
   $scope.loadPage = function() {
     Request.items.fetchAvailableItems()
       .then(function (results){
-        $scope.items = results;
+        $scope.items    = results;
+        $scope.allItems = results;
         $scope.avgRating($scope.items)
-        console.log($scope.items)
         $scope.setupMap(); // function defined in mapSetup.js
         $scope.fetchFavoriteItems();
       })
@@ -50,9 +134,6 @@ angular.module('shareAustin')
   $scope.fetchFavoriteItems = function (userId) {
      Request.favorites.fetchFavoriteItems($scope.userId)
      .then(function (results){
-      // console.log("at promise")
-      // console.log($scope.items)
-      // console.log(results)
      $scope.favorites = results;
      $scope.crossCheckFavs();
     })
@@ -95,7 +176,6 @@ angular.module('shareAustin')
   $scope.newFavorite = function ($event) {
 
     $scope.class = "favorited"
-
     // Sets new favorite with item id, and userId
     $scope.fav.item_id =  $event.id;
     $scope.fav.user_id =  Auth.getUser() ? Auth.getUser().id : 1;
