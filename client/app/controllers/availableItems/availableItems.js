@@ -5,6 +5,8 @@ angular.module('shareAustin')
   // Allows this controller to be expanded into mapSetup file
   angular.module('shareAustin').expandAvailableItems($scope, Request, Helpers, $filter)
 
+  console.log("map defined?")
+  console.log($scope.setupMap)
   // Initialize containers for data
   $scope.currentItem = {};
   
@@ -44,23 +46,19 @@ angular.module('shareAustin')
 
   $scope.filterPrice = function(num) {
     var limit = num === 1 ? 10 : num === 2 ? 20 : Infinity;
-    var temp = $scope.items;
     $scope.items = [];
-    for (var i = 0; i <$temp.length; i++) {
-      if ($scope.temp[i].price_per_day < limit)
-        $scope.items.push($scope.temp[i])
+    for (var i = 0; i < $scope.allItems.length; i++) {
+      if ($scope.allItems[i].price_per_day <= limit)
+        $scope.items.push($scope.allItems[i])
     } 
   }
 
   $scope.filterStars = function(num) {
-
-    var temp = $scope.items;
     $scope.items    = [];
-
-    for (var i = 0; i < temp.length; i ++) {
-      if (Math.round(temp[i].seller.avgStars) >= num ) {
+    for (var i = 0; i < $scope.allItems.length; i ++) {
+      if (Math.round($scope.allItems[i].seller.avgStars) >= num ) {
         console.log("Hey!")
-        $scope.items.push(temp[i])
+        $scope.items.push($scope.allItems[i])
       }
     }
   }

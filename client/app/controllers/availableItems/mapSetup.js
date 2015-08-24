@@ -6,6 +6,8 @@ angular.module('shareAustin')
 
   //Creates/renders google map with markers, mouse events, and info window
   $scope.setupMap = function() {
+    console.log("Setting up map")
+
     // Settings
     var mapSettings = {
       zoom      : 13,
@@ -73,7 +75,7 @@ angular.module('shareAustin')
 
   // on keyup, filter map markers!
   searchbar.addEventListener("keyup", function() {
-    $scope.filterMap()
+    $scope.searchFilter()
   })
 
   // Makes all markers visible on map
@@ -83,18 +85,23 @@ angular.module('shareAustin')
     }
   }
 
-  // For items that are filtered, sets the markers to not be visible
-  $scope.filterMap = function() {
-    var searchText = searchbar.value;
-    var filteredItems = $filter('filter')($scope.items, {name: searchText})    
+  // Takes an array of item, and makes the map only show markers associated with those items
+  $scope.showOnly = function (items) {
     for (var i = 0; i < $scope.markerArray.length; i++) {
-      $scope.markerArray[i].setVisible(false);
-      for (var j = 0; j < filteredItems.length; j++ ) {
-        if (filteredItems[j].id === $scope.markerArray[i].item.id) {
+      $scope.markerArray[i].setVisible(false)
+      for (var j = 0; j < items.length; j++) {
+        if (items[j].id === $scope.markerArray[i].item.id) {
           $scope.markerArray[i].setVisible(true);
         }
       }
     }
+  }
+
+  // Changes marker visibilty based on input in search bar
+  $scope.searchFilter = function() {
+    var searchText = searchbar.value;
+    var filteredItems = $filter('filter')($scope.items, {name: searchText})    
+    $scope.showOnly(filteredItems)
   }  
 
 };
