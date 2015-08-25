@@ -755,7 +755,18 @@ textarea {color: #333}
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.mobile-nav {
+  /*height: 46px;*/
+}
+.hamburger {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 22px;
+}
+.hamburger a, a:focus, a:hover {
+  text-decoration: none;
+}
 /* For Phones */
 @media screen and (max-width: 767px) {
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
