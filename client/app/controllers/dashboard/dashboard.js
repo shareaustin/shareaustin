@@ -216,10 +216,13 @@ angular.module('shareAustin')
 
 .controller('FavoritesCtrl', function ($scope, Request, Auth, Item, $location){
   $scope.favorites = [] ;
-  $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
+  //$scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
+  Auth.getUser().then(function(user){
+    $scope.user = user;
+  })
 
   $scope.fetchFavoriteItems = function (userId) {
-     Request.favorites.fetchFavoriteItems($scope.userId)
+     Request.favorites.fetchFavoriteItems($scope.user.id)
      .then(function (results){
      $scope.favorites = results;
     })
@@ -230,7 +233,7 @@ angular.module('shareAustin')
     console.log(favorite)
     Request.favorites.removeFavoriteItems(favorite)
     .then(function(results) {
-      $scope.fetchFavoriteItems($scope.userId)
+      $scope.fetchFavoriteItems($scope.user.id)
     })
 
   }
@@ -238,6 +241,6 @@ angular.module('shareAustin')
     Item.set($event.item)
     $location.path('/item-description');
   }
-  $scope.fetchFavoriteItems($scope.userId);
+  $scope.fetchFavoriteItems($scope.user.id);
   //$scope.removeFavoriteItems(favorite);
 })
