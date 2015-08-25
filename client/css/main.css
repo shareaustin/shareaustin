@@ -57,6 +57,10 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 }
 .btn {transition: all .2s ease-in-out;}
 .btn:hover {transform: scale(1.05);}
+.grow {transition: all 1s ease-in-out;}
+.grow:hover {transform: scale(1.5);}
+
+
 
 .btn-green {background: #1ab188; color: white;}
 .btn-green:hover, .btn-green:focus, .btn-green:active  {

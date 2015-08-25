@@ -33,7 +33,9 @@
           <!-- Ng repeat creates wrapper for each item -->
   				<div ng-repeat="item in items | filter:{name: search}" class="item col-sm-6">
   					<h4 ng-click="loadDetailedView(item, $event)" class="text-center item-title">{{ item.name | limitTo: 25 }}</h4>
+            <!-- <div class="overflow"> -->
   					<img ng-click="loadDetailedView(item, $event)" class="centerCrop center-block img-responsive pointer"  ng-src="{{item.photo_url}}"/>
+          <!-- </div> -->
   					<div class="text-center item-seller">
               <span class="p-r-md">{{item.seller.first_name}} {{item.seller.last_name}}</span>
               <i ng-repeat="item in item.seller.starsArr track by $index" ng-class="item ? 'fa fa-star yellow' : 'fa fa-star-o yellow'"></i>
