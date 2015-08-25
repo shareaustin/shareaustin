@@ -27,6 +27,9 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 
 /*----- Override ------*/
 .btn:focus {outline: none;}
+.btn-lg {padding: 8px 6px;}
+.btn-home-wrapper {margin-top: 0;}
+
 /*----- Helpers ------*/
 .inline {display: inline;}
 .inline-block {display: inline-block;}
@@ -82,10 +85,16 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   color: darkgreen;
 }
 
-.btn-xxl {
+/*.btn-xxl {
   padding: 12px 26px;
   font-size: 1.7em;
   border-radius: 5px;
+}*/
+
+.btn-xxl {
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
 }
 /*----- Main Nav ------*/
 .main-nav-wrapper {
@@ -422,18 +431,17 @@ a:hover {
 /*---- Home Search -----*/
 .home-title {
   color: #1ab188;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 700;
 }
 .home-sub-title {
   color: white;
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-bottom: 20px;
 }
 .home-search-wrapper {
   margin: 0 auto;
   padding-top: 35vh;
-  width: 500px;
   text-align: center;
 }
 .home-search-bar {
@@ -443,7 +451,7 @@ a:hover {
   padding: 10px 0;
   background-color: rgba(77, 80, 79, 0.49);
   color: white;
-  font-size: 1.5em;
+  font-size: 1.3em;
   padding-left: 10px;
   margin-bottom: 10px;
 }
@@ -737,6 +745,13 @@ textarea {color: #333}
   padding: 20px;
 }
 
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* For Phones */
 @media screen and (max-width: 767px) {
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
@@ -755,6 +770,17 @@ textarea {color: #333}
   .transparent-input label {font-size: 1.35em;}
   .trans-form-lpad {padding-left: 0px;}
   .trans-tm {margin-top: 0px;}
+  .btn-lg {padding: 10px 16px;}
+  .home-search-wrapper {width: 500px;}
+  .home-title {font-size: 4em;}
+  .home-sub-title {font-size: 1.5em;}
+  .home-search-bar {width: 85%;}
+  .btn-home-margin {margin-right: 30px;}
+  .btn-xxl {
+    padding: 12px 26px;
+    font-size: 1.7em;
+    border-radius: 5px;
+  }
 
 }
 @media screen and (min-width: 775px) and (max-width: 990px) {
