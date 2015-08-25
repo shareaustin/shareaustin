@@ -1,17 +1,18 @@
 <div class="container-fluid main-nav-wrapper">
-  <ul class="main-nav hidden-xs">
-    <li><a href="/#/">ShareAustin</a></li>
-    <li><a href="/#/about">About</a></li>
-    <li><a href="/#/auth">Log In</a></li>
-    <li><a href="/#/dashboard">Dashboard</a></li>
-    <li><a href="/#/all-listings">All Items</a></li>
+  <ul ng-class="{'mobile-nav': hamburgerStatus}" class="main-nav">
+    <li><a ng-click="hamburgerToggle()" href="/#/">ShareAustin</a></li>
+    <li><a ng-click="hamburgerToggle()" href="/#/about">About</a></li>
+    <li><a ng-click="hamburgerToggle()" href="/#/auth">Log In</a></li>
+    <li><a ng-click="hamburgerToggle()" href="/#/dashboard">Dashboard</a></li>
+    <li><a ng-click="hamburgerToggle()" href="/#/all-listings">All Items</a></li>
     <!-- <li><a href="/#/item-description">Item Description</a></li> -->
-    <li><a href="/#/new-listing">Post Item</a></li>
+    <li><a ng-click="hamburgerToggle()" href="/#/new-listing">Post Item</a></li>
     <!-- <li><a href="/#/edit-item">Edit Item</a></li>
     <li><a href="/#/transaction">Transaction</a></li> -->
-    <li><a href="/#/chatList">Messages</a></li>
+    <li><a ng-click="hamburgerToggle()" href="/#/chatList">Messages</a></li>
   </ul>
-  <ul class="main-nav mobile-nav visible-xs-block">
-    <li><a class="fa fa-bars hamburger"></a></li>
-  </ul>
+    <a ng-click="hamburgerToggle()" class="fa fa-bars hamburger"></a>
+  <!-- <ul class="main-nav">
+    <li><a ng-click="hamburgerToggle()" class="fa fa-bars hamburger"></a></li>
+  </ul> -->
 </div>

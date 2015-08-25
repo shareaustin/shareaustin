@@ -33,7 +33,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 /*----- Helpers ------*/
 .inline {display: inline;}
 .inline-block {display: inline-block;}
-.block {display: block;}
+.block {display: block !important;}
 .dark-gray {color: #6A6A6A;}
 .transparent {color: transparent;}
 .padding-top {padding-top: 70px;}
@@ -42,6 +42,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .top-margin-sm {margin-top: 20px;}
 .margin-left-12 {margin-left: 12%;}
 .font-half-inc {font-size: 1.5em}
+.100vh {height: 100vh;}
 .ul-reset {
   list-style: none;
   /*padding-left: 20px;*/
@@ -109,19 +110,7 @@ menu {padding:0; margin:0;}
   width: 100%;
   z-index: 100;
 }
-.main-nav {
-  border-bottom: 1px solid #eee;
-  /*height: 30px;*/
-  display: block;
-  padding: 10px;
-  margin-bottom: 0;
-}
-.main-nav li {
-  display: inline-block;
-  list-style: none;
-  padding-left: 20px;
-  font-size: 1.25em;
-}
+
 
 /*----- Item Description ------*/
 /*.item:nth-child(even) {padding-right: 20px;}*/
@@ -756,9 +745,6 @@ textarea {color: #333}
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.mobile-nav {
-  /*height: 46px;*/
-}
 .hamburger {
   position: absolute;
   right: 10px;
@@ -768,9 +754,26 @@ textarea {color: #333}
 .hamburger a, a:focus, a:hover {
   text-decoration: none;
 }
+.mobile-nav {height: 100vh !important; margin-top: 30%;}
+.mobile-nav li {display: block !important;}
 /* For Phones */
 @media screen and (max-width: 767px) {
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
+  .main-nav {
+    border-bottom: 1px solid #eee;
+    display: block;
+    padding: 10px;
+    margin-bottom: 0;
+    text-align: center;
+    height: 40px;
+  }
+  .main-nav li {
+    display: none;
+    list-style: none;
+    padding: 10px 0 10px 20px;
+    font-size: 1.25em;
+  }
+  /*.hamburger {display: block;}*/
 }
 /* when bigger than phone */
 @media screen and (min-width: 768px) {
@@ -792,10 +795,24 @@ textarea {color: #333}
   .home-sub-title {font-size: 1.5em;}
   .home-search-bar {width: 85%;}
   .btn-home-margin {margin-right: 30px;}
+  .hamburger {display: none;}
   .btn-xxl {
     padding: 12px 26px;
     font-size: 1.7em;
     border-radius: 5px;
+  }
+  .main-nav {
+    border-bottom: 1px solid #eee;
+    height: 50px;
+    display: block;
+    padding: 10px;
+    margin-bottom: 0;
+  }
+  .main-nav li {
+    display: inline-block;
+    list-style: none;
+    padding-left: 20px;
+    font-size: 1.25em;
   }
 
 }
