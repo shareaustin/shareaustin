@@ -36,7 +36,8 @@ module.exports = function(io){
         text: data.msg, 
         seen: true
       }).save().then(function(msg){
-        console.log(msg.attributes)
+        return msg.load(['sender']);
+      }).then(function(msg){
         io.sockets.in(socket.room).emit('incoming', msg)
       });
     });
@@ -49,6 +50,5 @@ module.exports = function(io){
     });
   
   });
-  
 
 };
