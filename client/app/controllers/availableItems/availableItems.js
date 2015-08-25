@@ -14,8 +14,10 @@ angular.module('shareAustin')
   
   $scope.fav         = {};
   $scope.search = Item.search.term
-  $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
-  
+//  $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
+  Auth.getUser().then(function(user){
+    $scope.user = user;
+  })
   // From items extracts average seller ratings
   $scope.avgRating = function (items) {
     items.forEach(function (item) {
@@ -131,8 +133,8 @@ angular.module('shareAustin')
   };
 
   // Fetch all favorite items associated with the user
-  $scope.fetchFavoriteItems = function (userId) {
-     Request.favorites.fetchFavoriteItems($scope.userId)
+  $scope.fetchFavoriteItems = function () {
+     Request.favorites.fetchFavoriteItems($scope.user.id)
      .then(function (results){
      $scope.favorites = results;
      $scope.crossCheckFavs();
@@ -178,11 +180,11 @@ angular.module('shareAustin')
     $scope.class = "favorited"
     // Sets new favorite with item id, and userId
     $scope.fav.item_id =  $event.id;
-    $scope.fav.user_id =  Auth.getUser() ? Auth.getUser().id : 1;
+    $scope.fav.user_id =  $scope.user.id;
 
     // Posts this favorite to database
     Request.favorites.addFavorite($scope.fav).then(function() {
-      $scope.fetchFavoriteItems($scope.userId);
+      $scope.fetchFavoriteItems($scope.user.id);
     })
   }
 
