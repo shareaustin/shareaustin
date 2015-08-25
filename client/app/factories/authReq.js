@@ -1,7 +1,7 @@
 // Auth factory
-angular.module('shareAustin')
+angular.module('shareAustinAuthFactory', [])
 
-.factory('Auth', function($http){
+.factory('Auth', ['$scope', function($http){
   var user = {};
   
   // Getter
@@ -62,5 +62,5 @@ angular.module('shareAustin')
     setUser: setUser,
     isAuthorized: isAuthorized
   };
-})
+}])
 

@@ -1,11 +1,11 @@
 // Karma configuration
-// Generated on Mon Aug 24 2015 10:57:05 GMT-0500 (CDT)
+// Generated on Tue Aug 25 2015 08:50:34 GMT-0500 (CDT)
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: './',
+    basePath: '',
 
 
     // frameworks to use
@@ -15,17 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      // 'client/bower_components/angular*/**/*.js',
       'client/bower_components/angular/angular.js',
-      // 'client/bower_components/angular-animate/angular-animate.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       'client/bower_components/angular-bootstrap/ui-bootstrap.js',
       'client/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-      // 'client/bower_components/angular-socket-io/socket.js',
       '/client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/app/app.js',
-      // 'client/**/*.js',
-      // 'server/**/*.js',
       'client/app/controllers/auth/auth.js',
       'spec/clientSpec/appSpec/authSpec.js'
     ],
@@ -45,7 +40,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'html'],
+    reporters: ['progress'],
 
 
     // web server port

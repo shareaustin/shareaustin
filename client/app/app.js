@@ -16,7 +16,8 @@ angular.module('shareAustin', [
   'shareAustinItemDescription',
   'shareAustinPostNewItem',
   'shareAustinTransaction',
-  'shareAustinUpdateItems'
+  'shareAustinUpdateItems',
+  'shareAustinAuthFactory'
 
 ])
 // Injects 'state managers'
