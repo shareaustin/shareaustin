@@ -14,7 +14,7 @@ angular.module('shareAustin')
   
   $scope.fav         = {};
   $scope.search = Item.search.term
-//  $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
+  //  $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
   Auth.getUser().then(function(user){
     $scope.user = user;
   })
