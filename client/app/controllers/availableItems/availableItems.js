@@ -144,8 +144,6 @@ angular.module('shareAustin')
 
   $scope.filterPrice = function(num) {
     var limit = num === 1 ? 10 : num === 2 ? 20 : Infinity;
-    console.log("star in:")
-    console.log($scope.starFilterIn)
     // Init items and price filtered
     $scope.items = [];
     $scope.priceFilterIn  = [];
@@ -161,25 +159,18 @@ angular.module('shareAustin')
         $scope.priceFilterIn.push($scope.allItems[i]);
         // If there is a star filter on, only put in items from it
         if ($scope.starFilterIn) {
-          console.log("sfi:")
-          console.log($scope.starFilterIn)
-          console.log("all")
-          console.log($scope.allItems[i])
           for (var j = 0; j < $scope.starFilterIn.length; j++) {
             if ($scope.starFilterIn[j].id === $scope.allItems[i].id) {
-              console.log("yesss")
               $scope.items.push($scope.allItems[i])
             }
           }
         }
         // If no star filter, put all these in $scope.items
         else {
-          console.log("else else")
           $scope.items.push($scope.allItems[i])
         }
       }
       else {
-        console.log()
         $scope.priceFilterOut.push($scope.allItems[i]) 
       }      
     } 
@@ -210,7 +201,6 @@ angular.module('shareAustin')
         }
       }
       else {
-        console.log("else triggered")
         $scope.starFilterOut.push($scope.allItems[i])
       }
     }
@@ -244,7 +234,6 @@ angular.module('shareAustin')
     $scope.items[i].favorited = false;
       for (var j = 0 ; j < $scope.favorites.length; j++) {
        if ($scope.favorites[j].item_id===$scope.items[i].id) {
-        // console.log("if worked")
         $scope.items[i].favorited = true;
        }
       }
