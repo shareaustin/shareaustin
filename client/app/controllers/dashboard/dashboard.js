@@ -60,7 +60,7 @@ angular.module('shareAustin')
   $scope.fetchUserStats()
 })
 
-.controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location) {
+.controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location, Item) {
 
   $scope.transactions = [];
 
@@ -83,12 +83,25 @@ angular.module('shareAustin')
      })
    }
 
+
+   $scope.chatRedirect = function(item){
+    var room = $scope.item.id + "-" + $scope.user.id;
+    Chat.setRoom(room);
+    console.log('item description controller fetching user')
+    console.log(room)
+    Chat.joinOrCreate({
+      item_id: item.id,
+      buyer_id: $scope.user.id
+    })
+    $location.path('/chatList');
+  };
+
   // Provides different functionality for depending on the status of a transaction
   $scope.statusFunctionality = function(trns) {
    if (trns.bought){
       switch(trns.status) {
         case "started":
-          // change path to message with buyer
+          $scope.chatRedirect(trns.item);
           break;
         case "in-rent":
           break; // go to details??
@@ -109,7 +122,7 @@ angular.module('shareAustin')
     else {
       switch(trns.status) {
         case "started":
-          //msg buyer
+          $scope.chatRedirect();
           break;
         case "in-rent":
           // go to details?
