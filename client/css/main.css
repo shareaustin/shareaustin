@@ -493,7 +493,7 @@ a:hover {
 }
 /*---- Chat/Message Style -----*/
 
-.text-area-padding, textarea {
+.text-area-padding, .chat-textarea {
   color: #aaa;
   /*border: 1px solid;*/
   border-radius: 5px;
@@ -652,7 +652,7 @@ i.fa.fa-usd.turnOff {
 .star-transparent:hover {color: #0A3227;}
 
 input {color: #333;}
-/*textarea {color: #333}*/
+textarea {color: #333}
 
 /*----- Current Listings -----*/
 .li-rows-l-padding {
