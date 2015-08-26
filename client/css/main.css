@@ -222,7 +222,7 @@ menu {padding:0; margin:0;}
 .search-icon {
   position: relative;
   left: 25px;
-  /*top: 300px;*/
+  color: #E4E4E4;
 }
 .clear-search-icon {
   position: relative;
@@ -237,7 +237,7 @@ menu {padding:0; margin:0;}
   /*top: 300px;*/
 }
 .items-search {
-  border: 1px solid gray;
+  border: 1px solid #E4E4E4;
   border-radius: 5px;
   padding: 5px 0 5px 30px;
 }
@@ -780,13 +780,23 @@ textarea {color: #333}
     padding: 10px 0 10px 20px;
     font-size: 1.25em;
   }
+  .mobile-filter-stars {
+    position: absolute;
+    top: 42%;
+    left: 0px;
+  }
+  .mobile-filter-dollars {
+    position: absolute;
+    top: 42%;
+    left: 0px;
+  }
 }
 /* when bigger than phone */
 @media screen and (min-width: 768px) {
   .excess-padding > div:nth-child(odd) {padding-right: 0px;}
   .item-description {height: 60px;}
   .single-desc {padding-bottom: 70px;}
-  .filter-bar {}
+  .filter-bar {padding: 8px 0;}
   .slider-container {padding-left: 0;}
   .review-title {border: 1px solid #eee;}
   .form-left-margin {margin-left: 30px;}
