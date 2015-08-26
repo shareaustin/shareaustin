@@ -133,19 +133,7 @@ angular.module('shareAustin')
       }
     }
   }
-
-  $scope.priceStyle = function(num) {
-    for (var i = 1; i <= num; i++) {
-      $scope.dollers[i].on  = true;
-      $scope.dollers[i].off = false;
-    }
-  }
   
-  $scope.clearFilters = function(){
-    $scope.items = $scope.allItems;
-    $scope.priceFilterIn= null;
-  }
-
   // Filters by price, unless num is selected already, then clears price filter
   $scope.filterPrice = function(num) {
     var limit = num === 1 ? 10 : num === 2 ? 20 : Infinity;
@@ -157,9 +145,6 @@ angular.module('shareAustin')
     // Lots of nesting loops and conditions. Works but 
     // could use a refactor
     for (var i = 0; i < $scope.allItems.length; i++) {
-      if ($scope.allItems[i].id === 2 ) {
-       // debugger;
-      }
       // If item meets the limit
       if ($scope.allItems[i].price_per_day <= limit) {
         // Put it in priceFilteredIn
