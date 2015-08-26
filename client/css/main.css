@@ -202,6 +202,7 @@ menu {padding:0; margin:0;}
 .maps-price {font-size: 1.05em;}
 
 /*----- All Items ------*/
+.filter-bar-tm {margin-top: 0px;}
 .filter-bar {
   background: #F6F6F6;
   padding: 5px 0;
@@ -802,6 +803,7 @@ textarea {color: #333}
   .btn-home-margin {margin-right: 30px;}
   .hamburger {display: none;}
   .trans-button {margin: 0 0 0 30px;}
+  .filter-bar-tm {margin-top: 46px;}
   .btn-xxl {
     padding: 12px 26px;
     font-size: 1.7em;

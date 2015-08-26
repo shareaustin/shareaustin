@@ -2,10 +2,10 @@
 <menu></menu>
 <!-- Container for main page -->
 <div class="container-fluid">
-   <div class="row no-gutter top-margin">
+   <div class="row no-gutter filter-bar-tm">
    	 <!-- Contains all listings -->
-     <div class="col-sm-6">
-        <div class="text-center filter-bar fixed col-sm-6">
+     <div class="col-sm-12 col-lg-6">
+        <div class="text-center filter-bar fixed col-xs-12 col-lg-6">
           <!-- Filter by rating (stars) -->
           <div class="pointer inline dark-gray rating-picker-wrapper">
             <i ng-click="filterStars(1);searchFilter();starStyle(1)" ng-class='stars[1]' class='fa fa-star star-transparent'></i>
@@ -52,7 +52,7 @@
   				</div>
   		 </div>
 		 </div>
-		 <div class="col-sm-6 col-sm-offset-6 fixed">
+		 <div class="hidden-sm hidden-md col-lg-6 col-lg-offset-6 fixed">
 		 		<!-- Mysteriously, this empty ng-click is needed to reroute from map. Why!??!? -->
 		 		<div ng-click="" id="map" class="google-map"></div>
 		 </div>
