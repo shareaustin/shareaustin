@@ -804,6 +804,7 @@ textarea {color: #333}
   .transparent-form-body {height: 100vh;}
   .transparent-form label {font-size: 1.35em;}
   .transparent-form input {font-size: 1.35em; width: 80%;}
+  .tf-payment input {width: initial;}
   .trans-form-lpad {padding-left: 0px;}
   .trans-tm {margin-top: 0px;}
   .btn-lg {padding: 10px 16px;}
