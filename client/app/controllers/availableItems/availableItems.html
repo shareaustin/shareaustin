@@ -8,11 +8,11 @@
         <div class="text-center filter-bar fixed col-sm-6">
           <!-- Filter by rating (stars) -->
           <div class="pointer inline dark-gray rating-picker-wrapper">
-            <i ng-click="filterStars(1);showOnly(items);starStyle(1)" ng-class='stars[1]' class='fa fa-star star-transparent'></i>
-            <i ng-click="filterStars(2);showOnly(items);starStyle(2)" ng-class='stars[2]' class='fa fa-star star-transparent'></i>
-            <i ng-click="filterStars(3);showOnly(items);starStyle(3)" ng-class='stars[3]' class='fa fa-star star-transparent'></i>
-            <i ng-click="filterStars(4);showOnly(items);starStyle(4)" ng-class='stars[4]' class='fa fa-star star-transparent'></i>
-            <i ng-click="filterStars(5);showOnly(items);starStyle(5)" ng-class='stars[5]' class='fa fa-star star-transparent'></i>
+            <i ng-click="filterStars(1);searchFilter();starStyle(1)" ng-class='stars[1]' class='fa fa-star star-transparent'></i>
+            <i ng-click="filterStars(2);searchFilter();starStyle(2)" ng-class='stars[2]' class='fa fa-star star-transparent'></i>
+            <i ng-click="filterStars(3);searchFilter();starStyle(3)" ng-class='stars[3]' class='fa fa-star star-transparent'></i>
+            <i ng-click="filterStars(4);searchFilter();starStyle(4)" ng-class='stars[4]' class='fa fa-star star-transparent'></i>
+            <i ng-click="filterStars(5);searchFilter();starStyle(5)" ng-class='stars[5]' class='fa fa-star star-transparent'></i>
           </div>
           <!-- Search bar -->
           <i class="fa fa-search search-icon"></i>
@@ -20,12 +20,9 @@
           <i class="fa fa-times clear-search-icon" ng-class="{ invisible: search.length < 1 }" ng-click="search = '';showAll()"; ></i>
           <!-- Price filter ($$$) -->
           <div class="pointer inline dark-gray rating-picker-wrapper">
-            <i ng-click="filterPrice(1);showOnly(items);prices(1)" ng-class='dollers[1]' class="fa fa-usd usd-transparent"></i>
-            <i ng-click="filterPrice(2);showOnly(items);prices(2)" ng-class='dollers[2]' class="fa fa-usd usd-transparent"></i>
-            <i ng-click="filterPrice(3);showOnly(items);prices(3)" ng-class='dollers[3]' class="fa fa-usd usd-transparent"></i>
-          </div>
-          <div>
-            <button class="fa fa-times clear-search-icon" ng-click="clearFilters();showAll();allOff()"> Clear Filters </button>
+            <i ng-click="filterPrice(1);searchFilter();prices(1)" ng-class='dollers[1]' class="fa fa-usd usd-transparent"></i>
+            <i ng-click="filterPrice(2);searchFilter();prices(2)" ng-class='dollers[2]' class="fa fa-usd usd-transparent"></i>
+            <i ng-click="filterPrice(3);searchFilter();prices(3)" ng-class='dollers[3]' class="fa fa-usd usd-transparent"></i>
           </div>
         </div>
         <!-- Displays all items -->

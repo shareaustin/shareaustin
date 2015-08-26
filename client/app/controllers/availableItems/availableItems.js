@@ -71,6 +71,9 @@ angular.module('shareAustin')
   $scope.clickedStar = false;
 
   $scope.starStyle = function(num) {
+
+    // Seperation of concerns: 
+    // consider breaking this if into seperate function
     if ($scope.clickedStar === num) {
       
       $scope.items = $scope.items.concat($scope.starFilterOut)
@@ -100,6 +103,9 @@ angular.module('shareAustin')
   }
 
   $scope.prices = function(num) {
+
+    // Seperation of concerns: 
+    // consider breaking this if into seperate function
     if ($scope.clickedPrice === num) {
       
       $scope.items = $scope.items.concat($scope.priceFilterOut)
@@ -140,15 +146,16 @@ angular.module('shareAustin')
     $scope.priceFilterIn= null;
   }
 
-
-
+  // Filters by price, unless num is selected already, then clears price filter
   $scope.filterPrice = function(num) {
     var limit = num === 1 ? 10 : num === 2 ? 20 : Infinity;
     // Init items and price filtered
     $scope.items = [];
     $scope.priceFilterIn  = [];
     $scope.priceFilterOut = [];
-    // Loop thru all items
+    
+    // Lots of nesting loops and conditions. Works but 
+    // could use a refactor
     for (var i = 0; i < $scope.allItems.length; i++) {
       if ($scope.allItems[i].id === 2 ) {
        // debugger;
@@ -176,11 +183,16 @@ angular.module('shareAustin')
     } 
   }
 
+  // Filters by stars, unless num is selected already, then clears star filter
   $scope.filterStars = function(num) {
     // Init empty sets
     $scope.items    = [];
     $scope.starFilterIn  = [];
     $scope.starFilterOut = [];
+      
+    // Lots of nesting loops and conditions. Works but 
+    // could use a refactor
+
     // Loop thru items
     for (var i = 0; i < $scope.allItems.length; i ++) {
       // If meets star filter
