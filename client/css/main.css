@@ -1,8 +1,6 @@
 /** {border: 1px solid red !important;}*/
 body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
-.li-rows {
-  height: 35px;
-}
+.li-rows {height: 35px;}
 .edit {
   position: relative;
   float: left;
@@ -31,6 +29,11 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .btn-home-wrapper {margin-top: 0;}
 
 /*----- Helpers ------*/
+.overflow {overflow: hidden;}
+.absolute {position: absolute;}
+.fixed {position: fixed;}
+.z-index {z-index: 100;}
+.pointer:hover {cursor:pointer;}
 .inline {display: inline;}
 .inline-block {display: inline-block;}
 .block {display: block !important;}
@@ -43,25 +46,18 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .margin-left-12 {margin-left: 12%;}
 .font-half-inc {font-size: 1.5em}
 .100vh {height: 100vh;}
-.ul-reset {
-  list-style: none;
-  /*padding-left: 20px;*/
-}
+.ul-reset {list-style: none;}
 .yellow {color: #F8DA82;}
 .bold-700 {font-weight: 700;}
 .no-gutter > [class*='col-'] {
     padding-right:0;
     padding-left:0;
 }
-.no-l-gutter > [class*='col-'] {
-    padding-left:0;
-}
+.no-l-gutter > [class*='col-'] {padding-left:0;}
 .btn {transition: all .2s ease-in-out;}
 .btn:hover {transform: scale(1.05);}
 .grow {transition: all 1s ease-in-out;}
 .grow:hover {transform: scale(1.5);}
-
-
 
 .btn-green {background: #1ab188; color: white;}
 .btn-green:hover, .btn-green:focus, .btn-green:active  {
@@ -189,9 +185,7 @@ menu {padding:0; margin:0;}
   object-fit: cover;
 }
 
-.carousel-control {
-  height: 450px;
-}
+.carousel-control {height: 450px;}
 
 /*----- Google Maps Style ------*/
 .mapMarkerImg {
@@ -199,19 +193,15 @@ menu {padding:0; margin:0;}
   width: 250px;
   /*height: 200px;*/
 }
-.maps-wrapper {
-}
+
 .maps-title {
   font-size: 1.2em;
   display: inline-block;
   padding: 10px 10px 0 0;
 }
 .maps-price {font-size: 1.05em;}
-.maps-content {}
 
 /*----- All Items ------*/
-
-
 .filter-bar {
   background: #F6F6F6;
   padding: 5px 0;
@@ -262,12 +252,7 @@ menu {padding:0; margin:0;}
   height: 219px;
 }
 
-.overflow {overflow: hidden;}
-.absolute {position: absolute;}
-.fixed {position: fixed;}
-.z-index {z-index: 100;}
 
-.pointer:hover {cursor:pointer;}
 .drop-box {
   border: 1px solid #6D7781;
   margin: 10px 0;
@@ -542,17 +527,12 @@ a:hover {
    -webkit-transition: all .25s ease-in-out;
 }
 
-.photoloader.show {
-  opacity: 1;
-}
-
-
+.photoloader.show {opacity: 1;}
 .home-bg {
   background: url('../img/hike-in-woods.jpeg') center bottom no-repeat;
   height: 100vh;
   background-size: cover;
 }
-/*.mobile-break {margin-right: 25%;}*/
 .trans-tm {margin-top: 50px;}
 .trans-form-lpad {padding-left: 10%;}
 .transparent-form input {
@@ -586,20 +566,12 @@ a:hover {
   padding: 10px 0;
 
 }
-.tf-payment label {
-  padding: 10px 2% 10px 0;
-}
+.tf-payment label {padding: 10px 2% 10px 0;}
 
-.star-transparent {
-  opacity: 0.5
-}
+.star-transparent {opacity: 0.5}
 
-.usd-transparent {
-  opacity: 0.5;
-}
-.usd-transparent:hover {
-  color: #0A3227;
-}
+.usd-transparent {opacity: 0.5;}
+.usd-transparent:hover {color: #0A3227;}
 
 
 i.fa.fa-usd.turnOn {
@@ -641,9 +613,7 @@ i.fa.fa-usd.turnOff {
     100% {-webkit-transform: scale(1.0, 1.0); opacity: 0.5;}
 }
 
-.star-transparent:hover {
-    color: #0A3227;
-}
+.star-transparent:hover {color: #0A3227;}
 
 input {color: #333;}
 textarea {color: #333}
@@ -751,29 +721,23 @@ textarea {color: #333}
   top: 10px;
   font-size: 22px;
 }
-.hamburger a, a:focus, a:hover {
-  text-decoration: none;
-}
-.mobile-nav {height: 100vh !important; margin-top: 30%;}
+.hamburger a, a:focus, a:hover {text-decoration: none;}
+.mobile-logo {font-size: 1.2em; color: #1ab188;}
 .mobile-nav li {display: block !important;}
+.mobile-nav {height: 100vh !important; margin-top: 30%;}
 /* For Phones */
 @media screen and (max-width: 767px) {
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
   .main-nav {
-    border-bottom: 1px solid #eee;
-    display: block;
     padding: 10px;
-    margin-bottom: 0;
     text-align: center;
     height: 40px;
   }
   .main-nav li {
     display: none;
-    list-style: none;
     padding: 10px 0 10px 20px;
     font-size: 1.25em;
   }
-  /*.hamburger {display: block;}*/
 }
 /* when bigger than phone */
 @media screen and (min-width: 768px) {
