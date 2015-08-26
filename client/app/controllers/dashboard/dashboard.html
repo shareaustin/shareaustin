@@ -10,6 +10,7 @@
       <p ng-show="user.first_name !== undefined">{{user.first_name + ' ' + user.last_name}}</p>
       <p>Seller Rating: {{sellerRating}}</p>
       <button ngf-select ng-model="files" ngf-multiple="true" ngf-stop-propagation="true" class="btn btn-green btn-md" ng-click="">Change Photo</button>
+      <button ng-click="signout()" class="btn btn-green btn-sm"> SignOut</button>
     </div>
     <!-- Tabs table for user's current listings, transaction, and favorites -->
     <div class="col-sm-7 col-sm-offset-1 tab-border">
