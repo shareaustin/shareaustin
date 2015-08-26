@@ -770,6 +770,7 @@ textarea {color: #333}
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
    .mobile-chat-btns {margin-bottom: 5%;}
    .mobile-chat-btns > .btn-lg {padding: 8px 20px;}
+   .filter-bar-tm {margin-top: 3px;}
   .main-nav {
     padding: 10px;
     text-align: center;
@@ -778,7 +779,7 @@ textarea {color: #333}
   .main-nav li {
     display: none;
     padding: 10px 0 10px 20px;
-    font-size: 1.25em;
+    font-size: 2em;
   }
   .mobile-filter-stars {
     position: absolute;
