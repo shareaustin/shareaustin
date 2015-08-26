@@ -1,5 +1,5 @@
 angular.module('shareAustinItemDescription', [])
-.controller('ItemDescriptionCtrl', ['$scope', function ($scope, $location, Auth, Chat, Item, Request, CalEvents) {
+.controller('ItemDescriptionCtrl', ['$scope', '$location', 'Auth', 'Chat', 'Item', 'Request', 'CalEvents', function ($scope, $location, Auth, Chat, Item, Request, CalEvents) {
   
   // Get's the item that was clicked from prvious page
   $scope.item = Item.get()

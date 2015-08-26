@@ -1,7 +1,7 @@
 angular.module('shareAustinPostNewItem', [])
 
 // Controller for posting a new item
-.controller('PostNewItemCtrl', ['$scope', function ($scope, $location, Auth, Item, Request, Helpers) {
+.controller('PostNewItemCtrl', ['$scope', '', '', '', '', '', function ($scope, $location, Auth, Item, Request, Helpers) {
   // Initialize the new Listing
   $scope.newListing = {};
 

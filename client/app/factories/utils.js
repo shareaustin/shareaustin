@@ -1,7 +1,7 @@
 
 // File contains functions to be used in contollers especially server requests
 
-angular.module('shareAustin')
+angular.module('shareAustinUtilsFactory', [])
 
 .factory('Request', function($http){
   var reqObj = {

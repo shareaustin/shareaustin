@@ -1,5 +1,5 @@
-angular.module('shareAustin')
+angular.module('shareAustinAbout', [])
 
-.controller ('AboutCtrl', function ($scope){
+.controller ('AboutCtrl', ['$scope', function ($scope){
   
-})
+}])

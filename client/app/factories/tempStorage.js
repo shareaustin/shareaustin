@@ -1,4 +1,4 @@
-angular.module('shareAustin')
+angular.module('shareAustinStorageFactory', [])
 
 .factory('Item', function ($http, Upload) {
   var photoSuccess = false;

@@ -1,4 +1,5 @@
 describe("Auth Controller", function() {
+
   beforeEach(module("shareAustinAuth"));
   var controller, scope;
   beforeEach(inject(function($rootScope, $controller) {
@@ -22,3 +23,6 @@ describe("Auth Controller", function() {
     expect(scope.active).toEqual(false);
   })
 });
+
+
+  var $scope, $rootScope, $location, $window, $httpBackend, createController, Auth;

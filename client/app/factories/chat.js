@@ -1,4 +1,4 @@
-angular.module('shareAustin')
+angular.module('shareAustinChatFactory', [])
 
 .factory('Chat', function($http){
   var room = '';

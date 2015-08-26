@@ -1,6 +1,6 @@
 angular.module('shareAustinFeedback', [])
 
-.controller('Feedback', ['$scope', function ($scope, $location, SaveTransaction, Item, Request, Auth) {
+.controller('Feedback', ['$scope', '$location', 'SaveTransaction', 'Item', 'Request', 'Auth', function ($scope, $location, SaveTransaction, Item, Request, Auth) {
   
   // A lot of functions for a few stars... may have overcomplicated this
 

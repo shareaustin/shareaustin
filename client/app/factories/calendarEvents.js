@@ -1,4 +1,4 @@
-angular.module('shareAustin')
+angular.module('shareAustinCalFactory', [])
   .factory('CalEvents', function(){
   // Initialize
   var calEvents = [];

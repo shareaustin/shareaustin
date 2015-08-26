@@ -22,7 +22,8 @@ module.exports = function(config) {
       '/client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/app/app.js',
       'client/app/controllers/auth/auth.js',
-      'spec/clientSpec/appSpec/authSpec.js'
+      'spec/clientSpec/appSpec/authSpec.js',
+      'spec/clientSpec/appSpec/factorySpec/authReqSpec.js'
     ],
 
 
@@ -40,7 +41,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'html'],
 
 
     // web server port

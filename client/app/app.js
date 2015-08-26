@@ -7,6 +7,7 @@ angular.module('shareAustin', [
   'ngFileUpload',
   'stripe',
   'hSweetAlert',
+  'shareAustinAbout',
   'shareAustinAuth',
   'shareAustinAvailable',
   'shareAustinChat',
@@ -17,8 +18,13 @@ angular.module('shareAustin', [
   'shareAustinPostNewItem',
   'shareAustinTransaction',
   'shareAustinUpdateItems',
-  'shareAustinAuthFactory'
-
+  'shareAustinAuthFactory',
+  'shareAustinCalFactory',
+  'shareAustinChatFactory',
+  'shareAustinHelpersFactory',
+  'shareAustinSocketFactory',
+  'shareAustinStorageFactory',
+  'shareAustinUtilsFactory'
 ])
 // Injects 'state managers'
 .config(function ($stateProvider, $urlRouterProvider) {

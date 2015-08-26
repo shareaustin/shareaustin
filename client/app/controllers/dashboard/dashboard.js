@@ -1,6 +1,6 @@
 angular.module('shareAustinDashboard', [])
 
-.controller('DashboardCtrl', ['$scope', function ($scope, Auth, Request) {
+.controller('DashboardCtrl', ['$scope', 'Auth', 'Request', function ($scope, Auth, Request) {
   $scope.sellerRating;
   $scope.sellerStats = {}
   Auth.getUser().then(function(user){
@@ -45,7 +45,7 @@ angular.module('shareAustinDashboard', [])
   $scope.fetchUserStats()
 }])
 
-.controller('TransactionHistory', ['$scope', function ($scope, Request, SaveTransaction, $location) {
+.controller('TransactionHistory', ['$scope', 'Request', 'SaveTransaction', '$location', function ($scope, Request, SaveTransaction, $location) {
 
   $scope.transactions = [];
 
@@ -195,7 +195,7 @@ angular.module('shareAustinDashboard', [])
 
 
 }])
-.controller('CurrentListingCtrl', ['$scope', function ($scope, Item, Request, $location) {
+.controller('CurrentListingCtrl', ['$scope', 'Item', 'Request', '$location', function ($scope, Item, Request, $location) {
   $scope.listings = [];
     Request.items.fetchCurrentListings()
     .then(function (results) {
@@ -214,7 +214,7 @@ angular.module('shareAustinDashboard', [])
   }
 }])
 
-.controller('FavoritesCtrl', ['$scope', function ($scope, Request, Auth, Item, $location){
+.controller('FavoritesCtrl', ['$scope', 'Request', 'Auth', 'Item', '$location', function ($scope, Request, Auth, Item, $location){
   $scope.favorites = [] ;
   $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
 

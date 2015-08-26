@@ -1,4 +1,4 @@
-angular.module('shareAustin')
+angular.module('shareAustinHelpersFactory', [])
 
   // This factory is for miscellaneous non-request helper function
   .factory('Helpers', function(){
