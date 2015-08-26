@@ -54,6 +54,9 @@ angular.module('shareAustin')
     3: { turnOn: false, turnOff: false},
   }
 
+  $scope.starFilterIn  = null;
+  $scope.priceFilterIn = null;
+
   $scope.allOff = function() {
     for (var i = 1; i <= 5; i++ ) {
       $scope.stars[i].turnOn    = false;
@@ -65,57 +68,137 @@ angular.module('shareAustin')
     }
   }
 
+  $scope.clickedStar = false;
+
   $scope.starStyle = function(num) {
-    for (var i = 1; i <= 5; i++) {
-      if (i <= num) {
-        $scope.stars[i].turnOn  = true;
-        $scope.stars[i].turnOff = false;
-      }
-      else {
-        $scope.stars[i].turnOn  = false;
+
+    // Seperation of concerns: 
+    // consider breaking this if into seperate function
+    if ($scope.clickedStar === num) {
+      
+      $scope.items = $scope.items.concat($scope.starFilterOut)
+      $scope.starFilterIn  = null;
+      $scope.starFilterOut = null;
+      $scope.clickedStar  = null;
+      $scope.searchFilter();
+
+      for (var i = 1; i <= 5; i++) {
+        $scope.stars[i].turnOn = false;
         $scope.stars[i].turnOff = true;
+      }
+    }
+    else{
+      $scope.clickedStar = num;
+      for (var i = 1; i <= 5; i++) {
+        if (i <= num) {
+          $scope.stars[i].turnOn  = true;
+          $scope.stars[i].turnOff = false;
+        }
+        else {
+          $scope.stars[i].turnOn  = false;
+          $scope.stars[i].turnOff = true;
+        }
       }
     }
   }
 
   $scope.prices = function(num) {
-    for (var i = 1; i <= 3; i++) {
-      if ( i <= num) {
-        $scope.dollers[i].turnOn  = true;
-        $scope.dollers[i].turnOff = false;
-      }
-      else {
-        $scope.dollers[i].turnOn  = false;
-        $scope.dollers[i].turnOff = true;
-      }
-    }
-  }
 
-  $scope.priceStyle = function(num) {
-    for (var i = 1; i <= num; i++) {
-      $scope.dollers[i].on  = true;
-      $scope.dollers[i].off = false;
+    // Seperation of concerns: 
+    // consider breaking this if into seperate function
+    if ($scope.clickedPrice === num) {
+      
+      $scope.items = $scope.items.concat($scope.priceFilterOut)
+      $scope.priceFilterIn  = null;
+      $scope.priceFilterOut = null;
+      $scope.clickedPrice   = null;
+      $scope.searchFilter();
+
+      for (var i = 1; i <= 3; i++) {
+        $scope.dollers[i].turnOn  = false;
+        $scope.dollers[i].turnOff = true ;
+      } 
+    }
+    else {
+      $scope.clickedPrice = num;
+      for (var i = 1; i <= 3; i++) {
+        if ( i <= num) {
+          $scope.dollers[i].turnOn  = true;
+          $scope.dollers[i].turnOff = false;
+        }
+        else {
+          $scope.dollers[i].turnOn  = false;
+          $scope.dollers[i].turnOff = true;
+        }
+      }
     }
   }
   
-  $scope.clearFilters = function(){
-    $scope.items = $scope.allItems;
-  }
-
+  // Filters by price, unless num is selected already, then clears price filter
   $scope.filterPrice = function(num) {
     var limit = num === 1 ? 10 : num === 2 ? 20 : Infinity;
+    // Init items and price filtered
     $scope.items = [];
+    $scope.priceFilterIn  = [];
+    $scope.priceFilterOut = [];
+    
+    // Lots of nesting loops and conditions. Works but 
+    // could use a refactor
     for (var i = 0; i < $scope.allItems.length; i++) {
-      if ($scope.allItems[i].price_per_day <= limit)
-        $scope.items.push($scope.allItems[i])
+      // If item meets the limit
+      if ($scope.allItems[i].price_per_day <= limit) {
+        // Put it in priceFilteredIn
+        $scope.priceFilterIn.push($scope.allItems[i]);
+        // If there is a star filter on, only put in items from it
+        if ($scope.starFilterIn) {
+          for (var j = 0; j < $scope.starFilterIn.length; j++) {
+            if ($scope.starFilterIn[j].id === $scope.allItems[i].id) {
+              $scope.items.push($scope.allItems[i])
+            }
+          }
+        }
+        // If no star filter, put all these in $scope.items
+        else {
+          $scope.items.push($scope.allItems[i])
+        }
+      }
+      else {
+        $scope.priceFilterOut.push($scope.allItems[i]) 
+      }      
     } 
   }
 
+  // Filters by stars, unless num is selected already, then clears star filter
   $scope.filterStars = function(num) {
+    // Init empty sets
     $scope.items    = [];
+    $scope.starFilterIn  = [];
+    $scope.starFilterOut = [];
+      
+    // Lots of nesting loops and conditions. Works but 
+    // could use a refactor
+
+    // Loop thru items
     for (var i = 0; i < $scope.allItems.length; i ++) {
+      // If meets star filter
       if (Math.round($scope.allItems[i].seller.avgStars) >= num ) {
-        $scope.items.push($scope.allItems[i])
+        // Push into star filter
+        $scope.starFilterIn.push($scope.allItems[i]);
+        // If theres a price filter in place, only put in items from it
+        if ($scope.priceFilterIn) {
+          for (var j = 0; j < $scope.priceFilterIn.length; j++) {
+            if ($scope.priceFilterIn[j] === $scope.allItems[i]) {
+              $scope.items.push($scope.allItems[i])
+            }
+          }
+        }
+        // If no price filter, all these go in
+        else {
+          $scope.items.push($scope.allItems[i])
+        }
+      }
+      else {
+        $scope.starFilterOut.push($scope.allItems[i])
       }
     }
   }
@@ -148,7 +231,6 @@ angular.module('shareAustin')
     $scope.items[i].favorited = false;
       for (var j = 0 ; j < $scope.favorites.length; j++) {
        if ($scope.favorites[j].item_id===$scope.items[i].id) {
-        // console.log("if worked")
         $scope.items[i].favorited = true;
        }
       }
