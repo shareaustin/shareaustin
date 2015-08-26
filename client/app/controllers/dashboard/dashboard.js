@@ -85,11 +85,8 @@ angular.module('shareAustin')
 
 
    $scope.chatRedirect = function(trns){
-
     var room = trns.item.id + "-" + $scope.user.id;
     Chat.setRoom(room);
-    console.log('item description controller fetching user')
-    console.log(room)
     Chat.joinOrCreate({
       item_id:  trns.item.id,
       buyer_id: trns.buyer_id
@@ -102,15 +99,13 @@ angular.module('shareAustin')
    if (trns.bought){
       switch(trns.status) {
         case "started":
-          console.log('user defined')
-          console.log(trns.item)
           $scope.chatRedirect(trns);
           break;
         case "in-rent":
           break; // go to details??
         case "returned":
           SaveTransaction.set(trns);
-          //$location.path("/feedback")
+          $location.path("/feedback")
           break;
         case "rating from buyer pending":
           SaveTransaction.set(trns)
