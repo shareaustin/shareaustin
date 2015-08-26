@@ -20,6 +20,7 @@ module.exports = function (app, passport, upload) {
   app.post('/api/deactivateItemById'      , itemHandler.deactivateItemById)
   app.post('/api/getItemPhotos/'          , itemHandler.getPhotos);
   app.post('/api/user/item/photos/upload' , upload.single('file'), itemHandler.linkPhoto);
+  app.post('/api/user/photo-upload'       , upload.single('file'), userHandler.linkPhoto);
 
   app.get( '/api/user/items'              , userHandler.getItems);
   app.get( '/api/availableItems'          , itemHandler.getAvailableItems);

@@ -5,7 +5,7 @@ angular.module('shareAustin')
   $scope.sellerStats = {}
   Auth.getUser().then(function(user){
     $scope.user = user;
-  })
+  });
 
   $scope.fetchSellerRating = function() {
     Request.user.fetchSellerRating()
@@ -14,7 +14,7 @@ angular.module('shareAustin')
       console.log("fetchsellerrating", results)
       console.log("USER INFO ", $scope.user)
     })
-  }
+  };
   $scope.fetchUserStats = function () {
     Request.user.fetchSoldTransactions()
     .then(function (results) {
@@ -41,6 +41,14 @@ angular.module('shareAustin')
         console.log(results)
       })
   }
+  $scope.$watch('files', function(){
+    $scope.uploadPhoto($scope.files)
+  })
+  $scope.uploadPhoto = function(files){
+    if (files && files.length){
+      files.forEach(Request.user.uploadPhoto);
+    }
+  };
   $scope.fetchSellerRating()
   $scope.fetchUserStats()
 })
