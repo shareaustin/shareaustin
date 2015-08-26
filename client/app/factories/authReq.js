@@ -43,6 +43,13 @@ angular.module('shareAustin')
     });
   };
 
+  function signout(){
+    return $http({
+      method: 'POST',
+      url: '/signout'
+    })
+  };
+
   // Checks authorization
   function isAuthorized(){
     return $http({
@@ -58,6 +65,7 @@ angular.module('shareAustin')
   return {
     signup: signup,
     signin: signin,
+    signout: signout,
     getUser: getUser,
     setUser: setUser,
     isAuthorized: isAuthorized

@@ -1,6 +1,6 @@
 angular.module('shareAustin')
 
-.controller('DashboardCtrl', function ($scope, Auth, Request) {
+.controller('DashboardCtrl', function ($scope, $location,  Auth, Request) {
   $scope.sellerRating;
   $scope.sellerStats = {}
   Auth.getUser().then(function(user){
@@ -44,11 +44,18 @@ angular.module('shareAustin')
   $scope.$watch('files', function(){
     $scope.uploadPhoto($scope.files)
   })
+
   $scope.uploadPhoto = function(files){
     if (files && files.length){
       files.forEach(Request.user.uploadPhoto);
     }
   };
+
+  $scope.signout = function(){
+    Auth.signout();
+    $location.path('/');
+  }
+  
   $scope.fetchSellerRating()
   $scope.fetchUserStats()
 })

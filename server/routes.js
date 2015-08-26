@@ -63,8 +63,13 @@ module.exports = function (app, passport, upload) {
     failureRedirect: '/'
   }));
 
+  app.post('/signout', function(req, res){
+    req.logOut();
+    res.redirect('/')
+  })
+
   app.get('/auth', userHandler.isAuthorized);
-  app.get('/api/user', userHandler.authorizedUser);
+  app.get('/api/user', isLoggedIn, userHandler.authorizedUser);
 
   // Unused/Future Routes
     //app.get('/api/sellerReviews', userHandler.sellerReviews)
