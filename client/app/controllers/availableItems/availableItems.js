@@ -77,6 +77,7 @@ angular.module('shareAustin')
       $scope.starFilterIn  = null;
       $scope.starFilterOut = null;
       $scope.clickedStar  = null;
+      $scope.searchFilter();
 
       for (var i = 1; i <= 5; i++) {
         $scope.stars[i].turnOn = false;
@@ -105,6 +106,7 @@ angular.module('shareAustin')
       $scope.priceFilterIn  = null;
       $scope.priceFilterOut = null;
       $scope.clickedPrice   = null;
+      $scope.searchFilter();
 
       for (var i = 1; i <= 3; i++) {
         $scope.dollers[i].turnOn  = false;
