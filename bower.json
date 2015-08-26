@@ -16,24 +16,24 @@
     "tests"
   ],
   "dependencies": {
-    "ng-file-upload": "~6.0.3",
-    "angular-bootstrap-calendar": "~0.14.6",
-    "angular": "~1.4.3",
-    "underscore": "~1.8.3",
-    "angular-ui-router": "~0.2.15",
-    "angular-bootstrap": "~0.13.2",
-    "normalize.css": "~3.0.3",
-    "angular-animate": "~1.4.3",
-    "bootstrap": "~3.3.5",
-    "font-awesome": "~4.4.0",
-    "stripe-angular": "~1.0.2",
-    "sweetalert": "~1.1.0",
-    "angular-h-sweetalert": "~1.4.6",
-    "angular-slick": "~0.2.1",
-    "angular-socket-io": "~0.7.0",
-    "spacing-classes": "~1.0.1"
+    "ng-file-upload": "6.0.3",
+    "angular-bootstrap-calendar": "0.14.6",
+    "angular": "1.4.3",
+    "underscore": "1.8.3",
+    "angular-ui-router": "0.2.15",
+    "angular-bootstrap": "0.13.2",
+    "normalize.css": "3.0.3",
+    "angular-animate": "1.4.3",
+    "bootstrap": "3.3.5",
+    "font-awesome": "4.4.0",
+    "stripe-angular": "1.0.2",
+    "sweetalert": "1.1.0",
+    "angular-h-sweetalert": "1.4.6",
+    "angular-slick": "0.2.1",
+    "angular-socket-io": "0.7.0",
+    "spacing-classes": "1.0.1"
   },
   "resolutions": {
-    "angular": "~1.4.3"
+    "angular": "1.4.3"
   }
 }
