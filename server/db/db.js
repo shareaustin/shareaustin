@@ -6,9 +6,9 @@ var knex = Knex({
     connection: {
         host: 'ec2-54-197-255-248.compute-1.amazonaws.com',
         port: 5432,
-        user: 'zmaussctrrmknq',
-        password: 'YwPHckwGgaUqZYw6jbz0a5-DkJ',
-        database: 'd5nh25dcv5196i',
+        user: 'caeovrvscwvevl',
+        password: '3icTQmr4GD4J5jCcNhPhZ1kbkx',
+        database: 'd3rjlib1eoj0b4',
         ssl: true
     }
 });
