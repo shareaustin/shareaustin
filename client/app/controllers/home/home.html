@@ -1,7 +1,6 @@
 <!-- Home page with a search bar and See All Items button -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Navigation bar -->
-<div ng-include="'shared/navigation.html'"></div>
+<menu></menu>
 <div class="home-bg">
   <div class="grid-bg">
   <div class="home-search-wrapper">
@@ -13,8 +12,8 @@
       <input ng-model="search" class="home-search-bar" type="text"> <br>
       <row>
         <!-- Search and see all items buttons -->
-        <div class="top-margin-sm">
-          <button ng-click="sendSearch(search)" class="btn btn-green btn-xxl m-r-lg">Search Items</button>
+        <div class="btn-home-wrapper">
+          <button ng-click="sendSearch(search)" class="btn btn-green btn-xxl btn-home-margin">Search Items</button>
           <button ng-click="sendSearch('')" class="btn btn-ghost-white btn-xxl">See All Items</button>
         </div>
     </form>

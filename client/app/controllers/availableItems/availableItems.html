@@ -1,5 +1,5 @@
 <!-- Navigation bar -->
-<div class="fixed z-index" ng-include="'shared/navigation.html'"></div>
+<menu></menu>
 <!-- Container for main page -->
 <div class="container-fluid">
    <div class="row no-gutter top-margin">
@@ -26,19 +26,21 @@
           </div>
           <div>
             <button class="fa fa-times clear-search-icon" ng-click="clearFilters();showAll();allOff()"> Clear Filters </button>
-          </div> 
+          </div>
         </div>
         <!-- Displays all items -->
         <div class="top-margin excess-padding">
           <!-- Ng repeat creates wrapper for each item -->
   				<div ng-repeat="item in items | filter:{name: search}" class="item col-sm-6">
   					<h4 ng-click="loadDetailedView(item, $event)" class="text-center item-title">{{ item.name | limitTo: 25 }}</h4>
+            <!-- <div class="overflow"> -->
   					<img ng-click="loadDetailedView(item, $event)" class="centerCrop center-block img-responsive pointer"  ng-src="{{item.photo_url}}"/>
+          <!-- </div> -->
   					<div class="text-center item-seller">
               <span class="p-r-md">{{item.seller.first_name}} {{item.seller.last_name}}</span>
               <i ng-repeat="item in item.seller.starsArr track by $index" ng-class="item ? 'fa fa-star yellow' : 'fa fa-star-o yellow'"></i>
               <!-- {{item.seller.avgStars}} -->
-              <span class="p-l-md">{{ item.price_per_day | currency }} per day</span>
+              <span class="p-l-md">{{ item.price_per_day | currency:"$":0 }} Daily</span>
             </div>
             <div class="item-bot-container">
     					<p class="item-description">{{ item.description | limitTo: 133 }}</p>
@@ -46,8 +48,8 @@
     					<!-- <p class="inline">{{ item.price_per_day | currency }}/day</p> -->
               <!-- Rent and favorites button -->
     					<div class="row button-container">
-                <button class="btn btn-green btn-md col-sm-5" ng-click="rentItem(item, $event)">Rent</button>
-    						<button class="btn btn-white btn-md col-sm-5 col-sm-offset-1" ng-class="{ 'favorited' : item.favorited }" ng-click="newFavorite(item,$event)">Favorite</button>
+                <button class="btn btn-green btn-md col-xs-5" ng-click="rentItem(item, $event)">Rent</button>
+    						<button class="btn btn-white btn-md col-xs-5 col-xs-offset-1" ng-class="{ 'favorited' : item.favorited }" ng-click="newFavorite(item,$event)">Favorite</button>
     	        </div>
   	        </div>
   				</div>

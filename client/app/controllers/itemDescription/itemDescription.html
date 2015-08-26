@@ -1,26 +1,29 @@
 <!-- Navigation bar -->
-<div ng-include="'shared/navigation.html'"></div>
+<menu></menu>
 <div class="container padding-top">
   <!-- Item pictures and description -->
-  <div class="row text-center item-title-wrapper no-l-gutter">
-    <div class="col-sm-10 col-sm-offset-1">
+  <div class="row text-center item-title-wrapper">
+    <div class="col-sm-10 col-sm-offset-1 slider-container">
       <slider></slider>
       <!-- Name, price, description -->
       <div class="single-desc">
         <h2 class="inline text-center item-title-desc">{{item.name}} ${{item.price_per_day}}</h2>
         <p class="single-item-description">{{item.description}}</p>
-        <button class="btn btn-green btn-lg col-sm-4 margin-left-12" ng-click="rentRedirect()">Rent Item</button>
-        <button class="btn btn-white btn-lg col-sm-4 col-sm-offset-1" ng-click="chatRedirect()">Msg Seller</button>
+        <div class="row">
+          <button class="btn btn-green btn-lg col-xs-4 margin-left-12" ng-click="rentRedirect()">Rent Item</button>
+          <button class="btn btn-white btn-lg col-xs-4 col-xs-offset-1" ng-click="chatRedirect()">Msg Seller</button>
+        </div>
       </div>
     </div>
   </div>
   <!-- Calendar and reviews -->
     <div class="row text-center item-title-wrapper">
     <!-- Calendar -->
-      <div class="">
+      <!-- <div> -->
         <calendar class="cal"></calendar>
-      </div>
-      <div class="col-sm-6 col-md-5 review-wrapper p-b-lg">
+      <!-- </div> -->
+    <!-- Reviews -->
+      <div class="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-0 review-wrapper p-b-lg">
         <p class="review-title">Reviews</p>
         <ul class="ul-reset item-desc-list no-p-l dash-zebra">
           <li ng-repeat="review in sellerReviews">{{review}}</li>
@@ -28,4 +31,3 @@
       </div>
     </div>
   </div>
-</div>

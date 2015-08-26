@@ -1,18 +1,18 @@
 <!-- Navigation bar -->
-<div ng-include="'shared/navigation.html'"></div>
+<menu></menu>
 <!-- Main body -->
 <div class="container transparent-form-body padding-top">
   <!-- Shows item name -->
   <h2 class="text-center m-b-lg">{{item.name}}</h2>
  <div class="row">
     <!-- Calender -->
-   <div class="col-sm-5 col-sm-offset-2">
+   <div class="col-sm-5 col-sm-offset-1 col-lg-4 col-lg-offset-2 cal-form-view clearfix">
     <calendar></calendar>
    </div>
 
-   <div class="col-sm-4">
+   <div class="col-sm-4 col-sm-offset-1 trans-form-lpad trans-tm">
    <!-- RENTAL INFO FORM -->
-      <!-- <h4>Rental Information</h4> -->
+      <h4>Rental Information</h4>
       <form class="transparent-form tf-overide">
       <!-- Displays price per day and total cost -->
       <label ng-model="item">Price Per Day: ${{item.price_per_day || 0}}</label><br>
@@ -36,20 +36,21 @@
   </div>
 
     <!-- PAYMENT FORM -->
-    <div class="row top-margin m-l-lg">
-      <div class="col-sm-9 col-sm-offset-2">
+    <div class="row top-margin form-left-margin trans-form-lpad">
+      <!-- <div class="col-sm-9 col-sm-offset-2"> -->
+      <div class="col-lg-offset-2 col-md-offset-1">
         <h4>Payment Information</h4>
         <form class="transparent-form tf-overide tf-payment" stripe:form="saveTransaction">
           <!-- <fieldset> -->
             <label>Card Number</label>
-            <input type="text" size="20" data-stripe="number" value="4242424242424242"/>
+            <input type="text" size="20" data-stripe="number" value="4242424242424242"/><br>
             <label>Expiration Date</label>
             <input type="text" size="2" data-stripe="exp-month" value="01"/>
             <input type="text" size="4" data-stripe="exp-year" value="2016"/>
             <label>CVC</label>
             <input type="password" size="3" data-stripe="cvc" value="123"/>
           <!-- </fieldset> -->
-          <button type="submit" class="btn btn-lg btn-green m-l-lg">Submit Rental</button>
+          <button type="submit" class="btn btn-md btn-green m-l-lg">Submit Rental</button>
         </form>
       </div>
     </div>

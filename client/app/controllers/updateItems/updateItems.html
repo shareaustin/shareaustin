@@ -1,5 +1,5 @@
 <!-- Navigation bar -->
-<div ng-include="'shared/navigation.html'"></div>
+<menu></menu>
 <!-- Main page -->
 <div class="container padding-top transparent-form-body">
   <div class="row">
@@ -10,7 +10,7 @@
           <input type="text" placeholder="Title" ng-model='item.name'/><br> <!-- Name -->
           <input type="text" placeholder="Address" ng-model='item.address'/><br> <!-- Adress -->
           <input type="text" placeholder="Price Per Day" ng-model='item.price_per_day'/><br> <!-- Price per day -->
-          <textarea rows="4" cols="50" style="resize: none" form="newListingForm"  
+          <textarea rows="4" cols="50" style="resize: none" form="newListingForm"
             placeholder="Enter a brief description here ..." ng-model='item.description'> <!-- Item description -->
           </textarea><br>
           <button ng-click="editItem(item)" class="btn btn-lg btn-green">Submit</button> <!-- Submit button -->
