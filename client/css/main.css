@@ -202,6 +202,7 @@ menu {padding:0; margin:0;}
 .maps-price {font-size: 1.05em;}
 
 /*----- All Items ------*/
+.filter-bar-tm {margin-top: 0px;}
 .filter-bar {
   background: #F6F6F6;
   padding: 5px 0;
@@ -221,7 +222,7 @@ menu {padding:0; margin:0;}
 .search-icon {
   position: relative;
   left: 25px;
-  /*top: 300px;*/
+  color: #E4E4E4;
 }
 .clear-search-icon {
   position: relative;
@@ -236,7 +237,7 @@ menu {padding:0; margin:0;}
   /*top: 300px;*/
 }
 .items-search {
-  border: 1px solid gray;
+  border: 1px solid #E4E4E4;
   border-radius: 5px;
   padding: 5px 0 5px 30px;
 }
@@ -769,6 +770,7 @@ textarea {color: #333}
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
    .mobile-chat-btns {margin-bottom: 5%;}
    .mobile-chat-btns > .btn-lg {padding: 8px 20px;}
+   .filter-bar-tm {margin-top: 3px;}
   .main-nav {
     padding: 10px;
     text-align: center;
@@ -777,7 +779,17 @@ textarea {color: #333}
   .main-nav li {
     display: none;
     padding: 10px 0 10px 20px;
-    font-size: 1.25em;
+    font-size: 2em;
+  }
+  .mobile-filter-stars {
+    position: absolute;
+    top: 42%;
+    left: 0px;
+  }
+  .mobile-filter-dollars {
+    position: absolute;
+    top: 42%;
+    left: 0px;
   }
 }
 /* when bigger than phone */
@@ -785,7 +797,7 @@ textarea {color: #333}
   .excess-padding > div:nth-child(odd) {padding-right: 0px;}
   .item-description {height: 60px;}
   .single-desc {padding-bottom: 70px;}
-  .filter-bar {}
+  .filter-bar {padding: 8px 0;}
   .slider-container {padding-left: 0;}
   .review-title {border: 1px solid #eee;}
   .form-left-margin {margin-left: 30px;}
@@ -802,6 +814,7 @@ textarea {color: #333}
   .btn-home-margin {margin-right: 30px;}
   .hamburger {display: none;}
   .trans-button {margin: 0 0 0 30px;}
+  .filter-bar-tm {margin-top: 46px;}
   .btn-xxl {
     padding: 12px 26px;
     font-size: 1.7em;
