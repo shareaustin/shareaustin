@@ -39,7 +39,8 @@ angular.module('shareAustin')
       }
     })
   }
-
+  // Object used for ng-class. Represents whether the stars are turnedOn (get bigger and fill)
+  // or turnedOf(makes them fade)
   $scope.stars = {
     1: { turnOn: false, turnOff: false},
     2: { turnOn: false, turnOff: false},
@@ -48,47 +49,49 @@ angular.module('shareAustin')
     5: { turnOn: false, turnOff: false}
   }
 
+  // Object used for ng-class for the doller marks
   $scope.dollers = {
     1: { turnOn: false, turnOff: false},
     2: { turnOn: false, turnOff: false},
     3: { turnOn: false, turnOff: false},
   }
 
+  // starFilterIn and priceFilterIn are null when a filter is unused,
+  // or contain an array of items that pass the filter
   $scope.starFilterIn  = null;
   $scope.priceFilterIn = null;
 
-  $scope.allOff = function() {
-    for (var i = 1; i <= 5; i++ ) {
-      $scope.stars[i].turnOn    = false;
-      $scope.stars[i].turnOff   = false;
-      if ( i<= 3 ) {
-        $scope.dollers[i].turnOn  = false;
-        $scope.dollers[i].turnOff = false;
-      }
-    }
-  }
-
-  $scope.clickedStar = false;
+  // Represents the number of stars, or dollar signs selected; if none selected, null;
+  $scope.clickedStar = null;
+  $scope.clickedPrice= null;
 
   $scope.starStyle = function(num) {
 
     // Seperation of concerns: 
     // consider breaking this if into seperate function
+
+    // Clicking to remove a filter
     if ($scope.clickedStar === num) {
-      
+      // Puts items filtered by stars, back into items array 
       $scope.items = $scope.items.concat($scope.starFilterOut)
+      // Reset things to null
       $scope.starFilterIn  = null;
       $scope.starFilterOut = null;
       $scope.clickedStar  = null;
+      // Apply the search filter with the new $scope.items
       $scope.searchFilter();
 
+      // Turn off the stying for the stars
       for (var i = 1; i <= 5; i++) {
         $scope.stars[i].turnOn = false;
         $scope.stars[i].turnOff = true;
       }
     }
+    // Clicking to create a filter
     else{
+      // Set the clicked star as this number
       $scope.clickedStar = num;
+      // Styling
       for (var i = 1; i <= 5; i++) {
         if (i <= num) {
           $scope.stars[i].turnOn  = true;
@@ -106,21 +109,29 @@ angular.module('shareAustin')
 
     // Seperation of concerns: 
     // consider breaking this if into seperate function
+    
+    // Clicking to remove a filter
     if ($scope.clickedPrice === num) {
-      
+      // Add the filtered items back into $scope.items
       $scope.items = $scope.items.concat($scope.priceFilterOut)
+      // Reset because the filters aren't on, and theres no clicked price
       $scope.priceFilterIn  = null;
       $scope.priceFilterOut = null;
       $scope.clickedPrice   = null;
+      // Reapplpy search filter with new $scope.items
       $scope.searchFilter();
 
+      // Turn stars off
       for (var i = 1; i <= 3; i++) {
         $scope.dollers[i].turnOn  = false;
         $scope.dollers[i].turnOff = true ;
       } 
     }
+    // Clicking to apply a filter
     else {
+      // Set clicked price as selected
       $scope.clickedPrice = num;
+      // Turn on and off the correct stars
       for (var i = 1; i <= 3; i++) {
         if ( i <= num) {
           $scope.dollers[i].turnOn  = true;
