@@ -60,7 +60,7 @@ angular.module('shareAustin')
   $scope.fetchUserStats()
 })
 
-.controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location) {
+.controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location, Item, Chat) {
 
   $scope.transactions = [];
 
@@ -79,16 +79,27 @@ angular.module('shareAustin')
      .then(function (results){
        $scope.boughtTransactions = results;
        $scope.setBoughtDisplay();
-       $scope.transactions = $scope.transactions.concat(results)
+       $scope.transactions = $scope.transactions.concat($scope.boughtTransactions)
      })
    }
+
+
+   $scope.chatRedirect = function(trns){
+    var room = trns.item.id + "-" + $scope.user.id;
+    Chat.setRoom(room);
+    Chat.joinOrCreate({
+      item_id:  trns.item.id,
+      buyer_id: trns.buyer_id
+    })
+    $location.path('/chatList');
+  };
 
   // Provides different functionality for depending on the status of a transaction
   $scope.statusFunctionality = function(trns) {
    if (trns.bought){
       switch(trns.status) {
         case "started":
-          // change path to message with buyer
+          $scope.chatRedirect(trns);
           break;
         case "in-rent":
           break; // go to details??
@@ -109,7 +120,7 @@ angular.module('shareAustin')
     else {
       switch(trns.status) {
         case "started":
-          //msg buyer
+          $scope.chatRedirect(trns);
           break;
         case "in-rent":
           // go to details?
@@ -122,7 +133,7 @@ angular.module('shareAustin')
         case "rating from seller pending":
           // Go to feedbacj page with trns info
           SaveTransaction.set(trns)
-          $location.path("/feedback")
+          //$location.path("/feedback")
           break;
         case "overdue":
           // go to message?
