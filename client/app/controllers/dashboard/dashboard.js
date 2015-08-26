@@ -61,7 +61,7 @@ angular.module('shareAustin')
 })
 
 .controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location, Item, Chat) {
-  
+
   $scope.transactions = [];
 
   // Fetches sold transactions, sets display properties, and concats them with $scope.transactions
@@ -79,22 +79,20 @@ angular.module('shareAustin')
      .then(function (results){
        $scope.boughtTransactions = results;
        $scope.setBoughtDisplay();
-       $scope.transactions = $scope.transactions.concat(results)
+       $scope.transactions = $scope.transactions.concat($scope.boughtTransactions)
      })
    }
 
 
-   $scope.chatRedirect = function(item){
-    console.log('user defined?')
-    console.log($scope.user)
+   $scope.chatRedirect = function(trns){
 
-    var room = item.id + "-" + $scope.user.id;
+    var room = trns.item.id + "-" + $scope.user.id;
     Chat.setRoom(room);
     console.log('item description controller fetching user')
     console.log(room)
     Chat.joinOrCreate({
-      item_id: item.id,
-      buyer_id: $scope.user.id
+      item_id:  trns.item.id,
+      buyer_id: trns.buyer_id
     })
     $location.path('/chatList');
   };
@@ -106,13 +104,13 @@ angular.module('shareAustin')
         case "started":
           console.log('user defined')
           console.log(trns.item)
-          $scope.chatRedirect(trns.item);
+          $scope.chatRedirect(trns);
           break;
         case "in-rent":
           break; // go to details??
         case "returned":
           SaveTransaction.set(trns);
-          $location.path("/feedback")
+          //$location.path("/feedback")
           break;
         case "rating from buyer pending":
           SaveTransaction.set(trns)
@@ -127,9 +125,7 @@ angular.module('shareAustin')
     else {
       switch(trns.status) {
         case "started":
-          console.log('item defined?')
-          console.log(trns.item)
-          $scope.chatRedirect(trns.item);
+          $scope.chatRedirect(trns);
           break;
         case "in-rent":
           // go to details?
@@ -142,7 +138,7 @@ angular.module('shareAustin')
         case "rating from seller pending":
           // Go to feedbacj page with trns info
           SaveTransaction.set(trns)
-          $location.path("/feedback")
+          //$location.path("/feedback")
           break;
         case "overdue":
           // go to message?
