@@ -54,8 +54,8 @@ angular.module('shareAustin')
     3: { turnOn: false, turnOff: false},
   }
 
-  $scope.starFilterIn  = [];
-  $scope.priceFilteredIn = [];
+  $scope.starFilterIn  = null;
+  $scope.priceFilterIn = null;
 
   $scope.allOff = function() {
     for (var i = 1; i <= 5; i++ ) {
@@ -102,11 +102,11 @@ angular.module('shareAustin')
     if ($scope.clickedPrice === num) {
       
       $scope.items = $scope.items.concat($scope.priceFilterOut)
-      $scope.priceFilteredIn  = null;
-      $scope.priceFilteredOut = null;
-      $scope.clickedPrice     = null;
+      $scope.priceFilterIn  = null;
+      $scope.priceFilterOut = null;
+      $scope.clickedPrice   = null;
 
-      for (var i = 1; i <= 5; i++) {
+      for (var i = 1; i <= 3; i++) {
         $scope.dollers[i].turnOn  = false;
         $scope.dollers[i].turnOff = true ;
       } 
@@ -135,38 +135,49 @@ angular.module('shareAustin')
   
   $scope.clearFilters = function(){
     $scope.items = $scope.allItems;
-    $scope.priceFilteredIn= null;
+    $scope.priceFilterIn= null;
   }
 
 
 
   $scope.filterPrice = function(num) {
     var limit = num === 1 ? 10 : num === 2 ? 20 : Infinity;
+    console.log("star in:")
+    console.log($scope.starFilterIn)
     // Init items and price filtered
     $scope.items = [];
     $scope.priceFilterIn  = [];
     $scope.priceFilterOut = [];
     // Loop thru all items
     for (var i = 0; i < $scope.allItems.length; i++) {
+      if ($scope.allItems[i].id === 2 ) {
+       // debugger;
+      }
       // If item meets the limit
       if ($scope.allItems[i].price_per_day <= limit) {
         // Put it in priceFilteredIn
-
         $scope.priceFilterIn.push($scope.allItems[i]);
         // If there is a star filter on, only put in items from it
         if ($scope.starFilterIn) {
-          for (var j = 0; j < $scope.starFilterIn; j++) {
-            if ($scope.starFilterIn[j] === $scope.allItems[i]) {
+          console.log("sfi:")
+          console.log($scope.starFilterIn)
+          console.log("all")
+          console.log($scope.allItems[i])
+          for (var j = 0; j < $scope.starFilterIn.length; j++) {
+            if ($scope.starFilterIn[j].id === $scope.allItems[i].id) {
+              console.log("yesss")
               $scope.items.push($scope.allItems[i])
             }
           }
         }
         // If no star filter, put all these in $scope.items
         else {
+          console.log("else else")
           $scope.items.push($scope.allItems[i])
         }
       }
       else {
+        console.log()
         $scope.priceFilterOut.push($scope.allItems[i]) 
       }      
     } 
@@ -184,11 +195,10 @@ angular.module('shareAustin')
         // Push into star filter
         $scope.starFilterIn.push($scope.allItems[i]);
         // If theres a price filter in place, only put in items from it
-        if ($scope.priceFilteredIn
-      ) {
-          for (var j = 0; j < $scope.priceFilteredIn; j++) {
-            if ($scope.priceFilteredIn[j] === $scope.allItems[i]) {
-              scope.items.push($scope.allItems[i])
+        if ($scope.priceFilterIn) {
+          for (var j = 0; j < $scope.priceFilterIn.length; j++) {
+            if ($scope.priceFilterIn[j] === $scope.allItems[i]) {
+              $scope.items.push($scope.allItems[i])
             }
           }
         }
