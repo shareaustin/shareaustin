@@ -707,6 +707,7 @@ textarea {color: #333}
   border-radius: 5px;
   text-align: center;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .truncate {
