@@ -492,26 +492,62 @@ a:hover {
   color: white;*/
 }
 /*---- Chat/Message Style -----*/
-.chat-submit {
-  display: inline;
-  margin-top: -40px;
-  margin-left: 10px;
-  padding-left: 35px;
-  padding-right: 35px;
+
+.text-area-padding, .chat-textarea {
+  color: #aaa;
+  /*border: 1px solid;*/
+  border-radius: 5px;
+  width: 95%;
+  margin: -10px 10px 10px 10px;
+  height: 48px;
 }
+
+.chat-list-item {
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid;
+  border-radius: 3px;
+  background-color: #96CDBC;
+  padding: 10px;
+  margin: 0px -40px -25px;
+}
+
+.chat-list-item a{
+  color: white;
+}
+
 .text-area-padding {
   padding: 10px 0 10px 10px;
-  /*resize: none; */
-  /*width: 450px;*/
+  resize: none;
+  width: 95%;
   height:48px;
 }
-.chat-messages {
-  /*background-color: white;*/
+
+.chat-header {
+  margin: -10px 0px 10px 0px;
+  text-align: center;
+}
+
+.chat-message-box {
   border: 1px solid;
   border-radius: 5px;
-  /*width: 675px;*/
+  background-color: #96CDBC;
+  /*width: 350px;*/
+  margin: 10px;
   height: 250px;
   overflow: scroll;
+}
+
+.chat-message {
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 10px 10px -15px;
+  padding: 10px;
+  background-color: white;
+}
+
+.chat-message-sender {
+  font-weight: bold;
 }
 
 .chat-submit > button {

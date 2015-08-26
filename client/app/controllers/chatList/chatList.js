@@ -3,23 +3,25 @@ angular.module('shareAustin')
 .controller('ChatListCtrl', function($scope, $state, $location, Auth, Chat, Item, Request){
   // Set title and user
   $scope.title = 'Messages';
-  
+  $scope.hideMessageList = false;
+
   Auth.getUser().then(function(user){
     $scope.user = user;
   });
-  
+
   // Fetch the users chats, save them to $scope
   Chat.userChats().then(function(chats){
     $scope.buyerChats = chats.buyerChats;
     $scope.sellerChats = chats.sellerChats;
   });
 
-  // Sets up a new chat room by and goes to it 
+  // Sets up a new chat room by and goes to it
   $scope.joinRoom = function(chat){
+    $scope.hideMessageList = true;
     $scope.room = chat.item_id + "-" + chat.buyer_id;
     Item.set(chat.item)
   };
-  
+
   if(Chat.getRoom().length){
     $scope.room = Chat.getRoom();
     Chat.setRoom('');
@@ -33,7 +35,7 @@ angular.module('shareAustin')
   $scope.$on('$stateChangeStart', function(){
       $window.location.reload();
   });
-  
+
   Socket.on('connect', function(){
     Socket.emit('enter chat', $scope.room)
   });
@@ -52,10 +54,11 @@ angular.module('shareAustin')
       sender: $scope.user.id,
     });
     $scope.message = '';
-  }; 
-  
+  };
+
   // Allows user to leave a chat
   $scope.leave = function(){
+    $scope.hideMessageList = false;
     $state.go('chatList');
   };
 })

@@ -6,20 +6,20 @@
       <h1>{{title}}</h1>
     </div>
       <!-- Shows different chats to participate, with the focus on other peoples items -->
-      <div class="col-sm-4 col-sm-offset-3">
-        <h2>I'm Interested In:</h2>
-        <ul class="list-unstyled" ng-repeat="chat in buyerChats">
-          <li>
-            <a ui-sref=".chat" ng-click="joinRoom(chat, chat.buyer_id)">{{chat.seller.first_name}} {{chat.seller.last_name}}'s {{chat.item.name}}</a>
+      <div class="col-sm-4 col-sm-offset-4" ng-hide="hideMessageList">
+        <!-- <h2>I'm Interested In:</h2> -->
+        <ul class="list-unstyled list-group" ng-repeat="chat in buyerChats">
+          <li class="chat-list-item">
+            <a ui-sref=".chat" ng-click="joinRoom(chat, chat.buyer_id)">{{chat.seller.first_name}}'s {{chat.item.name}}</a>
   	      </li>
         </ul>
-      </div>
+      <!-- </div> -->
       <!-- Shows chats you can participate in where the focus is your item -->
-      <div class="col-sm-4" >
-        <h2>My Items:</h2>
-        <ul class="list-unstyled" ng-repeat="chat in sellerChats">
-          <li>
-            <a ui-sref=".chat" ng-click="joinRoom(chat, chat.item.seller_id)">{{chat.buyer.first_name}} {{chat.buyer.last_name}} likes your {{chat.item.name}}</a>
+      <!-- <div class="col-sm-4" > -->
+        <!-- <h2>My Items:</h2> -->
+        <ul class="list-unstyled list-group" ng-repeat="chat in sellerChats">
+          <li class="chat-list-item">
+            <a ui-sref=".chat" ng-click="joinRoom(chat, chat.item.seller_id)">{{chat.buyer.first_name}} likes your {{chat.item.name}}</a>
   	      </li>
         </ul>
       </div>
