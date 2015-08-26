@@ -109,21 +109,29 @@ angular.module('shareAustin')
 
     // Seperation of concerns: 
     // consider breaking this if into seperate function
+    
+    // Clicking to remove a filter
     if ($scope.clickedPrice === num) {
-      
+      // Add the filtered items back into $scope.items
       $scope.items = $scope.items.concat($scope.priceFilterOut)
+      // Reset because the filters aren't on, and theres no clicked price
       $scope.priceFilterIn  = null;
       $scope.priceFilterOut = null;
       $scope.clickedPrice   = null;
+      // Reapplpy search filter with new $scope.items
       $scope.searchFilter();
 
+      // Turn stars off
       for (var i = 1; i <= 3; i++) {
         $scope.dollers[i].turnOn  = false;
         $scope.dollers[i].turnOff = true ;
       } 
     }
+    // Clicking to apply a filter
     else {
+      // Set clicked price as selected
       $scope.clickedPrice = num;
+      // Turn on and off the correct stars
       for (var i = 1; i <= 3; i++) {
         if ( i <= num) {
           $scope.dollers[i].turnOn  = true;
