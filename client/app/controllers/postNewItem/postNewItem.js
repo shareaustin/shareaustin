@@ -4,6 +4,9 @@ angular.module('shareAustin')
 .controller('PostNewItemCtrl', function ($scope, $location, Auth, Item, Request, Helpers) {
   // Initialize the new Listing
   $scope.newListing = {};
+  Auth.getUser().then(function(user){
+    $scope.user = user;
+  })
 
   // Post user input as new listing in database
   $scope.submitNewListing = function(item) {
@@ -20,7 +23,7 @@ angular.module('shareAustin')
         console.log(locationInfo)
 
         // Sets properties of the listing not attained from form input  
-        item.seller_id = Auth.getUser() ? Auth.getUser().id : 1;
+        item.seller_id = $scope.user.id;
         item.lat       = locationInfo.lat;
         item.lng       = locationInfo.lng;
         item.address   = locationInfo.address;
