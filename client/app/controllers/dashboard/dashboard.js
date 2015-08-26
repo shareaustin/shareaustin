@@ -55,7 +55,7 @@ angular.module('shareAustin')
     Auth.signout();
     $location.path('/');
   }
-  
+
   $scope.fetchSellerRating()
   $scope.fetchUserStats()
 })
@@ -151,7 +151,7 @@ angular.module('shareAustin')
     // Loop through bought transactions
     for (var i = 0; i < $scope.boughtTransactions.length; i++) {
       // Save end date
-      endDate = $scope.boughtTransactions[i].end_date.substr(0,10)
+      endDate = $scope.boughtTransactions[i].end_date.substr(5,2) + '/' + $scope.boughtTransactions[i].end_date.substr(8,2);
       // Different display set depending on transaction status
       switch($scope.boughtTransactions[i].status) {
         case "started" :
@@ -187,7 +187,7 @@ angular.module('shareAustin')
     // Loop thru sold transactions
     for (var i = 0; i < $scope.soldTransactions.length; i++) {
       // Set end date
-      endDate = $scope.soldTransactions[i].end_date.substr(0,10)
+      endDate = $scope.soldTransactions[i].end_date.substr(5,2) + '/' + $scope.soldTransactions[i].end_date.substr(8,2);
       // Different displays depending on the status of the transaction
       switch($scope.soldTransactions[i].status) {
         case "started" :
