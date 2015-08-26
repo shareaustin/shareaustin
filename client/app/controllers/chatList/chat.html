@@ -9,13 +9,19 @@
         <li>{{message.sender.first_name}} {{message.sender.last_name}}: {{message.text}}</li>
       </ul>
     </div>
+  </div>
+</div>
     <!-- Submit a message -->
-    <div class="chat-submit">
-      <form>
-        <textarea rows="1" cols="50" placeholder="Enter your message here" ng-model='message' class="inline-block text-area-padding"></textarea>
-        <button class="btn btn-lg btn-green chat-submit" ng-click="sendMessage()">Send</button>
-        <button class="btn btn-lg btn-green inline" ng-click="leave()">Leave</button>
-      </form>
-    </div>
- </div>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 m-t-md">
+    <form>
+      <textarea rows="1" cols="50" placeholder="Enter your message here" ng-model='message' class="inline-block text-area-padding"></textarea>
+    </form>
+  </div>
+</div>
+<div class="row m-t-sm p-b-md">
+  <div class="col-sm-offset-3 col-sm-6 mobile-chat-btns">
+    <button class="pull-right btn btn-lg btn-white" ng-click="leave()">Leave</button>
+    <button class="pull-right btn btn-lg btn-green m-r-md" ng-click="sendMessage()">Send</button>
+  </div>
 </div>

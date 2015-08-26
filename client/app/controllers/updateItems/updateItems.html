@@ -9,7 +9,7 @@
         <form id="newListingForm" class="transparent-form">
           <input type="text" placeholder="Title" ng-model='item.name'/><br> <!-- Name -->
           <input type="text" placeholder="Address" ng-model='item.address'/><br> <!-- Adress -->
-          <input type="text" placeholder="Price Per Day" ng-model='item.price_per_day'/><br> <!-- Price per day -->
+          <span class="update-dollar">$</span><input type="text" placeholder="Price Per Day" ng-model='item.price_per_day'/><br> <!-- Price per day -->
           <textarea rows="4" cols="50" style="resize: none" form="newListingForm"
             placeholder="Enter a brief description here ..." ng-model='item.description'> <!-- Item description -->
           </textarea><br>
