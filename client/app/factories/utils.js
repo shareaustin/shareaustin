@@ -3,7 +3,7 @@
 
 angular.module('shareAustin')
 
-.factory('Request', function($http){
+.factory('Request', function($http, $window, Upload){
   var reqObj = {
     
     // Requests associated with user models
@@ -39,6 +39,32 @@ angular.module('shareAustin')
           return resp.data;
         })
       },
+
+      uploadPhoto: function (file){
+
+        Upload.upload({
+          url: 'api/user/photo-upload',
+          file: file,
+        })
+        .progress(function (evt){
+          var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+          console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+        })
+        .success(function (data, status, headers, config){
+          console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
+          $window.location.reload();
+
+        })
+        .error(function (data, status, headers, config){
+          console.log('error status: ' + status);
+          swal ({
+             title: "<small>Error</small>",
+             text: "</p>Your photo was unable to upload.",
+             type: "error",
+             html: true
+          })
+        });
+      }
     },
     // Request associated with ratings model
     ratings: {

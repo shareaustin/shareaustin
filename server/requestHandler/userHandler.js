@@ -1,5 +1,8 @@
 var User = require('../model/user.js');
 var Transaction = require('../model/transaction.js');
+var fs = require('fs');
+var cloudinary = require('cloudinary');
+require('../config/cloudinary')(cloudinary)
 
 module.exports = {
 
@@ -81,5 +84,21 @@ module.exports = {
 			answer = (counter === 0 ?  0 : answer/counter)
 			res.json(answer)
 		})
-	}
+	},
+
+  linkPhoto: function(req, res){
+    console.log('uploading profile pic');
+    var path = __dirname + '/../uploads/' + req.file.originalname;
+		cloudinary.uploader.upload(path, function(result){
+			new User({
+				'id': req.user.attributes.id,
+			}).save({'photo_url': result.secure_url}, {patch: true}).then(function(photo){
+				fs.unlink(path, function (){
+					console.log('removed ' + path)
+				})
+				res.json(photo)
+			})
+  		console.log(result);
+  	})
+  },
 };
