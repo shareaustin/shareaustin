@@ -16,7 +16,7 @@ insert into items (seller_id, name, description, available, active, price_per_ho
 insert into item_photos(item_id, photo_url) values ('1', 'http://res.cloudinary.com/drw6xrsdi/image/upload/v1439326970/camerazoom-20130515123251956-medium_tglmt8.jpg');
 insert into item_photos(item_id, photo_url) values ('1', 'http://res.cloudinary.com/drw6xrsdi/image/upload/v1439326985/new-68306-1_ycyro0.jpg');
 insert into item_photos(item_id, photo_url) values ('1', 'http://res.cloudinary.com/drw6xrsdi/image/upload/v1439326996/1489921_2_kw22sg.jpg');
-insert into item_photos(item_id, photo_url) values ('2', 'http://res.cloudinary.com/drw6xrsdi/image/upload/v1439327006/91M24LGWyUL._SL1500__yoqem7.jpg');
+insert into item_photos(item_id, photo_url) values ('2', 'http://res.cloudinary.com/dq3xokch7/image/upload/v1439927948/teton_backpack_ndctzc.jpg');
 insert into item_photos(item_id, photo_url) values ('2', 'http://res.cloudinary.com/drw6xrsdi/image/upload/v1439327018/51I-kSUvgKL.jpgTETON-Sports-Fox-5200-Internal-Frame-Backpack-2-199x300_rn9f59.jpg');
 insert into item_photos(item_id, photo_url) values ('2', 'http://res.cloudinary.com/drw6xrsdi/image/upload/v1439327029/maxresdefault_vaaguy.jpg');
 insert into item_photos(item_id, photo_url) values ('3', 'http://res.cloudinary.com/drw6xrsdi/image/upload/v1439327039/Diamondback_Outlook_2011_bxdkwj.jpg');
