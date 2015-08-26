@@ -60,8 +60,8 @@ angular.module('shareAustin')
   $scope.fetchUserStats()
 })
 
-.controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location, Item) {
-
+.controller('TransactionHistory', function ($scope, Request, SaveTransaction, $location, Item, Chat) {
+  
   $scope.transactions = [];
 
   // Fetches sold transactions, sets display properties, and concats them with $scope.transactions
@@ -85,7 +85,10 @@ angular.module('shareAustin')
 
 
    $scope.chatRedirect = function(item){
-    var room = $scope.item.id + "-" + $scope.user.id;
+    console.log('user defined?')
+    console.log($scope.user)
+
+    var room = item.id + "-" + $scope.user.id;
     Chat.setRoom(room);
     console.log('item description controller fetching user')
     console.log(room)
@@ -101,6 +104,8 @@ angular.module('shareAustin')
    if (trns.bought){
       switch(trns.status) {
         case "started":
+          console.log('user defined')
+          console.log(trns.item)
           $scope.chatRedirect(trns.item);
           break;
         case "in-rent":
@@ -122,7 +127,9 @@ angular.module('shareAustin')
     else {
       switch(trns.status) {
         case "started":
-          $scope.chatRedirect();
+          console.log('item defined?')
+          console.log(trns.item)
+          $scope.chatRedirect(trns.item);
           break;
         case "in-rent":
           // go to details?
