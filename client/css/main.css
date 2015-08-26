@@ -502,14 +502,14 @@ a:hover {
 .text-area-padding {
   padding: 10px 0 10px 10px;
   /*resize: none; */
-  width: 450px;
+  /*width: 450px;*/
   height:48px;
 }
 .chat-messages {
   /*background-color: white;*/
   border: 1px solid;
   border-radius: 5px;
-  width: 675px;
+  /*width: 675px;*/
   height: 250px;
   overflow: scroll;
 }
@@ -731,6 +731,8 @@ textarea {color: #333}
 /* For Phones */
 @media screen and (max-width: 767px) {
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
+   .mobile-chat-btns {margin-bottom: 5%;}
+   .mobile-chat-btns > .btn-lg {padding: 8px 20px;}
   .main-nav {
     padding: 10px;
     text-align: center;
