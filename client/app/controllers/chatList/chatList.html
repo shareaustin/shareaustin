@@ -10,7 +10,7 @@
         <!-- <h2>I'm Interested In:</h2> -->
         <ul class="list-unstyled list-group" ng-repeat="chat in buyerChats">
           <li class="chat-list-item">
-            <a ui-sref=".chat" ng-click="joinRoom(chat, chat.buyer_id)">{{chat.seller.first_name}} {{chat.seller.last_name}}'s {{chat.item.name}}</a>
+            <a ui-sref=".chat" ng-click="joinRoom(chat, chat.buyer_id)">{{chat.seller.first_name}}'s {{chat.item.name}}</a>
   	      </li>
         </ul>
       <!-- </div> -->
@@ -19,7 +19,7 @@
         <!-- <h2>My Items:</h2> -->
         <ul class="list-unstyled list-group" ng-repeat="chat in sellerChats">
           <li class="chat-list-item">
-            <a ui-sref=".chat" ng-click="joinRoom(chat, chat.item.seller_id)">{{chat.buyer.first_name}} {{chat.buyer.last_name}} likes your {{chat.item.name}}</a>
+            <a ui-sref=".chat" ng-click="joinRoom(chat, chat.item.seller_id)">{{chat.buyer.first_name}} likes your {{chat.item.name}}</a>
   	      </li>
         </ul>
       </div>
