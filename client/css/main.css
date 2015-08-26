@@ -727,6 +727,7 @@ textarea {color: #333}
 .mobile-nav li {display: block !important;}
 .mobile-nav {height: 100vh !important; margin-top: 30%;}
 .trans-button {margin: 7% 0 5% 10%; width: 200px;}
+.update-dollar {font-size:1.35em;}
 /* For Phones */
 @media screen and (max-width: 767px) {
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
@@ -749,10 +750,10 @@ textarea {color: #333}
   .filter-bar {}
   .slider-container {padding-left: 0;}
   .review-title {border: 1px solid #eee;}
-  .transparent-form-body {height: 100vh;}
   .form-left-margin {margin-left: 30px;}
+  .transparent-form-body {height: 100vh;}
   .transparent-form label {font-size: 1.35em;}
-  .transparent-input label {font-size: 1.35em;}
+  .transparent-form input {font-size: 1.35em; width: 80%;}
   .trans-form-lpad {padding-left: 0px;}
   .trans-tm {margin-top: 0px;}
   .btn-lg {padding: 10px 16px;}
