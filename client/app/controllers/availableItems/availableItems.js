@@ -7,11 +7,11 @@ angular.module('shareAustin')
 
   // Initialize containers for data
   $scope.currentItem = {};
-  
+
   // $scope.items changes with filters, $scope.all items allways contains all the items
   $scope.items       = [];
   $scope.allItems    = [];
-  
+
   $scope.fav         = {};
   $scope.search = Item.search.term
   //  $scope.userId = Auth.getUser() ? Auth.getUser().id : 1;
@@ -67,12 +67,12 @@ angular.module('shareAustin')
 
   $scope.starStyle = function(num) {
 
-    // Seperation of concerns: 
+    // Seperation of concerns:
     // consider breaking this if into seperate function
 
     // Clicking to remove a filter
     if ($scope.clickedStar === num) {
-      // Puts items filtered by stars, back into items array 
+      // Puts items filtered by stars, back into items array
       $scope.items = $scope.items.concat($scope.starFilterOut)
       // Reset things to null
       $scope.starFilterIn  = null;
@@ -107,13 +107,13 @@ angular.module('shareAustin')
 
   $scope.prices = function(num) {
 
-    // Seperation of concerns: 
+    // Seperation of concerns:
     // consider breaking this if into seperate function
-    
+
     // Clicking to remove a filter
     if ($scope.clickedPrice === num) {
       // Add the filtered items back into $scope.items
-      $scope.items = $scope.items.concat($scope.priceFilterOut)
+      scope.items = $scope.items.concat($scope.priceFilterOut)
       // Reset because the filters aren't on, and theres no clicked price
       $scope.priceFilterIn  = null;
       $scope.priceFilterOut = null;
@@ -125,7 +125,7 @@ angular.module('shareAustin')
       for (var i = 1; i <= 3; i++) {
         $scope.dollers[i].turnOn  = false;
         $scope.dollers[i].turnOff = true ;
-      } 
+      }
     }
     // Clicking to apply a filter
     else {
@@ -144,7 +144,7 @@ angular.module('shareAustin')
       }
     }
   }
-  
+
   // Filters by price, unless num is selected already, then clears price filter
   $scope.filterPrice = function(num) {
     var limit = num === 1 ? 10 : num === 2 ? 20 : Infinity;
@@ -152,8 +152,8 @@ angular.module('shareAustin')
     $scope.items = [];
     $scope.priceFilterIn  = [];
     $scope.priceFilterOut = [];
-    
-    // Lots of nesting loops and conditions. Works but 
+
+    // Lots of nesting loops and conditions. Works but
     // could use a refactor
     for (var i = 0; i < $scope.allItems.length; i++) {
       // If item meets the limit
@@ -174,9 +174,9 @@ angular.module('shareAustin')
         }
       }
       else {
-        $scope.priceFilterOut.push($scope.allItems[i]) 
-      }      
-    } 
+        $scope.priceFilterOut.push($scope.allItems[i])
+      }
+    }
   }
 
   // Filters by stars, unless num is selected already, then clears star filter
@@ -185,8 +185,8 @@ angular.module('shareAustin')
     $scope.items    = [];
     $scope.starFilterIn  = [];
     $scope.starFilterOut = [];
-      
-    // Lots of nesting loops and conditions. Works but 
+
+    // Lots of nesting loops and conditions. Works but
     // could use a refactor
 
     // Loop thru items
@@ -223,6 +223,7 @@ angular.module('shareAustin')
         $scope.avgRating($scope.items)
         $scope.setupMap(); // function defined in mapSetup.js
         $scope.fetchFavoriteItems();
+        $scope.searchFilter();
       })
   };
 

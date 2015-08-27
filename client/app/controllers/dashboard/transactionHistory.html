@@ -3,7 +3,7 @@
     <ul class="ul-reset item-desc-list no-p-l dash-zebra">
       <li ng-repeat="soldTransaction in soldTransactions">
         <span class="li-rows-transaction-date">{{soldTransaction.payment_date.substr(5,2) + "/" + soldTransaction.payment_date.substr(8,2)}}</span>
-        <span class="li-rows-l-padding"> Earned ${{soldTransaction.price}} for {{soldTransaction.item.name}}</span>
+        <span class="li-rows-l-padding"> + ${{soldTransaction.price}} for {{soldTransaction.item.name}}</span>
         <span ng-class="{static: boughtTransactions[$index].display === 'Complete'}" class="pull-right li-rows-transaction-msg" ng-click="statusFunctionality(soldTransaction)">{{ soldTransaction.display }} <span>
       </li>
     </ul>
@@ -13,7 +13,7 @@
     <ul class="ul-reset item-desc-list no-p-l dash-zebra-yellow">
       <li ng-repeat="boughtTransaction in boughtTransactions track by $index">
         <span class="li-rows-transaction-date">{{boughtTransaction.payment_date.substr(5,2) + "/" + boughtTransaction.payment_date.substr(8,2)}}</span>
-        <span class="li-rows-l-padding"> Paid ${{boughtTransaction.price}} for {{boughtTransaction.item.name}}</span>
+        <span class="li-rows-l-padding"> - ${{boughtTransaction.price}} for {{boughtTransaction.item.name}}</span>
         <span ng-class="{static: boughtTransactions[$index].display === 'Complete'}" class="pull-right li-rows-transaction-msg" ng-click="statusFunctionality(boughtTransaction)"> {{ boughtTransaction.display }} <span>
       </li>
     </ul>
