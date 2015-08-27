@@ -113,7 +113,7 @@ angular.module('shareAustin')
     // Clicking to remove a filter
     if ($scope.clickedPrice === num) {
       // Add the filtered items back into $scope.items
-      scope.items = $scope.items.concat($scope.priceFilterOut)
+      $scope.items = $scope.items.concat($scope.priceFilterOut)
       // Reset because the filters aren't on, and theres no clicked price
       $scope.priceFilterIn  = null;
       $scope.priceFilterOut = null;
