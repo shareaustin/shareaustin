@@ -5,6 +5,7 @@ angular.module('shareAustin')
 //TODO -- Populate transaction.buyer_id with user's logged-in id
 
 //Formatting for date and time pickers
+  $scope.paymentDate = new Date();
   $scope.rentalStartDate = new Date();
   $scope.rentalStartDate.setHours($scope.rentalStartDate.getHours() + 1);
   $scope.rentalStartDate.setMinutes("0");
@@ -61,6 +62,13 @@ angular.module('shareAustin')
 
     // User can't rent for less than 1 hour
     if (rentalDuration >= 1) {
+      
+      console.log("Compare:")
+      console.log("now:")
+      console.log($scope.dateFormatter($scope.paymentDate))
+      console.log("other:")
+      console.log($scope.dateFormatter($scope.rentalEndDate))
+
       $http.post('/api/addTransaction', { 
         stripe_token : response.id,
         item_id      : $scope.transaction.item_id,
@@ -69,7 +77,7 @@ angular.module('shareAustin')
         start_date   : $scope.dateFormatter($scope.rentalStartDate),
         end_date     : $scope.dateFormatter($scope.rentalEndDate),
         duration     : $scope.calculateDuration(),
-        payment_date : $scope.dateFormatter( new Date() ),
+        payment_date : $scope.dateFormatter($scope.paymentDate),
         status       : 'started'
       })
       .then(function(response) {

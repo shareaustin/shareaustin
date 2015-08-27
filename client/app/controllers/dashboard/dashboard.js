@@ -80,6 +80,8 @@ angular.module('shareAustin')
        $scope.boughtTransactions = results;
        $scope.setBoughtDisplay();
        $scope.transactions = $scope.transactions.concat($scope.boughtTransactions)
+       console.log("all transactions:")
+       console.log($scope.transactions)
      })
    }
 
@@ -96,6 +98,7 @@ angular.module('shareAustin')
 
   // Provides different functionality for depending on the status of a transaction
   $scope.statusFunctionality = function(trns) {
+
    if (trns.bought){
       switch(trns.status) {
         case "started":
