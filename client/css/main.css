@@ -839,3 +839,9 @@ textarea {color: #333}
   .slider-container {padding-right: 0;}
   .review-wrapper {padding: 20px 0 0 0;}
 }
+
+/*---- HR Style/About ----*/
+
+hr.hr-style {
+  margin: 75px;
+}
