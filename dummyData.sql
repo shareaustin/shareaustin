@@ -83,9 +83,9 @@ insert into ratings (transaction_id, item_id, seller_rating, buyer_rating, selle
 -- insert into ratings (transaction_id, seller_rating, buyer_rating) values ('2', '4', '4');
 insert into chats (item_id, buyer_id, status) values ('1', '2', 'pending');
 insert into chats (item_id, buyer_id, status) values ('3', '1', 'pending');
-insert into messages (chat_id, sender_id, text, seen) values ('1', '2', 'first message in chat 1', 'true');
-insert into messages (chat_id, sender_id, text, seen) values ('1', '1', 'second message in chat 1', 'true');
-insert into messages (chat_id, sender_id, text, seen) values ('1', '2', 'third message in chat 1', 'true');
-insert into messages (chat_id, sender_id, text, seen) values ('2', '1', 'first message in chat 2', 'true');
-insert into messages (chat_id, sender_id, text, seen) values ('2', '2', 'second message in chat 2', 'true');
-insert into messages (chat_id, sender_id, text, seen) values ('2', '1', 'third message in chat 2', 'true');
+insert into messages (chat_id, sender_id, text, seen) values ('1', '2', 'Hi, does the backpack come with a frame?', 'true');
+insert into messages (chat_id, sender_id, text, seen) values ('1', '1', 'Yes! I also have a waterproof cover if you think you will need it.', 'true');
+insert into messages (chat_id, sender_id, text, seen) values ('1', '2', 'Awesome. Thanks!', 'true');
+insert into messages (chat_id, sender_id, text, seen) values ('2', '1', 'Would it be all right if I picked up the bike in the morning, around 9:00am?', 'true');
+insert into messages (chat_id, sender_id, text, seen) values ('2', '2', 'No problem. My schedule is pretty open that day.', 'true');
+insert into messages (chat_id, sender_id, text, seen) values ('2', '1', 'Great, see you then!', 'true');
