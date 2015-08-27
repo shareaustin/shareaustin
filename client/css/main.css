@@ -161,7 +161,7 @@ menu {padding:0; margin:0;}
   max-height: 80px;*/
   /*height: 60px;*/
   overflow: hidden;
-  padding: 0 3%;
+  padding: 10px 3% 0 3%;
 }
 /* is this used?*/
 .single-desc {
@@ -738,6 +738,7 @@ textarea {color: #333}
 }
 .profile-pic {
   border-radius: 50%;
+  border: 5px solid #D0D1D0;
 }
 .profile-card {
   border: 1px solid gainsboro;
@@ -745,6 +746,7 @@ textarea {color: #333}
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
+  /*background: #1ab188;*/
 }
 
 .truncate {
@@ -795,7 +797,7 @@ textarea {color: #333}
 /* when bigger than phone */
 @media screen and (min-width: 768px) {
   .excess-padding > div:nth-child(odd) {padding-right: 0px;}
-  .item-description {height: 60px;}
+  .item-description {height: 68px;}
   .single-desc {padding-bottom: 70px;}
   .filter-bar {padding: 8px 0;}
   .slider-container {padding-left: 0;}
