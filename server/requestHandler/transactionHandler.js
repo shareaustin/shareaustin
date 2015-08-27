@@ -16,6 +16,7 @@ module.exports = {
       'buyer_id'     : transaction.buyer_id,
       'start_date'   : transaction.start_date,
       'end_date'     : transaction.end_date,
+      'payment_date' : transaction.payment_date,
       'stripe_token' : transaction.stripe_token,
       'duration'     : transaction.duration,
       'status'       : transaction.status
