@@ -42,7 +42,6 @@ angular.module('shareAustin')
   $scope.dateFormatter = function (dateObj) {
     return dateObj.getFullYear() + "-" + (dateObj.getUTCMonth() + 1) + "-" + dateObj.getDate() + " " + dateObj.getHours() + ":" + dateObj.getMinutes();
   }
-  console.log($scope.dateFormatter( new Date() ))
 
   Auth.getUser().then(function(user){
     $scope.buyer = user;
@@ -62,12 +61,6 @@ angular.module('shareAustin')
 
     // User can't rent for less than 1 hour
     if (rentalDuration >= 1) {
-      
-      console.log("Compare:")
-      console.log("now:")
-      console.log($scope.dateFormatter($scope.paymentDate))
-      console.log("other:")
-      console.log($scope.dateFormatter($scope.rentalEndDate))
 
       $http.post('/api/addTransaction', { 
         stripe_token : response.id,
