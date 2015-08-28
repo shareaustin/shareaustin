@@ -207,7 +207,7 @@ menu {padding:0; margin:0;}
 /*----- All Items ------*/
 .filter-bar-tm {margin-top: 0px;}
 .filter-bar {
-  background: #F6F6F6;
+  background: #EDF2F0 url('../img/pattern4-3.png');
   padding: 5px 0;
   border: 1px solid lightgray;
   z-index: 30;
@@ -463,7 +463,7 @@ a:hover {
   height: 100vh;
   /*width: 100%;*/
 }
-.pattern4-bg {background: url('../img/pattern4.png')}
+.pattern-bg {background: url('../img/pattern4-3.png')}
 .green-gradient {
 	background:
 		-webkit-linear-gradient(45deg, hsla(134, 55%, 50%, 1) 0%, hsla(134, 55%, 50%, 0) 70%),
@@ -787,6 +787,7 @@ textarea {color: #333}
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
+  font-size: 1.2em;
   /*background: #1ab188;*/
 }
 
@@ -840,7 +841,7 @@ textarea {color: #333}
   .excess-padding > div:nth-child(odd) {padding-right: 0px;}
   .item-description {height: 68px;}
   .single-desc {padding-bottom: 70px;}
-  .filter-bar {padding: 2px 0;}
+  /*.filter-bar {padding: 2px 0;}*/
   .slider-container {padding-left: 0;}
   .review-title {border: 1px solid #eee;}
   .form-left-margin {margin-left: 30px;}
