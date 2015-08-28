@@ -48,6 +48,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .100vh {height: 100vh;}
 .ul-reset {list-style: none;}
 .yellow {color: #F8DA82;}
+.white {color: #FFFFFF;}
 .bold-700 {font-weight: 700;}
 .no-gutter > [class*='col-'] {
     padding-right:0;
@@ -447,8 +448,8 @@ a:hover {
   height: 100%;
   /*opacity: .5;*/
 }
-.trees-crop-bg {
-  background: url('../img/trees-transparent-crop.jpg') center center no-repeat;
+.trees-bg {
+  background: url('../img/trees.jpeg') center center no-repeat;
   background-size: cover;
 }
 .auth-bg {
@@ -775,12 +776,13 @@ textarea {color: #333}
   color: #1ab188;
 }
 .stats-desc {font-size: 1.07em;}
-.profile-pic {
+.dashboard-pic {
   border-radius: 50%;
   border: 5px solid #D0D1D0;
+  margin-bottom: 10px;
 }
-.profile-card {
-  border: 2px solid rgba(26, 177, 136, 0.25);
+.dashboard-card {
+  border: 1px solid #EBEBEB;
   border-radius: 5px;
   text-align: center;
   padding: 20px;

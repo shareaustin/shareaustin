@@ -4,11 +4,11 @@
 <!-- <h2 class="text-center m-b-lg">Welcome Back, {{user.first_name}}.</h2> -->
   <div class="row top-margin">
     <!-- Container for user profile info -->
-    <div class="col-sm-3 col-sm-offset-1 profile-card trees-crop-bg">
-      <img class="img-crop profile-pic center-block img-responsive" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
+    <div class="col-sm-3 col-sm-offset-1 dashboard-card trees-bg">
+      <img class="img-crop dashboard-pic center-block img-responsive" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
       <!-- <p>Username: {{user.username}}</p> -->
-      <p ng-show="user.first_name !== undefined">{{user.first_name + ' ' + user.last_name}}</p>
-      <p>Seller Rating: {{sellerRating}}</p>
+      <p class="white" ng-show="user.first_name !== undefined">{{user.first_name + ' ' + user.last_name}}</p>
+      <p class="white">Seller Rating: {{sellerRating}}</p>
       <button ngf-select ng-model="files" ngf-multiple="true" ngf-stop-propagation="true" class="btn btn-green btn-sm" ng-click="">Change Photo</button>
       <button ng-click="signout()" class="btn btn-white btn-sm"> SignOut</button>
     </div>
