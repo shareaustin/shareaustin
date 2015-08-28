@@ -447,13 +447,17 @@ a:hover {
   height: 100%;
   /*opacity: .5;*/
 }
+.trees-crop-bg {
+  background: url('../img/trees-transparent-crop.jpg') center center no-repeat;
+  background-size: cover;
+}
 .auth-bg {
   background: url('../img/trees.jpeg') center center no-repeat;
   height: 100vh;
   background-size: cover;
 }
 .mtn-bg {
-  background: url('../img/mountains-trans-green.jpg');
+  background: url('../img/mountains-fade.jpg');
   background-size: cover;
   height: 100vh;
   /*width: 100%;*/
@@ -766,6 +770,11 @@ textarea {color: #333}
   border-color: #C3E9E1;
   border-bottom: 0;
 }
+.stats-num {
+  font-size: 2em;
+  color: #1ab188;
+}
+.stats-desc {font-size: 1.07em;}
 .profile-pic {
   border-radius: 50%;
   border: 5px solid #D0D1D0;

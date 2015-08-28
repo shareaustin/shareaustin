@@ -4,7 +4,7 @@
 <!-- <h2 class="text-center m-b-lg">Welcome Back, {{user.first_name}}.</h2> -->
   <div class="row top-margin">
     <!-- Container for user profile info -->
-    <div class="col-sm-3 col-sm-offset-1 profile-card pattern4-bg">
+    <div class="col-sm-3 col-sm-offset-1 profile-card trees-crop-bg">
       <img class="img-crop profile-pic center-block img-responsive" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
       <!-- <p>Username: {{user.username}}</p> -->
       <p ng-show="user.first_name !== undefined">{{user.first_name + ' ' + user.last_name}}</p>
@@ -22,20 +22,20 @@
       </tabset>
       <div class="row text-center">
         <div class="col-sm-3">
-          <p>{{sellerStats.revenue | currency}}</p>
-          <p>Revenue</p>
+          <p class="stats-num">{{sellerStats.revenue | currency}}</p>
+          <p class="stats-desc">Revenue</p>
         </div>
         <div class="col-sm-3">
-          <p>{{sellerStats.avgProfit | currency}}</p>
-          <p>Average Profit</p>
+          <p class="stats-num">{{sellerStats.avgProfit | currency}}</p>
+          <p class="stats-desc">Average Profit</p>
         </div>
         <div class="col-sm-3">
-          <p>{{sellerStats.lended}}</p>
-          <p>Items Lended</p>
+          <p class="stats-num">{{sellerStats.lended}}</p>
+          <p class="stats-desc">Items Lended</p>
         </div>
         <div class="col-sm-3">
-          <p>{{sellerStats.borrowed}}</p>
-          <p>Items Borrowed</p>
+          <p class="stats-num">{{sellerStats.borrowed}}</p>
+          <p class="stats-desc">Items Borrowed</p>
         </div>
       </div>
     </div>
