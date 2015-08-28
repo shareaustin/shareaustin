@@ -771,6 +771,7 @@ textarea {color: #333}
   border-color: #C3E9E1;
   border-bottom: 0;
 }
+.stats-margin {margin-top: 40px;}
 .stats-num {
   font-size: 2em;
   color: #1ab188;
@@ -861,7 +862,7 @@ textarea {color: #333}
   .hamburger {display: none;}
   .trans-button {margin: 0 0 0 30px;}
   .filter-bar-tm {margin-top: 46px;}
-  .stats-margin {margin-top: 40px;}
+  /*.stats-margin {margin-top: 40px;}*/
   .btn-xxl {
     padding: 12px 26px;
     font-size: 1.7em;

@@ -1,10 +1,10 @@
 <!-- Navigation bar -->
 <menu></menu>
-<div class="container padding-top mtn-bg">
+<div class="container padding-top">
 <!-- <h2 class="text-center m-b-lg">Welcome Back, {{user.first_name}}.</h2> -->
-  <div class="row top-margin">
+  <div class="row top-margin mtn-bg">
     <!-- Container for user profile info -->
-    <div class="col-sm-3 col-sm-offset-1 dashboard-card trees-bg">
+    <div class="col-md-3 col-md-offset-1 col-xs-10 col-xs-offset-1 dashboard-card trees-bg">
       <img class="img-crop dashboard-pic center-block img-responsive" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
       <!-- <p>Username: {{user.username}}</p> -->
       <p class="white" ng-show="user.first_name !== undefined">{{user.first_name + ' ' + user.last_name}}</p>
@@ -13,7 +13,7 @@
       <button ng-click="signout()" class="btn btn-white btn-sm"> SignOut</button>
     </div>
     <!-- Tabs table for user's current listings, transaction, and favorites -->
-    <div class="col-sm-7 col-sm-offset-1 tab-border">
+    <div class="col-md-7 col-md-offset-1 col-xs-10 col-xs-offset-1 tab-border">
       <tabset justified="true">
         <tab ui-sref=".currentListings" heading="Current Listings"></tab>
         <tab ui-sref=".transactionHistory" heading="All Transactions"></tab>
@@ -21,19 +21,19 @@
           <div ui-view=""></div>
       </tabset>
       <div class="row text-center stats-margin">
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-xs-6">
           <p class="stats-num">{{sellerStats.revenue | currency}}</p>
           <p class="stats-desc">Revenue</p>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-xs-6">
           <p class="stats-num">{{sellerStats.avgProfit | currency}}</p>
           <p class="stats-desc">Average Profit</p>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-xs-6">
           <p class="stats-num">{{sellerStats.lended}}</p>
           <p class="stats-desc">Items Lended</p>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-xs-6">
           <p class="stats-num">{{sellerStats.borrowed}}</p>
           <p class="stats-desc">Items Borrowed</p>
         </div>
