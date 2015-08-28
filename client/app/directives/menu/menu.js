@@ -4,6 +4,9 @@ angular.module('shareAustin')
   $scope.hamburgerToggle = function () {
     $scope.hamburgerStatus = ($scope.hamburgerStatus === false) ? true : false
     console.log($scope.hamburgerStatus)
+  Auth.getUser().then(function(user) {
+    $scope.user = user
+  })  
   }
 })
 .directive('menu', function () {
