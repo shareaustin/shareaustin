@@ -1,10 +1,10 @@
 <!-- Navigation bar -->
 <menu></menu>
-<div class="container padding-top">
+<div class="container padding-top mtn-bg">
 <!-- <h2 class="text-center m-b-lg">Welcome Back, {{user.first_name}}.</h2> -->
-  <div class="row top-margin mtn-bg">
+  <div class="row dashboard-margin">
     <!-- Container for user profile info -->
-    <div class="col-md-3 col-md-offset-1 col-xs-10 col-xs-offset-1 dashboard-card trees-bg">
+    <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1 dashboard-card trees-bg">
       <img class="img-crop dashboard-pic center-block img-responsive" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
       <!-- <p>Username: {{user.username}}</p> -->
       <p class="white" ng-show="user.first_name !== undefined">{{user.first_name + ' ' + user.last_name}}</p>
