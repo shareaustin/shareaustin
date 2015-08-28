@@ -14,6 +14,7 @@ angular.module('shareAustin')
     })
   };
 
+  //Change
   //Setter
   function setUser(data){
     user = data;
