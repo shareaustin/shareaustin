@@ -20,7 +20,11 @@ angular.module('shareAustin')
     .then(function (results) {
       $scope.sellerStats.revenue = $scope.calculateRevenue(results)
       $scope.sellerStats.lended = results.length
-      $scope.sellerStats.avgProfit = $scope.sellerStats.revenue / results.length
+      if (results.length) {
+        $scope.sellerStats.avgProfit = $scope.sellerStats.revenue / results.length
+      } else {
+        $scope.sellerStats.avgProfit = 0
+      }
     })
 
     Request.user.fetchBoughtTransactions()
