@@ -2,13 +2,13 @@
 
 <!-- Navigation bar -->
 <menu></menu>
-<div class="container transparent-form-body padding-top">
+<div class="container transparent-form-body padding-top mtn-bg">
    <div class="row">
      <div class="col-sm-3 col-sm-offset-4">
         <!-- Displays the item beings rated -->
         <div class="diplayTransaction"></div>
         <h3>{{transaction.item.name}} </h3>
-        <h4> Overall </h4>
+        <h2>Rating</h2>
           <!-- Clickable stars for rating -->
           <div class="inline rating-picker-wrapper">
             <i ng-mouseover="hoverOne()"  ng-mouseleave="starsFade()" ng-click="chooseOne()"   ng-class="ratingPicker[1]" class="fa fa-star star-transparent"></i>
@@ -19,7 +19,7 @@
           </div>
           <br>
           <!-- Details area: submit a review -->
-          <h4>Details</h4>
+          <h3>Details</h3>
           <textarea rows="6" cols="50" style="resize: none" form="newListingForm" placeholder="Please describe your experience with this renter and item. Thank you! :)" ng-model='userInput.review'></textarea>
           <!-- Submit button -->
           <div class="newitem-button-container">
