@@ -2,7 +2,7 @@ angular.module('shareAustin')
 .controller ('HomeCtrl', function ($scope, $location, Item, Auth) {
 
   
-  $scope.loggedOut = !Auth.isLoggedIn()
+  $scope.isLoggedIn = !Auth.isLoggedOut()
 
   $scope.search = ""
   $scope.sendSearch = function (term) {

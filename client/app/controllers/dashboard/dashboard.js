@@ -52,6 +52,7 @@ angular.module('shareAustin')
   };
 
   $scope.signout = function(){
+    Auth.localSignOut();
     Auth.signout();
     $location.path('/');
   }

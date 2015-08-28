@@ -14,7 +14,16 @@ angular.module('shareAustin')
     })
   };
 
-  //Change
+  function isLoggedOut() {
+    console.log(user)
+    console.log(Object.keys(user))
+    return Object.keys(user)[0]  === undefined
+  }
+
+  function localSignOut() {
+    user = {};
+  }
+
   //Setter
   function setUser(data){
     user = data;
@@ -69,7 +78,9 @@ angular.module('shareAustin')
     signout: signout,
     getUser: getUser,
     setUser: setUser,
-    isAuthorized: isAuthorized
+    isAuthorized: isAuthorized,
+    isLoggedOut: isLoggedOut,
+    localSignOut: localSignOut 
   };
 })
 
