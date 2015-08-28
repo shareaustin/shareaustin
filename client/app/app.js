@@ -111,7 +111,7 @@ angular.module('shareAustin', [
   })
   .state('feedback', {
     url: "/feedback",
-    templateUrl: "/app/controllers/feedback/feedback.html",
+    templateUrl: "/app/controllers/feedBack/feedBack.html",
     controller: "Feedback",
     authenticate: true
   })
