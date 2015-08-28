@@ -458,7 +458,7 @@ a:hover {
   background-size: cover;
 }
 .mtn-bg {
-  background: url('../img/mountains-fade.jpg');
+  /*background: url('../img/mountains-fade.jpg');*/
   background-size: cover;
   height: 100vh;
   /*width: 100%;*/
@@ -839,6 +839,7 @@ textarea {color: #333}
 /* when bigger than phone */
 @media screen and (min-width: 768px) {
   .excess-padding > div:nth-child(odd) {padding-right: 0px;}
+  .mtn-bg {background: url('../img/mountains-fade.jpg');}
   .item-description {height: 68px;}
   .single-desc {padding-bottom: 70px;}
   /*.filter-bar {padding: 2px 0;}*/
