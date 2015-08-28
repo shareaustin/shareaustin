@@ -161,7 +161,7 @@ angular.module('shareAustin')
           display = "Message Owner" ;
           break;
         case "in-rent" :
-          display = "Due Date: " + endDate
+          display = "Due " + endDate
           break;
         case "returned":
           display = "Rate Seller";
@@ -197,7 +197,7 @@ angular.module('shareAustin')
           display = "Message Renter"
           break;
         case "in-rent" :
-          display = "Return Date: " + endDate;
+          display = "Return " + endDate;
           break;
         case "returned":
           display = "Rate Renter"
