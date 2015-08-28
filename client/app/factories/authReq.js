@@ -14,12 +14,12 @@ angular.module('shareAustin')
     })
   };
 
+  // Used locally to determine if user is logged
   function isLoggedOut() {
-    console.log(user)
-    console.log(Object.keys(user))
     return Object.keys(user)[0]  === undefined
   }
 
+  // Returns user to emptpy object, a "local" sign out
   function localSignOut() {
     user = {};
   }

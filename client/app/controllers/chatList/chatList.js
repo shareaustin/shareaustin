@@ -1,6 +1,7 @@
 angular.module('shareAustin')
 
 .controller('ChatListCtrl', function($scope, $state, $location, Auth, Chat, Item, Request){
+  
   // Set title and user
   $scope.title = 'Messages';
   $scope.hideMessageList = false;
