@@ -739,7 +739,7 @@ textarea {color: #333}
 }
 
 .current-list, .favorite-list, .trans-list {
-  height: 250px;
+  max-height: 250px;
   /*width: 555px;*/
   overflow-y: scroll;
 }
@@ -860,6 +860,7 @@ textarea {color: #333}
   .hamburger {display: none;}
   .trans-button {margin: 0 0 0 30px;}
   .filter-bar-tm {margin-top: 46px;}
+  .stats-margin {margin-top: 40px;}
   .btn-xxl {
     padding: 12px 26px;
     font-size: 1.7em;
