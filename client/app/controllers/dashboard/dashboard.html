@@ -1,10 +1,10 @@
 <!-- Navigation bar -->
 <menu></menu>
-<div class="container padding-top">
+<div class="container padding-top mtn-bg">
 <h2 class="text-center m-b-lg">Welcome Back, {{user.first_name}}.</h2>
   <div class="row">
     <!-- Container for user profile info -->
-    <div class="col-sm-3 col-sm-offset-1 profile-card">
+    <div class="col-sm-3 col-sm-offset-1 profile-card pattern4-bg">
       <img class="img-crop profile-pic center-block img-responsive" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
       <!-- <p>Username: {{user.username}}</p> -->
       <p ng-show="user.first_name !== undefined">{{user.first_name + ' ' + user.last_name}}</p>

@@ -128,10 +128,14 @@ menu {padding:0; margin:0;}
   border: 1px solid #eee;
 }
 .dash-zebra > li:nth-child(odd) {
-  background-color: #EBF6F0;
+  /*background-color: rgba(174, 240, 204, 0.36);*/
+  background: rgba(174, 240, 204, 0.36) url('../img/pattern4.png');
+  /*background-color: #EBF6F0;*/
 }
 .dash-zebra-yellow > li:nth-child(odd) {
-  background-color: #FFFEE7;
+  /*background-color: rgba(255, 250, 146, 0.44);*/
+  background: rgba(255, 250, 146, 0.44) url('../img/pattern4.png');
+  /*background-color: #FFFEE7;*/
 }
 .item-title {
   cursor: pointer;
@@ -450,6 +454,25 @@ a:hover {
   height: 100vh;
   background-size: cover;
 }
+.mtn-bg {
+  background: url('../img/mountains-trans-green.jpg');
+  background-size: cover;
+  height: 100vh;
+  /*width: 100%;*/
+}
+.pattern4-bg {background: url('../img/pattern4.png')}
+.green-gradient {
+	background:
+		-webkit-linear-gradient(45deg, hsla(134, 55%, 50%, 1) 0%, hsla(134, 55%, 50%, 0) 70%),
+		-webkit-linear-gradient(315deg, hsla(225, 95%, 37%, 1) 10%, hsla(225, 95%, 37%, 0) 80%),
+		-webkit-linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
+		-webkit-linear-gradient(135deg, hsla(35, 51%, 59%, 1) 100%, hsla(35, 51%, 59%, 0) 70%);
+	background:
+		linear-gradient(45deg, hsla(134, 55%, 50%, 1) 0%, hsla(134, 55%, 50%, 0) 70%),
+		linear-gradient(135deg, hsla(225, 95%, 37%, 1) 10%, hsla(225, 95%, 37%, 0) 80%),
+		linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
+		linear-gradient(315deg, hsla(35, 51%, 59%, 1) 100%, hsla(35, 51%, 59%, 0) 70%);
+	}
 
 /*---- Favorite Buttons -----*/
 .favorited, .favorited:focus, .favorited:hover {
@@ -719,9 +742,16 @@ textarea {color: #333}
 
 /*----- Dashboard -----*/
 .nav-tabs.nav-justified {
-  border: 1px solid gainsboro;
+  /*border: 1px solid gainsboro;*/
+  /*border: 1px solid rgb(235, 235, 235);*/
   border-radius: 5px;
 }
+.nav-tabs.nav-justified > li > a {
+  margin-right: 3px;
+  border: 1px solid rgb(235, 235, 235);
+  border-bottom: 0px solid;
+}
+/*.nav-tabs.nav-justified > li > a:nth-last-of-type(3n) {margin-right: 0;}*/
 .nav-tabs.nav-justified > li > a:hover {
   background-color: #EBF6F0;
 }
@@ -733,15 +763,16 @@ textarea {color: #333}
 .nav-tabs.nav-justified > .active > a,
 .nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:focus {
-  background-color: #EBF6F0;
-  border-bottom-color: #EEEEEE;
+  background-color: #F7FDFA;
+  border-color: #C3E9E1;
+  border-bottom: 0;
 }
 .profile-pic {
   border-radius: 50%;
   border: 5px solid #D0D1D0;
 }
 .profile-card {
-  border: 1px solid gainsboro;
+  border: 2px solid rgba(26, 177, 136, 0.25);
   border-radius: 5px;
   text-align: center;
   padding: 20px;
