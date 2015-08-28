@@ -448,7 +448,7 @@ a:hover {
 .auth-bg {
   background: url('../img/trees.jpeg') center center no-repeat;
   height: 100vh;
-  background-position: cover;
+  background-size: cover;
 }
 
 /*---- Favorite Buttons -----*/
