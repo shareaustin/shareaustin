@@ -5,10 +5,13 @@ angular.module('shareAustin')
     $scope.hamburgerStatus = ($scope.hamburgerStatus === false) ? true : false
     console.log($scope.hamburgerStatus)
   }
-  $scope.user = null
-  Auth.getUser().then(function(user) {
-    $scope.user = user
-  })  
+
+  // $scope.user = $scope.user || null; 
+  // Auth.getUser().then(function(user) {
+  //   console.log(typeof user)
+  //   $scope.user = user; 
+  // })
+  // console.log($scope.user)  
 })
 .directive('menu', function () {
   return {
