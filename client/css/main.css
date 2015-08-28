@@ -128,13 +128,11 @@ menu {padding:0; margin:0;}
   border: 1px solid #eee;
 }
 .dash-zebra > li:nth-child(odd) {
-  /*background-color: rgba(174, 240, 204, 0.36);*/
-  background: rgba(174, 240, 204, 0.36) url('../img/pattern4.png');
+  background: rgba(174, 240, 204, 0.36) url('../img/pattern4-3.png');
   /*background-color: #EBF6F0;*/
 }
 .dash-zebra-yellow > li:nth-child(odd) {
-  /*background-color: rgba(255, 250, 146, 0.44);*/
-  background: rgba(255, 250, 146, 0.44) url('../img/pattern4.png');
+  background: rgba(255, 250, 146, 0.44) url('../img/pattern4-3.png');
   /*background-color: #FFFEE7;*/
 }
 .item-title {

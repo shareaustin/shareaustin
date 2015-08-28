@@ -1,8 +1,8 @@
 <!-- Navigation bar -->
 <menu></menu>
 <div class="container padding-top mtn-bg">
-<h2 class="text-center m-b-lg">Welcome Back, {{user.first_name}}.</h2>
-  <div class="row">
+<!-- <h2 class="text-center m-b-lg">Welcome Back, {{user.first_name}}.</h2> -->
+  <div class="row top-margin">
     <!-- Container for user profile info -->
     <div class="col-sm-3 col-sm-offset-1 profile-card pattern4-bg">
       <img class="img-crop profile-pic center-block img-responsive" ng-src='{{user.photo_url}}' height="200px" width="200px"/>
@@ -20,7 +20,7 @@
         <tab ui-sref=".favorites" heading="Favorites"></tab>
           <div ui-view=""></div>
       </tabset>
-      <div class="row text-center m-t-lg">
+      <div class="row text-center">
         <div class="col-sm-3">
           <p>{{sellerStats.revenue | currency}}</p>
           <p>Revenue</p>
