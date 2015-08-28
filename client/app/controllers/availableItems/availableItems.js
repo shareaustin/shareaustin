@@ -227,14 +227,6 @@ angular.module('shareAustin')
       })
   };
 
-  // Fetch all favorite items associated with the user
-  $scope.fetchFavoriteItems = function () {
-     Request.favorites.fetchFavoriteItems($scope.user.id)
-     .then(function (results){
-     $scope.favorites = results;
-     $scope.crossCheckFavs();
-    })
-  }
 
   // Looks in the items on the page, if they are also a favorited item
   // makes a favorited property equal true
@@ -247,6 +239,15 @@ angular.module('shareAustin')
        }
       }
      }
+  }
+
+    // Fetch all favorite items associated with the user
+  $scope.fetchFavoriteItems = function () {
+     Request.favorites.fetchFavoriteItems($scope.user.id)
+     .then(function (results){
+     $scope.favorites = results;
+     $scope.crossCheckFavs();
+    })
   }
 
   // "Rent" button takes user to transaction view
@@ -268,17 +269,41 @@ angular.module('shareAustin')
     item.favorited = true
   }
 
+  $scope.favoriteClick = function(item) {
+    console.log("eh")
+    console.log(item)
+    console.log($scope.favorites)
+    for (var i = 0; i < $scope.favorites.length; i++) {
+      if ($scope.favorites[i].item_id === item.id ) {
+        $scope.removeFavorite(item)
+        return; 
+      }
+    }
+    console.log("not removed")
+    $scope.newFavorite(item)
+  }
+
+  $scope.removeFavorite = function(item) {
+    var fav = {}
+    fav.item_id = item.id;
+    fav.user_id = $scope.user.id;
+
+    Request.favorites.removeFavoriteItems(fav).then(function() {
+      $scope.fetchFavoriteItems();
+    })
+  }
+
   // Occurs when user favorites an item, stores favorite in db
-  $scope.newFavorite = function ($event) {
+  $scope.newFavorite = function (item) {
 
     $scope.class = "favorited"
     // Sets new favorite with item id, and userId
-    $scope.fav.item_id =  $event.id;
+    $scope.fav.item_id =  item.id;
     $scope.fav.user_id =  $scope.user.id;
 
     // Posts this favorite to database
     Request.favorites.addFavorite($scope.fav).then(function() {
-      $scope.fetchFavoriteItems($scope.user.id);
+      $scope.fetchFavoriteItems();
     })
   }
 

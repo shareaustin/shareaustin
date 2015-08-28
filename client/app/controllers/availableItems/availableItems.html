@@ -46,7 +46,7 @@
               <!-- Rent and favorites button -->
     					<div class="row button-container">
                 <button class="btn btn-green btn-md col-xs-5" ng-click="rentItem(item, $event)">Rent</button>
-    						<button class="btn btn-white btn-md col-xs-5 col-xs-offset-1" ng-class="{ 'favorited' : item.favorited }" ng-click="newFavorite(item,$event)">Favorite</button>
+    						<button class="btn btn-white btn-md col-xs-5 col-xs-offset-1" ng-class="{ 'favorited' : item.favorited }" ng-click="favoriteClick(item)">Favorite</button>
     	        </div>
   	        </div>
   				</div>

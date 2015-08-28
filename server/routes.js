@@ -38,8 +38,6 @@ module.exports = function (app, passport, upload) {
   app.post('/api/addTransaction'          , transactionHandler.addTransaction);
   app.post('/api/updateTransaction'       , transactionHandler.updateTransaction)
   app.post('/api/getItemTransactions/'    , transactionHandler.getItemTransactions);
-
-  // Requests to favorite handler
   app.post('/api/addFavorite'             , favoriteHandler.addFavorite)
   app.post('/api/removeFavorite'          , favoriteHandler.removeFavorite)
 
