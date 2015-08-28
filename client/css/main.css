@@ -696,7 +696,8 @@ textarea {color: #333}
   text-align: right;
   vertical-align: middle;
   color: #1ab188;
-  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.33);
+  border: 1px solid rgba(26, 177, 136, 0.32);
   border-radius: 3px;
   padding: 2px 5px;
   cursor: pointer;
