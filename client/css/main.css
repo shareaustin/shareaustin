@@ -847,9 +847,17 @@ textarea {color: #333}
   .home-search-bar {width: 85%;}
   .btn-home-margin {margin-right: 30px;}
   .hamburger {display: none;}
-  .trans-button {margin: 0 0 0 30px;}
+  .trans-button {margin: 10px 0 0 0;}
   .filter-bar-tm {margin-top: 46px;}
   .dashboard-margin {margin: 46px;}
+  .rent-form > input {
+    font-size: 1em;
+  }
+  .rent-fieldset {
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 5px;
+  }
   /*.stats-margin {margin-top: 40px;}*/
   .btn-xxl {
     padding: 12px 26px;

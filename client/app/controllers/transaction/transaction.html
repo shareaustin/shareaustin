@@ -3,57 +3,56 @@
 <!-- Main body -->
 <div class="container transparent-form-body padding-top mtn-bg">
   <!-- Shows item name -->
-  <h2 class="text-center m-b-lg">{{item.name}}</h2>
- <div class="row">
+  <h2 class="text-center m-b-lg">{{item.name}} ${{item.price_per_day || 0}}</h2>
+  <div class="row">
     <!-- Calender -->
-   <div class="col-sm-5 col-sm-offset-1 col-lg-4 col-lg-offset-2 cal-form-view clearfix">
+    <div class="col-sm-5 col-sm-offset-1 col-lg-4 col-lg-offset-2 cal-form-view clearfix">
     <calendar></calendar>
-   </div>
+    </div>
 
-   <div class="col-sm-4 col-sm-offset-1 trans-form-lpad trans-tm">
-   <!-- RENTAL INFO FORM -->
+    <div class="col-sm-4 col-sm-offset-1 trans-form-lpad trans-tm">
+     <!-- RENTAL INFO FORM -->
       <h4>Rental Information</h4>
       <form class="transparent-form tf-overide">
       <!-- Displays price per day and total cost -->
-      <label ng-model="item">Price Per Day: ${{item.price_per_day || 0}}</label><br>
-      <label ng-model="item">Total: ${{rentalPrice() || 0}}</label>
-        <fieldset>
-          <!-- Start date dropdown and calendar picker -->
-          <div class="input-group">
+        <!-- <label ng-model="item">Price Per Day: ${{item.price_per_day || 0}}</label><br> -->
+          <fieldset class="rent-fieldset">
+            <!-- Start date dropdown and calendar picker -->
+            <div class="input-group rent-form">
               <label>Start Date</label><br>
               <input type="date" class="datepicker" datepicker-popup ng-model="rentalStartDate"/>
               <input type="time" ng-model="rentalStartDate" placeholder="HH:mm" step="900"/>
-          </div>
-          <!-- End date selector including calendar -->
-          <div class="input-group">
-              <label>End Date</label><br>
-              <input type="date" class="datepicker" datepicker-popup ng-model="rentalEndDate"/>
-              <input type="time" ng-model="rentalEndDate" placeholder="HH:mm" step="900"/>
-          </div>
-        </fieldset>
+            </div>
+            <!-- End date selector including calendar -->
+            <div class="input-group rent-form">
+                <label>End Date</label><br>
+                <input type="date" class="datepicker" datepicker-popup ng-model="rentalEndDate"/>
+                <input type="time" ng-model="rentalEndDate" placeholder="HH:mm" step="900"/>
+            </div>
+          </fieldset>
+        <label ng-model="item">Total: ${{rentalPrice() || 0}}</label>
       </form>
     </div>
   </div>
 
-    <!-- PAYMENT FORM -->
-    <div class="row top-margin form-left-margin trans-form-lpad">
-      <!-- <div class="col-sm-9 col-sm-offset-2"> -->
-      <div class="col-lg-offset-2 col-md-offset-1">
-        <h4>Payment Information</h4>
-        <form class="transparent-form tf-overide tf-payment" stripe:form="saveTransaction">
-          <!-- <fieldset> -->
-            <label>Card Number</label>
-            <input type="text" size="20" data-stripe="number" value="4242424242424242"/><br>
-            <label>Expiration Date</label>
-            <input type="text" size="2" data-stripe="exp-month" value="01"/>
-            <input type="text" size="4" data-stripe="exp-year" value="2016"/>
-            <label>CVC</label>
-            <input type="password" size="3" data-stripe="cvc" value="123"/>
-          <!-- </fieldset> -->
-          <button type="submit" class="btn btn-md btn-green trans-button">Submit Rental</button>
-        </form>
-      </div>
+  <!-- PAYMENT FORM -->
+  <div class="row no-gutter form-left-margin trans-form-lpad">
+    <div class="col-lg-5 col-lg-offset-2 col-md-offset-1">
+      <h4>Payment Information</h4>
+      <form class="transparent-form tf-overide tf-payment" stripe:form="saveTransaction">
+        <fieldset class="rent-fieldset">
+          <label>Card Number</label>
+          <input type="text" size="20" data-stripe="number" value="4242424242424242"/><br>
+          <label>Expiration Date</label>
+          <input type="text" size="2" data-stripe="exp-month" value="01"/>
+          <input type="text" size="4" data-stripe="exp-year" value="2016"/>
+          <label>CVC</label>
+          <input type="password" size="3" data-stripe="cvc" value="123"/>
+        </fieldset>
+        <button type="submit" class="btn btn-md btn-green trans-button">Submit Rental</button>
+      </form>
     </div>
+  </div>
 </div>
 
 <!-- <calendar selected="day"></calendar> -->
