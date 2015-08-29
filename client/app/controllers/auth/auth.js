@@ -2,6 +2,7 @@ angular.module('shareAustin')
 
 .controller('AuthCtrl', function inject($scope, Auth){
 	$scope.active = 'logIn'
+
 	// Determines which tab is selected
   $scope.change = function (status) {
 		if (status === 'logIn') $scope.active = true

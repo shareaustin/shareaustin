@@ -63,7 +63,7 @@ module.exports = function (app, passport, upload) {
 
   app.post('/signout', function(req, res){
     req.logOut();
-    res.redirect('/')
+    //res.redirect('/')
   })
 
   app.get('/auth', userHandler.isAuthorized);
