@@ -727,7 +727,7 @@ textarea {color: #333}
 .current-list, .favorite-list, .trans-list {
   max-height: 250px;
   /*width: 555px;*/
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /*----- Dashboard -----*/
