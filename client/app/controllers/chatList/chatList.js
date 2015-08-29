@@ -57,13 +57,8 @@ angular.module('shareAustin')
     $scope.message = '';
   };
 
-  $scope.$on("$destroy", function(){
-    //Socket.end();
-  })
-
   // Allows user to leave a chat
   $scope.leave = function(){
-    console.log("left room")
     $scope.hideMessageList = false;
     $state.go('chatList');
   };
