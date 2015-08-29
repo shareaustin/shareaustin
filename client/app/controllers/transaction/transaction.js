@@ -1,7 +1,7 @@
 angular.module('shareAustin')
 
 .controller('TransactionCtrl', function($scope, $http, Request, sweet, Item, Auth) {
- 
+
 //TODO -- Populate transaction.buyer_id with user's logged-in id
 
 //Formatting for date and time pickers
@@ -11,7 +11,7 @@ angular.module('shareAustin')
   $scope.rentalStartDate.setMinutes("0");
   $scope.rentalStartDate.setSeconds("0");
   $scope.rentalStartDate.setMilliseconds("0");
-  $scope.rentalEndDate = '';
+  $scope.rentalEndDate = new Date($scope.rentalStartDate);
   console.log('date')
   console.log($scope.paymentDate);
 
@@ -53,7 +53,7 @@ angular.module('shareAustin')
   })
 
 //Send logged-in user, selected item, and rental duration in request to server
-  
+
 //Save the transaction to the database
   $scope.saveTransaction = function(status, response) {
     //Check for valid rental duration
@@ -62,7 +62,7 @@ angular.module('shareAustin')
     // User can't rent for less than 1 hour
     if (rentalDuration >= 1) {
 
-      $http.post('/api/addTransaction', { 
+      $http.post('/api/addTransaction', {
         stripe_token : response.id,
         item_id      : $scope.transaction.item_id,
         //buyer_id     : $scope.transaction.buyer_id,
