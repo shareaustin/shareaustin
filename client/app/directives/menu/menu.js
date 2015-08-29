@@ -1,5 +1,5 @@
 angular.module('shareAustin')
-.controller('MenuCtrl', function ($scope, Auth, $location) {
+.controller('MenuCtrl', function ($scope, Auth, $state) {
   // Used to determine wether or not to show "login" tab
   $scope.isLoggedIn = !Auth.isLoggedOut()
 
@@ -8,8 +8,10 @@ angular.module('shareAustin')
     $scope.hamburgerStatus = ($scope.hamburgerStatus === false) ? true : false
     console.log($scope.hamburgerStatus)
   }
-  $scope.goToAuth = function() {  
-    $location.path("/auth")
+  $scope.logOut= function() {
+    Auth.localSignOut();
+    Auth.signout();
+    $state.go("auth.signin")
   }
 
 })
