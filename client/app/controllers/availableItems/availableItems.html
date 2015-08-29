@@ -17,7 +17,7 @@
           <!-- Search bar -->
           <i class="fa fa-search search-icon"></i>
           <input class="items-search" id="searchBar" placeholder="Filter By Search" type="text" ng-model="search">
-          <i class="fa fa-times clear-search-icon" ng-class="{ invisible: search.length < 1 }" ng-click="search = '';showAll()"; ></i>
+          <i class="fa fa-times clear-search-icon" ng-class="{ invisible: search.length < 1 }" ng-click="clearSearch();showAll()"; ></i>
           <!-- Price filter ($$$) -->
           <div class="pointer inline dark-gray rating-picker-wrapper hidden-xs">
             <i ng-click="filterPrice(1);searchFilter();prices(1)" ng-class='dollers[1]' class="fa fa-usd usd-transparent"></i>

@@ -18,6 +18,13 @@ angular.module('shareAustin')
   Auth.getUser().then(function(user){
     $scope.user = user;
   })
+
+  // Clear search in factory
+  $scope.clearSearch = function() {
+    Item.search.term = "";
+    $scope.search = "";       
+  }
+
   // From items extracts average seller ratings
   $scope.avgRating = function (items) {
     items.forEach(function (item) {
