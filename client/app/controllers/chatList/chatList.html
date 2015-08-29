@@ -9,8 +9,8 @@
       <div class="col-sm-4 col-sm-offset-4" ng-hide="hideMessageList">
         <!-- <h2>I'm Interested In:</h2> -->
         <ul class="list-unstyled list-group" ng-repeat="chat in buyerChats">
-          <li class="chat-list-item">
-            <a ui-sref=".chat" ng-click="joinRoom(chat, chat.buyer_id)">{{chat.seller.first_name}}'s {{chat.item.name}}</a>
+          <li class="chat-list-item" ui-sref=".chat" ng-click="joinRoom(chat, chat.buyer_id)">
+            <a>{{chat.seller.first_name}}'s {{chat.item.name}}</a>
   	      </li>
         </ul>
       <!-- </div> -->
@@ -18,8 +18,8 @@
       <!-- <div class="col-sm-4" > -->
         <!-- <h2>My Items:</h2> -->
         <ul class="list-unstyled list-group" ng-repeat="chat in sellerChats">
-          <li class="chat-list-item">
-            <a ui-sref=".chat" ng-click="joinRoom(chat, chat.item.seller_id)">{{chat.buyer.first_name}} likes your {{chat.item.name}}</a>
+          <li class="chat-list-item" ui-sref=".chat" ng-click="joinRoom(chat, chat.item.seller_id)">
+            <a>{{chat.buyer.first_name}} likes your {{chat.item.name}}</a>
   	      </li>
         </ul>
       </div>

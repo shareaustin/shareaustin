@@ -522,6 +522,7 @@ a:hover {
   border: 1px solid;
   border-radius: 3px;
   background-color: #96CDBC;
+  cursor: pointer;
   padding: 10px;
   margin: 0px -40px -25px;
 }
@@ -731,17 +732,14 @@ textarea {color: #333}
 }
 
 /*----- Dashboard -----*/
-.nav-tabs.nav-justified {
-  /*border: 1px solid gainsboro;*/
-  /*border: 1px solid rgb(235, 235, 235);*/
-  border-radius: 5px;
-}
+.nav-tabs.nav-justified li:nth-child(3) {margin-right: 0px; left: 3px;}
+.nav-tabs.nav-justified li:nth-child(2) {left: 2px;}
+.nav-tabs.nav-justified {border-radius: 5px;}
 .nav-tabs.nav-justified > li > a {
   margin-right: 3px;
   border: 1px solid rgb(235, 235, 235);
   border-bottom: 0px solid;
 }
-/*.nav-tabs.nav-justified > li > a:nth-last-of-type(3n) {margin-right: 0;}*/
 .nav-tabs.nav-justified > li > a:hover {
   background-color: #EBF6F0;
 }
@@ -847,10 +845,18 @@ textarea {color: #333}
   .home-search-bar {width: 85%;}
   .btn-home-margin {margin-right: 30px;}
   .hamburger {display: none;}
-  .trans-button {margin: 0 0 0 30px;}
+  .trans-button {margin: 10px 0 0 0;}
   .filter-bar-tm {margin-top: 46px;}
   .dashboard-margin {margin: 46px;}
-  /*.stats-margin {margin-top: 40px;}*/
+  .rent-cal-avail {margin-left: 9%;}
+  .rent-form > input {
+    font-size: 1em;
+  }
+  .rent-fieldset {
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 5px;
+  }
   .btn-xxl {
     padding: 12px 26px;
     font-size: 1.7em;
@@ -876,8 +882,4 @@ textarea {color: #333}
   .review-wrapper {padding: 20px 0 0 0;}
 }
 
-/*---- HR Style/About ----*/
-
-hr.hr-style {
-  margin: 75px;
-}
+/*---- About ----*/
