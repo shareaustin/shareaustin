@@ -102,6 +102,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 menu {padding:0; margin:0;}
 .main-nav-wrapper {
   background: white;
+  border-bottom: 1px solid gainsboro;
   position: fixed;
   background-image: none;
   width: 100%;
@@ -795,6 +796,7 @@ textarea {color: #333}
 .mobile-nav {height: 100vh !important; margin-top: 30%;}
 .trans-button {margin: 7% 0 5% 10%; width: 200px;}
 .update-dollar {font-size:1.35em;}
+.main-logo {display: none;}
 /* For Phones */
 @media screen and (max-width: 767px) {
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
@@ -849,6 +851,12 @@ textarea {color: #333}
   .filter-bar-tm {margin-top: 46px;}
   .dashboard-margin {margin: 46px;}
   .rent-cal-avail {margin-left: 9%;}
+  .main-logo {
+    font-size: 1.5em;
+    display: inline-block;
+    position: absolute;
+    left: 7%;
+  }
   .rent-form > input {
     font-size: 1em;
   }
@@ -868,6 +876,7 @@ textarea {color: #333}
     display: block;
     padding: 10px;
     margin-bottom: 0;
+    float: right;
   }
   .main-nav li {
     display: inline-block;
