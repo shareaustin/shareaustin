@@ -31,7 +31,7 @@ module.exports = function (app, passport, upload) {
   app.get('/api/user/chats'               , userHandler.getChats);
   app.get('/api/user/soldTransactions'    , userHandler.getSoldTransactions);
   app.get('/api/user/boughtTransactions'  , userHandler.getBoughtTransactions);
-  app.get('/api/user/seller-ratings'      , userHandler.getUserRatings);
+  //app.get('/api/user/seller-ratings'      , userHandler.getUserRatings);
 
   // Requests to favorites handler
   app.post('/api/userFavoriteItems'       , favoriteHandler.userFavoriteItems)
