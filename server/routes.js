@@ -12,7 +12,7 @@ function isLoggedIn(req, res, next){
   res.redirect('/')
 }
 module.exports = function (app, passport, upload) {
-  
+
   // Requests to item handler
   app.post('/api/getItemById'             , itemHandler.getItemById);
   app.post('/api/addItem'                 , itemHandler.addItem);
@@ -26,7 +26,7 @@ module.exports = function (app, passport, upload) {
   app.get( '/api/availableItems'          , itemHandler.getAvailableItems);
   app.get( '/api/item/seller'             , itemHandler.getSeller);
   app.get( '/api/currentListings'         , itemHandler.getCurrentListings)
-  
+
   // Requests to user handler
   app.get('/api/user/chats'               , userHandler.getChats);
   app.get('/api/user/soldTransactions'    , userHandler.getSoldTransactions);
@@ -46,10 +46,10 @@ module.exports = function (app, passport, upload) {
   app.post('/api/updateRating'            , ratingHandler.updateRating)
   app.post('/api/fetchRating'             , ratingHandler.getRating)
 
-  // Requests to chat handler 
+  // Requests to chat handler
   app.get('/api/user/chat/messages'       ,    chatHandler.getMessages);
   app.post('/api/chats/find-or-create'    , chatHandler.findOrCreate);
-  
+
   // Authentication routes
   app.post('/signup', passport.authenticate('signup', {
     successRedirect: '/',
@@ -63,7 +63,7 @@ module.exports = function (app, passport, upload) {
 
   app.post('/signout', function(req, res){
     req.logOut();
-    //res.redirect('/')
+    res.redirect('/')
   })
 
   app.get('/auth', userHandler.isAuthorized);
@@ -79,6 +79,6 @@ module.exports = function (app, passport, upload) {
     //app.post('/api/logout', userHandler.logout)
     //app.post('api/addReview', ratingsHandler.addReview)
     //app.post('api/removeReview', ratingsHandler.removeReview)
-    //app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);  
+    //app.get('/api/user/buyer_ratings', userHandler.getBuyerRatings);
   return app;
 }
