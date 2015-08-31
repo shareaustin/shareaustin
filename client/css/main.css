@@ -855,7 +855,9 @@ textarea {color: #333}
     font-size: 1.5em;
     display: inline-block;
     position: absolute;
-    left: 7%;
+    left: 4%;
+    top: 15px;
+    letter-spacing: .15em;
   }
   .rent-form > input {
     font-size: 1em;
@@ -871,12 +873,12 @@ textarea {color: #333}
     border-radius: 5px;
   }
   .main-nav {
-    border-bottom: 1px solid #eee;
     height: 50px;
     display: block;
     padding: 10px;
     margin-bottom: 0;
     float: right;
+    margin-right: 3%;
   }
   .main-nav li {
     display: inline-block;
@@ -889,6 +891,10 @@ textarea {color: #333}
 @media screen and (min-width: 775px) and (max-width: 990px) {
   .slider-container {padding-right: 0;}
   .review-wrapper {padding: 20px 0 0 0;}
+}
+@media screen and (min-width: 1000px) {
+  .main-logo {left: 7%;}
+  .main-nav {margin-right: 5%;}
 }
 
 /*---- About ----*/
