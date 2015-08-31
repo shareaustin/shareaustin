@@ -885,7 +885,6 @@ textarea {color: #333}
   .main-nav {
     height: 50px;
     display: block;
-    padding: 10px;
     margin-bottom: 0;
     float: right;
     margin-right: 3%;
@@ -893,9 +892,15 @@ textarea {color: #333}
   .main-nav li {
     display: inline-block;
     list-style: none;
-    padding-left: 20px;
+    padding: 13px;
     font-size: 1.25em;
+    transition: all .2s ease-in-out;
   }
+  .main-nav li:hover {
+    /*background: #1ab188;*/
+    background: #EDF2F0;
+  }
+  /*.main-nav a:hover {color:white;}*/
 
 }
 @media screen and (min-width: 775px) and (max-width: 990px) {
