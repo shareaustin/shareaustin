@@ -775,6 +775,7 @@ textarea {color: #333}
   box-sizing: border-box;
   font-size: 1.2em;
   margin-bottom: 20px;
+  color: white;
   /*background: #1ab188;*/
 }
 
@@ -797,6 +798,12 @@ textarea {color: #333}
 .trans-button {margin: 7% 0 5% 10%; width: 200px;}
 .update-dollar {font-size:1.35em;}
 .main-logo {display: none;}
+
+/*---- About ----*/
+.profile-pic {
+  border-radius: 50%;
+}
+
 /* For Phones */
 @media screen and (max-width: 767px) {
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
@@ -896,5 +903,3 @@ textarea {color: #333}
   .main-logo {left: 7%;}
   .main-nav {margin-right: 5%;}
 }
-
-/*---- About ----*/
