@@ -785,6 +785,9 @@ textarea {color: #333}
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.dev-logos {
+  border: 1px solid gainsboro;
+}
 .hamburger {
   position: absolute;
   right: 10px;
