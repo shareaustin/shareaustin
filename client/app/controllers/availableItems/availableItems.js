@@ -56,8 +56,8 @@ angular.module('shareAustin')
     5: { turnOn: false, turnOff: false}
   }
 
-  // Object used for ng-class for the doller marks
-  $scope.dollers = {
+  // Object used for ng-class for the dollar marks
+  $scope.dollars = {
     1: { turnOn: false, turnOff: false},
     2: { turnOn: false, turnOff: false},
     3: { turnOn: false, turnOff: false},
@@ -130,8 +130,8 @@ angular.module('shareAustin')
 
       // Turn stars off
       for (var i = 1; i <= 3; i++) {
-        $scope.dollers[i].turnOn  = false;
-        $scope.dollers[i].turnOff = true ;
+        $scope.dollars[i].turnOn  = false;
+        $scope.dollars[i].turnOff = true ;
       }
     }
     // Clicking to apply a filter
@@ -141,12 +141,12 @@ angular.module('shareAustin')
       // Turn on and off the correct stars
       for (var i = 1; i <= 3; i++) {
         if ( i <= num) {
-          $scope.dollers[i].turnOn  = true;
-          $scope.dollers[i].turnOff = false;
+          $scope.dollars[i].turnOn  = true;
+          $scope.dollars[i].turnOff = false;
         }
         else {
-          $scope.dollers[i].turnOn  = false;
-          $scope.dollers[i].turnOff = true;
+          $scope.dollars[i].turnOn  = false;
+          $scope.dollars[i].turnOff = true;
         }
       }
     }
