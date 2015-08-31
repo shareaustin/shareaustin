@@ -1,17 +1,14 @@
 <div class="container-fluid main-nav-wrapper">
   <ul ng-class="{'mobile-nav': hamburgerStatus}" class="main-nav">
-    <li><a href="/#/">ShareAustin</a></li>
+    <a class="fa fa-tree main-logo" href="/#/"> ShareAustin</a>
+    <!-- <li><a href="/#/">ShareAustin</a></li> -->
     <li><a href="/#/about">About</a></li>
-    <!--ng-hide="isLoggedIn" Login is hidden if user is logged in -->
+    <li><a href="/#/all-listings">All Items</a></li>
+    <li><a href="/#/new-listing">Post Item</a></li>
+    <li><a href="/#/dashboard">Dashboard</a></li>
+    <li><a href="/#/chatList">Messages</a></li>
     <li ng-hide="isLoggedIn"><a href="/#/auth">Log In</a></li>
     <li ng-hide="!isLoggedIn"><a ng-click="logOut()" href="">Log Out</a></li>
-    <li><a href="/#/dashboard">Dashboard</a></li>
-    <li><a href="/#/all-listings">All Items</a></li>
-    <!-- <li><a href="/#/item-description">Item Description</a></li> -->
-    <li><a href="/#/new-listing">Post Item</a></li>
-    <!-- <li><a href="/#/edit-item">Edit Item</a></li>
-    <li><a href="/#/transaction">Transaction</a></li> -->
-    <li><a href="/#/chatList">Messages</a></li>
     <p ng-show="!hamburgerStatus" class="mobile-logo visible-xs-block">ShareAustin</p>
   </ul>
     <a ng-click="hamburgerToggle()" class="fa fa-bars hamburger"></a>

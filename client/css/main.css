@@ -102,6 +102,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 menu {padding:0; margin:0;}
 .main-nav-wrapper {
   background: white;
+  border-bottom: 1px solid gainsboro;
   position: fixed;
   background-image: none;
   width: 100%;
@@ -774,6 +775,7 @@ textarea {color: #333}
   box-sizing: border-box;
   font-size: 1.2em;
   margin-bottom: 20px;
+  color: white;
   /*background: #1ab188;*/
 }
 
@@ -782,6 +784,9 @@ textarea {color: #333}
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.dev-logos {
+  border: 1px solid gainsboro;
 }
 .hamburger {
   position: absolute;
@@ -795,6 +800,13 @@ textarea {color: #333}
 .mobile-nav {height: 100vh !important; margin-top: 30%;}
 .trans-button {margin: 7% 0 5% 10%; width: 200px;}
 .update-dollar {font-size:1.35em;}
+.main-logo {display: none;}
+
+/*---- About ----*/
+.profile-pic {
+  border-radius: 50%;
+}
+
 /* For Phones */
 @media screen and (max-width: 767px) {
   .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
@@ -849,6 +861,14 @@ textarea {color: #333}
   .filter-bar-tm {margin-top: 46px;}
   .dashboard-margin {margin: 46px;}
   .rent-cal-avail {margin-left: 9%;}
+  .main-logo {
+    font-size: 1.5em;
+    display: inline-block;
+    position: absolute;
+    left: 4%;
+    top: 15px;
+    letter-spacing: .15em;
+  }
   .rent-form > input {
     font-size: 1em;
   }
@@ -863,23 +883,31 @@ textarea {color: #333}
     border-radius: 5px;
   }
   .main-nav {
-    border-bottom: 1px solid #eee;
     height: 50px;
     display: block;
-    padding: 10px;
     margin-bottom: 0;
+    float: right;
+    margin-right: 3%;
   }
   .main-nav li {
     display: inline-block;
     list-style: none;
-    padding-left: 20px;
+    padding: 13px;
     font-size: 1.25em;
+    transition: all .2s ease-in-out;
   }
+  .main-nav li:hover {
+    /*background: #1ab188;*/
+    background: #EDF2F0;
+  }
+  /*.main-nav a:hover {color:white;}*/
 
 }
 @media screen and (min-width: 775px) and (max-width: 990px) {
   .slider-container {padding-right: 0;}
   .review-wrapper {padding: 20px 0 0 0;}
 }
-
-/*---- About ----*/
+@media screen and (min-width: 1000px) {
+  .main-logo {left: 7%;}
+  .main-nav {margin-right: 5%;}
+}
