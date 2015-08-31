@@ -82,8 +82,8 @@ dropdb shareaustin
 
 ### Launching App Locally
 
-Create database shareaustin, if it doesn't exist
-```
+Create database shareaustin, if it doesn't exist (see 'Creating the Database')
+
 From the command line:
 ```
 node server/server.js
