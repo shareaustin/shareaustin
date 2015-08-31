@@ -23,7 +23,7 @@ ShareAustin provides a place where a community can find and provide hard to rent
 
 ## Usage
 
-> Some usage instructions
+   From their Dashboard, users can view their rental history, items they’ve listed for rent, and their favorite items. The Listings view lets users search the marketplace. Detailed listings of each item feature photos, a description, and pricing. A quick click on the “Rent It!” button takes users to the Transaction view, where they can schedule and pay for their rental. After their rental, users can rate their experience as a buyer or a seller.
 
 ## Requirements
 
@@ -33,6 +33,7 @@ ShareAustin provides a place where a community can find and provide hard to rent
 - Bookshelf
 - Knex
 - Angular
+- See package.json and bower.json for dependency details
 
 ## Development
 
@@ -68,32 +69,26 @@ To launch psql:
 psql shareaustin
 ```
 
+### Adding DummyData.sql (test data for site)
+From the command line in project directory
+```
+psql shareaustin < dummyData.sql
+```
 ### Deleting the Database
 From the command line:
 ```
 dropdb shareaustin
 ```
 
-### Starting the Server
+### Launching App Locally
+
+Create database shareaustin, if it doesn't exist
+```
 From the command line:
 ```
 node server/server.js
 ```
+In browser:
+```
+localhost:3000
 
-
-### Roadmap
-
-Implement:
-* User Login
-* User Dasboard (Profile) View
-* Post an Item
-* Search Items
-* Rent (pay for) Item
-* View Transaction History
-
-> View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
-
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
