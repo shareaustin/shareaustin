@@ -88,7 +88,7 @@ From the command line, start server:
 ```
 node server/server.js
 ```
-In browser navigate to:
+In browser, navigate to:
 ```
 localhost:3000
 
