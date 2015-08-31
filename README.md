@@ -84,11 +84,11 @@ dropdb shareaustin
 
 Create database shareaustin, if it doesn't exist (see 'Creating the Database')
 
-From the command line:
+From the command line, start server:
 ```
 node server/server.js
 ```
-In browser:
+In browser navigate to:
 ```
 localhost:3000
 
