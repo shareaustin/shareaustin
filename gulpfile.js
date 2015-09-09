@@ -9,9 +9,9 @@ gulp.task("default", function() {
 
 gulp.task("build-css", function() {
   return gulp.src("./scss/*.scss")
-  .pipe(sourcemaps.init())
-  .pipe(sass())
-  .pipe(sourcemaps.write())
+  // .pipe(sourcemaps.init())
+  .pipe(sass({includePaths: ['./scss']}))
+  // .pipe(sourcemaps.write())
   .pipe(gulp.dest("./client/css/"));
 });
 

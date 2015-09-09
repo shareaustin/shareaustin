@@ -1,0 +1,33 @@
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.carousel-control {height: 450px;}
+
+.drop-box {
+  border: 1px solid #6D7781;
+  margin: 10px 0;
+  padding: 50px 50px 10px;
+  border-radius: 5px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.glyphicon-upload {
+    padding-top: 20px;
+    font-size: 100px;
+    opacity: 0.5;
+}
+
+/*----- Photo Loading Bar -----*/
+.photoloader {
+  opacity: 0;
+  margin: 0 auto;
+  transition: all .25s;
+   -moz-transition: all .25s ease-in-out;
+   -webkit-transition: all .25s ease-in-out;
+}
+
+.photoloader.show {opacity: 1;}

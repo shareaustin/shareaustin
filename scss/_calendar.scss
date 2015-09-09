@@ -1,0 +1,29 @@
+.cal td {
+  max-width: 40px;
+  max-height: 40px;
+}
+.cal-arrows {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.cal-arrows:hover {color: #1ab188;}
+
+.cal-weeks {
+  font-size: 1.35em;
+  /*cursor: pointer;*/
+  background: #1ab188;
+  color: white;
+}
+.cal-days {
+  font-size: 1.2em;
+}
+/*----- Calendar Event Styling -----*/
+.day.selected {
+  color: white;
+  background-color: rgba(19, 35, 47, 0.9);
+}
+
+.reserved {
+  color: #aaa;
+  background-color: #ccc;
+}

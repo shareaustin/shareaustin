@@ -1,0 +1,30 @@
+.nav-tabs.nav-justified {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+}
+.nav-tabs.nav-justified > li > a:hover {
+  background-color: #EBF6F0;
+}
+
+.nav-tabs.nav-justified > li > a:focus {
+  background-color: #EBF6F0;
+}
+
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > .active > a:focus {
+  background-color: #EBF6F0;
+  border-bottom-color: #EEEEEE;
+}
+.dashboard-pic {
+  border-radius: 50%;
+  border: 5px solid #D0D1D0;
+}
+.dashboard-card {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  /*background: #1ab188;*/
+}
