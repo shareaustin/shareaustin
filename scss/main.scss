@@ -1,3 +1,4 @@
+/** {border: 1px solid red !important;}*/
 body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .li-rows {height: 35px;}
 .edit {
@@ -5,22 +6,20 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
   float: left;
   font-size: 1.65em;
   left: 10px;
+  /*top: 10px;*/
 }
 .remove {
 	position: relative;
 	float: right;
 	font-size: 1.65em;
+	/*top: 10px;*/
 	right: 10px;
   vertical-align: middle;
-  &:hover {
-    text-decoration: none;
-  	color: #eee;
-  	cursor: pointer;
-  }
+	/*color: #50597b;*/
 }
-.edit:hover {
+.remove:hover, .edit:hover {
 	text-decoration: none;
-	color: #eee;
+	color: darkgreen;
 	cursor: pointer;
 }
 
@@ -29,7 +28,6 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 .btn-lg {padding: 8px 6px;}
 .btn-home-wrapper {margin-top: 0;}
 
-/*----- Helpers ------*/
 @import 'helpers';
 @import 'extended-bootstrap';
 @import 'item-description';
@@ -38,6 +36,7 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 @import 'angular';
 @import 'auth-forms';
 @import 'home';
+@import 'backgrounds';
 @import 'calendar';
 @import 'chat';
 @import 'forms';
@@ -45,32 +44,41 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 @import 'dashboard';
 @import 'ratings';
 
+
+
+/*----- Helpers ------*/
+/*----- bootstrap ------*/
+/*----- Item Description ------*/
+
 /*----- Main Nav ------*/
 menu {padding:0; margin:0;}
 .main-nav-wrapper {
   background: white;
+  border-bottom: 1px solid gainsboro;
   position: fixed;
   background-image: none;
   width: 100%;
   z-index: 100;
 }
 
+
+
+
+
+/*----- Google Maps Style ------*/
+
+
 /*----- All Items ------*/
-/*----- Centering & Cropping Images -----*/
+
+
+
 /*----- Sign In Sign Up Form -----*/
+
+
 /*---- Home Search -----*/
+
 /*---- Background Images -----*/
 
-.grid-bg {
-  background: url(../img/grid.png);
-  height: 100%;
-  /*opacity: .5;*/
-}
-.auth-bg {
-  background: url('../img/trees.jpeg') center center no-repeat;
-  height: 100vh;
-  background-size: cover;
-}
 
 /*---- Favorite Buttons -----*/
 .favorited, .favorited:focus, .favorited:hover {
@@ -82,41 +90,20 @@ menu {padding:0; margin:0;}
 /*---- Chat/Message Style -----*/
 
 
-
-.home-bg {
-  background: url('../img/hike-in-woods.jpeg') center bottom no-repeat;
-  height: 100vh;
-  background-size: cover;
-}
+/*----- Photo Loading Bar -----*/
 
 
-input {color: #333;}
-textarea {color: #333}
 
 /*----- Current Listings -----*/
 
-
 /*----- Dashboard -----*/
+/*----- Mobile -----*/
 
 
-.truncate {
-  width: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/*---- About ----*/
+.profile-pic {
+  border-radius: 50%;
 }
-.hamburger {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 22px;
-}
-.hamburger a, a:focus, a:hover {text-decoration: none;}
-.mobile-logo {font-size: 1.2em; color: #1ab188;}
-.mobile-nav li {display: block !important;}
-.mobile-nav {height: 100vh !important; margin-top: 30%;}
-.trans-button {margin: 7% 0 5% 10%; width: 200px;}
-.update-dollar {font-size:1.35em;}
 
 /* For Phones */
 @media screen and (max-width: 767px) {
@@ -148,9 +135,10 @@ textarea {color: #333}
 /* when bigger than phone */
 @media screen and (min-width: 768px) {
   .excess-padding > div:nth-child(odd) {padding-right: 0px;}
+  .mtn-bg {background: url('../img/mountains-fade.jpg') bottom center no-repeat;}
   .item-description {height: 68px;}
   .single-desc {padding-bottom: 70px;}
-  .filter-bar {padding: 8px 0;}
+  /*.filter-bar {padding: 2px 0;}*/
   .slider-container {padding-left: 0;}
   .review-title {border: 1px solid #eee;}
   .form-left-margin {margin-left: 30px;}
@@ -167,29 +155,57 @@ textarea {color: #333}
   .home-search-bar {width: 85%;}
   .btn-home-margin {margin-right: 30px;}
   .hamburger {display: none;}
-  .trans-button {margin: 0 0 0 30px;}
+  .trans-button {margin: 10px 0 0 0;}
   .filter-bar-tm {margin-top: 46px;}
+  .dashboard-margin {margin: 46px;}
+  .rent-cal-avail {margin-left: 9%;}
+  .main-logo {
+    font-size: 1.5em;
+    display: inline-block;
+    position: absolute;
+    left: 4%;
+    top: 15px;
+    letter-spacing: .15em;
+  }
+  .rent-form > input {
+    font-size: 1em;
+  }
+  .rent-fieldset {
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 5px;
+  }
   .btn-xxl {
     padding: 12px 26px;
     font-size: 1.7em;
     border-radius: 5px;
   }
   .main-nav {
-    border-bottom: 1px solid #eee;
     height: 50px;
     display: block;
-    padding: 10px;
     margin-bottom: 0;
+    float: right;
+    margin-right: 3%;
   }
   .main-nav li {
     display: inline-block;
     list-style: none;
-    padding-left: 20px;
+    padding: 13px;
     font-size: 1.25em;
+    transition: all .2s ease-in-out;
   }
+  .main-nav li:hover {
+    /*background: #1ab188;*/
+    background: #EDF2F0;
+  }
+  /*.main-nav a:hover {color:white;}*/
 
 }
 @media screen and (min-width: 775px) and (max-width: 990px) {
   .slider-container {padding-right: 0;}
   .review-wrapper {padding: 20px 0 0 0;}
+}
+@media screen and (min-width: 1000px) {
+  .main-logo {left: 7%;}
+  .main-nav {margin-right: 5%;}
 }

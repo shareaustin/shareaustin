@@ -1,0 +1,24 @@
+.grid-bg {
+  background: url(../img/grid.png);
+  height: 100%;
+  /*opacity: .5;*/
+}
+.trees-bg {
+  background: url('../img/trees.jpeg') center center no-repeat;
+  background-size: cover;
+}
+.auth-bg {
+  background: url('../img/trees.jpeg') center center no-repeat;
+  height: 100vh;
+  background-size: cover;
+}
+.mtn-bg {
+  background-size: cover;
+  height: 100vh;
+}
+.pattern-bg {background: url('../img/pattern4-3.png')}
+.home-bg {
+  background: url('../img/hike-in-woods.jpeg') center bottom no-repeat;
+  height: 100vh;
+  background-size: cover;
+}
