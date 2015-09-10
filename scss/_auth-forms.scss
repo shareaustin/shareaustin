@@ -3,14 +3,6 @@
   padding: 10px 0 0 10px;
   font-weight: 300;
 }
-a {
- text-decoration: none;
- color: #1ab188;
- transition: .5s ease;
-}
-a:hover {
- color: #179b77;
-}
 .auth-form {
  background: rgba(19, 35, 47, 0.9);
  padding: 40px;
@@ -23,28 +15,28 @@ a:hover {
  list-style: none;
  padding: 0;
  margin: 0 0 40px 0;
+   li a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    background: rgba(160, 179, 176, 0.25);
+    color: #a0b3b0;
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;
+    &:hover {
+      background: #179b77;
+      color: #ffffff;
+    }
+  }
 }
 .tab-group:after {
  content: "";
  display: table;
  clear: both;
-}
-.tab-group li a {
- display: block;
- text-decoration: none;
- padding: 15px;
- background: rgba(160, 179, 176, 0.25);
- color: #a0b3b0;
- font-size: 20px;
- float: left;
- width: 50%;
- text-align: center;
- cursor: pointer;
- transition: .5s ease;
-}
-.tab-group li a:hover {
- background: #179b77;
- color: #ffffff;
 }
 .tab-group .active a {
  background: #1ab188;
@@ -58,9 +50,7 @@ a:hover {
  font-size: 2em;
 }
 .auth-form label {
- /*position: absolute;*/
  transform: translateY(6px);
- /*left: 13px;*/
  color: rgba(255, 255, 255, 0.5);
  transition: all 0.25s ease;
  -webkit-backface-visibility: hidden;

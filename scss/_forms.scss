@@ -5,89 +5,50 @@
    -moz-transition: all .25s ease-in-out;
    -webkit-transition: all .25s ease-in-out;
 }
-
 .photoloader.show {opacity: 1;}
-
 .trans-tm {margin-top: 50px;}
 .trans-form-lpad {padding-left: 10%;}
-.transparent-form input {
-  max-width: 350px;
-  padding: 20px 0px;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #435160;
-  outline: none;
-  color: #6D7781;
-  font-size: 1.15em;
-}
-.transparent-form textarea {
-  margin-top: 20px;
-  font-size: 1.15em;
-  color: #6D7781;
-}
-.transparent-form label {
-  font-weight: 300;
-  font-size: 1.15em;
-  padding-top: 10px;
+.transparent-form {
+  input {
+    max-width: 350px;
+    padding: 20px 0px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #435160;
+    outline: none;
+    color: #6D7781;
+    font-size: 1.15em;
+  }
+  textarea {
+    margin-top: 20px;
+    font-size: 1.15em;
+    color: #6D7781;
+  }
+  label {
+    font-weight: 300;
+    font-size: 1.15em;
+    padding-top: 10px;
+  }
 }
 .transparent-form-body, .green-bg {
-  /*background: #EDF2ED;*/
   color: #578D7D;
   width: 100%;
-  /*height: 100vh;*/
 }
 .tf-overide input {
   width: inherit;
   padding: 10px 0;
-
 }
 .tf-payment label {padding: 10px 2% 10px 0;}
-.star-transparent {opacity: 0.5}
-
-.usd-transparent {opacity: 0.5;}
-.usd-transparent:hover {color: #0A3227;}
-
-
-i.fa.fa-usd.turnOn {
-     transform: scale(1.3);
-    transition: .25s all ease-in-out;
-    color: #0A3227;
-    opacity: 0.8;
+.star-transparent, .usd-transparent {
+  opacity: 0.5;
+  &:hover {color: #0A3227;}
 }
-
-i.fa.fa-star.turnOn {
-    /*-webkit-animation: pulsate 0.5s;*/
-    /*-webkit-animation-iteration-count: 1;*/
-    /*-webkit-animation-fill-mode: forwards;*/
-    transform: scale(1.3);
-    transition: .25s all ease-in-out;
-    color: #0A3227;
-    opacity: 0.8;
+.turnOn {
+  transform: scale(1.3);
+  transition: .25s all ease-in-out;
+  color: #0A3227;
+  opacity: 0.8;
 }
-
-i.fa.fa-star.turnOff {
-    transition: .25s all ease-in-out;
-    /*-webkit-animation: pulsateBack 0.5s;*/
-    /*-webkit-animation-iteration-count: 1;*/
-    /*-webkit-animation-fill-mode: forwards;*/
-    /*color: black;*/
-}
-
-i.fa.fa-usd.turnOff {
-  transition: 0.25s all ease-in-out;
-}
-
-@-webkit-keyframes pulsate {
-    0% {-webkit-transform: scale(1.0, 1.0); opacity: 0.5;}
-    100% {-webkit-transform: scale(1.3, 1.3); opacity: 1.0;}
-}
-
-@-webkit-keyframes pulsateBack {
-    0% {-webkit-transform: scale(1.3, 1.3); opacity: 1.0;}
-    100% {-webkit-transform: scale(1.0, 1.0); opacity: 0.5;}
-}
-
-.star-transparent:hover {color: #0A3227;}
-
+.turnOff {transition: .25s all ease-in-out;}
 input {color: #333;}
 textarea {color: #333}

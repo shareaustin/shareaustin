@@ -2,17 +2,12 @@
   padding-left: 30px;
   vertical-align: middle;
 }
-
 .li-rows-l-favorite {
   padding-left: 30px;
   vertical-align: middle;
   cursor: pointer;
 }
-
-.li-rows-v-align {
-  vertical-align: middle;
-}
-
+.li-rows-v-align {vertical-align: middle;}
 .li-rows-transaction-date {
   text-align: right;
   vertical-align: middle;
@@ -23,38 +18,27 @@
   padding: 2px 5px;
   margin-left: 10px;
 }
-
 .li-rows-transaction-msg {
   text-align: right;
-  vertical-align: middle;
-  color: #1ab188;
-  background-color: #FFFFFF;
   border-radius: 3px;
   padding: 2px 5px;
   cursor: pointer;
   margin-right: 10px;
-}
-
-.li-rows-transaction-msg {
   vertical-align: middle;
   color: #EEEEEE;
   background-color: #1ab188;
   transition: .25s all ease-in-out;
+  &:hover {
+    vertical-align: middle;
+    color: #EEEEEE;
+    background-color: #18906f;
+  }
 }
-
-.li-rows-transaction-msg:hover {
-  vertical-align: middle;
-  color: #EEEEEE;
-  background-color: #18906f;
-}
-
 .li-rows-transaction-msg.static {
   color: #EEEEEE;
   border: 1px #18906f;
 }
-
 .current-list, .favorite-list, .trans-list {
   max-height: 250px;
-  /*width: 555px;*/
   overflow-y: auto;
 }

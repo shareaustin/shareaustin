@@ -1,33 +1,3 @@
-/** {border: 1px solid red !important;}*/
-body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
-.li-rows {height: 35px;}
-.edit {
-  position: relative;
-  float: left;
-  font-size: 1.65em;
-  left: 10px;
-  /*top: 10px;*/
-}
-.remove {
-	position: relative;
-	float: right;
-	font-size: 1.65em;
-	/*top: 10px;*/
-	right: 10px;
-  vertical-align: middle;
-	/*color: #50597b;*/
-}
-.remove:hover, .edit:hover {
-	text-decoration: none;
-	color: darkgreen;
-	cursor: pointer;
-}
-
-/*----- Override ------*/
-.btn:focus {outline: none;}
-.btn-lg {padding: 8px 6px;}
-.btn-home-wrapper {margin-top: 0;}
-
 @import 'helpers';
 @import 'extended-bootstrap';
 @import 'item-description';
@@ -45,15 +15,18 @@ body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 @import 'ratings';
 @import 'mobile';
 
-
-
-
-/*----- Helpers ------*/
-/*----- bootstrap ------*/
-/*----- Item Description ------*/
-
-/*----- Main Nav ------*/
+body {font-family: 'Open Sans', sans-serif; font-weight: 300;}
+/*----- Fixes Spacing Issues With Angular Menu Directive ------*/
 menu {padding:0; margin:0;}
+a {
+ text-decoration: none;
+ color: #1ab188;
+ transition: .5s ease;
+ &:hover {
+   color: #179b77;
+ }
+}
+/*----- Main Nav ------*/
 .main-nav-wrapper {
   background: white;
   border-bottom: 1px solid gainsboro;
@@ -62,24 +35,6 @@ menu {padding:0; margin:0;}
   width: 100%;
   z-index: 100;
 }
-
-/*----- Google Maps Style ------*/
-/*----- All Items ------*/
-/*----- Sign In Sign Up Form -----*/
-/*---- Home Search -----*/
-/*---- Background Images -----*/
-
-/*---- Favorite Buttons -----*/
-.favorited, .favorited:focus, .favorited:hover {
-  background-color: #DCF4ED;
-}
-
-/*----- Calendar Styling -----*/
-/*---- Chat/Message Style -----*/
-/*----- Photo Loading Bar -----*/
-/*----- Current Listings -----*/
-/*----- Dashboard -----*/
-/*----- Mobile -----*/
 
 /*---- About ----*/
 .profile-pic {

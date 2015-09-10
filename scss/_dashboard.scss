@@ -13,7 +13,6 @@
 .nav-tabs.nav-justified > li > a:focus {
   background-color: #EBF6F0;
 }
-
 .nav-tabs.nav-justified > .active > a,
 .nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:focus {
@@ -49,4 +48,27 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.li-rows {height: 35px;}
+.edit {
+  position: relative;
+  float: left;
+  font-size: 1.65em;
+  left: 10px;
+  /*top: 10px;*/
+}
+.remove {
+	position: relative;
+	float: right;
+	font-size: 1.65em;
+	/*top: 10px;*/
+	right: 10px;
+  vertical-align: middle;
+	/*color: #50597b;*/
+}
+.remove:hover, .edit:hover {
+	text-decoration: none;
+	color: darkgreen;
+	cursor: pointer;
 }

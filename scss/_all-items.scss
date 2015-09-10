@@ -7,7 +7,6 @@
 }
 .button-container {margin-left: 10px;}
 .newitem-button-container {margin: 10px 0;}
-
 .padR-10 {padding-right: 10px;}
 .marR-10 {margin-right: 10px;}
 .search-icon {
@@ -19,13 +18,11 @@
   position: relative;
   right: 25px;
   opacity: 0.5;
-  /*top: 300px;*/
 }
 .clear-search-icon.invisible {
   position: relative;
   right: 25px;
   opacity: 0;
-  /*top: 300px;*/
 }
 .items-search {
   border: 1px solid #E4E4E4;
@@ -42,20 +39,4 @@
   object-fit: cover;
   width: 100%;
   height: 219px;
-}
-
-
-.drop-box {
-  border: 1px solid #6D7781;
-  margin: 10px 0;
-  padding: 50px 50px 10px;
-  border-radius: 5px;
-  height: 300px;
-  cursor: pointer;
-}
-
-.glyphicon-upload {
-    padding-top: 20px;
-    font-size: 100px;
-    opacity: 0.5;
 }

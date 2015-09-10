@@ -1,12 +1,10 @@
 .text-area-padding, .chat-textarea {
   color: #aaa;
-  /*border: 1px solid;*/
   border-radius: 5px;
   width: 95%;
   margin: -10px 10px 10px 10px;
   height: 48px;
 }
-
 .chat-list-item {
   text-align: center;
   font-weight: bold;
@@ -16,34 +14,28 @@
   cursor: pointer;
   padding: 10px;
   margin: 0px -40px -25px;
+  a {
+    color: white;
+  }
 }
-
-.chat-list-item a{
-  color: white;
-}
-
 .text-area-padding {
   padding: 10px 0 10px 10px;
   resize: none;
   width: 95%;
   height:48px;
 }
-
 .chat-header {
   margin: 20px 0px 10px 0px;
   text-align: center;
 }
-
 .chat-message-box {
   border: 1px solid;
   border-radius: 5px;
   background-color: #96CDBC;
-  /*width: 350px;*/
   margin: 10px;
   height: 250px;
   overflow: scroll;
 }
-
 .chat-message {
   border: 1px solid;
   border-radius: 5px;
@@ -51,12 +43,5 @@
   padding: 10px;
   background-color: white;
 }
-
-.chat-message-sender {
-  font-weight: bold;
-}
-
-.chat-submit > button {
-  /*float: right;*/
-  display: inline;
-}
+.chat-message-sender {font-weight: bold;}
+.chat-submit > button {display: inline;}

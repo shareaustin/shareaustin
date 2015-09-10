@@ -1,42 +1,3 @@
-/** {border: 1px solid red !important;}*/
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300; }
-
-.li-rows {
-  height: 35px; }
-
-.edit {
-  position: relative;
-  float: left;
-  font-size: 1.65em;
-  left: 10px;
-  /*top: 10px;*/ }
-
-.remove {
-  position: relative;
-  float: right;
-  font-size: 1.65em;
-  /*top: 10px;*/
-  right: 10px;
-  vertical-align: middle;
-  /*color: #50597b;*/ }
-
-.remove:hover, .edit:hover {
-  text-decoration: none;
-  color: darkgreen;
-  cursor: pointer; }
-
-/*----- Override ------*/
-.btn:focus {
-  outline: none; }
-
-.btn-lg {
-  padding: 8px 6px; }
-
-.btn-home-wrapper {
-  margin-top: 0; }
-
 .overflow {
   overflow: hidden; }
 
@@ -100,6 +61,9 @@ body {
 .bold-700 {
   font-weight: 700; }
 
+.p-r-md {
+  padding-right: 20px !important; }
+
 .no-gutter > [class*='col-'] {
   padding-right: 0;
   padding-left: 0; }
@@ -159,6 +123,19 @@ body {
   line-height: 1.3333333;
   border-radius: 6px; }
 
+.btn:focus {
+  outline: none; }
+
+.btn-lg {
+  padding: 8px 6px; }
+
+.btn-home-wrapper {
+  margin-top: 0; }
+
+/*---- Favorite Buttons -----*/
+.favorited, .favorited:focus, .favorited:hover {
+  background-color: #DCF4ED; }
+
 .item-seller {
   padding: 5px 0;
   background-color: #EDF2F0;
@@ -173,12 +150,10 @@ body {
   border: 1px solid #eee; }
 
 .dash-zebra > li:nth-child(odd) {
-  background: rgba(174, 240, 204, 0.36) url("../img/pattern4-3.png");
-  /*background-color: #EBF6F0;*/ }
+  background: rgba(174, 240, 204, 0.36) url("../img/pattern4-3.png"); }
 
 .dash-zebra-yellow > li:nth-child(odd) {
-  background: rgba(255, 250, 146, 0.44) url("../img/pattern4-3.png");
-  /*background-color: #FFFEE7;*/ }
+  background: rgba(255, 250, 146, 0.44) url("../img/pattern4-3.png"); }
 
 .item-title {
   cursor: pointer;
@@ -191,10 +166,7 @@ body {
   padding: 10px 0; }
 
 .item {
-  margin-bottom: 10px;
-  /*border: 1px solid gainsboro;
-  padding-top: 10px;
-  padding-bottom: 10px;*/ }
+  margin-bottom: 10px; }
 
 .item-bot-container {
   border: 1px solid gainsboro;
@@ -206,13 +178,9 @@ body {
 
 /*.item > img {border: 1px solid lightgray;}*/
 .item-description {
-  /*  min-height: 60px;
-  max-height: 80px;*/
-  /*height: 60px;*/
   overflow: hidden;
   padding: 10px 3% 0 3%; }
 
-/* is this used?*/
 .single-desc {
   border: 1px solid #eee;
   border-top: none;
@@ -225,7 +193,6 @@ body {
 
 .review-title {
   font-size: 2em;
-  /*margin-top: -10px;*/
   margin: 0; }
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
@@ -238,8 +205,7 @@ body {
 
 .mapMarkerImg {
   object-fit: cover;
-  width: 250px;
-  /*height: 200px;*/ }
+  width: 250px; }
 
 .maps-title {
   font-size: 1.2em;
@@ -282,14 +248,12 @@ body {
 .clear-search-icon {
   position: relative;
   right: 25px;
-  opacity: 0.5;
-  /*top: 300px;*/ }
+  opacity: 0.5; }
 
 .clear-search-icon.invisible {
   position: relative;
   right: 25px;
-  opacity: 0;
-  /*top: 300px;*/ }
+  opacity: 0; }
 
 .items-search {
   border: 1px solid #E4E4E4;
@@ -306,19 +270,6 @@ body {
   object-fit: cover;
   width: 100%;
   height: 219px; }
-
-.drop-box {
-  border: 1px solid #6D7781;
-  margin: 10px 0;
-  padding: 50px 50px 10px;
-  border-radius: 5px;
-  height: 300px;
-  cursor: pointer; }
-
-.glyphicon-upload {
-  padding-top: 20px;
-  font-size: 100px;
-  opacity: 0.5; }
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
   width: 100%;
@@ -357,14 +308,6 @@ body {
   padding: 10px 0 0 10px;
   font-weight: 300; }
 
-a {
-  text-decoration: none;
-  color: #1ab188;
-  transition: .5s ease; }
-
-a:hover {
-  color: #179b77; }
-
 .auth-form {
   background: rgba(19, 35, 47, 0.9);
   padding: 40px;
@@ -377,28 +320,26 @@ a:hover {
   list-style: none;
   padding: 0;
   margin: 0 0 40px 0; }
+  .tab-group li a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    background: rgba(160, 179, 176, 0.25);
+    color: #a0b3b0;
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease; }
+    .tab-group li a:hover {
+      background: #179b77;
+      color: #ffffff; }
 
 .tab-group:after {
   content: "";
   display: table;
   clear: both; }
-
-.tab-group li a {
-  display: block;
-  text-decoration: none;
-  padding: 15px;
-  background: rgba(160, 179, 176, 0.25);
-  color: #a0b3b0;
-  font-size: 20px;
-  float: left;
-  width: 50%;
-  text-align: center;
-  cursor: pointer;
-  transition: .5s ease; }
-
-.tab-group li a:hover {
-  background: #179b77;
-  color: #ffffff; }
 
 .tab-group .active a {
   background: #1ab188;
@@ -412,9 +353,7 @@ a:hover {
   font-size: 2em; }
 
 .auth-form label {
-  /*position: absolute;*/
   transform: translateY(6px);
-  /*left: 13px;*/
   color: rgba(255, 255, 255, 0.5);
   transition: all 0.25s ease;
   -webkit-backface-visibility: hidden;
@@ -520,22 +459,19 @@ a:hover {
   margin-bottom: 10px; }
 
 .home-search-bar, input:focus {
-  outline: none;
-  /*border-color: #1ab188;*/ }
+  outline: none; }
 
 .grid-bg {
   background: url(../img/grid.png);
   height: 100%;
   /*opacity: .5;*/ }
 
-.trees-bg {
+.trees-bg, .auth-bg {
   background: url("../img/trees.jpeg") center center no-repeat;
   background-size: cover; }
 
 .auth-bg {
-  background: url("../img/trees.jpeg") center center no-repeat;
-  height: 100vh;
-  background-size: cover; }
+  height: 100vh; }
 
 .mtn-bg {
   background-size: cover;
@@ -556,9 +492,8 @@ a:hover {
 .cal-arrows {
   font-size: 1.5em;
   cursor: pointer; }
-
-.cal-arrows:hover {
-  color: #1ab188; }
+  .cal-arrows:hover {
+    color: #1ab188; }
 
 .cal-weeks {
   font-size: 1.35em;
@@ -578,14 +513,8 @@ a:hover {
   color: #aaa;
   background-color: #ccc; }
 
-.day:hover, .calendar {
-  /*cursor: pointer;
-  background: #1ab188;
-  color: white;*/ }
-
 .text-area-padding, .chat-textarea {
   color: #aaa;
-  /*border: 1px solid;*/
   border-radius: 5px;
   width: 95%;
   margin: -10px 10px 10px 10px;
@@ -600,9 +529,8 @@ a:hover {
   cursor: pointer;
   padding: 10px;
   margin: 0px -40px -25px; }
-
-.chat-list-item a {
-  color: white; }
+  .chat-list-item a {
+    color: white; }
 
 .text-area-padding {
   padding: 10px 0 10px 10px;
@@ -618,7 +546,6 @@ a:hover {
   border: 1px solid;
   border-radius: 5px;
   background-color: #96CDBC;
-  /*width: 350px;*/
   margin: 10px;
   height: 250px;
   overflow: scroll; }
@@ -634,7 +561,6 @@ a:hover {
   font-weight: bold; }
 
 .chat-submit > button {
-  /*float: right;*/
   display: inline; }
 
 .photoloader {
@@ -674,10 +600,8 @@ a:hover {
   padding-top: 10px; }
 
 .transparent-form-body, .green-bg {
-  /*background: #EDF2ED;*/
   color: #578D7D;
-  width: 100%;
-  /*height: 100vh;*/ }
+  width: 100%; }
 
 .tf-overide input {
   width: inherit;
@@ -686,58 +610,19 @@ a:hover {
 .tf-payment label {
   padding: 10px 2% 10px 0; }
 
-.star-transparent {
+.star-transparent, .usd-transparent {
   opacity: 0.5; }
+  .star-transparent:hover, .usd-transparent:hover {
+    color: #0A3227; }
 
-.usd-transparent {
-  opacity: 0.5; }
-
-.usd-transparent:hover {
-  color: #0A3227; }
-
-i.fa.fa-usd.turnOn {
+.turnOn {
   transform: scale(1.3);
   transition: .25s all ease-in-out;
   color: #0A3227;
   opacity: 0.8; }
 
-i.fa.fa-star.turnOn {
-  /*-webkit-animation: pulsate 0.5s;*/
-  /*-webkit-animation-iteration-count: 1;*/
-  /*-webkit-animation-fill-mode: forwards;*/
-  transform: scale(1.3);
-  transition: .25s all ease-in-out;
-  color: #0A3227;
-  opacity: 0.8; }
-
-i.fa.fa-star.turnOff {
-  transition: .25s all ease-in-out;
-  /*-webkit-animation: pulsateBack 0.5s;*/
-  /*-webkit-animation-iteration-count: 1;*/
-  /*-webkit-animation-fill-mode: forwards;*/
-  /*color: black;*/ }
-
-i.fa.fa-usd.turnOff {
-  transition: 0.25s all ease-in-out; }
-
-@-webkit-keyframes pulsate {
-  0% {
-    -webkit-transform: scale(1, 1);
-    opacity: 0.5; }
-  100% {
-    -webkit-transform: scale(1.3, 1.3);
-    opacity: 1.0; } }
-
-@-webkit-keyframes pulsateBack {
-  0% {
-    -webkit-transform: scale(1.3, 1.3);
-    opacity: 1.0; }
-  100% {
-    -webkit-transform: scale(1, 1);
-    opacity: 0.5; } }
-
-.star-transparent:hover {
-  color: #0A3227; }
+.turnOff {
+  transition: .25s all ease-in-out; }
 
 input {
   color: #333; }
@@ -769,24 +654,18 @@ textarea {
 
 .li-rows-transaction-msg {
   text-align: right;
-  vertical-align: middle;
-  color: #1ab188;
-  background-color: #FFFFFF;
   border-radius: 3px;
   padding: 2px 5px;
   cursor: pointer;
-  margin-right: 10px; }
-
-.li-rows-transaction-msg {
+  margin-right: 10px;
   vertical-align: middle;
   color: #EEEEEE;
   background-color: #1ab188;
   transition: .25s all ease-in-out; }
-
-.li-rows-transaction-msg:hover {
-  vertical-align: middle;
-  color: #EEEEEE;
-  background-color: #18906f; }
+  .li-rows-transaction-msg:hover {
+    vertical-align: middle;
+    color: #EEEEEE;
+    background-color: #18906f; }
 
 .li-rows-transaction-msg.static {
   color: #EEEEEE;
@@ -794,7 +673,6 @@ textarea {
 
 .current-list, .favorite-list, .trans-list {
   max-height: 250px;
-  /*width: 555px;*/
   overflow-y: auto; }
 
 .nav-tabs.nav-justified li:nth-child(3) {
@@ -857,6 +735,30 @@ textarea {
   overflow: hidden;
   text-overflow: ellipsis; }
 
+.li-rows {
+  height: 35px; }
+
+.edit {
+  position: relative;
+  float: left;
+  font-size: 1.65em;
+  left: 10px;
+  /*top: 10px;*/ }
+
+.remove {
+  position: relative;
+  float: right;
+  font-size: 1.65em;
+  /*top: 10px;*/
+  right: 10px;
+  vertical-align: middle;
+  /*color: #50597b;*/ }
+
+.remove:hover, .edit:hover {
+  text-decoration: none;
+  color: darkgreen;
+  cursor: pointer; }
+
 .dev-logos {
   border: 1px solid gainsboro; }
 
@@ -890,14 +792,23 @@ textarea {
 .main-logo {
   display: none; }
 
-/*----- Helpers ------*/
-/*----- bootstrap ------*/
-/*----- Item Description ------*/
-/*----- Main Nav ------*/
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300; }
+
+/*----- Fixes Spacing Issues With Angular Menu Directive ------*/
 menu {
   padding: 0;
   margin: 0; }
 
+a {
+  text-decoration: none;
+  color: #1ab188;
+  transition: .5s ease; }
+  a:hover {
+    color: #179b77; }
+
+/*----- Main Nav ------*/
 .main-nav-wrapper {
   background: white;
   border-bottom: 1px solid gainsboro;
@@ -906,21 +817,6 @@ menu {
   width: 100%;
   z-index: 100; }
 
-/*----- Google Maps Style ------*/
-/*----- All Items ------*/
-/*----- Sign In Sign Up Form -----*/
-/*---- Home Search -----*/
-/*---- Background Images -----*/
-/*---- Favorite Buttons -----*/
-.favorited, .favorited:focus, .favorited:hover {
-  background-color: #DCF4ED; }
-
-/*----- Calendar Styling -----*/
-/*---- Chat/Message Style -----*/
-/*----- Photo Loading Bar -----*/
-/*----- Current Listings -----*/
-/*----- Dashboard -----*/
-/*----- Mobile -----*/
 /*---- About ----*/
 .profile-pic {
   border-radius: 50%; }
@@ -1035,9 +931,7 @@ menu {
     font-size: 1.25em;
     transition: all 0.2s ease-in-out; }
   .main-nav li:hover {
-    /*background: #1ab188;*/
-    background: #EDF2F0; }
-  /*.main-nav a:hover {color:white;}*/ }
+    background: #EDF2F0; } }
 
 @media screen and (min-width: 775px) and (max-width: 990px) {
   .slider-container {

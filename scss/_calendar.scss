@@ -5,31 +5,24 @@
 .cal-arrows {
   font-size: 1.5em;
   cursor: pointer;
+  &:hover {
+    color: #1ab188;
+  }
 }
-.cal-arrows:hover {color: #1ab188;}
-
 .cal-weeks {
   font-size: 1.35em;
   /*cursor: pointer;*/
   background: #1ab188;
   color: white;
 }
-.cal-days {
-  font-size: 1.2em;
-}
+.cal-days {font-size: 1.2em;}
+
 /*----- Calendar Event Styling -----*/
 .day.selected {
   color: white;
   background-color: rgba(19, 35, 47, 0.9);
 }
-
 .reserved {
   color: #aaa;
   background-color: #ccc;
-}
-
-.day:hover, .calendar {
-  /*cursor: pointer;
-  background: #1ab188;
-  color: white;*/
 }
