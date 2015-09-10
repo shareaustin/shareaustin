@@ -1,0 +1,14 @@
+.mapMarkerImg {
+  object-fit: cover;
+  width: 250px;
+}
+.maps-title {
+  font-size: 1.2em;
+  display: inline-block;
+  padding: 10px 10px 0 0;
+}
+.maps-price {font-size: 1.05em;}
+.google-map {
+  position: fixed;
+  height: 95vh;
+}

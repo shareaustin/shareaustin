@@ -1,0 +1,98 @@
+@media screen and (max-width: 767px) {
+  .cal-form-view {margin-left: -6%; padding-left: 0; padding-right: 0;}
+   .mobile-chat-btns {margin-bottom: 5%;}
+   .mobile-chat-btns > .btn-lg {padding: 8px 20px;}
+   .filter-bar-tm {margin-top: 3px;}
+  .main-nav {
+    padding: 10px;
+    text-align: center;
+    height: 40px;
+  }
+  .main-nav li {
+    display: none;
+    padding: 10px 0 10px 20px;
+    font-size: 2em;
+  }
+  .mobile-filter-stars {
+    position: absolute;
+    top: 42%;
+    left: 0px;
+  }
+  .mobile-filter-dollars {
+    position: absolute;
+    top: 42%;
+    left: 0px;
+  }
+}
+/* when bigger than phone */
+@media screen and (min-width: 768px) {
+  .excess-padding > div:nth-child(odd) {padding-right: 0px;}
+  .mtn-bg {background: url('../img/mountains-fade.jpg') bottom center no-repeat;}
+  .item-description {height: 68px;}
+  .single-desc {padding-bottom: 70px;}
+  /*.filter-bar {padding: 2px 0;}*/
+  .slider-container {padding-left: 0;}
+  .review-title {border: 1px solid #eee;}
+  .form-left-margin {margin-left: 30px;}
+  .transparent-form-body {height: 100vh;}
+  .transparent-form label {font-size: 1.35em;}
+  .transparent-form input {font-size: 1.35em; width: 80%;}
+  .tf-payment input {width: initial;}
+  .trans-form-lpad {padding-left: 0px;}
+  .trans-tm {margin-top: 0px;}
+  .btn-lg {padding: 10px 16px;}
+  .home-search-wrapper {width: 500px;}
+  .home-title {font-size: 4em;}
+  .home-sub-title {font-size: 1.5em;}
+  .home-search-bar {width: 85%;}
+  .btn-home-margin {margin-right: 30px;}
+  .hamburger {display: none;}
+  .trans-button {margin: 10px 0 0 0;}
+  .filter-bar-tm {margin-top: 46px;}
+  .dashboard-margin {margin: 46px;}
+  .rent-cal-avail {margin-left: 9%;}
+  .main-logo {
+    font-size: 1.5em;
+    display: inline-block;
+    position: absolute;
+    left: 4%;
+    top: 15px;
+    letter-spacing: .15em;
+  }
+  .rent-form > input {
+    font-size: 1em;
+  }
+  .rent-fieldset {
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .btn-xxl {
+    padding: 12px 26px;
+    font-size: 1.7em;
+    border-radius: 5px;
+  }
+  .main-nav {
+    height: 50px;
+    display: block;
+    margin-bottom: 0;
+    float: right;
+    margin-right: 3%;
+  }
+  .main-nav li {
+    display: inline-block;
+    list-style: none;
+    padding: 13px;
+    font-size: 1.25em;
+    transition: all .2s ease-in-out;
+  }
+  .main-nav li:hover {background: #EDF2F0;}
+}
+@media screen and (min-width: 775px) and (max-width: 990px) {
+  .slider-container {padding-right: 0;}
+  .review-wrapper {padding: 20px 0 0 0;}
+}
+@media screen and (min-width: 1000px) {
+  .main-logo {left: 7%;}
+  .main-nav {margin-right: 5%;}
+}

@@ -1,0 +1,54 @@
+.photoloader {
+  opacity: 0;
+  margin: 0 auto;
+  transition: all .25s;
+   -moz-transition: all .25s ease-in-out;
+   -webkit-transition: all .25s ease-in-out;
+}
+.photoloader.show {opacity: 1;}
+.trans-tm {margin-top: 50px;}
+.trans-form-lpad {padding-left: 10%;}
+.transparent-form {
+  input {
+    max-width: 350px;
+    padding: 20px 0px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #435160;
+    outline: none;
+    color: #6D7781;
+    font-size: 1.15em;
+  }
+  textarea {
+    margin-top: 20px;
+    font-size: 1.15em;
+    color: #6D7781;
+  }
+  label {
+    font-weight: 300;
+    font-size: 1.15em;
+    padding-top: 10px;
+  }
+}
+.transparent-form-body, .green-bg {
+  color: #578D7D;
+  width: 100%;
+}
+.tf-overide input {
+  width: inherit;
+  padding: 10px 0;
+}
+.tf-payment label {padding: 10px 2% 10px 0;}
+.star-transparent, .usd-transparent {
+  opacity: 0.5;
+  &:hover {color: #0A3227;}
+}
+.turnOn {
+  transform: scale(1.3);
+  transition: .25s all ease-in-out;
+  color: #0A3227;
+  opacity: 0.8;
+}
+.turnOff {transition: .25s all ease-in-out;}
+input {color: #333;}
+textarea {color: #333}

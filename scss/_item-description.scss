@@ -1,0 +1,59 @@
+.item-seller {
+  padding: 5px 0;
+  background-color: #EDF2F0;
+  border-right: 1px solid gainsboro;
+  border-left: 1px solid gainsboro;
+}
+.img-crop {object-fit: cover;}
+.item-desc-list > li {
+  padding: 10px 0;
+  border: 1px solid #eee;
+}
+.dash-zebra > li:nth-child(odd) {
+  background: rgba(174, 240, 204, 0.36) url('../img/pattern4-3.png');
+}
+.dash-zebra-yellow > li:nth-child(odd) {
+  background: rgba(255, 250, 146, 0.44) url('../img/pattern4-3.png');
+}
+.item-title {
+  cursor: pointer;
+  overflow: hidden;
+  /* height: 21px; */
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid gainsboro;
+  border-bottom: 0px;
+  margin: 10px 0 0 0;
+  padding: 10px 0;
+}
+.item {margin-bottom: 10px;}
+.item-bot-container {
+  border: 1px solid gainsboro;
+  border-top: 0px solid;
+  padding-bottom: 10px;
+}
+.item-title-wrapper {padding: 15px 0;}
+/*.item > img {border: 1px solid lightgray;}*/
+.item-description {
+  overflow: hidden;
+  padding: 10px 3% 0 3%;
+}
+.single-desc {
+  border: 1px solid #eee;
+  border-top: none;
+  padding-bottom: 30px;
+}
+.single-item-description {
+  padding: 0 10%;
+  margin: 18px 0;
+  font-size: 15px;
+}
+.review-title {
+  font-size: 2em;
+  margin: 0;
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+.carousel-control {height: 450px;}

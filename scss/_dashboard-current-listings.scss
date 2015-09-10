@@ -1,0 +1,44 @@
+.li-rows-l-padding {
+  padding-left: 30px;
+  vertical-align: middle;
+}
+.li-rows-l-favorite {
+  padding-left: 30px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.li-rows-v-align {vertical-align: middle;}
+.li-rows-transaction-date {
+  text-align: right;
+  vertical-align: middle;
+  color: #1ab188;
+  background-color: rgba(255, 255, 255, 0.33);
+  border: 1px solid rgba(26, 177, 136, 0.32);
+  border-radius: 3px;
+  padding: 2px 5px;
+  margin-left: 10px;
+}
+.li-rows-transaction-msg {
+  text-align: right;
+  border-radius: 3px;
+  padding: 2px 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  vertical-align: middle;
+  color: #EEEEEE;
+  background-color: #1ab188;
+  transition: .25s all ease-in-out;
+  &:hover {
+    vertical-align: middle;
+    color: #EEEEEE;
+    background-color: #18906f;
+  }
+}
+.li-rows-transaction-msg.static {
+  color: #EEEEEE;
+  border: 1px #18906f;
+}
+.current-list, .favorite-list, .trans-list {
+  max-height: 250px;
+  overflow-y: auto;
+}
